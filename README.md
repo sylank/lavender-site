@@ -1,5 +1,6 @@
 # ng-levander
 Levander summer house one-page frontend application
+![alt text](art/kezdolap.png)
 
 ## About
 This repository contains the Levander Summer House frontend application. You can find at: www.<nop :D>.com
