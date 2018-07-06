@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
+import { RadarAppModule } from '../../node_modules/event-radar-ng/src/app/app.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RadarAppModule
   ],
   providers: [],
   bootstrap: [AppComponent]
