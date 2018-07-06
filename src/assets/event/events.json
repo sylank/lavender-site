@@ -1,0 +1,21 @@
+[
+    {
+      "eventName": "Balatonboglár - BB napok",
+      "eventDistance": 8,
+      "description": "elso esemeny",
+      "angle": 120
+    },
+    {
+      "eventName": "Fenékpuszta - Római kori romok",
+      "eventDistance": 20,
+      "description": "elso esemeny",
+      "angle": 350
+    },
+    {
+      "eventName": "Kis-Balaton - Tüskevár",
+      "eventDistance": 45,
+      "description": "elso esemeny",
+      "angle": 280
+    }
+  ]
+  
