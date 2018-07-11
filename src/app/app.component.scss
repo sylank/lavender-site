@@ -1,3 +1,44 @@
-.radar-section {
-    width: 80%;
+#menu {
+  width: 100%;
+  height: 64px;
+  background: red;
+}
+
+#opening {
+  background: burlywood;
+}
+
+#intro{
+  background: aquamarine;
+}
+
+#location {
+  background: chocolate;
+}
+
+#rooms {
+  background: chartreuse;
+}
+
+#radar {
+
+}
+
+#booking {
+  background: cornflowerblue;
+}
+
+#seasonal {
+  background: darkslategrey;
+}
+
+footer {
+  background: deeppink;
+  height: 300px;
+  width: 100%;
+}
+
+.section {
+  height: 100vh;
+  width: 100%;
 }
