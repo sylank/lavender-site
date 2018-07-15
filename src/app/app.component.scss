@@ -1,7 +1,56 @@
 #menu {
+  position: fixed;
   width: 100%;
   height: 64px;
   background: red;
+  z-index: 1000;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+#logo-image {
+  width: 46px;
+  height: 44px;
+  background: url("image/logo.png") 0 0;
+}
+#links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+}
+#links li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+#links li::before {
+  position: relative;
+  content: "#";
+  opacity: 0;
+  transition: all .5s;
+  left: -3px;
+}
+#links li:hover::before {
+  content: "#";
+  position: relative;
+  left: -3px;
+  opacity: 1;
+}
+#links li:nth-of-type(3) {
+  margin-right: 0;
+}
+
+.menu-scroll {
+  background: black;
+  height: 70px;
+  box-shadow: 0 0 100px rgba(0,0,0,1);
 }
 
 #opening {
