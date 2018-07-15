@@ -1,3 +1,9 @@
+
+/*
+*
+* MENU
+*
+*/
 #menu {
   position: fixed;
   width: 100%;
@@ -15,11 +21,45 @@
   margin: auto;
 }
 
-#logo-image {
-  width: 46px;
-  height: 44px;
-  background: url("image/logo.png") 0 0;
+.menu-scroll {
+  background: black;
+  height: 70px;
+  box-shadow: 0 0 100px rgba(0,0,0,1);
 }
+
+/*
+*
+* LOGO
+*
+*/
+#logo {
+  width: 250px;
+  height: 64px;
+
+  position: relative;
+}
+#logo-image {
+  width: 64px;
+  height: 64px;
+  background-image: url("image/logo.png");
+  background-size: cover;
+  background-position: center;
+
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+#logo-text {
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+/*
+*
+* LINKS
+*
+*/
 #links {
   display: flex;
   flex-direction: row;
@@ -47,12 +87,11 @@
   margin-right: 0;
 }
 
-.menu-scroll {
-  background: black;
-  height: 70px;
-  box-shadow: 0 0 100px rgba(0,0,0,1);
-}
-
+/*
+*
+* PAGES
+*
+*/
 #opening {
   background: burlywood;
 }
@@ -81,12 +120,22 @@
   background: darkslategrey;
 }
 
+/*
+*
+* FOOTER
+*
+*/
 footer {
   background: deeppink;
   height: 300px;
   width: 100%;
 }
 
+/*
+*
+* OTHER
+*
+*/
 .section {
   height: 100vh;
   width: 100%;
