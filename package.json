@@ -23,6 +23,7 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "event-radar-ng": "1.0.0",
+    "ng2-scroll-to-el": "^1.2.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
