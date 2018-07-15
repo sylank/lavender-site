@@ -7,13 +7,13 @@
     </div>
 
     <ul id="links">
-      <li [scrollTo]="'#opening'">Kezdőlap</li>
-      <li [scrollTo]="'#intro'">Bemutatkozás</li>
-      <li [scrollTo]="'#location'">Elhelyezkedés</li>
-      <li [scrollTo]="'#rooms'">Kialakítás</li>
-      <li [scrollTo]="'#radar'">Programok</li>
-      <li [scrollTo]="'#booking'">Foglalás</li>
-      <li [scrollTo]="'#seasonal'">Szezonális</li>
+      <li (click)="onClick($event)" class="link selected" [scrollTo]="'#opening'">Kezdőlap</li>
+      <li (click)="onClick($event)" class="link" [scrollTo]="'#intro'">Bemutatkozás</li>
+      <li (click)="onClick($event)" class="link" [scrollTo]="'#location'">Elhelyezkedés</li>
+      <li (click)="onClick($event)" class="link" [scrollTo]="'#rooms'">Kialakítás</li>
+      <li (click)="onClick($event)" class="link" [scrollTo]="'#radar'">Programok</li>
+      <li (click)="onClick($event)" class="link" [scrollTo]="'#booking'">Foglalás</li>
+      <li (click)="onClick($event)" class="link" [scrollTo]="'#seasonal'">Szezonális</li>
     </ul>
 
   </div>

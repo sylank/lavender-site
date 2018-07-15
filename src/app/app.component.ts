@@ -15,9 +15,10 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('seasonal') seasonalRef: ElementRef;
 
 
-  isScrolled = false;
+  public isScrolled = false;
   private winHeight;
   private winWidth;
+
 
   ngAfterViewInit() {
     this.winHeight = window.innerHeight;
@@ -51,5 +52,18 @@ export class AppComponent implements AfterViewInit {
   onResize(event) {
     this.winHeight = event.target.innerHeight;
     this.winWidth = event.target.innerWidth;
+  }
+
+  onClick(e) {
+    const elements = document.querySelectorAll('.link');
+
+    console.log(elements);
+    document.querySelectorAll('.link');
+
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].classList.remove('selected');
+    }
+
+    e.target.classList.add('selected');
   }
 }
