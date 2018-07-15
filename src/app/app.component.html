@@ -7,13 +7,13 @@
     </div>
 
     <ul id="links">
-      <li (click)="onClick($event)" class="link selected" [scrollTo]="'#opening'">Kezdőlap</li>
-      <li (click)="onClick($event)" class="link" [scrollTo]="'#intro'">Bemutatkozás</li>
-      <li (click)="onClick($event)" class="link" [scrollTo]="'#location'">Elhelyezkedés</li>
-      <li (click)="onClick($event)" class="link" [scrollTo]="'#rooms'">Kialakítás</li>
-      <li (click)="onClick($event)" class="link" [scrollTo]="'#radar'">Programok</li>
-      <li (click)="onClick($event)" class="link" [scrollTo]="'#booking'">Foglalás</li>
-      <li (click)="onClick($event)" class="link" [scrollTo]="'#seasonal'">Szezonális</li>
+      <li #openingLink (click)="onClick($event)" class="link selected" [scrollTo]="'#opening'">Kezdőlap</li>
+      <li #introLink (click)="onClick($event)" class="link" [scrollTo]="'#intro'">Bemutatkozás</li>
+      <li #locationLink (click)="onClick($event)" class="link" [scrollTo]="'#location'">Elhelyezkedés</li>
+      <li #roomsLink (click)="onClick($event)" class="link" [scrollTo]="'#rooms'">Kialakítás</li>
+      <li #radarLink (click)="onClick($event)" class="link" [scrollTo]="'#radar'">Programok</li>
+      <li #bookingLink (click)="onClick($event)" class="link" [scrollTo]="'#booking'">Foglalás</li>
+      <li #seasonalLink (click)="onClick($event)" class="link" [scrollTo]="'#seasonal'">Szezonális</li>
     </ul>
 
   </div>
