@@ -1,6 +1,4 @@
-<script src="script/scroll.js"></script>
-
-<div id="menu">
+<div class="menu" [ngClass]="{'menu-scroll': isScrolled}">
   <div class="menu-container">
 
     <div id="logo">
@@ -9,8 +7,8 @@
     </div>
 
     <ul id="links">
-      <li>Kezdőlap</li>
-      <li>Bemutatkozás</li>
+      <li href="#opening">Kezdőlap</li>
+      <li href="#intro">Bemutatkozás</li>
       <li>Elhelyezkedés</li>
       <li>Kialakítás</li>
       <li>Programok</li>
