@@ -73,35 +73,125 @@ export class AppComponent implements AfterViewInit {
     if (wS > (openingTop + openingHeight - wH) &&
       wS < (introTop + introHeight - wH)) {
       console.log('opening');
+
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.openingLinkRef.nativeElement.classList.add('selected');
     }
 
     if (wS > (introTop + introHeight - wH) &&
       wS < (locationTop + locationHeight - wH)) {
       console.log('intro');
+
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.introLinkRef.nativeElement.classList.add('selected');
     }
 
     if (wS > (locationTop + locationHeight - wH) &&
       wS < (roomsTop + roomsHeight - wH)) {
       console.log('location');
+
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.locationLinkRef.nativeElement.classList.add('selected');
     }
 
     if (wS > (roomsTop + roomsHeight - wH) &&
       wS < (radarTop + radarHeight - wH)) {
       console.log('rooms');
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.roomsLinkRef.nativeElement.classList.add('selected');
     }
 
     if (wS > (radarTop + radarHeight - wH) &&
       wS < (bookingTop + bookingHeight - wH)) {
       console.log('radar');
+
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.radarLinkRef.nativeElement.classList.add('selected');
     }
 
     if (wS > (bookingTop + bookingHeight - wH) &&
       wS < (seasonalTop + seasonalHeight - wH)) {
       console.log('booking');
+
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.bookingLinkRef.nativeElement.classList.add('selected');
     }
 
     if (wS > (seasonalTop + seasonalHeight - wH)) {
       console.log('seasonal');
+
+
+
+      const elements = document.querySelectorAll('.link');
+
+      console.log(elements);
+      document.querySelectorAll('.link');
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('selected');
+      }
+
+      this.seasonalLinkRef.nativeElement.classList.add('selected');
     }
 
     /*if (wS > (hT + hH - wH)) {
