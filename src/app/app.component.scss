@@ -1,4 +1,8 @@
 @import "style/main-colors";
+* {
+  box-sizing: border-box;
+}
+
 /*
 *
 * MENU
@@ -142,4 +146,70 @@ footer {
 .section {
   height: 100vh;
   width: 100vw;
+}
+
+.column {
+  margin-top: 64px;
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 100vh;
+}
+.welcome{
+  height: 80vh;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#welcome-logo {
+  background-image: url("image/house.png");
+  background-size: cover;
+  background-position: center;
+  width: 960px;
+  height: 571px;
+
+  position: absolute;
+  top: 50%;
+  margin-top: -285px;
+  margin-left: 100px;
+}
+
+#welcome-text {
+  position: absolute;
+  top: 40%;
+  font-size: 50px;
+  margin-left: -50px;
+
+  button {
+    margin-left: 30%;
+    width: 182px;
+    height: 58px;
+    color: $white;
+    background: $sky;
+    border: 0;
+    border-radius: 5px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  button:hover{
+    background: $lavender;
+  }
+}
+
+#scroll-down {
+  height: 20vh;
+  margin-top: 5vh;
+  margin-left: 50%;
+}
+#scroll-logo {
+  background-image: url("image/mouse.png");
+  background-size: cover;
+  background-position: center;
+  width: 64px;
+  height: 64px;
+  background: red;
 }
