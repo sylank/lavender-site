@@ -112,7 +112,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   private isViewportInsideSection(currentPosition: number, location1: SectionLocation, location2: SectionLocation) {
-
     return currentPosition > this.calculateSectionPosition(location1) &&
       currentPosition < this.calculateSectionPosition(location2);
   }
