@@ -1,0 +1,117 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: joecridge1/node8-awscli-jq
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-
+          - v1-dependencies-
+
+      - run:
+          name: Run install
+          command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  artifactory_copy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Copy build files into artifactory.
+          commands:
+            - sh ./artifactory_copy.sh ${CIRCLE_TAG}
+
+  version_check:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Version check.
+          commands:
+            - sh ./version_check.sh
+
+  dev_deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Deploy dev.
+          commands:
+            - sh ./deploy.sh dev ${CIRCLE_TAG}
+
+  prod_deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Deploy dev.
+          commands:
+            - sh ./deploy.sh prod ${CIRCLE_TAG}
+
+workflows:
+  version: 2
+  dev_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - dev
+      - artifactory_copy:
+          filters:
+            branches:
+              only:
+                - dev
+          requires:
+            - build
+      - dev_deploy:
+          filters:
+            branches:
+              only:
+                - dev
+          requires:
+            - build
+
+  prod_deploy:
+    jobs:
+      - version_check:
+          filters:
+            tags:
+              only: /.*/
+      - artifactory_copy:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - version_check
+      - dev_deploy:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - version_check
