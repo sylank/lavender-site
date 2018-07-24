@@ -24,6 +24,10 @@ jobs:
           name: Run install
           command: npm install
 
+      - run:
+          name: Run build
+          command: ng build --prod
+
       - save_cache:
           paths:
             - node_modules
