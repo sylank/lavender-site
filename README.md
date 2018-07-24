@@ -1,4 +1,4 @@
-# ng-lavender
+# Lavender website
 Lavender summer house one-page frontend application
 ![alt text](art/kezdolap.png)
 
