@@ -6,4 +6,4 @@ VERSION=$1 #$(cat package.json | jq '.version' | sed  s/"\""/""/g)
 aws s3 rm s3://dev.levendulabalatonmaria.info/static/$VERSION --recursive
 
 #Copy the new content
-aws s3 cp dist s3://dev.levendulabalatonmaria.info/static/$VERSION --recursive
+aws s3 cp ../dist s3://dev.levendulabalatonmaria.info/static/$VERSION --recursive
