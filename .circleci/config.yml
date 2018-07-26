@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Copy build files into artifactory.
           commands:
-            - sh ./artifactory_copy.sh ${CIRCLE_TAG}
+            - sh ./artifactory_copy.sh $(cat ../package.json | jq '.version' | sed  s/"\""/""/g)
 
   version_check:
     <<: *defaults
@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Version check.
           commands:
-            - sh ./version_check.sh
+            - sh ./version_check.sh ${CIRCLE_TAG}
 
   dev_deploy:
     <<: *defaults
