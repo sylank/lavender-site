@@ -48,7 +48,7 @@ jobs:
           at: ~/repo
       - run:
           name: Copy build files into artifactory.
-          command: sh ./artifactory_copy.sh $(cat ../package.json | jq '.version' | sed  s/"\""/""/g)
+          command: sh ./artifactory_copy.sh $(cat package.json | jq '.version' | sed  s/"\""/""/g)
 
   version_check:
     <<: *defaults
