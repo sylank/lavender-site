@@ -25,8 +25,12 @@ jobs:
           command: npm install
 
       - run:
+          name: Run install angular-cli
+          command: npm install -g @angular/cli@1.7.4
+
+      - run:
           name: Run build
-          command: ng build --prod
+          command: ng build --prod --verbose
 
       - save_cache:
           paths:
@@ -65,7 +69,7 @@ jobs:
       - run:
           name: Deploy dev.
           commands:
-            - sh ./deploy.sh dev ${CIRCLE_TAG}
+            - sh ./deploy.sh dev $(cat ../package.json | jq '.version' | sed  s/"\""/""/g)
 
   prod_deploy:
     <<: *defaults
@@ -107,15 +111,13 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - artifactory_copy:
+            branches:
+              ignore: /.*/
+      - prod_deploy:
           filters:
             tags:
               only: /.*/
-          requires:
-            - version_check
-      - dev_deploy:
-          filters:
-            tags:
-              only: /.*/
+            branches:
+              ignore: /.*/
           requires:
             - version_check
