@@ -99,7 +99,7 @@ workflows:
               only:
                 - dev
           requires:
-            - build
+            - artifactory_copy
 
   prod_deploy:
     jobs:
