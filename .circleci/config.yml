@@ -54,8 +54,8 @@ jobs:
   version_check:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
+      - checkout
+      
       - run:
           name: Version check.
           command: sh .circleci/version_check.sh ${CIRCLE_TAG}
