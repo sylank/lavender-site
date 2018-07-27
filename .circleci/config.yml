@@ -76,7 +76,7 @@ jobs:
           at: ~/repo
       - run:
           name: Deploy dev.
-          command: sh ./deploy.sh prod ${CIRCLE_TAG}
+          command: sh .circleci/deploy.sh prod ${CIRCLE_TAG}
 
 workflows:
   version: 2
