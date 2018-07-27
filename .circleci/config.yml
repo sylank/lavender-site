@@ -55,10 +55,10 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      
+
       - run:
           name: Version check.
-          command: sh .circleci/version_check.sh ${CIRCLE_TAG}
+          command: bash .circleci/version_check.sh ${CIRCLE_TAG}
 
   dev_deploy:
     <<: *defaults
