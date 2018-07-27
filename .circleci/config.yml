@@ -74,7 +74,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploy dev.
+          name: Deploy prod.
           command: sh .circleci/deploy.sh prod ${CIRCLE_TAG}
 
 workflows:
