@@ -72,8 +72,7 @@ jobs:
   prod_deploy:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
+      - checkout
       - run:
           name: Deploy dev.
           command: sh .circleci/deploy.sh prod ${CIRCLE_TAG}
