@@ -58,8 +58,7 @@ jobs:
           at: ~/repo
       - run:
           name: Version check.
-          commands:
-            - sh ./version_check.sh ${CIRCLE_TAG}
+          command: sh .circleci/version_check.sh ${CIRCLE_TAG}
 
   dev_deploy:
     <<: *defaults
