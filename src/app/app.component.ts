@@ -75,38 +75,32 @@ export class AppComponent implements AfterViewInit {
     const bookingLocation = this.calculateSectionLocation(this.bookingRef);
     const seasonalLocation = this.calculateSectionLocation(this.seasonalRef);
 
-    if (currentPosition > this.calculateSectionPosition(openingLocation) &&
-      currentPosition < this.calculateSectionPosition(introLocation)) {
+    if (this.isViewportInsideSection(currentPosition, openingLocation, introLocation)) {
       this.clearMenuSelection();
       this.selectMenuElement(this.openingLinkRef);
     }
 
-    if (currentPosition > this.calculateSectionPosition(introLocation) &&
-      currentPosition < this.calculateSectionPosition(locationLocation)) {
+    if (this.isViewportInsideSection(currentPosition, introLocation, locationLocation)) {
       this.clearMenuSelection();
       this.selectMenuElement(this.introLinkRef);
     }
 
-    if (currentPosition > this.calculateSectionPosition(locationLocation) &&
-      currentPosition < this.calculateSectionPosition(roomsLocation)) {
+    if (this.isViewportInsideSection(currentPosition, locationLocation, roomsLocation)) {
       this.clearMenuSelection();
       this.selectMenuElement(this.locationLinkRef);
     }
 
-    if (currentPosition > this.calculateSectionPosition(roomsLocation) &&
-      currentPosition < this.calculateSectionPosition(radarLocation)) {
+    if (this.isViewportInsideSection(currentPosition, roomsLocation, radarLocation)) {
       this.clearMenuSelection();
       this.selectMenuElement(this.roomsLinkRef);
     }
 
-    if (currentPosition > this.calculateSectionPosition(radarLocation) &&
-      currentPosition < this.calculateSectionPosition(bookingLocation)) {
+    if (this.isViewportInsideSection(currentPosition, radarLocation, bookingLocation)) {
       this.clearMenuSelection();
       this.selectMenuElement(this.radarLinkRef);
     }
 
-    if (currentPosition > this.calculateSectionPosition(bookingLocation) &&
-      currentPosition < this.calculateSectionPosition(seasonalLocation)) {
+    if (this.isViewportInsideSection(currentPosition, bookingLocation, seasonalLocation)) {
       this.clearMenuSelection();
       this.selectMenuElement(this.bookingLinkRef);
     }
@@ -117,7 +111,12 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  private calculateSectionPosition(sectionLocation: SectionLocation) {
+  private isViewportInsideSection(currentPosition: number, location1: SectionLocation, location2: SectionLocation) {
+    return currentPosition > this.calculateSectionPosition(location1) &&
+      currentPosition < this.calculateSectionPosition(location2);
+  }
+
+  private calculateSectionPosition(sectionLocation: SectionLocation): number {
     return sectionLocation.getTop() + sectionLocation.getHeight() - this.winHeight;
   }
 
