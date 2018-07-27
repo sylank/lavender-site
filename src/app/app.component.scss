@@ -203,13 +203,37 @@ footer {
 #scroll-down {
   height: 20vh;
   margin-top: 5vh;
-  margin-left: 50%;
+  align-items: center;
 }
 #scroll-logo {
+  position: absolute;
+
   background-image: url("image/mouse.png");
   background-size: cover;
   background-position: center;
-  width: 64px;
-  height: 64px;
-  background: red;
+  width: 32px;
+  height: 32px;
+
+  margin-top: 10px;
+  margin-left: 46%;
+
+  animation:
+  pulse 3s ease infinite alternate;
+}
+#scroll-text{
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  80% {
+    transform: translate(0, -10px);
+  }
 }
