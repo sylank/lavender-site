@@ -127,7 +127,7 @@
 }
 
 #location {
-  background: chocolate;
+  background: $white;
 }
 
 #rooms {
@@ -163,6 +163,7 @@ footer {
 *
 */
 .section {
+  position: relative;
   height: 100vh;
   width: 100%;
 }
@@ -177,15 +178,22 @@ footer {
 
 .section-text {
   padding-top: 8%;
+}
+
+.text-right {
   padding-right: 128px;
 }
 
+.text-left {
+  padding-left: 86px;
+}
+
 .column {
-  margin-top: 64px;
   float: left;
   width: 50%;
   padding: 10px;
-  height: 100vh;
+  padding-top: 64px;
+  height: 100%;
 }
 .welcome{
   height: 80vh;
@@ -259,6 +267,7 @@ footer {
 }
 
 .hashtag {
+  display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5px;
@@ -271,6 +280,15 @@ footer {
   font-size: 12px;
 
   margin-right: 10px;
+  margin-top: 10px;
+}
+
+.bottom {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
 }
 
 @keyframes pulse {
