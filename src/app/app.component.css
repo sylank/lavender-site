@@ -1,4 +1,3 @@
-@import "style/main-colors";
 * {
   box-sizing: border-box;
 }
@@ -12,7 +11,7 @@
   position: fixed;
   width: 100vw;
   height: 64px;
-  background: $white;
+  background: #F4F5F7;
   z-index: 1000;
 }
 
@@ -38,6 +37,7 @@
     height: 50px;
   }
 }
+
 /*
 *
 * LOGO
@@ -46,20 +46,20 @@
 #logo {
   width: 250px;
   height: 64px;
-
   position: relative;
 }
+
 #logo-image {
   width: 64px;
   height: 64px;
   background-image: url("image/logo.png");
   background-size: cover;
   background-position: center;
-
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
 }
+
 #logo-text {
   position: absolute;
   top: 50%;
@@ -77,21 +77,23 @@
   justify-content: space-between;
   list-style-type: none;
 }
+
 #links li {
   margin-right: 20px;
   padding: 10px;
   cursor: pointer;
 }
+
 #links li:hover {
-  color: $white;
+  color: #F4F5F7;
   border-radius: 10px;
-  background-color: $teal;
+  background-color: #1D8A99;
 }
 
-.selected{
-  color: $white;
+.selected {
+  color: #F4F5F7;
   border-radius: 10px;
-  background-color: $teal;
+  background-color: #1D8A99;
 }
 
 /*
@@ -100,27 +102,11 @@
 *
 */
 #opening {
-  background: $white;
+  background: #F4F5F7;
 }
 
-#intro{
-  background: $white;
-}
-
-#intro-image {
-  background-image: url("image/intro.jpg");
-}
-
-.image {
-  background-size: 500px;
-  background-repeat: no-repeat;
-  width: 500px;
-  height: 500px;
-}
-
-.left-image {
-  position: absolute;
-  transform: translate(70%, 25%);
+#intro {
+  background: #F4F5F7;
 }
 
 #location {
@@ -134,7 +120,6 @@
 /*#radar {
 
 }*/
-
 #booking {
   background: cornflowerblue;
 }
@@ -172,10 +157,6 @@ footer {
   font-size: 48px;
 }
 
-.section-text {
-  
-}
-
 .column {
   margin-top: 64px;
   float: left;
@@ -183,7 +164,8 @@ footer {
   padding: 10px;
   height: 100vh;
 }
-.welcome{
+
+.welcome {
   height: 80vh;
 }
 
@@ -199,7 +181,6 @@ footer {
   background-position: center;
   width: 960px;
   height: 571px;
-
   position: absolute;
   top: 50%;
   margin-top: -285px;
@@ -211,21 +192,22 @@ footer {
   top: 40%;
   font-size: 50px;
   margin-left: -50px;
+}
 
-  button {
-    margin-left: 30%;
-    width: 182px;
-    height: 58px;
-    color: $white;
-    background: $sky;
-    border: 0;
-    border-radius: 5px;
-    font-size: 30px;
-    cursor: pointer;
-  }
-  button:hover{
-    background: $lavender;
-  }
+#welcome-text button {
+  margin-left: 30%;
+  width: 182px;
+  height: 58px;
+  color: #F4F5F7;
+  background: #669AD4;
+  border: 0;
+  border-radius: 5px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#welcome-text button:hover {
+  background: #8D6A9F;
 }
 
 #scroll-down {
@@ -233,22 +215,20 @@ footer {
   margin-top: 5vh;
   align-items: center;
 }
+
 #scroll-logo {
   position: absolute;
-
   background-image: url("image/mouse.png");
   background-size: cover;
   background-position: center;
   width: 32px;
   height: 32px;
-
   margin-top: 10px;
   margin-left: 46%;
-
-  animation:
-  pulse 1s ease infinite alternate;
+  animation: pulse 1s ease infinite alternate;
 }
-#scroll-text{
+
+#scroll-text {
   position: absolute;
   margin-top: 15px;
   margin-left: 50%;
@@ -258,7 +238,6 @@ footer {
   0% {
     transform: translate(0, -20px);
   }
-
   100% {
     transform: translate(0, 10px);
   }
