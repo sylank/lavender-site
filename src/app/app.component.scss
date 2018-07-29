@@ -258,6 +258,21 @@ footer {
   margin-left: 50%;
 }
 
+.hashtag {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 05px;
+
+  background: $teal;
+  color: $white;
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  margin-right: 10px;
+}
+
 @keyframes pulse {
   0% {
     transform: translate(0, -20px);
