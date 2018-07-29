@@ -131,7 +131,19 @@
 }
 
 #rooms {
-  background: chartreuse;
+  background: $white;
+  overflow: hidden;
+
+  .split{
+    background:$lavender;
+    width: 200vw;
+    height: 100vh;
+    transform: rotate(-20deg) translate(-200px,44%);
+
+    top: 500px;
+    left: 0px;
+    overflow: hidden;
+  }
 }
 
 /*#radar {
