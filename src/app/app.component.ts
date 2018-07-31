@@ -7,6 +7,9 @@ import { Component, HostListener, ViewChild, AfterViewInit, ElementRef } from '@
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
+  lat = 46.706967;
+  lng = 17.362545;
+
   @ViewChild('openingLink') openingLinkRef: ElementRef;
   @ViewChild('introLink') introLinkRef: ElementRef;
   @ViewChild('locationLink') locationLinkRef: ElementRef;

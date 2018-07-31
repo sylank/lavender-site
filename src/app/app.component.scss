@@ -104,15 +104,49 @@
 }
 
 #intro{
-  background: aquamarine;
+  background: $white;
+}
+
+#intro-image {
+  background-image: url("image/intro.jpg");
+
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.image {
+  background-size: 500px;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 500px;
+}
+
+.left-image {
+  position: absolute;
+  //transform: translate(70%, 25%);
 }
 
 #location {
-  background: chocolate;
+  background: $white;
+}
+
+agm-map {
+  height: 80vh;
 }
 
 #rooms {
-  background: chartreuse;
+  background: $white;
+  overflow: hidden;
+
+  .split{
+    background:$lavender;
+    width: 200vw;
+    height: 300vh;
+    transform: rotate(360deg);
+    transform-origin: left bottom;
+    transform: rotate(-5deg) translate(0,33.6%);
+    overflow: hidden;
+  }
 }
 
 /*#radar {
@@ -144,16 +178,37 @@ footer {
 *
 */
 .section {
+  position: relative;
   height: 100vh;
   width: 100%;
 }
 
+.title {
+  height: 90px;
+  align-items: center;
+  padding-left: 20%;
+  padding-top: 70px;
+  font-size: 48px;
+}
+
+.section-text {
+  padding-top: 8%;
+}
+
+.text-right {
+  padding-right: 128px;
+}
+
+.text-left {
+  padding-left: 86px;
+}
+
 .column {
-  margin-top: 64px;
   float: left;
   width: 50%;
   padding: 10px;
-  height: 100vh;
+  padding-top: 64px;
+  height: 100%;
 }
 .welcome{
   height: 80vh;
@@ -218,7 +273,7 @@ footer {
   margin-left: 46%;
 
   animation:
-  pulse 3s ease infinite alternate;
+  pulse 1s ease infinite alternate;
 }
 #scroll-text{
   position: absolute;
@@ -226,14 +281,39 @@ footer {
   margin-left: 50%;
 }
 
+.hashtag {
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 05px;
+
+  background: $teal;
+  color: $white;
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.bottom {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+}
+
 @keyframes pulse {
   0% {
-    transform: translate(0, 0);
+    transform: translate(0, -20px);
   }
-  50% {
+
+  100% {
     transform: translate(0, 10px);
   }
-  80% {
-    transform: translate(0, -10px);
-  }
 }
+
+
