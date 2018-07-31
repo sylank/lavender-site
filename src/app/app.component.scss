@@ -130,6 +130,10 @@
   background: $white;
 }
 
+agm-map {
+  height: 80vh;
+}
+
 #rooms {
   background: $white;
   overflow: hidden;
@@ -137,11 +141,10 @@
   .split{
     background:$lavender;
     width: 200vw;
-    height: 100vh;
-    transform: rotate(-20deg) translate(-200px,44%);
-
-    top: 500px;
-    left: 0px;
+    height: 300vh;
+    transform: rotate(360deg);
+    transform-origin: left bottom;
+    transform: rotate(-5deg) translate(0,33.6%);
     overflow: hidden;
   }
 }
@@ -314,6 +317,3 @@ footer {
 }
 
 
-agm-map {
-  height: 300px;
-}
