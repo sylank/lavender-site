@@ -116,14 +116,26 @@
 </section>
 
 <section #rooms id="rooms" class="section">
+  <div class="title">
+    <p>Kialakítás</p>
+  </div>
   <div class="row">
-    <div class="column">
-      <div class="section-text text-left">
-
-      </div>
-    </div>
-    <div class="column">
+    <div class="column left">
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    </div>
+    <div class="column right">
+        <div id="room-order"></div>
+        <div>
+          <ul>
+            <li>Kert</li>
+            <li>Hátsó terasz</li>
+            <li>Kis szoba</li>
+            <li>Nagy szoba</li>
+            <li>Amerikai konyha</li>
+            <li>Fürdő</li>
+            <li>Első terasz</li>
+          </ul>
+        </div>
     </div>
   </div>
 

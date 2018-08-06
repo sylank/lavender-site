@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
 
     this.galleryOptions = [
       {
-        width: '50vw',
+        width: '100%',
         height: '80vh',
         thumbnailsColumns: 5,
         imageAnimation: NgxGalleryAnimation.Slide
