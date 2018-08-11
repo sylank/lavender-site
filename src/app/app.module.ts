@@ -5,6 +5,11 @@ import { ScrollToModule } from 'ng2-scroll-to-el';
 import { AppComponent } from './app.component';
 import { RadarAppModule } from '../../node_modules/event-radar-ng/src/app/app.module';
 
+import { AgmCoreModule } from '@agm/core';
+
+import 'hammerjs';
+import { NgxGalleryModule } from 'ngx-gallery';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +17,11 @@ import { RadarAppModule } from '../../node_modules/event-radar-ng/src/app/app.mo
   imports: [
     BrowserModule,
     RadarAppModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCperAMWUZ78vz9PMdFDJcpmnH8p-AAij0'
+    }),
+    NgxGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
 @import "style/main-colors";
+@import "style/main-dimensions";
+
 * {
   box-sizing: border-box;
 }
@@ -104,15 +106,72 @@
 }
 
 #intro{
-  background: aquamarine;
+  background: $white;
+}
+
+#intro-image {
+  background-image: url("image/intro.jpg");
+
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.image {
+  background-size: 500px;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 500px;
+}
+
+.left-image {
+  position: absolute;
 }
 
 #location {
-  background: chocolate;
+  background: $white;
+}
+
+agm-map {
+  height: 80vh;
 }
 
 #rooms {
-  background: chartreuse;
+  background: $white;
+  overflow: hidden;
+
+  .split{
+    background:$lavender;
+    width: 200vw;
+    height: 300vh;
+    transform: rotate(360deg);
+    transform-origin: left bottom;
+    transform: rotate(-5deg) translate(0,33.6%);
+    overflow: hidden;
+  }
+
+  .column.left {
+    width: 60%;
+    padding-left: $left_padding;
+  }
+  .column.right {
+    width: 40%;
+  }
+
+  ngx-gallery {
+    z-index: -1;
+  }
+
+  #room-order {
+    background-image: url("image/rooms.png");
+
+    background-size: 300px;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+
+    margin-top: 10%;
+    margin-left: 25%;
+  }
 }
 
 /*#radar {
@@ -135,7 +194,7 @@
 footer {
   background: deeppink;
   height: 300px;
-  width: 100vw;
+  width: 100%;
 }
 
 /*
@@ -144,16 +203,37 @@ footer {
 *
 */
 .section {
+  position: relative;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+}
+
+.title {
+  height: 90px;
+  align-items: center;
+  padding-left: 20%;
+  padding-top: 70px;
+  font-size: 48px;
+}
+
+.section-text {
+  padding-top: 8%;
+}
+
+.text-right {
+  padding-right: 128px;
+}
+
+.text-left {
+  padding-left: $left_padding;
 }
 
 .column {
-  margin-top: 64px;
   float: left;
   width: 50%;
   padding: 10px;
-  height: 100vh;
+  padding-top: 64px;
+  height: 100%;
 }
 .welcome{
   height: 80vh;
@@ -203,13 +283,62 @@ footer {
 #scroll-down {
   height: 20vh;
   margin-top: 5vh;
-  margin-left: 50%;
+  align-items: center;
 }
 #scroll-logo {
+  position: absolute;
+
   background-image: url("image/mouse.png");
   background-size: cover;
   background-position: center;
-  width: 64px;
-  height: 64px;
-  background: red;
+  width: 32px;
+  height: 32px;
+
+  margin-top: 10px;
+  margin-left: 46%;
+
+  animation:
+  pulse 1s ease infinite alternate;
 }
+#scroll-text{
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 50%;
+}
+
+.hashtag {
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 05px;
+
+  background: $teal;
+  color: $white;
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.bottom {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(0, -20px);
+  }
+
+  100% {
+    transform: translate(0, 10px);
+  }
+}
+
+

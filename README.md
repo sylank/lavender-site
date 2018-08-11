@@ -3,7 +3,11 @@ Lavender summer house one-page frontend application
 ![alt text](art/kezdolap.png)
 
 ## About
-This repository contains the Lavender Summer House frontend application. You can find at: www.<nop :D>.com
+This repository contains the Lavender Summer House frontend application.
+
+DEV site: http://dev.levendulabalatonmaria.info.s3-website.eu-central-1.amazonaws.com/
+
+PROD site: http://levendulabalatonmaria.info.s3-website.eu-central-1.amazonaws.com/
 
 Please find the backend repos here
  - 
@@ -25,4 +29,13 @@ Please find the backend repos here
  - Booking service frontend with re-captcha integration
  
 ## Usage
-.......
+
+Install dependencies:
+```
+npm install
+```
+
+Start the website:
+```
+ng serve
+```
