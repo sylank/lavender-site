@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ScrollDirective } from './navbar/scroll.directive';
 import { FooterComponent } from './footer/footer.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
+import { GalleryService } from './shared/gallery.service';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,10 @@ import { AutofocusDirective } from './shared/autofocus.directive';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GalleryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

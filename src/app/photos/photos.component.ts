@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GalleryService } from '../shared/gallery.service';
 
 @Component({
   selector: 'app-photos',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private galleryService: GalleryService) { }
+
+  private gallery: any;
 
   ngOnInit() {
+    this.galleryService.getGallery().subscribe((response) => {
+      this.gallery = response;
+      console.log(this.gallery);
+    })
   }
 
 }
