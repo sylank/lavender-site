@@ -1,27 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ScrollToModule } from 'ng2-scroll-to-el';
 
 import { AppComponent } from './app.component';
-import { RadarAppModule } from '../../node_modules/event-radar-ng/src/app/app.module';
-
-import { AgmCoreModule } from '@agm/core';
-
-import 'hammerjs';
-import { NgxGalleryModule } from 'ngx-gallery';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { PhotosComponent } from './photos/photos.component';
+import { EventsComponent } from './events/events.component';
+import { ContactComponent } from './contact/contact.component';
+import { BookingComponent } from './booking/booking.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ScrollDirective } from './navbar/scroll.directive';
+import { FooterComponent } from './footer/footer.component';
+import { AutofocusDirective } from './shared/autofocus.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    PhotosComponent,
+    EventsComponent,
+    ContactComponent,
+    BookingComponent,
+    ScrollDirective,
+    FooterComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
-    RadarAppModule,
-    ScrollToModule.forRoot(),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCperAMWUZ78vz9PMdFDJcpmnH8p-AAij0'
-    }),
-    NgxGalleryModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
