@@ -9,6 +9,12 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  background: boolean = false;
+
+  changeBg() {
+    window.scrollY > 100 ? this.background = true : this.background = false;
+  }
+
   ngOnInit() {
   }
 

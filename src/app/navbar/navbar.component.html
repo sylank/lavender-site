@@ -1,13 +1,13 @@
-<nav>
+<nav [ngClass]="{scrollnav: background}" (window:scroll)="changeBg()">
   <div class="wrapper">
-    <div class="logo" routerLink="/home">Logo</div>
+    <img class="logo" routerLink="/home" src="assets/img/logo.png">
     <div class="menu">
       <a routerLink="/home">Kezdőlap</a>
       <a routerLink="/intro">Bemutatkozás</a>
-      <a routerLink="/home">Galéria</a>
-      <a routerLink="/home">Programok</a>
-      <a routerLink="/home">Kapcsolat</a>
-      <a routerLink="/home">Foglalás</a>
+      <a routerLink="/photos">Galéria</a>
+      <a routerLink="/events">Programok</a>
+      <a routerLink="/contact">Kapcsolat</a>
+      <a routerLink="/booking">Foglalás</a>
     </div>
   </div>
 </nav>

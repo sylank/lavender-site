@@ -10,6 +10,7 @@ import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { BookingComponent } from './booking/booking.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ScrollDirective } from './navbar/scroll.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     PhotosComponent,
     EventsComponent,
     ContactComponent,
-    BookingComponent
+    BookingComponent,
+    ScrollDirective
   ],
   imports: [
     BrowserModule,
