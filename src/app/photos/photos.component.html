@@ -1,5 +1,7 @@
 <div class="hero">
   <div class="image-container">
-      <img *ngFor="let image of gallery" src="{{ image }}" alt="" class="image">
+    <div class="wrapper" *ngFor="let image of gallery">
+        <img  src="{{ image }}" alt="" class="image">
+    </div>
   </div>
 </div>

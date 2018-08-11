@@ -11,9 +11,17 @@
     width: 1200px;
     max-width: 1200px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 130px;
+}
 .image {
-    flex-basis: 30%;
+    width: 150px;
+    height: 100px;
 }
