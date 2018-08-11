@@ -1,0 +1,28 @@
+* {
+    user-select: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+nav {  
+    position: fixed;
+    color: white;
+    padding: 0px 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: blue;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+.logo {
+    cursor: pointer;
+}
