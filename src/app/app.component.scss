@@ -1,4 +1,6 @@
 @import "style/main-colors";
+@import "style/main-dimensions";
+
 * {
   box-sizing: border-box;
 }
@@ -123,7 +125,6 @@
 
 .left-image {
   position: absolute;
-  //transform: translate(70%, 25%);
 }
 
 #location {
@@ -146,6 +147,30 @@ agm-map {
     transform-origin: left bottom;
     transform: rotate(-5deg) translate(0,33.6%);
     overflow: hidden;
+  }
+
+  .column.left {
+    width: 60%;
+    padding-left: $left_padding;
+  }
+  .column.right {
+    width: 40%;
+  }
+
+  ngx-gallery {
+    z-index: -1;
+  }
+
+  #room-order {
+    background-image: url("image/rooms.png");
+
+    background-size: 300px;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+
+    margin-top: 10%;
+    margin-left: 25%;
   }
 }
 
@@ -200,7 +225,7 @@ footer {
 }
 
 .text-left {
-  padding-left: 86px;
+  padding-left: $left_padding;
 }
 
 .column {

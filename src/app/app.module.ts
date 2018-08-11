@@ -7,6 +7,9 @@ import { RadarAppModule } from '../../node_modules/event-radar-ng/src/app/app.mo
 
 import { AgmCoreModule } from '@agm/core';
 
+import 'hammerjs';
+import { NgxGalleryModule } from 'ngx-gallery';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +20,8 @@ import { AgmCoreModule } from '@agm/core';
     ScrollToModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCperAMWUZ78vz9PMdFDJcpmnH8p-AAij0'
-    })
+    }),
+    NgxGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

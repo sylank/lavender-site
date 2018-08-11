@@ -1,12 +1,25 @@
 import { SectionLocation } from './model/SectionLocation';
-import { Component, HostListener, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  ViewChild,
+  AfterViewInit,
+  OnInit,
+  ElementRef
+} from '@angular/core';
+
+import {
+  NgxGalleryOptions,
+  NgxGalleryImage,
+  NgxGalleryAnimation
+} from 'ngx-gallery';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
   lat = 46.706967;
   lng = 17.362545;
 
@@ -32,9 +45,83 @@ export class AppComponent implements AfterViewInit {
   public isScrolled = false;
   private winHeight;
 
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.winHeight = window.innerHeight;
+
+    this.galleryOptions = [
+      {
+        width: '100%',
+        height: '80vh',
+        thumbnailsColumns: 5,
+        imageAnimation: NgxGalleryAnimation.Slide
+      },
+      // max-width 800
+      {
+        breakpoint: 800,
+        width: '100%',
+        height: '600px',
+        imagePercent: 80,
+        thumbnailsPercent: 20,
+        thumbnailsMargin: 20,
+        thumbnailMargin: 20
+      },
+      // max-width 400
+      {
+        breakpoint: 400,
+        preview: false
+      }
+    ];
+
+    this.galleryImages = [
+      {
+        small: 'assets/images/1.jpg',
+        medium: 'assets/images/1.jpg',
+        big: 'assets/images/1.jpg'
+      },
+      {
+        small: 'assets/images/2.jpg',
+        medium: 'assets/images/2.jpg',
+        big: 'assets/images/2.jpg'
+      },
+      {
+        small: 'assets/images/3.jpg',
+        medium: 'assets/images/3.jpg',
+        big: 'assets/images/3.jpg'
+      },
+      {
+        small: 'assets/images/4.jpg',
+        medium: 'assets/images/4.jpg',
+        big: 'assets/images/4.jpg'
+      },
+      {
+        small: 'assets/images/5.jpg',
+        medium: 'assets/images/5.jpg',
+        big: 'assets/images/5.jpg'
+      },
+      {
+        small: 'assets/images/6.jpg',
+        medium: 'assets/images/6.jpg',
+        big: 'assets/images/6.jpg'
+      },
+      {
+        small: 'assets/images/7.jpg',
+        medium: 'assets/images/7.jpg',
+        big: 'assets/images/7.jpg'
+      },
+      {
+        small: 'assets/images/8.jpg',
+        medium: 'assets/images/8.jpg',
+        big: 'assets/images/8.jpg'
+      },
+      {
+        small: 'assets/images/9.jpg',
+        medium: 'assets/images/9.jpg',
+        big: 'assets/images/9.jpg'
+      }
+    ];
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -57,7 +144,10 @@ export class AppComponent implements AfterViewInit {
   }
 
   private calculateViewPort($event): number {
-    return (window.pageYOffset || $event.target.scrollTop) - ($event.target.clientTop || 0);
+    return (
+      (window.pageYOffset || $event.target.scrollTop) -
+      ($event.target.clientTop || 0)
+    );
   }
 
   private resizeMenuByScroll(currentPosition: number) {
@@ -69,7 +159,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   private selectMenuElementsByScroll(currentPosition: number) {
-
     const openingLocation = this.calculateSectionLocation(this.openingRef);
     const introLocation = this.calculateSectionLocation(this.introRef);
     const locationLocation = this.calculateSectionLocation(this.locationRef);
@@ -78,32 +167,68 @@ export class AppComponent implements AfterViewInit {
     const bookingLocation = this.calculateSectionLocation(this.bookingRef);
     const seasonalLocation = this.calculateSectionLocation(this.seasonalRef);
 
-    if (this.isViewportInsideSection(currentPosition, openingLocation, introLocation)) {
+    if (
+      this.isViewportInsideSection(
+        currentPosition,
+        openingLocation,
+        introLocation
+      )
+    ) {
       this.clearMenuSelection();
       this.selectMenuElement(this.openingLinkRef);
     }
 
-    if (this.isViewportInsideSection(currentPosition, introLocation, locationLocation)) {
+    if (
+      this.isViewportInsideSection(
+        currentPosition,
+        introLocation,
+        locationLocation
+      )
+    ) {
       this.clearMenuSelection();
       this.selectMenuElement(this.introLinkRef);
     }
 
-    if (this.isViewportInsideSection(currentPosition, locationLocation, roomsLocation)) {
+    if (
+      this.isViewportInsideSection(
+        currentPosition,
+        locationLocation,
+        roomsLocation
+      )
+    ) {
       this.clearMenuSelection();
       this.selectMenuElement(this.locationLinkRef);
     }
 
-    if (this.isViewportInsideSection(currentPosition, roomsLocation, radarLocation)) {
+    if (
+      this.isViewportInsideSection(
+        currentPosition,
+        roomsLocation,
+        radarLocation
+      )
+    ) {
       this.clearMenuSelection();
       this.selectMenuElement(this.roomsLinkRef);
     }
 
-    if (this.isViewportInsideSection(currentPosition, radarLocation, bookingLocation)) {
+    if (
+      this.isViewportInsideSection(
+        currentPosition,
+        radarLocation,
+        bookingLocation
+      )
+    ) {
       this.clearMenuSelection();
       this.selectMenuElement(this.radarLinkRef);
     }
 
-    if (this.isViewportInsideSection(currentPosition, bookingLocation, seasonalLocation)) {
+    if (
+      this.isViewportInsideSection(
+        currentPosition,
+        bookingLocation,
+        seasonalLocation
+      )
+    ) {
       this.clearMenuSelection();
       this.selectMenuElement(this.bookingLinkRef);
     }
@@ -114,13 +239,21 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  private isViewportInsideSection(currentPosition: number, location1: SectionLocation, location2: SectionLocation) {
-    return currentPosition > this.calculateSectionPosition(location1) &&
-      currentPosition < this.calculateSectionPosition(location2);
+  private isViewportInsideSection(
+    currentPosition: number,
+    location1: SectionLocation,
+    location2: SectionLocation
+  ) {
+    return (
+      currentPosition > this.calculateSectionPosition(location1) &&
+      currentPosition < this.calculateSectionPosition(location2)
+    );
   }
 
   private calculateSectionPosition(sectionLocation: SectionLocation): number {
-    return sectionLocation.getTop() + sectionLocation.getHeight() - this.winHeight;
+    return (
+      sectionLocation.getTop() + sectionLocation.getHeight() - this.winHeight
+    );
   }
 
   private calculateSectionLocation(element: ElementRef): SectionLocation {
