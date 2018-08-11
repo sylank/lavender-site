@@ -25,6 +25,7 @@ button {
     border-radius: 10px;
     display: block;
     margin: 0 auto;
+    
     cursor: pointer;
     transition: background-color 200ms, box-shadow 200ms;
 }
