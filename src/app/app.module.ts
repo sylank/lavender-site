@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { IntroComponent } from './intro/intro.component';
 import { PhotosComponent } from './photos/photos.component';
 import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
@@ -18,7 +17,6 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    IntroComponent,
     PhotosComponent,
     EventsComponent,
     ContactComponent,

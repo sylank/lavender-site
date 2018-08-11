@@ -7,6 +7,12 @@ a {
     font-size: 20px;
     margin-left: 20px;
 }
+a:hover {
+    color: #c4e372;
+}
+.active {
+    color: #c4e372;
+}
 nav {  
     position: fixed;
     color: white;
@@ -29,6 +35,22 @@ nav {
     cursor: pointer;
     height: 70px;
     transition: height 500ms;
+}
+.menu {
+    display: flex;
+    align-items: baseline;
+}
+.booking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 10px 30px;
+}
+.booking:hover {
+    background-color: #fff;
+    color: #2b1133;
 }
 .scrollnav {
     height: 75px;
