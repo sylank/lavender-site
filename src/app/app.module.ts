@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BookingComponent } from './booking/booking.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ScrollDirective } from './navbar/scroll.directive';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ScrollDirective } from './navbar/scroll.directive';
     EventsComponent,
     ContactComponent,
     BookingComponent,
-    ScrollDirective
+    ScrollDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
