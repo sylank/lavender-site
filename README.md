@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/sylank/lavender-site/tree/dev.svg?style=svg)](https://circleci.com/gh/sylank/lavender-site/tree/dev)
 # LavenderSite
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
