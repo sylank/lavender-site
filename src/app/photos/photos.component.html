@@ -1,7 +1,10 @@
 <div class="hero">
   <div class="image-container">
-    <div class="wrapper" *ngFor="let image of gallery">
-        <img  src="{{ image }}" alt="" class="image">
+    <div class="wrapper" *ngFor="let image of gallery; let i = index" (click)="openCarousel(i)" appImageOpacity (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" id="{{ i }}">
+        <img src="{{ image }}" alt="" class="image" >
     </div>
   </div>
+</div>
+<div [ngStyle]="{ display: displayCarousel }" class="carousel" (click)="closeCarousel()">
+  <div class="current-image" #image appImageLoader></div>
 </div>

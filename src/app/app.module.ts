@@ -14,6 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
 import { GalleryService } from './shared/gallery.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { ImageLoaderDirective } from './shared/image-loader.directive';
+import { ImageOpacityDirective } from './shared/image-opacity.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     BookingComponent,
     ScrollDirective,
     FooterComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    ImageLoaderDirective,
+    ImageOpacityDirective
   ],
   imports: [
     BrowserModule,
