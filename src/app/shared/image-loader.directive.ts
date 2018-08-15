@@ -1,5 +1,6 @@
-import { Directive, OnInit, HostBinding, OnDestroy, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Directive, OnInit, HostBinding, OnDestroy } from '@angular/core';
 import { GalleryService } from './gallery.service';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[appImageLoader]'
@@ -9,7 +10,7 @@ export class ImageLoaderDirective implements OnInit {
   constructor(private galleryService: GalleryService) { }
 
   @HostBinding("style.background-image") bgImage: string = "";
-  loadImage: any;
+  loadImage: Subscription;
 
   ngOnInit() {
     this.loadImage = this.galleryService.getActiveImage.subscribe((response) => {
@@ -20,9 +21,6 @@ export class ImageLoaderDirective implements OnInit {
 
   ngOnDestroy() {
     this.loadImage.unsubscribe();
-    console.log("unsubbed");
   }
-
-  
 
 }

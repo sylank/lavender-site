@@ -15,6 +15,7 @@
     flex-wrap: wrap;
 }
 .wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +49,17 @@
     height: 100%;
     background-color: black;
 }
-.current-image {
-    
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+    background-color: red;
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
 }

@@ -4,12 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { PhotosComponent } from './photos/photos.component';
+import { GalleryComponent } from './gallery/gallery.component';
 import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { BookingComponent } from './booking/booking.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ScrollDirective } from './navbar/scroll.directive';
 import { FooterComponent } from './footer/footer.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
 import { GalleryService } from './shared/gallery.service';
@@ -22,11 +21,10 @@ import { ImageOpacityDirective } from './shared/image-opacity.directive';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    PhotosComponent,
+    GalleryComponent,
     EventsComponent,
     ContactComponent,
     BookingComponent,
-    ScrollDirective,
     FooterComponent,
     AutofocusDirective,
     ImageLoaderDirective,

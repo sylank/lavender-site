@@ -5,11 +5,11 @@ import { Directive, AfterViewInit, ElementRef } from '@angular/core';
 })
 export class AutofocusDirective implements AfterViewInit {
  
-  constructor(private el: ElementRef) {
+  constructor(private element: ElementRef) {
   }
  
   ngAfterViewInit() {
-    this.el.nativeElement.focus();
+    this.element.nativeElement.focus();
   }
  
 }

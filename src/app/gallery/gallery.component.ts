@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../shared/gallery.service';
 
 @Component({
-  selector: 'app-photos',
-  templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css']
 })
-export class PhotosComponent implements OnInit {
+export class GalleryComponent implements OnInit {
 
   constructor(private galleryService: GalleryService) { }
 
@@ -42,6 +42,10 @@ export class PhotosComponent implements OnInit {
     this.isCarouselOpen = false;
     this.displayCarousel = "none";
     this.galleryService.navbarBackground.next("close");
+  }
+
+  loadImage(image: string) {
+    
   }
 
   ngOnInit() {
