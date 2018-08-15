@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GalleryService } from '../shared/gallery.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,15 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private galleryService: GalleryService) { }
 
   background: boolean = false;
+  opacity: boolean = false;
 
   changeBg() {
     window.scrollY > 80 ? this.background = true : this.background = false;
   }
 
   ngOnInit() {
+    this.galleryService.navbarBackground.subscribe((res) => {
+      console.log(res);
+      if (res === "open") {
+        this.opacity = true;
+      } else {
+        this.opacity = false;
+      }
+    })
   }
 
 }

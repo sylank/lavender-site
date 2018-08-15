@@ -53,6 +53,9 @@ nav {
     background-color: #fff;
     color: #2b1133;
 }
+.opacity {
+    background-color: rgba(0,0,0,.75);
+}
 .scrollnav {
     height: 75px;
     background-color: rgba(0,0,0,1);

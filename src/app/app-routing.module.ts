@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BookingComponent } from './booking/booking.component';
 import { ContactComponent } from './contact/contact.component';
-import { PhotosComponent } from './photos/photos.component';
+import { GalleryComponent } from './gallery/gallery.component';
 import { EventsComponent } from './events/events.component';
 
 
@@ -12,7 +12,7 @@ const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "booking", component: BookingComponent },
   { path: "contact", component: ContactComponent },
-  { path: "photos", component: PhotosComponent },
+  { path: "gallery", component: GalleryComponent },
   { path: "events", component: EventsComponent }
 ]
 
