@@ -3,24 +3,18 @@ import { GalleryService } from '../shared/gallery.service';
 
 @Component({
   selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  templateUrl: './gallery.component.pug',
+  styleUrls: ['./gallery.component.sass']
 })
 export class GalleryComponent implements OnInit {
 
   constructor(private galleryService: GalleryService) { }
 
   gallery: any;
-  currentImage: string;
+  activeImage: string;
   active: string;
   isCarouselOpen: boolean = false;
   displayCarousel: string = "none";
-
-
-  changeImage(i: string): void {
-    this.currentImage = this.gallery[Number(i)];
-    this.active = i;
-  }
 
   onMouseEnter(index: string): void {
     this.galleryService.opacityControl.next(index);
@@ -33,8 +27,8 @@ export class GalleryComponent implements OnInit {
   openCarousel(index: string): void {
     this.isCarouselOpen = true;
     this.displayCarousel = "flex";
-    this.currentImage = this.gallery[Number(index)];
-    this.galleryService.getActiveImage.next(this.currentImage);
+    this.activeImage = this.gallery[Number(index)];
+    this.galleryService.getActiveImage.next(this.activeImage);
     this.galleryService.navbarBackground.next("open");
   }
 
@@ -44,16 +38,28 @@ export class GalleryComponent implements OnInit {
     this.galleryService.navbarBackground.next("close");
   }
 
-  loadImage(image: string) {
-    
+  loadImage(command: string): void {
+    if (command === "next") {
+      let nextIndex: number = this.gallery.indexOf(this.activeImage) + 1;
+      if (nextIndex === this.gallery.length) {
+        nextIndex = 0;
+      }
+      this.activeImage = this.gallery[nextIndex];
+      this.galleryService.getActiveImage.next(this.activeImage);
+    } else if (command === "prev") {
+      let prevIndex: number = this.gallery.indexOf(this.activeImage) - 1;
+      if (prevIndex < 0) {
+        prevIndex = this.gallery.length - 1;
+      }
+      this.activeImage = this.gallery[prevIndex];
+      this.galleryService.getActiveImage.next(this.activeImage);
+    }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.galleryService.getGallery().subscribe((response) => {
       this.gallery = response;
-      this.currentImage = this.gallery[0];
-      this.active = "0";
-      console.log(this.gallery);
+      this.activeImage = this.gallery[0];
     })
   }
 

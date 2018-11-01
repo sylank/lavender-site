@@ -15,6 +15,9 @@ import { GalleryService } from './shared/gallery.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { ImageLoaderDirective } from './shared/image-loader.directive';
 import { ImageOpacityDirective } from './shared/image-opacity.directive';
+import { CalendarComponent } from './booking/calendar/calendar.component';
+import { DayFormatterDirective } from './booking/calendar/day-formatter.directive';
+import { DayComponent } from './booking/calendar/day/day.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ImageOpacityDirective } from './shared/image-opacity.directive';
     FooterComponent,
     AutofocusDirective,
     ImageLoaderDirective,
-    ImageOpacityDirective
+    ImageOpacityDirective,
+    CalendarComponent,
+    DayFormatterDirective,
+    DayComponent
   ],
   imports: [
     BrowserModule,

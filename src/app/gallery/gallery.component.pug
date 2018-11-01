@@ -1,0 +1,13 @@
+// GALLERY
+.hero
+  .image-container
+    .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
+      img.image(src='{{ image }}', alt='')
+// END OF GALLERY
+// IMAGE CAROUSEL
+.carousel([ngStyle]='{ display: displayCarousel }')
+  .prev((click)="loadImage('prev')")
+  .next((click)="loadImage('next')")
+  .current-image(id="image", appImageLoader)
+  button((click)='closeCarousel()') Close
+// END OF IMAGE CAROUSEL
