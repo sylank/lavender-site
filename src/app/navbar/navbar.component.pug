@@ -1,0 +1,9 @@
+nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='changeBg()')
+  .wrapper
+    img.logo(routerLink='/home', src='assets/img/logo.png')
+    .menu
+      a(routerLink='/home', routerLinkActive='active') Kezdőlap
+      a(routerLink='/gallery', routerLinkActive='active') Galéria
+      a(routerLink='/events', routerLinkActive='active') Programok
+      a(routerLink='/contact', routerLinkActive='active') Kapcsolat
+      a.booking(routerLink='/booking') Foglalás

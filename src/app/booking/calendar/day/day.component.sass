@@ -1,0 +1,18 @@
+\:host
+  cursor: pointer
+  transition: transform 100ms
+  &:hover
+    color: #ab6cc3
+  &:active
+    transform: scale(2, 2)
+
+\:host(.selected)
+  color: #ab6cc3
+
+\:host(.disabled)
+  color: rgb(200, 200, 200)
+  cursor: default
+  pointer-events: none
+
+\:host(.disabled:hover)
+  background-color: transparent
