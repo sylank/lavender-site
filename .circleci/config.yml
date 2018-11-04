@@ -40,17 +40,22 @@ jobs:
 
       - run:
           name: Copy build files into artifactory.
-          command: sh .circleci/artifactory_copy.sh $(cat package.json | jq '.version' | sed  s/"\""/""/g)
+          command: sh .circleci/artifactory_copy.sh
 
   version_check:
     <<: *defaults
     steps:
-      - attach_workspace:
-        at: .
+      - checkout
+
       - run:
-          name: Version check.
+          name: Version check
           commands:
-            - sh ./version_check.sh ${CIRCLE_TAG}
+            - sh .circleci/version_check.sh
+
+      - persist_to_workspace:
+          root: .
+          paths:
+          - package.json
 
   dev_deploy:
     <<: *defaults
@@ -58,8 +63,8 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Deploy dev.
-          command: sh .circleci/deploy.sh dev $(cat package.json | jq '.version' | sed  s/"\""/""/g)
+          name: Deploy dev
+          command: sh .circleci/deploy.sh dev
 
   prod_deploy:
     <<: *defaults
@@ -67,8 +72,8 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Deploy dev.
-          command: sh ./deploy.sh prod ${CIRCLE_TAG}
+          name: Deploy dev
+          command: sh .circleci/deploy.sh prod
 
 workflows:
   version: 2
@@ -98,15 +103,13 @@ workflows:
     jobs:
       - version_check:
           filters:
-            tags:
-              only: /.*/
             branches:
-              ignore: /.*/
+              only:
+                - master
       - prod_deploy:
           filters:
-            tags:
-              only: /.*/
             branches:
-              ignore: /.*/
+              only:
+                - master
           requires:
             - version_check

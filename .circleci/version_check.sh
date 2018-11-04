@@ -1,8 +1,10 @@
 #!/bin/bash
 
+VERSION=$(cat package.json | jq '.version' | sed  s/"\""/""/g)
+
 for f in `aws s3 ls artifactory.levendulabalatonmaria.info/static/`; do
 
-    if [ "$f" == "$1/" ] 
+    if [ "$f" == "$VERSION/" ] 
     then
 	echo "$f"
     	exit 0 
@@ -10,4 +12,4 @@ for f in `aws s3 ls artifactory.levendulabalatonmaria.info/static/`; do
 
 done
 
-exit 1
+exit -1
