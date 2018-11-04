@@ -26,11 +26,11 @@ jobs:
           name: Run build
           command: ng build --prod --verbose
 
-    - persist_to_workspace:
-        root: .
-        paths:
-        - .dist
-        - .circleci
+      - persist_to_workspace:
+          root: .
+          paths:
+          - .dist
+          - .circleci
 
   artifactory_copy:
     <<: *defaults
