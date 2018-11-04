@@ -3,8 +3,8 @@ import { GalleryService } from '../shared/gallery.service';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  templateUrl: './navbar.component.pug',
+  styleUrls: ['./navbar.component.sass']
 })
 export class NavbarComponent implements OnInit {
 
@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.galleryService.navbarBackground.subscribe((res) => {
-      console.log(res);
       if (res === "open") {
         this.opacity = true;
       } else {
