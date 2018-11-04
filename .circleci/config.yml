@@ -40,7 +40,7 @@ jobs:
           at: .
 
       - run:
-          name: Copy build files into artifactory.
+          name: Copy build files into artifactory
           command: sh .circleci/artifactory_copy.sh
 
   version_check:

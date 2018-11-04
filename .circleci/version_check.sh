@@ -2,7 +2,7 @@
 
 VERSION=$(cat package.json | jq '.version' | sed  s/"\""/""/g)
 
-for f in `aws s3 ls artifactory.levendulabalatonmaria.info/static/`; do
+for f in `aws s3 ls artifactory.levendulabalatonmaria.info/static/ | sed 's/PRE*//'`; do
   if [ "$f" == "$VERSION/" ] 
   then
     echo "$f"
