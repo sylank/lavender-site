@@ -31,6 +31,7 @@ jobs:
           paths:
           - dist
           - .circleci
+          - package.json
 
   artifactory_copy:
     <<: *defaults

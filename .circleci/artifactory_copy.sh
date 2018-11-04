@@ -1,4 +1,6 @@
 #! /bin/bash
+pwd
+ls
 
 VERSION=$(cat ../package.json | jq '.version' | sed  s/"\""/""/g)
 
