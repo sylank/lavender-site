@@ -50,8 +50,7 @@ jobs:
 
       - run:
           name: Version check
-          commands:
-            - sh .circleci/version_check.sh
+          command: sh .circleci/version_check.sh
 
       - persist_to_workspace:
           root: .
