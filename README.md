@@ -1,28 +1,57 @@
-[![CircleCI](https://circleci.com/gh/sylank/lavender-site/tree/dev.svg?style=svg)](https://circleci.com/gh/sylank/lavender-site/tree/dev)
-# LavenderSite
+Master: [![CircleCI](https://circleci.com/gh/sylank/lavender-site/tree/master.svg?style=svg)](https://circleci.com/gh/sylank/lavender-site/tree/master)
+Dev:[![CircleCI](https://circleci.com/gh/sylank/lavender-site/tree/dev.svg?style=svg)](https://circleci.com/gh/sylank/lavender-site/tree/dev)
+# Lavender website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+Lavender summer house one-page frontend application.
 
-## Development server
+![alt text](misc/opening-page.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## About
+This repository contains the Lavender Summer House frontend application. It is written in Angular 7 and Pug with Sass.
 
-## Code scaffolding
+DEV site: http://dev.levendulabalatonmaria.info.s3-website.eu-central-1.amazonaws.com/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+PROD site: http://levendulabalatonmaria.info.s3-website.eu-central-1.amazonaws.com/
 
-## Build
+## Backend repositories
+Deploy and infrastructure repository: https://github.com/sylank/lavender-backend-infrastructure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ReservationService repository: https://github.com/sylank/ReservationService
 
-## Running unit tests
+Other projects: https://github.com/sylank
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Pages
+* Opening
+* Gallery
+* Events
+* Contacts
+* Booking
+* Footer and other informations
 
-## Running end-to-end tests
+## Features
+* Multi langual support
+* Rose graph (to visualize distance and activity)
+* Booking service frontend with re-captcha integration
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Usage
+To run the website on your local computer use this commands below:
 
-## Further help
+To install the dependencies:
+```bash
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To install the latest Angular-CLI:
+```bash
+npm install -g @angular/cli
+```
+
+To build the project:
+```bash
+ng build
+```
+
+To start the application:
+```bash
+ng serve
+```
