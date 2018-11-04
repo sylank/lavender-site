@@ -6,7 +6,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: joecridge1/node8-awscli-jq
+    - image: ramseybheard/node-aws-cli-jq
 
 jobs:
   build:
