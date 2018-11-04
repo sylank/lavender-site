@@ -25,7 +25,7 @@ export class DayComponent implements OnInit {
 
   checkDate(): void {
     const today = new Date();
-    if (this.currentDate.currentYear === today.getFullYear() && this.currentDate.currentMonth === today.getMonth() && this.content === 12) {
+    if (this.currentDate.currentYear === today.getFullYear() && this.currentDate.currentMonth === today.getMonth() && this.content <= today.getDate()) {
       this.disabled = true;
     } else {
       this.disabled = false;
