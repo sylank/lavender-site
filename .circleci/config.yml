@@ -1,12 +1,8 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 
 defaults: &defaults
   docker:
-    - image: ramseybheard/node-aws-cli-jq
+    - image: edgecase/docker-ubuntu-node-awscli
 
 jobs:
   build:
@@ -15,17 +11,17 @@ jobs:
       - checkout
 
       - run:
-          name: Version check
-          command: node -v 
-
-      - run:
           name: Run install
-          command: npm install
+          command: npm install      
 
       - run:
           name: Run install angular-cli
-          command: npm install -g @angular/cli@7.0.3
+          command: npm install -g @angular/cli
 
+      - run:
+          name: Post install
+          command: node ./ng-add-pug-loader.js
+          
       - run:
           name: Run build
           command: ng build
@@ -33,7 +29,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-          - .dist
+          - dist
           - .circleci
 
   artifactory_copy:
