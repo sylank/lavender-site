@@ -5,7 +5,6 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/repo
   docker:
     - image: joecridge1/node8-awscli-jq
 
@@ -14,11 +13,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-          - v1-dependencies-
-          - v1-dependencies-
 
       - run:
           name: Run install
@@ -32,21 +26,18 @@ jobs:
           name: Run build
           command: ng build --prod --verbose
 
-      - save_cache:
-          paths:
-            - node_modules
-            - dist
-          key: v1-dependencies-
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+    - persist_to_workspace:
+        root: .
+        paths:
+        - .dist
+        - .circleci
 
   artifactory_copy:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: .
+
       - run:
           name: Copy build files into artifactory.
           command: sh .circleci/artifactory_copy.sh $(cat package.json | jq '.version' | sed  s/"\""/""/g)
@@ -55,7 +46,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+        at: .
       - run:
           name: Version check.
           commands:
@@ -65,7 +56,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: .
       - run:
           name: Deploy dev.
           command: sh .circleci/deploy.sh dev $(cat package.json | jq '.version' | sed  s/"\""/""/g)
@@ -74,7 +65,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: .
       - run:
           name: Deploy dev.
           command: sh ./deploy.sh prod ${CIRCLE_TAG}
