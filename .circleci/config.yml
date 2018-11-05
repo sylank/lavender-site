@@ -55,6 +55,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
+          - .circleci
           - package.json
 
   dev_deploy:
