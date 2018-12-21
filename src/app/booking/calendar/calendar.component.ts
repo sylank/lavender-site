@@ -1,23 +1,25 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import { CalendarService } from './calendar.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.pug',
   styleUrls: ['./calendar.component.sass']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, OnDestroy {
 
   constructor(private calendarService: CalendarService) { }
 
   private today = new Date();
-  private currentYear = this.today.getFullYear();
-  private currentMonth = this.today.getMonth();
+  @Input() public currentYear = this.today.getFullYear();
+  @Input() public currentMonth = this.today.getMonth();
   private selectedDay: number;
   private months = ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"];
   private days = ["H", "K", "Sze", "Cs", "P", "Szo", "V"];
   private weeksInMonth = [1, 2, 3, 4, 5, 6]
   private dayList: number[] = []; // Contains the list of days to display in a calendar month
+  private updateCalendar: Subscription;
 
   displayDaysInMonth(year: number, month: number): void {
     // Calculate the number of days in month
@@ -53,7 +55,6 @@ export class CalendarComponent implements OnInit {
       this.currentMonth++;
     }
     this.selectedDay = undefined;
-    this.calendarService.clearSelectedDate.next();
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
   }
 
@@ -61,7 +62,6 @@ export class CalendarComponent implements OnInit {
     if (this.currentYear === this.today.getFullYear() && this.currentMonth === this.today.getMonth()) {
       return
     }
-
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear--;
@@ -69,7 +69,6 @@ export class CalendarComponent implements OnInit {
       this.currentMonth--;
     }
     this.selectedDay = undefined;
-    this.calendarService.clearSelectedDate.next();
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
   }
 
@@ -92,12 +91,20 @@ export class CalendarComponent implements OnInit {
   @Output() submit = new EventEmitter<Date>();
 
   @HostListener("click", ["$event"]) hostClick = (event) => {
-    console.log(event);
     event.stopPropagation();
   }
 
   ngOnInit() {
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
+    this.updateCalendar = this.calendarService.updateCalendar.subscribe((date: Date) => {
+      this.currentYear = date.getFullYear();
+      this.currentMonth = date.getMonth();
+      this.displayDaysInMonth(date.getFullYear(), date.getMonth());
+    })
+  }
+
+  ngOnDestroy() {
+    this.updateCalendar.unsubscribe();
   }
 
 }
