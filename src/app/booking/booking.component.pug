@@ -4,37 +4,38 @@
     .booking-form(*ngIf="bookingStage === 'fill'")
       h1 Foglalás
       .date-picker
-        .arrival((click)='showArrivalCalendar()')
+        .arrival((click)='toggleArrivalCalendar()')
           p.title Érkezés:
           .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}')
             i.fas.fa-calendar-alt
             | {{ dateOfArrival.getFullYear() }}. {{ months[dateOfArrival.getMonth()] }} {{ dateOfArrival.getDate() }}.
-        .departure((click)='showCalendar = !showCalendar')
+        .departure((click)='toggleDepartureCalendar()')
           p.title Távozás:
-          .date-field
+          .date-field([ngClass]='{activeCalendar: departureCalendarActive}')
             i.fas.fa-calendar-alt
             | {{ dateOfDeparture.getFullYear() }}. {{ months[dateOfDeparture.getMonth()] }} {{ dateOfDeparture.getDate() }}.
-        app-calendar(*ngIf='showCalendar', (destroy)='onCalendarDestroy()', (submit)='setDates($event)')
+        app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
         p Fizetendő összeg:
-        p.price 1 * 25 000 Ft
+        p.price {{ price }} Ft
+        p ({{ bookedDays }} éjszaka)
       .divider
       p.title Foglalási adatok:
       .input-wrapper
-        input(type='text', name='name', placeholder='Teljes név *', required='')
+        input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="fullName" #fullNameInput)
         .input-icon
           i.fas.fa-user
       .input-wrapper
-        input(type='text', name='phone', placeholder='Telefonszám *', required='')
+        input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="phoneNumber" #phoneNumberInput)
         .input-icon
           i.fas.fa-mobile
       .input-wrapper
-        input(type='text', name='email', placeholder='Email')
+        input(type='text', name='email', placeholder='Email', [(ngModel)]="email" #emailInput)
         .input-icon
           i.fas.fa-envelope
       textarea.message(name='message', id='', cols='30', rows='10', maxlength='300', placeholder='Megjegyzések', #message='', (input)='onMessageInput(message)')
       p.char-count Ennyi karakter maradt: {{ messageLength }}
-      button.submit(type='submit', (click)="bookingStage = 'details'") Tovább
+      button.submit(type='submit', (click)="nextStep(fullNameInput, phoneNumberInput)") Tovább
     // Overview
     .booking-form(*ngIf="bookingStage === 'details'")
       h1 Áttekintés
@@ -70,7 +71,10 @@
         | nulla, in faucibus mauris feugiat non. Sed semper augue sed elit egestas efficitur. Maecenas est arcu, mattis
         | et efficitur vel, lacinia vitae nisl. Nullam iaculis tortor mauris, in bibendum neque commodo in orci aliquam.
       .divider
-      p.price Fizetendő összeg: 25 000 Ft
+      .price-wrapper(style="margin-bottom: 30px")
+        p Fizetendő összeg:
+        p.price {{ price }} Ft
+        p ({{ bookedDays }} éjszaka)
       button.submit(type='submit') Foglalás most
       p.back
-        span((click)="bookingStage = 'fill'") Vissza
+        span((click)="prevStep()") Vissza

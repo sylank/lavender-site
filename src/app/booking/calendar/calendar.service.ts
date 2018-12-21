@@ -5,10 +5,10 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CalendarService {
+  public updateCalendar = new Subject<Date>();
+  public selectedDate: Date = null;
 
-  constructor() { }
-
-  clearSelectedDate = new Subject();
-
-  beforeToday = new Subject();
+  public setSelectedDate(date: Date): void {
+    this.selectedDate = date;
+  }
 }

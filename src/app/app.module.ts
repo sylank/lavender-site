@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,7 +17,6 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { ImageLoaderDirective } from './shared/image-loader.directive';
 import { ImageOpacityDirective } from './shared/image-opacity.directive';
 import { CalendarComponent } from './booking/calendar/calendar.component';
-import { DayFormatterDirective } from './booking/calendar/day-formatter.directive';
 import { DayComponent } from './booking/calendar/day/day.component';
 
 @NgModule({
@@ -33,13 +33,13 @@ import { DayComponent } from './booking/calendar/day/day.component';
     ImageLoaderDirective,
     ImageOpacityDirective,
     CalendarComponent,
-    DayFormatterDirective,
     DayComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent]

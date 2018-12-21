@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, ElementRef, HostListener, Input, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, AfterContentChecked } from '@angular/core';
 import { CalendarService } from '../calendar.service';
 
 @Component({
@@ -8,22 +8,15 @@ import { CalendarService } from '../calendar.service';
 })
 export class DayComponent implements OnInit {
 
-  constructor(private element: ElementRef, private calendarService: CalendarService) { }
+  constructor(private calendarService: CalendarService) { }
 
   @Input() content: number;
   @Input() currentDate: { currentYear: number, currentMonth: number };
+  @Input() selectedDate: Date;
   @HostBinding("class.selected") selected: boolean = false;
   @HostBinding("class.disabled") disabled: boolean = false;
 
-  @HostListener("click") onClick = () => {
-    if (!this.element.nativeElement.innerText || this.element.nativeElement.classList.contains("disabled")) {
-      return;
-    }
-    this.calendarService.clearSelectedDate.next();
-    this.selected = !this.selected;
-  }
-
-  checkDate(): void {
+  disablePastDays(): void {
     const today = new Date();
     if (this.currentDate.currentYear === today.getFullYear() && this.currentDate.currentMonth === today.getMonth() && this.content <= today.getDate()) {
       this.disabled = true;
@@ -33,13 +26,18 @@ export class DayComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.calendarService.clearSelectedDate.subscribe(() => {
-      this.selected = false;
-    });
+    this.selected = false;
+    if (this.calendarService.selectedDate.getDate() === this.content) {
+      this.selected = true;
+    }
   }
 
   ngAfterContentChecked() {
-    this.checkDate();
+    this.disablePastDays();
+    this.selected = false;
+    if (this.calendarService.selectedDate.getFullYear() === this.currentDate.currentYear && this.calendarService.selectedDate.getMonth() === this.currentDate.currentMonth && this.calendarService.selectedDate.getDate() === this.content) {
+      this.selected = true;
+    }
   }
 
 }

@@ -1,4 +1,5 @@
 \:host
+  border-radius: 10px
   cursor: pointer
   transition: transform 100ms
   &:hover
@@ -7,10 +8,11 @@
     transform: scale(2, 2)
 
 \:host(.selected)
-  color: #ab6cc3
+  color: white
+  background-color: #ab6cc3
 
 \:host(.disabled)
-  color: rgb(200, 200, 200)
+  color: rgb(222, 222, 222)
   cursor: default
   pointer-events: none
 
