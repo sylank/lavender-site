@@ -82,7 +82,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
     if (this.selectedDay) {
       const date = new Date(this.currentYear, this.currentMonth, this.selectedDay);
       this.submit.emit(date);
-      console.log(date);
     }
     this.destroy.emit(false);
   }

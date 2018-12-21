@@ -25,6 +25,7 @@ export class BookingComponent implements OnInit {
   private phoneNumber: string = "";
   private email: string = "";
   private messageLength: number = 300;
+  private enableNextStep: boolean = false;
 
   onMessageInput(element: HTMLTextAreaElement): void {
     this.messageLength = 300 - element.value.length;
@@ -89,7 +90,6 @@ export class BookingComponent implements OnInit {
     } else {
       this.bookedDays = Math.ceil((this.dateOfDeparture.getTime() - this.dateOfArrival.getTime()) / 86400000);
     }
-    console.log(this.bookedDays);
     this.price = (this.bookedDays * 25000).toLocaleString();
   }
 
@@ -97,6 +97,17 @@ export class BookingComponent implements OnInit {
     this.arrivalCalendarActive = false;
     this.departureCalendarActive = false;
     this.showCalendar = false;
+  }
+
+  nextStep(fullNameInput: HTMLInputElement, phoneNumberInput: HTMLInputElement): void {
+    if (fullNameInput.value.length === 0 || phoneNumberInput.value.length === 0) {
+      return;
+    }
+    this.bookingStage = "details";
+  }
+
+  prevStep(): void {
+    this.bookingStage = "fill";
   }
 
   ngOnInit() {

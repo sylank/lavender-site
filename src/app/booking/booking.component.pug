@@ -22,20 +22,20 @@
       .divider
       p.title Foglalási adatok:
       .input-wrapper
-        input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="fullName")
+        input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="fullName" #fullNameInput)
         .input-icon
           i.fas.fa-user
       .input-wrapper
-        input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="phoneNumber")
+        input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="phoneNumber" #phoneNumberInput)
         .input-icon
           i.fas.fa-mobile
       .input-wrapper
-        input(type='text', name='email', placeholder='Email', [(ngModel)]="email")
+        input(type='text', name='email', placeholder='Email', [(ngModel)]="email" #emailInput)
         .input-icon
           i.fas.fa-envelope
       textarea.message(name='message', id='', cols='30', rows='10', maxlength='300', placeholder='Megjegyzések', #message='', (input)='onMessageInput(message)')
       p.char-count Ennyi karakter maradt: {{ messageLength }}
-      button.submit(type='submit', (click)="bookingStage = 'details'") Tovább
+      button.submit(type='submit', (click)="nextStep(fullNameInput, phoneNumberInput)") Tovább
     // Overview
     .booking-form(*ngIf="bookingStage === 'details'")
       h1 Áttekintés
@@ -71,7 +71,10 @@
         | nulla, in faucibus mauris feugiat non. Sed semper augue sed elit egestas efficitur. Maecenas est arcu, mattis
         | et efficitur vel, lacinia vitae nisl. Nullam iaculis tortor mauris, in bibendum neque commodo in orci aliquam.
       .divider
-      p.price Fizetendő összeg: {{ price }} Ft
+      .price-wrapper(style="margin-bottom: 30px")
+        p Fizetendő összeg:
+        p.price {{ price }} Ft
+        p ({{ bookedDays }} éjszaka)
       button.submit(type='submit') Foglalás most
       p.back
-        span((click)="bookingStage = 'fill'") Vissza
+        span((click)="prevStep()") Vissza
