@@ -36,7 +36,7 @@
             i.fas.fa-envelope
         textarea.message(name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
         p.char-count Ennyi karakter maradt: {{ messageLength }}
-        button.submit(type='submit', [disabled]="form.invalid") Tovább
+        button.submit(type='submit', [disabled]="form.invalid || reservedDates.length !== 0") Tovább
 
     // Overview
     .booking-form(*ngIf="bookingStage === 'overview'")

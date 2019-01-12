@@ -1,17 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarService } from './calendar/calendar.service';
 import { NgForm } from '@angular/forms';
-
-interface Booking {
-  arrival: Date,
-  departure: Date,
-  nights: number,
-  price: number,
-  name: string,
-  phone: string,
-  email: string,
-  message: string
-}
+import { HttpService } from '../shared/http.service';
+import { Booking } from './booking.model';
 
 @Component({
   selector: 'app-booking',
@@ -20,7 +11,7 @@ interface Booking {
 })
 export class BookingComponent implements OnInit {
 
-  constructor(private calendarService: CalendarService) { }
+  constructor(private calendarService: CalendarService, private http: HttpService) { }
 
   private months: string[] = ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"];
   private calendarMode: "arrival" | "departure" = "arrival";
@@ -30,6 +21,7 @@ export class BookingComponent implements OnInit {
   private calendarInitDate: Date; // To determine which date the calendar should open up with
   private bookingStage: "form" | "overview" = "form";
   private messageLength: number = 300;
+  reservedDates = [];
 
   private booking: Booking = {
     arrival: new Date(),
@@ -63,6 +55,7 @@ export class BookingComponent implements OnInit {
     }
     this.calendarService.setSelectedDate(this.booking.arrival);
     this.calendarService.updateCalendar.next(this.booking.arrival);
+    this.calendarService.reservedDates.next(this.reservedDates);
   }
 
   toggleDepartureCalendar(event: PointerEvent): void {
@@ -82,6 +75,7 @@ export class BookingComponent implements OnInit {
     }
     this.calendarService.setSelectedDate(this.booking.departure);
     this.calendarService.updateCalendar.next(this.booking.departure);
+    this.calendarService.reservedDates.next(this.reservedDates);
   }
 
   setDate(date: Date): void {
@@ -99,6 +93,10 @@ export class BookingComponent implements OnInit {
         }
     }
     this.setPrice();
+    this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
+      this.reservedDates = reservedDates.response.reservations;
+      console.log(this.reservedDates);
+    })
   }
 
   setPrice(): void {
@@ -131,10 +129,30 @@ export class BookingComponent implements OnInit {
     this.departureCalendarActive = false;
   }
 
+  dateFormat(date: Date): string {
+    let month: any = date.getMonth() + 1;
+    if (month < 10) {
+      month = `0${month}`;
+    }
+    return `${date.getFullYear()}-${month}-${date.getDate()}`;
+  }
+
+  convertArrivalDate(date: Date): string {
+    return encodeURIComponent(`${this.dateFormat(date)}T00:00:01+01:00`);
+  }
+
+  convertDepartureDate(date: Date): string {
+    return encodeURIComponent(`${this.dateFormat(date)}T23:59:59+01:00`);
+  }
+
   ngOnInit() {
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
     this.booking.departure.setDate(this.booking.arrival.getDate() + 1);
-    console.log(this.booking)
+
+    this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
+      this.reservedDates = reservedDates.response.reservations;
+      console.log(this.reservedDates);
+    })
   }
 
 }
