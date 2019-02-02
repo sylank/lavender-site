@@ -1,12 +1,13 @@
-import { Component, OnInit, HostBinding, Input, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, AfterContentChecked, OnDestroy } from '@angular/core';
 import { CalendarService } from '../calendar.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'calendar-day',
   template: '{{ content }}',
   styleUrls: ['./day.component.sass']
 })
-export class DayComponent implements OnInit {
+export class DayComponent implements OnInit, OnDestroy {
 
   constructor(private calendarService: CalendarService) { }
 
@@ -15,6 +16,9 @@ export class DayComponent implements OnInit {
   @Input() selectedDate: Date;
   @HostBinding("class.selected") selected: boolean = false;
   @HostBinding("class.disabled") disabled: boolean = false;
+  @HostBinding("class.reserved") reserved: boolean = false;
+
+  disableDays: Subscription;
 
   disablePastDays(): void {
     const today = new Date();
@@ -30,6 +34,11 @@ export class DayComponent implements OnInit {
     if (this.calendarService.selectedDate.getDate() === this.content) {
       this.selected = true;
     }
+    this.disableDays = this.calendarService.disableDays.subscribe((reservedDays: number[]) =>{
+      if (reservedDays.indexOf(this.content) !== -1) {
+        this.reserved = true;
+      }
+    })
   }
 
   ngAfterContentChecked() {
@@ -38,6 +47,11 @@ export class DayComponent implements OnInit {
     if (this.calendarService.selectedDate.getFullYear() === this.currentDate.currentYear && this.calendarService.selectedDate.getMonth() === this.currentDate.currentMonth && this.calendarService.selectedDate.getDate() === this.content) {
       this.selected = true;
     }
+  }
+
+  ngOnDestroy() {
+    this.disableDays.unsubscribe();
+    this.reserved = false;
   }
 
 }
