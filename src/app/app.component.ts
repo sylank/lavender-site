@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'lavender-site';
 
   expand(drawer: HTMLDivElement): void {
-    drawer.style.flexBasis = "100%";
+    drawer.style.flexBasis = '100%';
   }
 }
