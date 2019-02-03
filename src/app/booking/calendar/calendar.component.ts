@@ -13,14 +13,36 @@ export class CalendarComponent implements OnInit, OnDestroy {
   constructor(private calendarService: CalendarService, private http: HttpService) { }
 
   private today = new Date();
+
   @Input() public currentYear = this.today.getFullYear();
   @Input() public currentMonth = this.today.getMonth();
+
+  @Output() destroy = new EventEmitter<boolean>();
+  @Output() submit = new EventEmitter<Date>();
+
   private selectedDay: number;
-  private months = ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"];
-  private days = ["H", "K", "Sze", "Cs", "P", "Szo", "V"];
-  private weeksInMonth = [1, 2, 3, 4, 5, 6]
+  
+  private months = ['január',
+                    'február',
+                    'március',
+                    'április',
+                    'május',
+                    'június',
+                    'július',
+                    'augusztus',
+                    'szeptember',
+                    'október',
+                    'november',
+                    'december'];
+
+  private days = ['H', 'K', 'Sze', 'Cs', 'P', 'Szo', 'V'];
+  private weeksInMonth = [1, 2, 3, 4, 5, 6];
   private dayList: number[] = []; // Contains the list of days to display in a calendar month
   private updateCalendar: Subscription;
+
+  reservedDates = [];
+
+  reserved: Subscription;
 
   displayDaysInMonth(year: number, month: number): void {
     // Calculate the number of days in month
@@ -60,12 +82,12 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.reserved = this.http.checkAvailabilityInMonth(this.currentYear, this.currentMonth).subscribe((reservedDates: any) => {
       this.reservedDates = [];
       this.generateBookedDaysList(reservedDates.response.reservations);
-    })
+    });
   }
 
   private prevMonth(): void {
     if (this.currentYear === this.today.getFullYear() && this.currentMonth === this.today.getMonth()) {
-      return
+      return;
     }
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
@@ -78,11 +100,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.reserved = this.http.checkAvailabilityInMonth(this.currentYear, this.currentMonth).subscribe((reservedDates: any) => {
       this.reservedDates = [];
       this.generateBookedDaysList(reservedDates.response.reservations);
-    })
+    });
   }
 
   submitDate(event: any, date: number): void {
-    if (!event.target.innerText || event.target.classList.contains("disabled")) { return };
+    if (!event.target.innerText || event.target.classList.contains('disabled')) { return; }
     if (this.selectedDay === undefined) {
       this.selectedDay = date;
     } else {
@@ -95,10 +117,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.destroy.emit(false);
   }
 
-  @Output() destroy = new EventEmitter<boolean>();
-  @Output() submit = new EventEmitter<Date>();
-
-  @HostListener("click", ["$event"]) hostClick = (event) => {
+  @HostListener('click', ['$event']) hostClick = (event) => {
     event.stopPropagation();
   }
 
@@ -108,7 +127,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
       const to = this.dateConverter(reserved.toDate);
       const range: number[] = this.generateReservedRange(from, to);
       this.reservedDates.push(...range);
-    })
+    });
     console.log(this.reservedDates);
     this.calendarService.disableDays.next(this.reservedDates);
   }
@@ -121,7 +140,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   private generateReservedRange(from: Date, to: Date) {
-    let reservedRange = [];
+    const reservedRange = [];
     const fromMonth = from.getMonth();
     const toMonth = to.getMonth();
     const fromDate = from.getDate();
@@ -144,20 +163,16 @@ export class CalendarComponent implements OnInit, OnDestroy {
     return reservedRange;
   }
 
-  reservedDates = [];
-
-  reserved: Subscription;
-
   ngOnInit() {
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
     this.updateCalendar = this.calendarService.updateCalendar.subscribe((date: Date) => {
       this.currentYear = date.getFullYear();
       this.currentMonth = date.getMonth();
       this.displayDaysInMonth(date.getFullYear(), date.getMonth());
-    })
+    });
     this.reserved = this.http.checkAvailabilityInMonth(this.today.getFullYear(), this.today.getMonth()).subscribe((reservedDates: any) => {
       this.generateBookedDaysList(reservedDates.response.reservations);
-    })
+    });
   }
 
   ngOnDestroy() {
