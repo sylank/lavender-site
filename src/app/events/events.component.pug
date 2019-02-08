@@ -1,1 +1,18 @@
 .hero
+    .hero-content
+        h1 Közelben lévő események
+        .filter
+            button.button.all((click)='filterArrayById(0); selectedButtonIdx=0',[ngClass]="selectedButtonIdx==0 ? 'all-selected' : 'all'") Összes
+            button.button.walk((click)='filterArrayById(1); selectedButtonIdx=1' ,[ngClass]="selectedButtonIdx==1 ? 'walk-selected' : 'walk'") Gyalog
+            button.button.bike((click)='filterArrayById(2); selectedButtonIdx=2', [ngClass]="selectedButtonIdx==2 ? 'bike-selected' : 'bike'") Bicikli
+            button.button.car((click)='filterArrayById(3); selectedButtonIdx=3', [ngClass]="selectedButtonIdx==3 ? 'car-selected' : 'car'") Autó
+        .empty-container(*ngIf='filteredData.length==0') 
+            h2 Jelenleg nincsenek közelgő események
+        .cont
+            .record-container(*ngFor='let element of filteredData; let i = index')
+                event-record(fromDate='{{element.fromDate}}'
+                                toDate='{{element.toDate}}'
+                                eventName='{{element.eventName}}'
+                                eventLocation='{{element.eventLocation}}'
+                                distance='{{element.distance}}')
+                .record-separator(*ngIf='i<filteredData.length-1')
