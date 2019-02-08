@@ -1,0 +1,14 @@
+.event-record
+  span.color-box
+  span.date-box
+    span.date.from
+      | {{fromDate}}
+    span.separator(*ngIf="toDate!=''")
+      | -  
+    span.date.to
+      | {{toDate}}
+  span.description-box
+    .description
+        .event-name {{eventName}}
+    .location
+        a.event-location(target="_blank", rel="noopener noreferrer", [href]="'https://www.google.hu/maps/place/' + eventLocation") {{eventLocation}}

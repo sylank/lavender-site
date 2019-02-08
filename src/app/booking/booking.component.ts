@@ -13,14 +13,26 @@ export class BookingComponent implements OnInit {
 
   constructor(private calendarService: CalendarService, private http: HttpService) { }
 
-  private months: string[] = ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"];
-  private calendarMode: "arrival" | "departure" = "arrival";
-  private showCalendar: boolean = false;
-  private arrivalCalendarActive: boolean = false;
-  private departureCalendarActive: boolean = false;
+  private months: string[] = ['január',
+                              'február',
+                              'március',
+                              'április',
+                              'május',
+                              'június',
+                              'július',
+                              'augusztus',
+                              'szeptember',
+                              'október',
+                              'november',
+                              'december'];
+
+  private calendarMode: 'arrival' | 'departure' = 'arrival';
+  private showCalendar = false;
+  private arrivalCalendarActive = false;
+  private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  private bookingStage: "form" | "overview" = "form";
-  private messageLength: number = 300;
+  private bookingStage: 'form' | 'overview' = 'form';
+  private messageLength = 300;
   reservedDates = [];
 
   private booking: Booking = {
@@ -28,11 +40,11 @@ export class BookingComponent implements OnInit {
     departure: new Date(),
     nights: 1,
     price: 25000,
-    name: "",
-    phone: "",
-    email: "",
-    message: ""
-  }
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  };
 
   onMessageInput(element: HTMLTextAreaElement): void {
     this.messageLength = 300 - element.value.length;
@@ -41,14 +53,14 @@ export class BookingComponent implements OnInit {
   toggleArrivalCalendar(event: PointerEvent): void {
     event.stopPropagation();
     this.departureCalendarActive = false;
-    if (this.showCalendar && this.calendarMode === "departure") {
-      this.calendarMode = "arrival";
+    if (this.showCalendar && this.calendarMode === 'departure') {
+      this.calendarMode = 'arrival';
     } else {
       this.showCalendar = !this.showCalendar;
     }
-    this.calendarMode = "arrival";
+    this.calendarMode = 'arrival';
     this.calendarInitDate = this.booking.arrival;
-    if (this.showCalendar && this.calendarMode === "arrival") {
+    if (this.showCalendar && this.calendarMode === 'arrival') {
       this.arrivalCalendarActive = true;
     } else {
       this.arrivalCalendarActive = false;
@@ -61,14 +73,14 @@ export class BookingComponent implements OnInit {
   toggleDepartureCalendar(event: PointerEvent): void {
     event.stopPropagation();
     this.arrivalCalendarActive = false;
-    if (this.showCalendar && this.calendarMode === "arrival") {
-      this.calendarMode = "departure";
+    if (this.showCalendar && this.calendarMode === 'arrival') {
+      this.calendarMode = 'departure';
     } else {
       this.showCalendar = !this.showCalendar;
     }
-    this.calendarMode = "departure";
+    this.calendarMode = 'departure';
     this.calendarInitDate = this.booking.departure;
-    if (this.showCalendar && this.calendarMode === "departure") {
+    if (this.showCalendar && this.calendarMode === 'departure') {
       this.departureCalendarActive = true;
     } else {
       this.departureCalendarActive = false;
@@ -80,23 +92,27 @@ export class BookingComponent implements OnInit {
 
   setDate(date: Date): void {
     switch (this.calendarMode) {
-      case "arrival":
+      case 'arrival':
         this.booking.arrival = date;
         if (date.getTime() >= this.booking.departure.getTime() - 86400000) {
-          this.booking.departure = new Date(this.booking.arrival.getFullYear(), this.booking.arrival.getMonth(), this.booking.arrival.getDate() + 1);
+          this.booking.departure = new Date(this.booking.arrival.getFullYear(),
+                                            this.booking.arrival.getMonth(),
+                                            this.booking.arrival.getDate() + 1);
         }
         break;
-      case "departure":
+      case 'departure':
         this.booking.departure = date;
         if (date.getTime() < this.booking.arrival.getTime() + 86400000) {
-          this.booking.arrival = new Date(this.booking.departure.getFullYear(), this.booking.departure.getMonth(), this.booking.departure.getDate() - 1);
+          this.booking.arrival = new Date(this.booking.departure.getFullYear(),
+                                          this.booking.departure.getMonth(),
+                                          this.booking.departure.getDate() - 1);
         }
     }
     this.setPrice();
     this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
       this.reservedDates = reservedDates.response.reservations;
       console.log(this.reservedDates);
-    })
+    });
   }
 
   setPrice(): void {
@@ -115,12 +131,12 @@ export class BookingComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    this.bookingStage = "overview";
+    this.bookingStage = 'overview';
     console.log(this.booking);
   }
 
   onBack(): void {
-    this.bookingStage = "form";
+    this.bookingStage = 'form';
   }
 
   closeCalendar(): void {
@@ -145,6 +161,24 @@ export class BookingComponent implements OnInit {
     return encodeURIComponent(`${this.dateFormat(date)}T23:59:59+01:00`);
   }
 
+  formatCurrency(amount: number) {
+    let returnData = String(amount);
+    const thousandIndex = returnData.length - 3;
+    const millionIndex = returnData.length - 6;
+
+    // 100 000, 10 000, 1 000
+    if (amount > 1000) {
+      returnData = [returnData.slice(0, thousandIndex), ' ', returnData.slice(thousandIndex)].join('');
+    }
+
+    // 100 000 000, 10 000 000, 1 000 000
+    if (amount > 1000000) {
+      returnData = [returnData.slice(0, millionIndex), ' ', returnData.slice(millionIndex)].join('');
+    }
+
+    return returnData;
+  }
+
   ngOnInit() {
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
     this.booking.departure.setDate(this.booking.arrival.getDate() + 1);
@@ -152,7 +186,7 @@ export class BookingComponent implements OnInit {
     this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
       this.reservedDates = reservedDates.response.reservations;
       console.log(this.reservedDates);
-    })
+    });
   }
 
 }

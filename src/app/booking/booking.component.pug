@@ -17,7 +17,7 @@
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
         p Fizetendő összeg:
-        p.price {{ booking.price }} Ft
+        p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
       .divider
       form((ngSubmit)="onSubmit(form)" #form="ngForm")

@@ -10,8 +10,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(private galleryService: GalleryService) { }
 
-  background: boolean = false;
-  opacity: boolean = false;
+  background = false;
+  opacity = false;
 
   changeBg() {
     window.scrollY > 80 ? this.background = true : this.background = false;
@@ -19,12 +19,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.galleryService.navbarBackground.subscribe((res) => {
-      if (res === "open") {
+      if (res === 'open') {
         this.opacity = true;
       } else {
         this.opacity = false;
       }
-    })
+    });
   }
 
 }

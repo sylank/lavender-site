@@ -14,15 +14,16 @@ export class DayComponent implements OnInit, OnDestroy {
   @Input() content: number;
   @Input() currentDate: { currentYear: number, currentMonth: number };
   @Input() selectedDate: Date;
-  @HostBinding("class.selected") selected: boolean = false;
-  @HostBinding("class.disabled") disabled: boolean = false;
-  @HostBinding("class.reserved") reserved: boolean = false;
+  @HostBinding('class.selected') selected = false;
+  @HostBinding('class.disabled') disabled = false;
+  @HostBinding('class.reserved') reserved = false;
 
   disableDays: Subscription;
 
   disablePastDays(): void {
     const today = new Date();
-    if (this.currentDate.currentYear === today.getFullYear() && this.currentDate.currentMonth === today.getMonth() && this.content <= today.getDate()) {
+    if (this.currentDate.currentYear === today.getFullYear() &&
+        this.currentDate.currentMonth === today.getMonth() && this.content <= today.getDate()) {
       this.disabled = true;
     } else {
       this.disabled = false;
@@ -34,17 +35,19 @@ export class DayComponent implements OnInit, OnDestroy {
     if (this.calendarService.selectedDate.getDate() === this.content) {
       this.selected = true;
     }
-    this.disableDays = this.calendarService.disableDays.subscribe((reservedDays: number[]) =>{
+    this.disableDays = this.calendarService.disableDays.subscribe((reservedDays: number[]) => {
       if (reservedDays.indexOf(this.content) !== -1) {
         this.reserved = true;
       }
-    })
+    });
   }
 
   ngAfterContentChecked() {
     this.disablePastDays();
     this.selected = false;
-    if (this.calendarService.selectedDate.getFullYear() === this.currentDate.currentYear && this.calendarService.selectedDate.getMonth() === this.currentDate.currentMonth && this.calendarService.selectedDate.getDate() === this.content) {
+    if (this.calendarService.selectedDate.getFullYear() === this.currentDate.currentYear &&
+        this.calendarService.selectedDate.getMonth() === this.currentDate.currentMonth &&
+        this.calendarService.selectedDate.getDate() === this.content) {
       this.selected = true;
     }
   }
