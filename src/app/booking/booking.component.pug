@@ -1,71 +1,73 @@
-.hero
+.hero((window:click)="closeCalendar()")
   .hero-content
-    img.lavender(src='assets/img/lavender.png', alt='')
-    .booking-form(*ngIf="bookingStage === 'fill'")
+    //img.lavender(src='assets/img/lavender.png', alt='')
+    .booking-form(*ngIf="bookingStage === 'form'")
       h1 Foglalás
       .date-picker
-        .arrival((click)='toggleArrivalCalendar()')
+        .arrival
           p.title Érkezés:
-          .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}')
+          .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
             i.fas.fa-calendar-alt
-            | {{ dateOfArrival.getFullYear() }}. {{ months[dateOfArrival.getMonth()] }} {{ dateOfArrival.getDate() }}.
-        .departure((click)='toggleDepartureCalendar()')
+            | {{ booking.arrival.getFullYear() }}. {{ months[booking.arrival.getMonth()] }} {{ booking.arrival.getDate() }}.
+        .departure
           p.title Távozás:
-          .date-field([ngClass]='{activeCalendar: departureCalendarActive}')
+          .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
             i.fas.fa-calendar-alt
-            | {{ dateOfDeparture.getFullYear() }}. {{ months[dateOfDeparture.getMonth()] }} {{ dateOfDeparture.getDate() }}.
+            | {{ booking.departure.getFullYear() }}. {{ months[booking.departure.getMonth()] }} {{ booking.departure.getDate() }}.
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
         p Fizetendő összeg:
-        p.price {{ price }} Ft
-        p ({{ bookedDays }} éjszaka)
+        p.price {{ formatCurrency(booking.price) }} Ft
+        p ({{ booking.nights }} éjszaka)
       .divider
-      p.title Foglalási adatok:
-      .input-wrapper
-        input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="fullName" #fullNameInput)
-        .input-icon
-          i.fas.fa-user
-      .input-wrapper
-        input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="phoneNumber" #phoneNumberInput)
-        .input-icon
-          i.fas.fa-mobile
-      .input-wrapper
-        input(type='text', name='email', placeholder='Email', [(ngModel)]="email" #emailInput)
-        .input-icon
-          i.fas.fa-envelope
-      textarea.message(name='message', id='', cols='30', rows='10', maxlength='300', placeholder='Megjegyzések', #message='', (input)='onMessageInput(message)')
-      p.char-count Ennyi karakter maradt: {{ messageLength }}
-      button.submit(type='submit', (click)="nextStep(fullNameInput, phoneNumberInput)") Tovább
+      form((ngSubmit)="onSubmit(form)" #form="ngForm")
+        p.title Foglalási adatok:
+        .input-wrapper
+          input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="booking.name" #nameInput="ngModel")
+          .input-icon
+            i.fas.fa-user
+        .input-wrapper
+          input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="booking.phone" #phoneInput="ngModel")
+          .input-icon
+            i.fas.fa-mobile
+        .input-wrapper
+          input(type='email', name='email', placeholder='Email *', required, [(ngModel)]="booking.email" #emailInput="ngModel")
+          .input-icon
+            i.fas.fa-envelope
+        textarea.message(name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
+        p.char-count Ennyi karakter maradt: {{ messageLength }}
+        button.submit(type='submit', [disabled]="form.invalid || reservedDates.length !== 0") Tovább
+
     // Overview
-    .booking-form(*ngIf="bookingStage === 'details'")
+    .booking-form(*ngIf="bookingStage === 'overview'")
       h1 Áttekintés
       .data
         p Érkezés:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
-          | {{ dateOfArrival.getFullYear() }}. {{ months[dateOfArrival.getMonth()] }} {{ dateOfArrival.getDate() }}.
+          | {{ booking.arrival.getFullYear() }}. {{ months[booking.arrival.getMonth()] }} {{ booking.arrival.getDate() }}.
       .data
         p Távozás:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
-          | {{ dateOfDeparture.getFullYear() }}. {{ months[dateOfDeparture.getMonth()] }} {{ dateOfDeparture.getDate() }}.
+          | {{ booking.departure.getFullYear() }}. {{ months[booking.departure.getMonth()] }} {{ booking.departure.getDate() }}.
       .data
         p Teljes név:
         .icon-wrapper
           i.fas.fa-user
-        p {{ fullName }}
+        p {{ booking.name }}
       .data
         p Telefonszám:
         .icon-wrapper
           i.fas.fa-mobile
-        p {{ phoneNumber }}
+        p {{ booking.phone }}
       .data
         p Email:
         .icon-wrapper
           i.fas.fa-envelope
-        p {{ email }}
+        p {{ booking.email }}
       p.message-overview
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis tortor
         | nulla, in faucibus mauris feugiat non. Sed semper augue sed elit egestas efficitur. Maecenas est arcu, mattis
@@ -74,7 +76,7 @@
       .price-wrapper(style="margin-bottom: 30px")
         p Fizetendő összeg:
         p.price {{ price }} Ft
-        p ({{ bookedDays }} éjszaka)
+        p ({{ booking.nights }} éjszaka)
       button.submit(type='submit') Foglalás most
       p.back
-        span((click)="prevStep()") Vissza
+        span((click)="onBack()") Vissza

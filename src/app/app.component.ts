@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lavender-site';
+
+  expand(drawer: HTMLDivElement): void {
+    drawer.style.flexBasis = '100%';
+  }
 }

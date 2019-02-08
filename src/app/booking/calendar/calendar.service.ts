@@ -7,6 +7,8 @@ import { Subject } from 'rxjs';
 export class CalendarService {
   public updateCalendar = new Subject<Date>();
   public selectedDate: Date = null;
+  public reservedDates = new Subject();
+  public disableDays = new Subject<number[]>();
 
   public setSelectedDate(date: Date): void {
     this.selectedDate = date;

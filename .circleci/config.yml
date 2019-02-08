@@ -12,7 +12,7 @@ jobs:
 
       - run:
           name: Run install
-          command: npm install
+          command: npm install --unsafe-perm
 
       - run:
           name: Run install angular-cli

@@ -1,12 +1,23 @@
 footer
   .container
+    
     .logo
       img(src='assets/img/l.png', alt='')
       p Levendula apartman, {{ date.getFullYear() }}
+
     ul.menu
-      li#menu Menü
+      li.title Menü
       li.menu-item(routerLink='/home') Kezdőlap
       li.menu-item(routerLink='/gallery') Galéria
       li.menu-item(routerLink='/events') Programok
       li.menu-item(routerLink='/contact') Kapcsolat
       li.menu-item(routerLink='/booking') Foglalás
+
+    ul.menu
+      li.title Egyéb
+      li
+        a.menu-item(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/file/d/1DyKs5yXC7lXnJiYHvYl9VRqswVWQd3rm/view?usp=sharing') Házirend
+      li
+        a.menu-item(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/file/d/1pqAxQ3uAb_MOthAUmIymnM3IE252t3UZ/view?usp=sharing', download='w3logo') Átutalás
+
+    iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flevendulabalatonmaria%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1066614486739525', width='340', height='500', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allow='encrypted-media')

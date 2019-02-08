@@ -19,6 +19,9 @@ import { ImageOpacityDirective } from './shared/image-opacity.directive';
 import { CalendarComponent } from './booking/calendar/calendar.component';
 import { DayComponent } from './booking/calendar/day/day.component';
 
+import { AgmCoreModule } from '@agm/core';
+import { EventComponent } from './events/event/event.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +36,17 @@ import { DayComponent } from './booking/calendar/day/day.component';
     ImageLoaderDirective,
     ImageOpacityDirective,
     CalendarComponent,
-    DayComponent
+    DayComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUJ5jGs6beGOY_Ts8PSloxQw09IVZfcdw'
+    })
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent]
