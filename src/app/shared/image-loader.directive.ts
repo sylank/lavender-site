@@ -9,14 +9,14 @@ export class ImageLoaderDirective implements OnInit {
 
   constructor(private galleryService: GalleryService) { }
 
-  @HostBinding("style.background-image") bgImage: string = "";
+  @HostBinding('style.background-image') bgImage = '';
   loadImage: Subscription;
 
   ngOnInit() {
     this.loadImage = this.galleryService.getActiveImage.subscribe((response) => {
       console.log(response);
       this.bgImage = `url("${response}")`;
-    })
+    });
   }
 
   ngOnDestroy() {

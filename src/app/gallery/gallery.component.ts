@@ -12,9 +12,9 @@ export class GalleryComponent implements OnInit {
 
   gallery: any;
   activeImage: string;
-  active: string;
-  isCarouselOpen: boolean = false;
-  displayCarousel: string = "none";
+  activeCaption: string;
+  activeIndex: number;
+  displayCarousel = 'none';
 
   onMouseEnter(index: string): void {
     this.galleryService.opacityControl.next(index);
@@ -24,43 +24,49 @@ export class GalleryComponent implements OnInit {
     this.galleryService.opacityControl.next();
   }
 
-  openCarousel(index: string): void {
-    this.isCarouselOpen = true;
-    this.displayCarousel = "flex";
-    this.activeImage = this.gallery[Number(index)];
+  openCarousel(index: number): void {
+    this.displayCarousel = 'flex';
+    this.activeImage = this.gallery[index].location;
+    this.activeCaption = this.gallery[index].caption;
     this.galleryService.getActiveImage.next(this.activeImage);
-    this.galleryService.navbarBackground.next("open");
+    this.galleryService.navbarBackground.next('open');
+
+    this.activeIndex = index;
   }
 
-  closeCarousel(): void {
-    this.isCarouselOpen = false;
-    this.displayCarousel = "none";
-    this.galleryService.navbarBackground.next("close");
+  closeCarousel(event: any): void {
+    this.displayCarousel = 'none';
+    this.galleryService.navbarBackground.next('close');
+    event.stopPropagation();
   }
 
-  loadImage(command: string): void {
-    if (command === "next") {
-      let nextIndex: number = this.gallery.indexOf(this.activeImage) + 1;
-      if (nextIndex === this.gallery.length) {
-        nextIndex = 0;
+  loadImage(command: string, event: any): void {
+    if (command === 'next') {
+      this.activeIndex++;
+      if (this.activeIndex === this.gallery.length) {
+        this.activeIndex = 0;
       }
-      this.activeImage = this.gallery[nextIndex];
-      this.galleryService.getActiveImage.next(this.activeImage);
-    } else if (command === "prev") {
-      let prevIndex: number = this.gallery.indexOf(this.activeImage) - 1;
-      if (prevIndex < 0) {
-        prevIndex = this.gallery.length - 1;
-      }
-      this.activeImage = this.gallery[prevIndex];
-      this.galleryService.getActiveImage.next(this.activeImage);
     }
+
+    if (command === 'prev') {
+      this.activeIndex--;
+      if (this.activeIndex < 0) {
+        this.activeIndex = this.gallery.length - 1;
+      }
+    }
+
+    this.activeImage = this.gallery[this.activeIndex].location;
+    this.activeCaption = this.gallery[this.activeIndex].caption;
+    this.galleryService.getActiveImage.next(this.activeImage);
+
+    event.stopPropagation();
   }
 
   ngOnInit(): void {
     this.galleryService.getGallery().subscribe((response) => {
       this.gallery = response;
-      this.activeImage = this.gallery[0];
-    })
+      this.activeImage = this.gallery[0].location;
+    });
   }
 
 }

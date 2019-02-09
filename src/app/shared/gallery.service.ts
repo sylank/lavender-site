@@ -7,13 +7,12 @@ export class GalleryService {
 
   constructor(private http: HttpClient) { }
 
-  getGallery() {
-    return this.http.get("assets/gallery.json");
-  }
-
   getActiveImage = new Subject();
   opacityControl = new Subject();
   navbarBackground = new Subject();
 
+  getGallery() {
+    return this.http.get('assets/gallery.json');
+  }
 
 }

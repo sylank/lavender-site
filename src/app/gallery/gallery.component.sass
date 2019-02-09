@@ -28,11 +28,12 @@
   width: 300px
   height: 200px
   transition: opacity 250ms
+  padding: 10px
 
 .current-image
-  width: 100%
-  height: calc(100%)
-  margin: 0 auto
+  width: 80%
+  height: calc(80%)
+  margin: 110px auto
   background-repeat: no-repeat
   background-size: cover
   background-position: center center
@@ -50,19 +51,50 @@
   height: 100%
   padding-top: 75px
   padding-bottom: 150px
-  background-color: black
+  background-color: rgba(0,0,0,0.6)
 
 .prev, .next
+  display: flex
+  justify-content: center
+  align-items: center
   position: absolute
   top: 50%
-  width: 30px
-  height: 30px
+  width: 50px
+  height: 50px
   transform: translateY(-50%)
-  background-color: red
+  border-radius: 100px
+  transition-duration: 0.4s
+  background-color: #ab6cc3
+  opacity: 0.5
   cursor: pointer
+  user-select: none
+  i
+    font-size: 60px
+    color: white
+.prev:hover, .next:hover
+  background-color: #ab6cc3
+  color: white
+  opacity: 1
 
 .prev
   left: 0
+  margin-left: 15px
 
 .next
   right: 0
+  margin-right: 15px
+
+
+.caption-box
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 30px
+  background: red
+  background-color: rgba(0,0,0,0.6)
+  color: white
+  transition: all .2s ease
+  opacity: 0
+
+.current-image:hover > .caption-box
+  opacity: 1
