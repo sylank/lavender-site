@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import { CalendarService } from './calendar.service';
 import { Subscription, from } from 'rxjs';
-import { HttpService } from 'src/app/shared/http.service';
+import { CalendarHttpService } from 'src/app/shared/calendar.http.service';
 
 @Component({
   selector: 'app-calendar',
@@ -10,7 +10,7 @@ import { HttpService } from 'src/app/shared/http.service';
 })
 export class CalendarComponent implements OnInit, OnDestroy {
 
-  constructor(private calendarService: CalendarService, private http: HttpService) { }
+  constructor(private calendarService: CalendarService, private http: CalendarHttpService) { }
 
   private today = new Date();
 
@@ -21,7 +21,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
   @Output() submit = new EventEmitter<Date>();
 
   private selectedDay: number;
-  
+
   private months = ['január',
                     'február',
                     'március',

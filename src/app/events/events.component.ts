@@ -1,5 +1,7 @@
-import { Component, OnInit, HostBinding, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import DistanceUtils from './distance-utils';
+import { EventHttpService } from '../shared/event.http.service';
+import { HttpUtils } from '../shared/http.utils';
 
 @Component({
   selector: 'app-events',
@@ -8,155 +10,47 @@ import DistanceUtils from './distance-utils';
 })
 export class EventsComponent implements OnInit {
 
-  public tmpData =
-    [
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Az első esemény 1234',
-        'eventLocation': '1144 Budapest, Viola utca',
-        'distance': 2
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '2019.11.07',
-        'eventName': 'Rövid esemény',
-        'eventLocation': '1144 Budapest',
-        'distance': 30
-      },
-      {
-        'fromDate': '2018.09.26',
-        'toDate': '',
-        'eventName': 'A leghosszabb esemény amin voltam',
-        'eventLocation': '1144 Budapest',
-        'distance': 55
-      }
-    ];
+  public eventsList = [];
 
   public filteredData = [];
 
   selectedButtonIdx = 0;
 
-  constructor() { }
+  constructor(private eventsHttpService: EventHttpService) { }
 
   ngOnInit() {
     this.filterArrayById(-1);
+
+    this.eventsHttpService.getEventsByFromDateAndToDate(new Date(), HttpUtils.getEndOfTheYear(), 999).subscribe(
+      (queriedEvents: any) => {
+        console.log(queriedEvents);
+        this.eventsList = queriedEvents.response.events;
+        this.filterArrayById(-1);
+      }
+    );
   }
 
   filterArrayById(id: number) {
     if (id === 1) {
-      this.filteredData = this.tmpData.filter(item => DistanceUtils.isWalkDistance(item.distance));
+      this.filteredData = this.eventsList.filter(item => DistanceUtils.isWalkDistance(item.distance));
       return;
     }
 
     if (id === 2) {
-      this.filteredData = this.tmpData.filter(item => DistanceUtils.isBikeDistance(item.distance));
+      this.filteredData = this.eventsList.filter(item => DistanceUtils.isBikeDistance(item.distance));
       return;
     }
 
     if (id === 3) {
-      this.filteredData = this.tmpData.filter(item => DistanceUtils.isCarDistance(item.distance));
+      this.filteredData = this.eventsList.filter(item => DistanceUtils.isCarDistance(item.distance));
       return;
     }
 
-    this.filteredData = this.tmpData;
+    this.filteredData = this.eventsList;
+  }
+
+  displayDate(date: string) {
+    const retDate = date.split('-').join('.');
+    return retDate.slice(0, retDate.indexOf('T'));
   }
 }

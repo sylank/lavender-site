@@ -10,9 +10,9 @@
             h2 Jelenleg nincsenek közelgő események
         .cont
             .record-container(*ngFor='let element of filteredData; let i = index')
-                event-record(fromDate='{{element.fromDate}}'
-                                toDate='{{element.toDate}}'
-                                eventName='{{element.eventName}}'
-                                eventLocation='{{element.eventLocation}}'
+                event-record(fromDate='{{displayDate(element.fromDate)}}'
+                                toDate='{{displayDate(element.toDate)}}'
+                                eventName='{{element.summary}}'
+                                eventLocation='{{element.location}}'
                                 distance='{{element.distance}}')
                 .record-separator(*ngIf='i<filteredData.length-1')
