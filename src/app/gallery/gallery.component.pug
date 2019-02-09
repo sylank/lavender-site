@@ -2,12 +2,15 @@
 .hero
   .image-container
     .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
-      img.image(src='{{ image }}', alt='')
+      img.image(src='{{ image.location }}', alt='')
 // END OF GALLERY
 // IMAGE CAROUSEL
-.carousel([ngStyle]='{ display: displayCarousel }')
-  .prev((click)="loadImage('prev')")
-  .next((click)="loadImage('next')")
+.carousel((click)='closeCarousel($event)', [ngStyle]='{ display: displayCarousel }')
+  .prev((click)="loadImage('prev', $event)")
+    i.material-icons keyboard_arrow_left
+  .next((click)="loadImage('next', $event)")
+    i.material-icons keyboard_arrow_right
   .current-image(id="image", appImageLoader)
-  button((click)='closeCarousel()') Close
+    .caption-box
+      a {{activeCaption}}
 // END OF IMAGE CAROUSEL

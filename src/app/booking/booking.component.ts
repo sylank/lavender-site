@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarService } from './calendar/calendar.service';
 import { NgForm } from '@angular/forms';
-import { HttpService } from '../shared/http.service';
+import { CalendarHttpService } from '../shared/calendar.http.service';
 import { Booking } from './booking.model';
 
 @Component({
@@ -11,7 +11,7 @@ import { Booking } from './booking.model';
 })
 export class BookingComponent implements OnInit {
 
-  constructor(private calendarService: CalendarService, private http: HttpService) { }
+  constructor(private calendarService: CalendarService, private http: CalendarHttpService) { }
 
   private months: string[] = ['január',
                               'február',
@@ -151,14 +151,6 @@ export class BookingComponent implements OnInit {
       month = `0${month}`;
     }
     return `${date.getFullYear()}-${month}-${date.getDate()}`;
-  }
-
-  convertArrivalDate(date: Date): string {
-    return encodeURIComponent(`${this.dateFormat(date)}T00:00:01+01:00`);
-  }
-
-  convertDepartureDate(date: Date): string {
-    return encodeURIComponent(`${this.dateFormat(date)}T23:59:59+01:00`);
   }
 
   formatCurrency(amount: number) {

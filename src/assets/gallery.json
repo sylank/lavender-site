@@ -1,14 +1,50 @@
 [
-    "assets/img/gallery/1.jpg",
-    "assets/img/gallery/2.jpg",
-    "assets/img/gallery/3.jpg",
-    "assets/img/gallery/4.jpg",
-    "assets/img/gallery/5.jpg",
-    "assets/img/gallery/6.jpg",
-    "assets/img/gallery/7.jpg",
-    "assets/img/gallery/8.jpg",
-    "assets/img/gallery/9.jpg",
-    "assets/img/gallery/10.jpg",
-    "assets/img/gallery/11.jpg",
-    "assets/img/gallery/12.jpg"
+    {
+        "location":"assets/img/gallery/1.jpg",
+        "caption":"A nyaraló az utca felől"
+    },
+    {
+        "location":"assets/img/gallery/2.jpg",
+        "caption":"Hátsó kert"
+    },
+    {
+        "location":"assets/img/gallery/3.jpg",
+        "caption":"Hátsó terasz"
+    },
+    {
+        "location":"assets/img/gallery/7.jpg",
+        "caption":"Hátsó terasz és grill"
+    },
+    {
+        "location":"assets/img/gallery/4.jpg",
+        "caption":"Első terasz"
+    },
+    {
+        "location":"assets/img/gallery/5.jpg",
+        "caption":"Levendula palánta az első teraszon"
+    },
+    {
+        "location":"assets/img/gallery/6.jpg",
+        "caption":"Apartman logó"
+    },
+    {
+        "location":"assets/img/gallery/12.jpg",
+        "caption":"Étkező"
+    },
+    {
+        "location":"assets/img/gallery/10.jpg",
+        "caption":"Konyha"
+    },
+    {
+        "location":"assets/img/gallery/8.jpg",
+        "caption":"Nagyobbik szoba"
+    },
+    {
+        "location":"assets/img/gallery/9.jpg",
+        "caption":"Tusoló"
+    },
+    {
+        "location":"assets/img/gallery/13.jpg",
+        "caption":"Mosdó"
+    }
 ]

@@ -12,12 +12,12 @@ export class ImageOpacityDirective implements OnInit {
     this.galleryService.opacityControl.subscribe((index: number) => {
       if (index !== undefined) {
         if (index != this.element.nativeElement.id) {
-        this.element.nativeElement.style.opacity = ".4";
+          this.element.nativeElement.style.opacity = '.4';
         }
       } else {
-        this.element.nativeElement.style.opacity = "1";
+        this.element.nativeElement.style.opacity = '1';
       }
-    })
+    });
   }
 
   ngOnInit() {}

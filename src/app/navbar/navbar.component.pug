@@ -2,8 +2,8 @@ nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='chan
   .wrapper
     img.logo(routerLink='/home', src='assets/img/logo.png')
     .menu
-      a(routerLink='/home', routerLinkActive='active') Kezdőlap
-      a(routerLink='/gallery', routerLinkActive='active') Galéria
-      a(routerLink='/events', routerLinkActive='active') Események
-      a(routerLink='/contact', routerLinkActive='active') Kapcsolat
+      a(routerLink='/home', routerLinkActive='active', (click)='clearHeader()') Kezdőlap
+      a(routerLink='/gallery', routerLinkActive='active', (click)='clearHeader()') Galéria
+      a(routerLink='/events', routerLinkActive='active', (click)='clearHeader()') Események
+      a(routerLink='/contact', routerLinkActive='active', (click)='clearHeader()') Kapcsolat
       a.booking(routerLink='/booking') Foglalás

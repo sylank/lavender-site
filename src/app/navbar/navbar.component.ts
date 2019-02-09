@@ -27,4 +27,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  clearHeader() {
+    this.galleryService.navbarBackground.next('close');
+  }
 }
