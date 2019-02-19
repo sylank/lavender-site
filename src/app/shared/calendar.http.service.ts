@@ -17,7 +17,7 @@ export class CalendarHttpService {
     return this.http.get(
       `${HttpConstants.rootUrl}${
         HttpConstants.calendarEnabledEndpoint
-      }?fromDate=${arrival}&toDate=${departure}&email=aa&body=bb&fullName=cc&phoneNumber=dd`
+      }?fromDate=${arrival}&toDate=${departure}`
     );
   }
 
@@ -33,7 +33,7 @@ export class CalendarHttpService {
     return this.http.get(
       `${HttpConstants.rootUrl}${
         HttpConstants.calendarQueryEndpoint
-      }?fromDate=${fromDate}&toDate=${toDate}&email=aa&body=bb&fullName=cc&phoneNumber=dd`
+      }?fromDate=${fromDate}&toDate=${toDate}`
     );
   }
 
@@ -43,7 +43,7 @@ export class CalendarHttpService {
         arrival
       )}&toDate=${HttpUtils.convertDepartureDate(
         departure
-      )}&email=aa&body=bb&fullName=cc&phoneNumber=dd`
+      )}`
     );
   }
 

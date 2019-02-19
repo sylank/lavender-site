@@ -37,8 +37,9 @@
           .input-icon
             i.fas.fa-envelope
         textarea.message(formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
-        p.char-count Ennyi karakter maradt: {{ messageLength }}
-        p.char-count A *-al jelölt mezők kitöltése kötelező
+        .info-wrapper
+          p.char-count A *-al jelölt mezők kitöltése kötelező
+          p.char-count Ennyi karakter maradt: {{ messageLength }}
         button.submit(type='submit', [disabled]="formName.invalid") Tovább
 
     // Overview
