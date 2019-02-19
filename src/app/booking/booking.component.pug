@@ -19,6 +19,8 @@
         p Fizetendő összeg:
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
+        p.small Előleg:
+        p.price.small {{ formatCurrency(booking.price/2) }} Ft
       .divider
       form((ngSubmit)="onSubmit(form)" #form="ngForm")
         p.title Foglalási adatok:
@@ -26,6 +28,8 @@
           input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="booking.name" #nameInput="ngModel")
           .input-icon
             i.fas.fa-user
+          .invalid-feedback(*ngIf='f.submitted && nameInput.invalid')
+            div(*ngIf='nameInput.errors.required') Name is required
         .input-wrapper
           input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="booking.phone" #phoneInput="ngModel")
           .input-icon
@@ -34,6 +38,9 @@
           input(type='email', name='email', placeholder='Email *', required, [(ngModel)]="booking.email" #emailInput="ngModel")
           .input-icon
             i.fas.fa-envelope
+          .invalid-feedback(*ngIf='f.submitted && emailInput.invalid')
+            div(*ngIf='emailInput.errors.required') Name is required
+            div(*ngIf='emailInput.errors.email') Name is required
         textarea.message(name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
         p.char-count Ennyi karakter maradt: {{ messageLength }}
         button.submit(type='submit', [disabled]="form.invalid || reservedDates.length !== 0") Tovább
@@ -68,15 +75,14 @@
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
-      p.message-overview
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis tortor
-        | nulla, in faucibus mauris feugiat non. Sed semper augue sed elit egestas efficitur. Maecenas est arcu, mattis
-        | et efficitur vel, lacinia vitae nisl. Nullam iaculis tortor mauris, in bibendum neque commodo in orci aliquam.
+      textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper(style="margin-bottom: 30px")
         p Fizetendő összeg:
-        p.price {{ price }} Ft
+        p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
+        p.small Előleg:
+        p.price.small {{ formatCurrency(booking.price/2) }} Ft
       button.submit(type='submit') Foglalás most
       p.back
         span((click)="onBack()") Vissza
