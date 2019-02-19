@@ -22,23 +22,24 @@
         p.small Előleg:
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
       .divider
-      form((ngSubmit)="onSubmit(form)" #form="ngForm")
+      form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok:
         .input-wrapper
-          input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="booking.name" #nameInput="ngModel")
+          input(type='text', formControlName="name", placeholder='Teljes név *', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="booking.phone" #phoneInput="ngModel")
+          input(type='text', formControlName="phone", placeholder='Telefonszám *', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
           .input-icon
             i.fas.fa-mobile
         .input-wrapper
-          input(type='email', name='email', placeholder='Email *', required, [(ngModel)]="booking.email" #emailInput="ngModel")
+          input(type='email', formControlName="email", placeholder='Email *', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
           .input-icon
             i.fas.fa-envelope
-        textarea.message(name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
+        textarea.message(formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
         p.char-count Ennyi karakter maradt: {{ messageLength }}
-        button.submit(type='submit') Tovább
+        p.char-count A *-al jelölt mezők kitöltése kötelező
+        button.submit(type='submit', [disabled]="formName.invalid") Tovább
 
     // Overview
     .booking-form(*ngIf="bookingStage === 'overview'")

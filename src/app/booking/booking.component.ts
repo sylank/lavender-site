@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarService } from './calendar/calendar.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CalendarHttpService } from '../shared/calendar.http.service';
 import { Booking } from './booking.model';
+import { CustomValidator } from '../shared/validators/email.validator';
 
 @Component({
   selector: 'app-booking',
@@ -11,7 +12,7 @@ import { Booking } from './booking.model';
 })
 export class BookingComponent implements OnInit {
 
-  constructor(private calendarService: CalendarService, private http: CalendarHttpService) { }
+  constructor(private calendarService: CalendarService, private http: CalendarHttpService, private fb: FormBuilder) { }
 
   private months: string[] = ['január',
                               'február',
@@ -45,9 +46,10 @@ export class BookingComponent implements OnInit {
     email: '',
     message: ''
   };
+  formName: FormGroup;
 
-  onMessageInput(element: HTMLTextAreaElement): void {
-    this.messageLength = 300 - element.value.length;
+  onMessageInput(): void {
+    this.messageLength = 300 - this.formName.get('message').value.length;
   }
 
   toggleArrivalCalendar(event: PointerEvent): void {
@@ -172,6 +174,12 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formName = this.fb.group({
+      name: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      email: ['', [Validators.required, CustomValidator.emailValidator]],
+      message: ['', []]
+   });
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
     this.booking.departure.setDate(this.booking.arrival.getDate() + 1);
 
