@@ -28,8 +28,6 @@
           input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="booking.name" #nameInput="ngModel")
           .input-icon
             i.fas.fa-user
-          .invalid-feedback(*ngIf='f.submitted && nameInput.invalid')
-            div(*ngIf='nameInput.errors.required') Name is required
         .input-wrapper
           input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="booking.phone" #phoneInput="ngModel")
           .input-icon
@@ -38,12 +36,9 @@
           input(type='email', name='email', placeholder='Email *', required, [(ngModel)]="booking.email" #emailInput="ngModel")
           .input-icon
             i.fas.fa-envelope
-          .invalid-feedback(*ngIf='f.submitted && emailInput.invalid')
-            div(*ngIf='emailInput.errors.required') Name is required
-            div(*ngIf='emailInput.errors.email') Name is required
         textarea.message(name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
         p.char-count Ennyi karakter maradt: {{ messageLength }}
-        button.submit(type='submit', [disabled]="form.invalid || reservedDates.length !== 0") Tovább
+        button.submit(type='submit') Tovább
 
     // Overview
     .booking-form(*ngIf="bookingStage === 'overview'")
