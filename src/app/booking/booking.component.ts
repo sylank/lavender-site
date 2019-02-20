@@ -4,6 +4,7 @@ import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angula
 import { CalendarHttpService } from '../shared/calendar.http.service';
 import { Booking } from './booking.model';
 import { CustomValidator } from '../shared/validators/email.validator';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -11,8 +12,18 @@ import { CustomValidator } from '../shared/validators/email.validator';
   styleUrls: ['./booking.component.sass']
 })
 export class BookingComponent implements OnInit {
-
-  constructor(private calendarService: CalendarService, private http: CalendarHttpService, private fb: FormBuilder) { }
+  navigationSubscription: any;
+  constructor(private calendarService: CalendarService,
+              private http: CalendarHttpService,
+              private fb: FormBuilder,
+              private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.bookingStage = 'form';
+      }
+    });
+  }
 
   private months: string[] = ['január',
                               'február',
@@ -32,7 +43,8 @@ export class BookingComponent implements OnInit {
   private arrivalCalendarActive = false;
   private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  private bookingStage: 'form' | 'overview' = 'form';
+  private bookingStage: 'form' | 'overview' | 'result' = 'form';
+  private bookingResult: 'success' | 'failed' = 'failed';
   private messageLength = 300;
   reservedDates = [];
 
@@ -135,6 +147,11 @@ export class BookingComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.bookingStage = 'overview';
     console.log(this.booking);
+  }
+
+  sendBooking() {
+    this.bookingStage = 'result';
+    this.bookingResult = 'success';
   }
 
   onBack(): void {

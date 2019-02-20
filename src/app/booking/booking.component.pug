@@ -72,7 +72,7 @@
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
-      textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
+      textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper(style="margin-bottom: 30px")
         p Fizetendő összeg:
@@ -80,11 +80,25 @@
         p ({{ booking.nights }} éjszaka)
         p.small Előleg:
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
-      button.submit(type='submit') Foglalás most
+      button.submit((click)="sendBooking()") Foglalás most
+      p.back
+        span((click)="onBack()") Vissza
+    
+    // Overview
+    .booking-form(*ngIf="bookingStage === 'result'")
+      .result-wrapper
+        .result.success(*ngIf="bookingResult === 'success'")
+          i.fas.fa-info-circle.result
+          p.status Foglalási igény elküldve
+          p.description Foglalási igényét elbírálásra elküldtük. Hamarosan visszajelzünk, köszönjük.
+        .result.failed(*ngIf="bookingResult === 'failed'")
+          i.fas.fa-times.result
+          p Sikertelen foglalás
+          p.description Kérjük próbálja meg más időponttal.
       p.back
         span((click)="onBack()") Vissza
 
-  .hero-content.info
+  .hero-content.info(*ngIf="bookingStage === 'overview' || bookingStage === 'form'")
     h2 Foglalás információk
     p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak.
     p
