@@ -198,11 +198,10 @@ export class BookingComponent implements OnInit {
       message: ['', []]
    });
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
-    this.booking.departure.setDate(this.booking.arrival.getDate() + 1);
+    this.booking.departure.setDate(this.booking.departure.getDate() + 2);
 
     this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
       this.reservedDates = reservedDates.response.reservations;
-      console.log(this.reservedDates);
     });
   }
 

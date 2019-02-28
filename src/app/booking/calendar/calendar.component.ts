@@ -107,8 +107,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
       this.selectedDay = undefined;
     }
     if (this.selectedDay) {
-      const date = new Date(this.currentYear, this.currentMonth, this.selectedDay);
-      this.submit.emit(date);
+      const submitDate = new Date(this.currentYear, this.currentMonth, this.selectedDay);
+      this.submit.emit(submitDate);
     }
     this.destroy.emit(false);
   }
@@ -164,6 +164,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
     this.reserved = this.http.checkAvailabilityInMonth(year, month).subscribe((reservedDates: any) => {
       this.reservedDates = [];
+      this.generateBookedDaysList(this.reservedDates);
+      console.log(reservedDates.response.reservations);
       this.generateBookedDaysList(reservedDates.response.reservations);
 
       this.showLoading = false;
@@ -171,15 +173,14 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.showLoading = true;
-
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
     this.updateCalendar = this.calendarService.updateCalendar.subscribe((date: Date) => {
       this.currentYear = date.getFullYear();
       this.currentMonth = date.getMonth();
       this.displayDaysInMonth(date.getFullYear(), date.getMonth());
     });
-    this.showBookedDays(this.today.getFullYear(), this.today.getMonth());
+
+    this.showBookedDays(this.today.getFullYear(), this.today.getMonth() + 1);
   }
 
   ngOnDestroy() {
