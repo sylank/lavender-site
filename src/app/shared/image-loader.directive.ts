@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 @Directive({
   selector: '[appImageLoader]'
 })
-export class ImageLoaderDirective implements OnInit {
+export class ImageLoaderDirective implements OnInit, OnDestroy {
 
   constructor(private galleryService: GalleryService) { }
 

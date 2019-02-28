@@ -1,9 +1,20 @@
-.header
-  i.fas.fa-angle-left((click)='prevMonth()')
-  h2 {{ currentYear }}. {{ months[currentMonth] }}
-  i.fas.fa-angle-right((click)='nextMonth()')
-.week
-  .weekday(*ngFor='let day of days; let i = index') {{ day }}
-.grid
-  .week(*ngFor='let week of weeksInMonth; let i = index')
-    calendar-day.day(*ngFor='let day of days; let j = index', [currentDate]='{currentYear: currentYear, currentMonth: currentMonth}', [content]='dayList[j + i * 7]', (click)='submitDate($event, dayList[j + i * 7])')
+.wrapper
+  .content
+    .header
+      i.fas.fa-angle-left((click)='prevMonth()')
+      h2 {{ currentYear }}. {{ months[currentMonth] }}
+      i.fas.fa-angle-right((click)='nextMonth()')
+    .week
+      .weekday(*ngFor='let day of days; let i = index') {{ day }}
+    .grid
+      .week(*ngFor='let week of weeksInMonth; let i = index')
+        calendar-day.day(*ngFor='let day of days; let j = index', [currentDate]='{currentYear: currentYear, currentMonth: currentMonth}', [content]='dayList[j + i * 7]', (click)='submitDate($event, dayList[j + i * 7])')
+    .color-desc
+      .color-element#free
+        p Szabad
+      .color-element#reserved
+        p Foglalt
+      .color-element#selected
+        p Kijelölt
+  .loading(*ngIf="showLoading")
+    app-loading-circle

@@ -23,6 +23,7 @@ import { DayComponent } from './booking/calendar/day/day.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { EventComponent } from './events/event/event.component';
+import { LoadingCircleComponent } from './shared/loading-circle/loading-circle.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { EventComponent } from './events/event/event.component';
     ImageOpacityDirective,
     CalendarComponent,
     DayComponent,
-    EventComponent
+    EventComponent,
+    LoadingCircleComponent
   ],
   imports: [
     BrowserModule,

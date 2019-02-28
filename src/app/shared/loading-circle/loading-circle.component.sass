@@ -1,0 +1,36 @@
+.container
+    display: flex
+    justify-content: center
+    align-items: center
+    background: rgba(0,0,0,.25)
+    width: 100%
+    height: 100%
+    border-radius: 10px
+    &::before
+        width: 0
+        height: 0
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        border-bottom: 10px solid rgba(0,0,0,.25)
+        content: ""
+        position: absolute
+        top: -10px
+        left: 50%
+        transform: translateX(-50%)
+
+.loader
+    border: 16px solid rgba(0,0,0,.1)
+    border-radius: 50%
+    border-top: 16px solid #ab6cc3
+    width: 120px
+    height: 120px
+    animation: spin 2s linear infinite
+    align-self: center
+    align-items: center
+
+@keyframes spin 
+  0% 
+    transform: rotate(0deg)
+  
+  100% 
+    transform: rotate(360deg)

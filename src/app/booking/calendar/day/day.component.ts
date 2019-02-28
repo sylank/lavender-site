@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   template: '{{ content }}',
   styleUrls: ['./day.component.sass']
 })
-export class DayComponent implements OnInit, OnDestroy {
+export class DayComponent implements OnInit, OnDestroy, AfterContentChecked {
 
   constructor(private calendarService: CalendarService) { }
 
@@ -36,6 +36,9 @@ export class DayComponent implements OnInit, OnDestroy {
       this.selected = true;
     }
     this.disableDays = this.calendarService.disableDays.subscribe((reservedDays: number[]) => {
+      if (reservedDays.length === 0) {
+        this.reserved = false;
+      }
       if (reservedDays.indexOf(this.content) !== -1) {
         this.reserved = true;
       }
