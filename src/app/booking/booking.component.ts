@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarService } from './calendar/calendar.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CalendarHttpService } from '../shared/calendar.http.service';
 import { Booking } from './booking.model';
+import { CustomValidator } from '../shared/validators/email.validator';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -10,8 +12,18 @@ import { Booking } from './booking.model';
   styleUrls: ['./booking.component.sass']
 })
 export class BookingComponent implements OnInit {
-
-  constructor(private calendarService: CalendarService, private http: CalendarHttpService) { }
+  navigationSubscription: any;
+  constructor(private calendarService: CalendarService,
+              private http: CalendarHttpService,
+              private fb: FormBuilder,
+              private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.bookingStage = 'form';
+      }
+    });
+  }
 
   private months: string[] = ['január',
                               'február',
@@ -31,7 +43,8 @@ export class BookingComponent implements OnInit {
   private arrivalCalendarActive = false;
   private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  private bookingStage: 'form' | 'overview' = 'form';
+  private bookingStage: 'form' | 'overview' | 'result' = 'form';
+  private bookingResult: 'success' | 'failed' = 'failed';
   private messageLength = 300;
   reservedDates = [];
 
@@ -45,9 +58,10 @@ export class BookingComponent implements OnInit {
     email: '',
     message: ''
   };
+  formName: FormGroup;
 
-  onMessageInput(element: HTMLTextAreaElement): void {
-    this.messageLength = 300 - element.value.length;
+  onMessageInput(): void {
+    this.messageLength = 300 - this.formName.get('message').value.length;
   }
 
   toggleArrivalCalendar(event: PointerEvent): void {
@@ -135,6 +149,11 @@ export class BookingComponent implements OnInit {
     console.log(this.booking);
   }
 
+  sendBooking() {
+    this.bookingStage = 'result';
+    this.bookingResult = 'success';
+  }
+
   onBack(): void {
     this.bookingStage = 'form';
   }
@@ -172,12 +191,17 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formName = this.fb.group({
+      name: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      email: ['', [Validators.required, CustomValidator.emailValidator]],
+      message: ['', []]
+   });
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
-    this.booking.departure.setDate(this.booking.arrival.getDate() + 1);
+    this.booking.departure.setDate(this.booking.departure.getDate() + 2);
 
     this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
       this.reservedDates = reservedDates.response.reservations;
-      console.log(this.reservedDates);
     });
   }
 

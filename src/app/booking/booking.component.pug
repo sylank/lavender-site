@@ -1,6 +1,5 @@
 .hero((window:click)="closeCalendar()")
   .hero-content
-    //img.lavender(src='assets/img/lavender.png', alt='')
     .booking-form(*ngIf="bookingStage === 'form'")
       h1 Foglalás
       .date-picker
@@ -19,24 +18,28 @@
         p Fizetendő összeg:
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
+        p.small Előleg:
+        p.price.small {{ formatCurrency(booking.price/2) }} Ft
       .divider
-      form((ngSubmit)="onSubmit(form)" #form="ngForm")
+      form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok:
         .input-wrapper
-          input(type='text', name='name', placeholder='Teljes név *', required, [(ngModel)]="booking.name" #nameInput="ngModel")
+          input(type='text', formControlName="name", placeholder='Teljes név *', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input(type='text', name='phone', placeholder='Telefonszám *', required, [(ngModel)]="booking.phone" #phoneInput="ngModel")
+          input(type='text', formControlName="phone", placeholder='Telefonszám *', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
           .input-icon
             i.fas.fa-mobile
         .input-wrapper
-          input(type='email', name='email', placeholder='Email *', required, [(ngModel)]="booking.email" #emailInput="ngModel")
+          input(type='email', formControlName="email", placeholder='Email *', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
           .input-icon
             i.fas.fa-envelope
-        textarea.message(name='message', maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
-        p.char-count Ennyi karakter maradt: {{ messageLength }}
-        button.submit(type='submit', [disabled]="form.invalid || reservedDates.length !== 0") Tovább
+        textarea.message(formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
+        .info-wrapper
+          p.char-count A *-al jelölt mezők kitöltése kötelező
+          p.char-count Ennyi karakter maradt: {{ messageLength }}
+        button.submit(type='submit', [disabled]="formName.invalid") Tovább
 
     // Overview
     .booking-form(*ngIf="bookingStage === 'overview'")
@@ -68,20 +71,33 @@
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
-      p.message-overview
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis tortor
-        | nulla, in faucibus mauris feugiat non. Sed semper augue sed elit egestas efficitur. Maecenas est arcu, mattis
-        | et efficitur vel, lacinia vitae nisl. Nullam iaculis tortor mauris, in bibendum neque commodo in orci aliquam.
+      textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper(style="margin-bottom: 30px")
         p Fizetendő összeg:
-        p.price {{ price }} Ft
+        p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
-      button.submit(type='submit') Foglalás most
+        p.small Előleg:
+        p.price.small {{ formatCurrency(booking.price/2) }} Ft
+      button.submit((click)="sendBooking()") Foglalás most
+      p.back
+        span((click)="onBack()") Vissza
+    
+    // Overview
+    .booking-form(*ngIf="bookingStage === 'result'")
+      .result-wrapper
+        .result.success(*ngIf="bookingResult === 'success'")
+          i.fas.fa-info-circle.result
+          p.status Foglalási igény elküldve
+          p.description Foglalási igényét elbírálásra elküldtük. Hamarosan visszajelzünk, köszönjük.
+        .result.failed(*ngIf="bookingResult === 'failed'")
+          i.fas.fa-times.result
+          p Sikertelen foglalás
+          p.description Kérjük próbálja meg más időponttal.
       p.back
         span((click)="onBack()") Vissza
 
-  .hero-content.info
+  .hero-content.info(*ngIf="bookingStage === 'overview' || bookingStage === 'form'")
     h2 Foglalás információk
     p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak.
     p

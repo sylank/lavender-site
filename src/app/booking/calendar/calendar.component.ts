@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import { CalendarService } from './calendar.service';
-import { Subscription, from } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { CalendarHttpService } from 'src/app/shared/calendar.http.service';
 
 @Component({
@@ -39,6 +39,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
   private weeksInMonth = [1, 2, 3, 4, 5, 6];
   private dayList: number[] = []; // Contains the list of days to display in a calendar month
   private updateCalendar: Subscription;
+
+  showLoading = true;
 
   reservedDates = [];
 
@@ -79,10 +81,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
     this.selectedDay = undefined;
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
-    this.reserved = this.http.checkAvailabilityInMonth(this.currentYear, this.currentMonth).subscribe((reservedDates: any) => {
-      this.reservedDates = [];
-      this.generateBookedDaysList(reservedDates.response.reservations);
-    });
+    this.showBookedDays(this.currentYear, this.currentMonth);
   }
 
   private prevMonth(): void {
@@ -97,10 +96,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
     this.selectedDay = undefined;
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
-    this.reserved = this.http.checkAvailabilityInMonth(this.currentYear, this.currentMonth).subscribe((reservedDates: any) => {
-      this.reservedDates = [];
-      this.generateBookedDaysList(reservedDates.response.reservations);
-    });
+    this.showBookedDays(this.currentYear, this.currentMonth);
   }
 
   submitDate(event: any, date: number): void {
@@ -111,8 +107,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
       this.selectedDay = undefined;
     }
     if (this.selectedDay) {
-      const date = new Date(this.currentYear, this.currentMonth, this.selectedDay);
-      this.submit.emit(date);
+      const submitDate = new Date(this.currentYear, this.currentMonth, this.selectedDay);
+      this.submit.emit(submitDate);
     }
     this.destroy.emit(false);
   }
@@ -163,6 +159,19 @@ export class CalendarComponent implements OnInit, OnDestroy {
     return reservedRange;
   }
 
+  private showBookedDays(year: number, month: number) {
+    this.showLoading = true;
+
+    this.reserved = this.http.checkAvailabilityInMonth(year, month).subscribe((reservedDates: any) => {
+      this.reservedDates = [];
+      this.generateBookedDaysList(this.reservedDates);
+      console.log(reservedDates.response.reservations);
+      this.generateBookedDaysList(reservedDates.response.reservations);
+
+      this.showLoading = false;
+    });
+  }
+
   ngOnInit() {
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
     this.updateCalendar = this.calendarService.updateCalendar.subscribe((date: Date) => {
@@ -170,9 +179,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
       this.currentMonth = date.getMonth();
       this.displayDaysInMonth(date.getFullYear(), date.getMonth());
     });
-    this.reserved = this.http.checkAvailabilityInMonth(this.today.getFullYear(), this.today.getMonth()).subscribe((reservedDates: any) => {
-      this.generateBookedDaysList(reservedDates.response.reservations);
-    });
+
+    this.showBookedDays(this.today.getFullYear(), this.today.getMonth() + 1);
   }
 
   ngOnDestroy() {
