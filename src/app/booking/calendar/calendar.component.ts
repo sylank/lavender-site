@@ -180,7 +180,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
       this.displayDaysInMonth(date.getFullYear(), date.getMonth());
     });
 
-    this.showBookedDays(this.today.getFullYear(), this.today.getMonth() + 1);
+    this.showBookedDays(this.today.getFullYear(), this.today.getMonth());
   }
 
   ngOnDestroy() {

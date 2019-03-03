@@ -24,6 +24,7 @@
     "@angular/router": "^7.2.0",
     "core-js": "^2.6.2",
     "ng-cli-pug-loader": "^0.1.7",
+    "ngx-captcha": "^6.3.0",
     "rxjs": "^6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.27"
@@ -31,7 +32,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
     "@angular/cli": "~7.2.1",
-    "@angular/compiler-cli": "^7.2.0",
+    "@angular/compiler-cli": "^7.2.7",
     "@angular/language-service": "^7.2.0",
     "@fortawesome/fontawesome-free": "^5.6.3",
     "@types/jasmine": "^3.3.5",

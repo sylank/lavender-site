@@ -79,6 +79,7 @@
         p ({{ booking.nights }} éjszaka)
         p.small Előleg:
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
+      ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       button.submit((click)="sendBooking()") Foglalás most
       p.back
         span((click)="onBack()") Vissza
