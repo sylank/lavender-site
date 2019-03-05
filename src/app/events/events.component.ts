@@ -48,9 +48,4 @@ export class EventsComponent implements OnInit {
 
     this.filteredData = this.eventsList;
   }
-
-  displayDate(date: string) {
-    const retDate = date.split('-').join('.');
-    return retDate.slice(0, retDate.indexOf('T'));
-  }
 }

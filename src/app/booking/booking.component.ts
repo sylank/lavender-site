@@ -13,6 +13,7 @@ import { CustomValidator } from '../shared/validators/email.validator';
 import { Router, NavigationEnd } from '@angular/router';
 import { ReCaptchaV3Service } from 'ngx-captcha';
 import { BookingData } from './booking.data';
+import { Constants } from '../shared/constants';
 
 @Component({
   selector: 'app-booking',
@@ -21,20 +22,6 @@ import { BookingData } from './booking.data';
 })
 export class BookingComponent implements OnInit {
 
-  private months: string[] = [
-    'január',
-    'február',
-    'március',
-    'április',
-    'május',
-    'június',
-    'július',
-    'augusztus',
-    'szeptember',
-    'október',
-    'november',
-    'december'
-  ];
   siteKey = '6LfhH5UUAAAAAIPkIxC6e8SmerK17bNnCjgL8nPD';
 
   navigationSubscription: any;
@@ -272,6 +259,10 @@ export class BookingComponent implements OnInit {
     }, {
         useGlobalDomain: false
     });
+  }
+
+  getMonthNameById(id: number) {
+    return Constants.months[id];
   }
 
   handleReset() {
