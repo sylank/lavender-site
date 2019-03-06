@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-loading-circle',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadingCircleComponent implements OnInit {
 
+  @Input()
+  public show;
+
+  @HostBinding('class.showTopTriangle') showTopTriangle = true;
+
   constructor() { }
 
   ngOnInit() {
+    if (this.show === 'true') {
+      this.showTopTriangle = true;
+    } else {
+      this.showTopTriangle = false;
+    }
   }
 
 }

@@ -7,12 +7,12 @@
           p.title Érkezés:
           .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
             i.fas.fa-calendar-alt
-            | {{ booking.arrival.getFullYear() }}. {{ months[booking.arrival.getMonth()] }} {{ booking.arrival.getDate() }}.
+            | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
         .departure
           p.title Távozás:
           .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
             i.fas.fa-calendar-alt
-            | {{ booking.departure.getFullYear() }}. {{ months[booking.departure.getMonth()] }} {{ booking.departure.getDate() }}.
+            | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
         p Fizetendő összeg:
@@ -49,13 +49,13 @@
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
-          | {{ booking.arrival.getFullYear() }}. {{ months[booking.arrival.getMonth()] }} {{ booking.arrival.getDate() }}.
+          | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
       .data
         p Távozás:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
-          | {{ booking.departure.getFullYear() }}. {{ months[booking.departure.getMonth()] }} {{ booking.departure.getDate() }}.
+          | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
       .data
         p Teljes név:
         .icon-wrapper
@@ -79,6 +79,7 @@
         p ({{ booking.nights }} éjszaka)
         p.small Előleg:
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
+      ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       button.submit((click)="sendBooking()") Foglalás most
       p.back
         span((click)="onBack()") Vissza

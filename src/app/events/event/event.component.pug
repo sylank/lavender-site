@@ -1,14 +1,21 @@
-.event-record
-  span.color-box
-  span.date-box
-    span.date.from
-      | {{fromDate}}
-    span.separator(*ngIf="toDate!=''")
-      | -  
-    span.date.to
-      | {{toDate}}
-  span.description-box
-    .description
-        .event-name {{eventName}}
-    .location
-        a.event-location(target="_blank", rel="noopener noreferrer", [href]="'https://www.google.hu/maps/place/' + eventLocation") {{eventLocation}}
+.record-wrapper
+  .date-container
+    .date
+      .month {{getMonthName(fromDate)}}
+      .day {{getDay(fromDate)}}
+    .date#separator(*ngIf="toDate!=''")
+      .day -
+      .month
+    .date
+      .month {{getMonthName(toDate)}}
+      .day {{getDay(toDate)}}
+  .description-container
+    h1 {{getTitle()}}
+
+    ul
+      li Helyszín:  
+        a.event-location(target="_blank", rel="noopener noreferrer", [href]="'https://www.google.hu/maps/place/' + getLocation()") {{eventLocation}}
+      li Távolság: {{ distance }} km
+      li Weboldal: 
+        a( *ngIf="description==''") -
+        a(target="_blank", rel="noopener noreferrer", href="{{description}}", *ngIf="description!=''") Kattints ide!

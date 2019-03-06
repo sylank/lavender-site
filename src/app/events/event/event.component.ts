@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import DistanceUtils from '../distance-utils';
+import { Constants } from 'src/app/shared/constants';
 
 @Component({
   selector: 'event-record',
@@ -17,6 +18,7 @@ export class EventComponent implements OnInit {
   @Input() eventLocation: String;
   @Input() distance: number;
   @Input() important: boolean;
+  @Input() description: String;
 
   @HostBinding('class.walk-color') walkColor = false;
   @HostBinding('class.bike-color') bikeColor = false;
@@ -44,6 +46,25 @@ export class EventComponent implements OnInit {
       return;
     }
 
+  }
+
+  getMonthName(date: string) {
+    const dateObj = new Date(date);
+
+    return Constants.months[dateObj.getMonth()];
+  }
+
+  getDay(date: string) {
+    const dateObj = new Date(date);
+    return dateObj.getDate();
+  }
+
+  getTitle() {
+    return this.eventName.split('#')[0];
+  }
+
+  getLocation() {
+    return this.eventLocation.split('\n').join('+');
   }
 
 }

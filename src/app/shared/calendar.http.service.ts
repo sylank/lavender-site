@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpConstants } from './http.constants';
 import { HttpUtils } from './http.utils';
+import { BookingData } from '../booking/booking.data';
 
 @Injectable({
   providedIn: 'root'
@@ -47,17 +48,17 @@ export class CalendarHttpService {
     );
   }
 
-  public submitBooking(): Observable<Object> {
-    return this.http.post(`${HttpConstants.rootUrl}`, '123');
+  public submitBooking(bookingData: BookingData, reCaptchaToken: string): Observable<Object> {
+    // transform
+    const postData = {
+      'g-recaptcha-response': reCaptchaToken,
+      email: bookingData.email,
+      body: bookingData.body,
+      fromDate: HttpUtils.convertArrivalDate(bookingData.fromDate),
+      toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
+      fullName: bookingData.fullName,
+      phoneNumber: bookingData.phoneNumber
+    };
+    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
   }
 }
-
-/* bookingData = {
-    "g-recaptcha-response": response,
-    email: senderVal,
-    body: bodyVal,
-    fromDate: encodeURIComponent(fromDateVal),
-    toDate: encodeURIComponent(toDateVal),
-    fullName: fullNameVal,
-    phoneNumber: phoneNumberVal
-  }; */

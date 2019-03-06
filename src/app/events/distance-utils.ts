@@ -4,7 +4,7 @@ export default class DistanceUtils {
   public static CAR_DISTANCE = 999;
 
   static isWalkDistance(distance: number) {
-    if (distance >= 0 && distance <= this.WALK_DISTANCE) {
+    if (distance > 0 && distance <= this.WALK_DISTANCE) {
       return true;
     }
 
@@ -12,7 +12,7 @@ export default class DistanceUtils {
   }
 
   static isBikeDistance(distance: number) {
-    if (distance >= this.WALK_DISTANCE && distance <= this.BIKE_DISTANCE) {
+    if (distance > this.WALK_DISTANCE && distance <= this.BIKE_DISTANCE) {
       return true;
     }
 
@@ -20,7 +20,7 @@ export default class DistanceUtils {
   }
 
   static isCarDistance(distance: number) {
-    if (distance >= this.BIKE_DISTANCE && distance <= this.CAR_DISTANCE) {
+    if (distance > this.BIKE_DISTANCE && distance <= this.CAR_DISTANCE) {
       return true;
     }
 

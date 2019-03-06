@@ -6,6 +6,19 @@
     width: 100%
     height: 100%
     border-radius: 10px
+
+.loader
+    border: 16px solid rgba(0,0,0,.1)
+    border-radius: 50%
+    border-top: 16px solid #ab6cc3
+    width: 120px
+    height: 120px
+    animation: spin 2s linear infinite
+    align-self: center
+    align-items: center
+
+\:host(.showTopTriangle)
+  .container
     &::before
         width: 0
         height: 0
@@ -17,16 +30,6 @@
         top: -10px
         left: 50%
         transform: translateX(-50%)
-
-.loader
-    border: 16px solid rgba(0,0,0,.1)
-    border-radius: 50%
-    border-top: 16px solid #ab6cc3
-    width: 120px
-    height: 120px
-    animation: spin 2s linear infinite
-    align-self: center
-    align-items: center
 
 @keyframes spin 
   0% 

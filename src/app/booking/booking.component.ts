@@ -1,10 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarService } from './calendar/calendar.service';
-import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  NgForm,
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators
+} from '@angular/forms';
 import { CalendarHttpService } from '../shared/calendar.http.service';
 import { Booking } from './booking.model';
 import { CustomValidator } from '../shared/validators/email.validator';
 import { Router, NavigationEnd } from '@angular/router';
+import { ReCaptchaV3Service } from 'ngx-captcha';
+import { BookingData } from './booking.data';
+import { Constants } from '../shared/constants';
 
 @Component({
   selector: 'app-booking',
@@ -12,31 +21,10 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./booking.component.sass']
 })
 export class BookingComponent implements OnInit {
-  navigationSubscription: any;
-  constructor(private calendarService: CalendarService,
-              private http: CalendarHttpService,
-              private fb: FormBuilder,
-              private router: Router) {
-    this.navigationSubscription = this.router.events.subscribe((e: any) => {
-      // If it is a NavigationEnd event re-initalise the component
-      if (e instanceof NavigationEnd) {
-        this.bookingStage = 'form';
-      }
-    });
-  }
 
-  private months: string[] = ['január',
-                              'február',
-                              'március',
-                              'április',
-                              'május',
-                              'június',
-                              'július',
-                              'augusztus',
-                              'szeptember',
-                              'október',
-                              'november',
-                              'december'];
+  siteKey = '6LfhH5UUAAAAAIPkIxC6e8SmerK17bNnCjgL8nPD';
+
+  navigationSubscription: any;
 
   private calendarMode: 'arrival' | 'departure' = 'arrival';
   private showCalendar = false;
@@ -59,6 +47,21 @@ export class BookingComponent implements OnInit {
     message: ''
   };
   formName: FormGroup;
+
+  constructor(
+    private calendarService: CalendarService,
+    private calendarHttpService: CalendarHttpService,
+    private fb: FormBuilder,
+    private router: Router,
+    private reCaptchaV3Service: ReCaptchaV3Service
+  ) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.bookingStage = 'form';
+      }
+    });
+  }
 
   onMessageInput(): void {
     this.messageLength = 300 - this.formName.get('message').value.length;
@@ -109,31 +112,44 @@ export class BookingComponent implements OnInit {
       case 'arrival':
         this.booking.arrival = date;
         if (date.getTime() >= this.booking.departure.getTime() - 86400000) {
-          this.booking.departure = new Date(this.booking.arrival.getFullYear(),
-                                            this.booking.arrival.getMonth(),
-                                            this.booking.arrival.getDate() + 1);
+          this.booking.departure = new Date(
+            this.booking.arrival.getFullYear(),
+            this.booking.arrival.getMonth(),
+            this.booking.arrival.getDate() + 1
+          );
         }
         break;
       case 'departure':
         this.booking.departure = date;
         if (date.getTime() < this.booking.arrival.getTime() + 86400000) {
-          this.booking.arrival = new Date(this.booking.departure.getFullYear(),
-                                          this.booking.departure.getMonth(),
-                                          this.booking.departure.getDate() - 1);
+          this.booking.arrival = new Date(
+            this.booking.departure.getFullYear(),
+            this.booking.departure.getMonth(),
+            this.booking.departure.getDate() - 1
+          );
         }
     }
     this.setPrice();
-    this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
-      this.reservedDates = reservedDates.response.reservations;
-      console.log(this.reservedDates);
-    });
+    this.calendarHttpService
+      .getReservedDates(this.booking.arrival, this.booking.departure)
+      .subscribe((reservedDates: any) => {
+        this.reservedDates = reservedDates.response.reservations;
+        console.log(this.reservedDates);
+      });
   }
 
   setPrice(): void {
-    if ((this.booking.departure.getTime() - this.booking.arrival.getTime()) / 86400000 < 1) {
+    if (
+      (this.booking.departure.getTime() - this.booking.arrival.getTime()) /
+        86400000 <
+      1
+    ) {
       this.booking.nights = 1;
     } else {
-      this.booking.nights = Math.ceil((this.booking.departure.getTime() - this.booking.arrival.getTime()) / 86400000);
+      this.booking.nights = Math.ceil(
+        (this.booking.departure.getTime() - this.booking.arrival.getTime()) /
+          86400000
+      );
     }
     this.booking.price = this.booking.nights * 25000;
   }
@@ -150,8 +166,32 @@ export class BookingComponent implements OnInit {
   }
 
   sendBooking() {
-    this.bookingStage = 'result';
-    this.bookingResult = 'success';
+    this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
+      const bookingData = new BookingData(this.booking.email,
+                                          this.booking.message,
+                                          this.booking.arrival,
+                                          this.booking.departure,
+                                          this.booking.name,
+                                          this.booking.phone);
+
+      this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
+        console.log(bookingResult);
+
+        this.bookingStage = 'result';
+
+        const data = bookingResult.response;
+        if (data.enabled === true && data.reservationCause === 'SUCCESS') {
+          this.bookingStage = 'result';
+          this.bookingResult = 'success';
+
+          return;
+        }
+
+        this.bookingResult = 'failed';
+      });
+    }, {
+        useGlobalDomain: false
+    });
   }
 
   onBack(): void {
@@ -179,12 +219,20 @@ export class BookingComponent implements OnInit {
 
     // 100 000, 10 000, 1 000
     if (amount > 1000) {
-      returnData = [returnData.slice(0, thousandIndex), ' ', returnData.slice(thousandIndex)].join('');
+      returnData = [
+        returnData.slice(0, thousandIndex),
+        ' ',
+        returnData.slice(thousandIndex)
+      ].join('');
     }
 
     // 100 000 000, 10 000 000, 1 000 000
     if (amount > 1000000) {
-      returnData = [returnData.slice(0, millionIndex), ' ', returnData.slice(millionIndex)].join('');
+      returnData = [
+        returnData.slice(0, millionIndex),
+        ' ',
+        returnData.slice(millionIndex)
+      ].join('');
     }
 
     return returnData;
@@ -196,13 +244,40 @@ export class BookingComponent implements OnInit {
       phone: ['', [Validators.required]],
       email: ['', [Validators.required, CustomValidator.emailValidator]],
       message: ['', []]
-   });
+    });
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
     this.booking.departure.setDate(this.booking.departure.getDate() + 2);
 
-    this.http.getReservedDates(this.booking.arrival, this.booking.departure).subscribe((reservedDates: any) => {
-      this.reservedDates = reservedDates.response.reservations;
+    this.calendarHttpService
+      .getReservedDates(this.booking.arrival, this.booking.departure)
+      .subscribe((reservedDates: any) => {
+        this.reservedDates = reservedDates.response.reservations;
+      });
+
+    this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
+      // console.log('This is your token: ', token);
+    }, {
+        useGlobalDomain: false
     });
   }
 
+  getMonthNameById(id: number) {
+    return Constants.months[id];
+  }
+
+  handleReset() {
+    console.log('handleReset');
+  }
+
+  handleReady() {
+    console.log('handleReady');
+  }
+
+  handleLoad() {
+    console.log('handleLoad');
+  }
+
+  handleSuccess(event) {
+    console.log('handleSuccess: ' + event);
+  }
 }

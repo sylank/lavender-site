@@ -14,6 +14,8 @@ export class EventsComponent implements OnInit {
 
   public filteredData = [];
 
+  public showLoading = true;
+
   selectedButtonIdx = 0;
 
   constructor(private eventsHttpService: EventHttpService) { }
@@ -21,11 +23,14 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.filterArrayById(-1);
 
+    this.showLoading = true;
     this.eventsHttpService.getEventsByFromDateAndToDate(new Date(), HttpUtils.getEndOfTheYear(), 999).subscribe(
       (queriedEvents: any) => {
         console.log(queriedEvents);
         this.eventsList = queriedEvents.response.events;
         this.filterArrayById(-1);
+
+        this.showLoading = false;
       }
     );
   }
@@ -47,10 +52,5 @@ export class EventsComponent implements OnInit {
     }
 
     this.filteredData = this.eventsList;
-  }
-
-  displayDate(date: string) {
-    const retDate = date.split('-').join('.');
-    return retDate.slice(0, retDate.indexOf('T'));
   }
 }
