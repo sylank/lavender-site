@@ -16,3 +16,5 @@
                                 eventLocation='{{element.location}}'
                                 distance='{{element.distance}}'
                                 description='{{element.description}}')
+            .loading(*ngIf="showLoading")
+                app-loading-circle(show="false")
