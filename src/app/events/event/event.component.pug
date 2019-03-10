@@ -13,7 +13,8 @@
     h1 {{getTitle()}}
 
     ul
-      li Helyszín:  
+      li Helyszín: 
+        a( *ngIf="getLocation()==''") -
         a.event-location(target="_blank", rel="noopener noreferrer", [href]="'https://www.google.hu/maps/place/' + getLocation()") {{eventLocation}}
       li Távolság: {{ distance }} km
       li Weboldal: 

@@ -25,6 +25,7 @@ import { AgmCoreModule } from '@agm/core';
 import { EventComponent } from './events/event/event.component';
 import { LoadingCircleComponent } from './shared/loading-circle/loading-circle.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { DataHiderComponent } from './shared/data-hider/data-hider.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     CalendarComponent,
     DayComponent,
     EventComponent,
-    LoadingCircleComponent
+    LoadingCircleComponent,
+    DataHiderComponent
   ],
   imports: [
     BrowserModule,
