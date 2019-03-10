@@ -2,15 +2,17 @@
   agm-map([zoom]='19', [latitude]='46.706802', [longitude]='17.3624423')
 
   .hero-content
-   h1 Levendula Apartman
+    h1 Levendula Apartman
 
-   p.title Kapcsolattartó
-   p.content Faházi-Takács Beatrix
-   p.title Telefon
-   p.content +3630/482-4651
-   p.title E-mail
-   p.content levendula.balatonmaria[kukac]gmail.hu
-   p.title Cím
-   p.content Magyarország, 8647 Balatonmáriafürdő, Vilma u. 62
-   p.title Számlaszám
-   p.content 12345-12323458
+    p.title Kapcsolattartó
+    app-data-hider(defaultValue="Faházi-Takácsxxx", realValue="{{data.contactName}}")
+    p.title Telefon
+    app-data-hider(defaultValue="+3630/482xxxxxxx", realValue="{{data.phone}}")
+    p.title E-mail
+    app-data-hider(defaultValue="levendula.balatx", realValue="{{data.email}}")
+    p.title Cím
+    app-data-hider(defaultValue="Magyarország, 86", realValue="{{data.address}}")
+    p.title Számlaszám
+    app-data-hider(defaultValue="12345-1212211xxx", realValue="{{data.bankAccount}}")
+    .loading(*ngIf="showLoading")
+      app-loading-circle(show="false")

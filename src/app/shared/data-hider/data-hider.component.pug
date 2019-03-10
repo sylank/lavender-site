@@ -1,0 +1,5 @@
+.content-wrapper
+  p(*ngIf="!showValue") {{defaultValue}}
+  p(*ngIf="showValue") {{realValue}}
+  .hide(*ngIf="!showValue")
+    button(*ngIf="!showValue", (click)="showValue=!showValue") Mutat

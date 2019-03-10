@@ -6,4 +6,6 @@ export class HttpConstants {
     public static calendarCreateReservationEndpoint = '/reservation/create';
 
     public static eventQueryEndpoint = '/events/query';
+
+    public static staticInformationEndpoint = '/reservation/static-info';
 }
