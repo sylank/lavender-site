@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpConstants } from './http.constants';
-import { HttpUtils } from './http.utils';
-import { toDate } from '@angular/common/src/i18n/format_date';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
-import { map, filter, scan } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
