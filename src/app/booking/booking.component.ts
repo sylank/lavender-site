@@ -14,6 +14,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { ReCaptchaV3Service } from 'ngx-captcha';
 import { BookingData } from './booking.data';
 import { Constants } from '../shared/constants';
+import { CostCalculationHttpService } from '../shared/cost-calculation.http.service';
+import { HttpUtils } from '../shared/http.utils';
 
 @Component({
   selector: 'app-booking',
@@ -26,6 +28,9 @@ export class BookingComponent implements OnInit {
 
   navigationSubscription: any;
 
+  public showLoading = true;
+
+  private basePrice = 25000;
   private calendarMode: 'arrival' | 'departure' = 'arrival';
   private showCalendar = false;
   private arrivalCalendarActive = false;
@@ -51,6 +56,7 @@ export class BookingComponent implements OnInit {
   constructor(
     private calendarService: CalendarService,
     private calendarHttpService: CalendarHttpService,
+    private costCalculationHttpService: CostCalculationHttpService,
     private fb: FormBuilder,
     private router: Router,
     private reCaptchaV3Service: ReCaptchaV3Service
@@ -151,7 +157,7 @@ export class BookingComponent implements OnInit {
           86400000
       );
     }
-    this.booking.price = this.booking.nights * 25000;
+    this.booking.price = this.booking.nights * this.basePrice;
   }
 
   onCalendarDestroy(): void {
@@ -255,10 +261,19 @@ export class BookingComponent implements OnInit {
       });
 
     this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
-      // console.log('This is your token: ', token);
     }, {
         useGlobalDomain: false
     });
+
+    this.showLoading = true;
+    this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
+      (costData: any) => {
+        this.basePrice = costData.response.value;
+
+        this.setPrice();
+        this.showLoading = false;
+      }
+    );
   }
 
   getMonthNameById(id: number) {

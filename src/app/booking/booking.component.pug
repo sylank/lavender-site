@@ -97,6 +97,8 @@
           p.description Kérjük próbálja meg más időponttal.
       p.back
         span((click)="onBack()") Vissza
+    .loading(*ngIf="showLoading")
+      app-loading-circle(show="false")
 
   .hero-content.info(*ngIf="bookingStage === 'overview' || bookingStage === 'form'")
     h2 Foglalás információk
