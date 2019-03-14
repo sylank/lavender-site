@@ -142,6 +142,16 @@ export class BookingComponent implements OnInit {
         this.reservedDates = reservedDates.response.reservations;
         console.log(this.reservedDates);
       });
+
+      this.showLoading = true;
+      this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
+        (costData: any) => {
+          this.basePrice = costData.response.value;
+          console.log(this.basePrice);
+          this.setPrice();
+          this.showLoading = false;
+        }
+      );
   }
 
   setPrice(): void {
@@ -157,7 +167,7 @@ export class BookingComponent implements OnInit {
           86400000
       );
     }
-    this.booking.price = this.booking.nights * this.basePrice;
+    this.booking.price = this.basePrice;
   }
 
   onCalendarDestroy(): void {
@@ -269,7 +279,7 @@ export class BookingComponent implements OnInit {
     this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
       (costData: any) => {
         this.basePrice = costData.response.value;
-
+        console.log(this.basePrice);
         this.setPrice();
         this.showLoading = false;
       }
