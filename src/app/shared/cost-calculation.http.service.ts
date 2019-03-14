@@ -11,30 +11,15 @@ import { HttpUtils } from './http.utils';
 })
 export class CostCalculationHttpService {
 
-  private costData: any = undefined;
-  private observable;
-
   constructor(private http: HttpClient) {}
 
   public getCostCalculationBetweenDate(fromDate: Date, toDate: Date): Observable<Object> {
-    if (this.costData) {
-      return of(this.costData);
-    }
-
-    this.observable = this.http.get(
+    return this.http.get(
       `${HttpConstants.rootUrl}${HttpConstants.costCalculationEndpoint}?fromDate=${HttpUtils.convertArrivalDate(
         fromDate
         )}&toDate=${HttpUtils.convertDepartureDate(
           toDate
           )}`
-    ).pipe(
-    map(response =>  {
-      this.observable = null;
-      this.costData = response;
-
-      return this.costData;
-    }));
-
-    return this.observable;
+    );
   }
 }
