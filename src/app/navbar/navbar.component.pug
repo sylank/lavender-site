@@ -7,3 +7,7 @@ nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='chan
       a(routerLink='/events', routerLinkActive='active', (click)='clearHeader()') Élmények
       a(routerLink='/contact', routerLinkActive='active', (click)='clearHeader()') Kapcsolat
       a.booking(routerLink='/booking') Foglalás
+    .container((click)="animation=!animation; changeBg(); hamburger=!hamburger")
+      .bar1([ngClass]="animation ? 'cbar1' : 'bar1'")
+      .bar2([ngClass]="animation ? 'cbar2' : 'bar2'")
+      .bar3([ngClass]="animation ? 'cbar3' : 'bar3'")
