@@ -13,10 +13,10 @@
     h1 {{getTitle()}}
 
     ul
+      li Távolság: {{ distance }} km
       li Helyszín: 
         a( *ngIf="getLocation()==''") -
-        a.event-location(target="_blank", rel="noopener noreferrer", [href]="'https://www.google.hu/maps/place/' + getLocation()") {{eventLocation}}
-      li Távolság: {{ distance }} km
+        a.url(target="_blank", rel="noopener noreferrer", [href]="'https://www.google.hu/maps/place/' + getLocation()") {{eventLocation}}
       li Weboldal: 
         a( *ngIf="description==''") -
-        a(target="_blank", rel="noopener noreferrer", href="{{description}}", *ngIf="description!=''") Kattints ide!
+        a.url(target="_blank", rel="noopener noreferrer", href="{{description}}", *ngIf="description!=''") Kattints ide!
