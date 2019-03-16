@@ -1,4 +1,6 @@
 .wrapper
+  .close-box
+    i.fas.fa-times((click)='submitDate($event, dayList[j + i * 7])')
   .content
     .header
       i.fas.fa-angle-left((click)='prevMonth()')

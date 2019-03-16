@@ -100,7 +100,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   submitDate(event: any, date: number): void {
-    if (!event.target.innerText || event.target.classList.contains('disabled')) { return; }
+    if (!event.target.innerText || event.target.classList.contains('disabled')) { 
+      this.destroy.emit(false);
+      return;
+    }
     if (this.selectedDay === undefined) {
       this.selectedDay = date;
     } else {

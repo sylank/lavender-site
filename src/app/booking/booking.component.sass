@@ -70,7 +70,7 @@ h1
 
 .date-field
   position: relative
-  z-index: 3000
+  z-index: 200
   display: flex
   justify-content: flex-start
   align-items: center
@@ -284,3 +284,65 @@ h1
   position: absolute
   top: 0px
   left: 0px
+
+@media screen and (max-width: 950px)
+  .hero
+    justify-content: flex-start
+    flex-direction: column
+    padding-top: 75px
+    height: 125vh
+
+  .hero-content
+    margin-right: 0
+    margin-bottom: 15px
+
+@media screen and (max-width: 548px)
+  .hero-content
+    width: 100%
+    border-radius: 0
+
+@media screen and (max-width: 485px)
+  .hero-content
+    padding: 20px
+    .booking-form
+      width: 100%
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+  .date-picker
+    display: flex
+    justify-content: space-between
+    margin: 0
+    margin-bottom: 35px
+    .date-field
+      height: 100px
+    .arrival, .departure
+      width: 100px
+      height: 100px
+      margin: 0
+      margin-left: auto
+      margin-right: auto
+  .date-picker > *
+    margin-bottom: 15px
+  .divider
+    display: none
+  .price-wrapper
+    margin-bottom: 15px
+
+  .input-wrapper, .message
+    width: 100%
+
+  h1
+    font-size: 25px
+    margin-bottom: 15px
+  app-calendar
+    position: fixed
+    z-index: 99999
+
+@media screen and (max-height: 890px)
+    .hero
+      height: 250vh
+
+@media screen and (max-height: 568px)
+    .hero
+      height: 250vh
