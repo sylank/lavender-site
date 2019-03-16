@@ -13,6 +13,7 @@
   justify-content: center
   align-items: flex-start
   flex-wrap: wrap
+  margin-top: 75px
 
 .wrapper
   position: relative
@@ -31,11 +32,12 @@
   padding: 10px
 
 .current-image
-  width: 80%
-  height: calc(80%)
-  margin: 110px auto
+  display: flex
+  width: 100%
+  height: calc(100%)
+  margin: 50px auto
   background-repeat: no-repeat
-  background-size: cover
+  background-size: contain
   background-position: center center
 
 .active
@@ -43,7 +45,7 @@
 
 .carousel
   justify-content: center
-  position: absolute
+  position: fixed
   top: 0
   right: 0
   left: 0
@@ -51,46 +53,40 @@
   height: 100%
   padding-top: 75px
   padding-bottom: 150px
-  background-color: rgba(0,0,0,0.6)
+  background-color: rgba(0,0,0,0.8)
+
+.button-box
+  width: 5%
+  height: 100%
+  display: flex
+  justify-content: center
+  flex-direction: column
+.button-divider
+  width: 90%
+
+.left
+  padding-left: 25px
+.right
+  padding-right: 75px
 
 .prev, .next
   display: flex
   justify-content: center
   align-items: center
-  position: absolute
-  top: 50%
   width: 50px
   height: 50px
-  transform: translateY(-50%)
-  border-radius: 100px
+  border-radius: 10px
   transition-duration: 0.4s
-  background-color: #ab6cc3
-  opacity: 0.5
+  background-color: black
+  opacity: 1
   cursor: pointer
   user-select: none
   i
     font-size: 60px
     color: white
-.prev:hover, .next:hover
-  background-color: #ab6cc3
-  color: white
-  opacity: 1
-
-.prev
-  left: 0
-  margin-left: 15px
-
-.next
-  right: 0
-  margin-right: 15px
-
 
 .caption-box
-  display: flex
-  align-items: center
-  justify-content: center
   height: 30px
-  background: red
   background-color: rgba(0,0,0,0.6)
   color: white
   transition: all .2s ease

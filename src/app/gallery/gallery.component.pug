@@ -6,11 +6,14 @@
 // END OF GALLERY
 // IMAGE CAROUSEL
 .carousel((click)='closeCarousel($event)', [ngStyle]='{ display: displayCarousel }')
-  .prev((click)="loadImage('prev', $event)")
-    i.material-icons keyboard_arrow_left
-  .next((click)="loadImage('next', $event)")
-    i.material-icons keyboard_arrow_right
   .current-image(id="image", appImageLoader)
-    .caption-box
+    //.caption-box
       a {{activeCaption}}
+    .button-box.left
+      .prev((click)="loadImage('prev', $event)")
+        i.material-icons keyboard_arrow_left
+    .button-divider
+    .button-box.right
+      .next((click)="loadImage('next', $event)")
+        i.material-icons keyboard_arrow_right
 // END OF IMAGE CAROUSEL
