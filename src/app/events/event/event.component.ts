@@ -48,14 +48,16 @@ export class EventComponent implements OnInit {
 
   }
 
-  getMonthName(date: string) {
-    const dateObj = new Date(date);
+  getMonthName(date: String) {
+    const str: string = String(date);
+    const dateObj = new Date(str);
 
     return Constants.months[dateObj.getMonth()];
   }
 
-  getDay(date: string) {
-    const dateObj = new Date(date);
+  getDay(date: String) {
+    const str: string = String(date);
+    const dateObj = new Date(str);
     return dateObj.getDate();
   }
 
