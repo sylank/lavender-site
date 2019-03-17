@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { GalleryService } from '../shared/gallery.service';
 
 @Component({
@@ -8,13 +8,21 @@ import { GalleryService } from '../shared/gallery.service';
 })
 export class NavbarComponent implements OnInit {
 
+  animation = false;
+
+  @HostBinding('class.hamburger') hamburger = false;
+
   constructor(private galleryService: GalleryService) { }
 
   background = false;
   opacity = false;
 
   changeBg() {
-    window.scrollY > 80 ? this.background = true : this.background = false;
+    if (this.animation) {
+      this.background = true;
+    } else {
+      window.scrollY > 80 ? this.background = true : this.background = false;
+    }
   }
 
   ngOnInit() {
@@ -29,5 +37,9 @@ export class NavbarComponent implements OnInit {
 
   clearHeader() {
     this.galleryService.navbarBackground.next('close');
+    this.hamburger = false;
+    this.animation = false;
+    this.changeBg();
   }
+
 }

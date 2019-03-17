@@ -1,11 +1,12 @@
-footer
+.footer
+ 
   .container
     
-    .logo
-      img(src='assets/img/l.png', alt='')
+    .logo.flex-small
+      img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA4CAYAAABQZsDpAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+nhxg7wAAAzpJREFUaIHVWsuRozAQfbs1CTgFbwhOAdeQgPc2nCg7BDsEO4SZ4cRxSYCqIYQlhCWEIQT2oG6QZMTPYKRXRZmPEHrq7teNMOAQ4jT04jT8ls9VVVVvP9ca2EQcAGxMF10jc+y66AyZOA0PtFua2jhDBoBHv7mpgUtk2DKZqYETZMjFOPCdtwy7GAI/ctcycRpu0LhY0tXWejJQc4vRKoA7ZBjuWiZOwy2aeEkCPzLmGMByMlAzfqdVAPvJ1Fk/8CN3yVBu2dLhx5B7rCUDNfAHkfmx0EAeAgX+PzrMAj/am9pWVVXv22qZs7TfGysM6yxDGZ/fJovAj351tbfdMrIcD4oVhlVkyCrsYiVcJgNBhOuwW1/G12ENGVKwyVYBLCID4CrtX8ZaBbBEzeI09AB80WGvgsmwSs0o6N+lU6epfa1OBkKKuQZLul6L+7AqmZagvzzS39qWuUKV4uKRzlYTgDgNz2gUrLOY7MLqAhCn4Q6qe00OehlPJyOp12zuxVjDMlcAO9pPAj+6zdXxU8lQnHBVPJt7MZ5GJk7DI9SSZT+lZOnCU8jQ4oSS5QM/Mi6AT8XiZEi5ZCKXwI9GV8RDsGieISJfaJTrI/CjWePkKXmmRYJnJ6LjZe4Oqd46QH1rXJwIMMHNyHV2aAYqV719yCAkOQdQAMgfTZiym/WSoRenHcRqvGdoVtK21c6xYsnkdRQQJHMMWOnX0UuGpPQAMXh5EAU9lLcy8KNckt6N1O63Lr8UR2xZ/lyhWzWBKDwHKV4rGXrQEarblNR5Tg9QXILi44r7D0KnoTNMbuvh3l0LiLqtk9QdmZaZLQHcIAL3blAS8bN2z2nIpwcTiBhPKCNHR5JVyMRp+A61XhpLAnTP6HUuEwwWv7QVpTqZSrqW0U31LEjq5WmdA2Jta7YSXkeLx2QQsVhPmk7mCLXc6EMBQSJZioQM8oY/UP9uUhepbTHDs85W0JFDzEqyRIE4BFo41ISGSPMWjbLkc5fqU6F5UQ5g//b6WY/NihXNMdAWQhRCay81jQYpGueeHUQ8AXDQMow4Df+iie/b2+vnxWUyG4h3JSa0d87NGCRKe0jFrLOWYUhVSfYfQZRlwmnurV0AAAAASUVORK5CYII=', alt='')
       p Levendula apartman, {{ date.getFullYear() }}
-
-    ul.menu
+    
+    ul.menu.flex-small
       li.title Menü
       li.menu-item(routerLink='/home') Kezdőlap
       li.menu-item(routerLink='/gallery') Galéria
@@ -13,11 +14,13 @@ footer
       li.menu-item(routerLink='/contact') Kapcsolat
       li.menu-item(routerLink='/booking') Foglalás
 
-    ul.menu
+    ul.menu.flex-small
       li.title Egyéb
       li
         a.menu-item(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/file/d/1DyKs5yXC7lXnJiYHvYl9VRqswVWQd3rm/view?usp=sharing') Házirend
       li
         a.menu-item(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/file/d/1pqAxQ3uAb_MOthAUmIymnM3IE252t3UZ/view?usp=sharing', download='w3logo') Átutalás
 
-    iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flevendulabalatonmaria%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1066614486739525', width='340', height='500', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allow='encrypted-media')
+    iframe#social-detailed.flex-small(media="none", onload="if(media!='all')media='all'", class="social-wide", src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flevendulabalatonmaria%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1066614486739525', scrolling='no', frameborder='0', allowtransparency='true', allow='encrypted-media')
+    
+iframe#social-short.flex-small(media="none", onload="if(media!='all')media='all'", class="social-small" src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Flevendulabalatonmaria%2F&width=32&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1066614486739525', width='450', height='80', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allow='encrypted-media')

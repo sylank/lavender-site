@@ -33,6 +33,16 @@ Other projects: https://github.com/sylank
 * Rose graph (to visualize distance and activity)
 * Booking service frontend with re-captcha integration
 
+## Image properties
+Hero image properties:
+* Raw size: 1080 x 720
+* Raw quality: 50%, jpg
+* Black layer opacity: 50%
+* Black layer Gaussian blur: 10
+* Final quality: 80%
+
+Image converter (base64): https://websemantics.uk/tools/image-to-data-uri-converter/
+
 ## Usage
 To run the website on your local computer use this commands below:
 

@@ -12,7 +12,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   constructor(private calendarService: CalendarService, private http: CalendarHttpService) { }
 
-  private today = new Date();
+  public today = new Date();
 
   @Input() public currentYear = this.today.getFullYear();
   @Input() public currentMonth = this.today.getMonth();
@@ -20,9 +20,9 @@ export class CalendarComponent implements OnInit, OnDestroy {
   @Output() destroy = new EventEmitter<boolean>();
   @Output() submit = new EventEmitter<Date>();
 
-  private selectedDay: number;
+  public selectedDay: number;
 
-  private months = ['január',
+  public months = ['január',
                     'február',
                     'március',
                     'április',
@@ -35,9 +35,9 @@ export class CalendarComponent implements OnInit, OnDestroy {
                     'november',
                     'december'];
 
-  private days = ['H', 'K', 'Sze', 'Cs', 'P', 'Szo', 'V'];
-  private weeksInMonth = [1, 2, 3, 4, 5, 6];
-  private dayList: number[] = []; // Contains the list of days to display in a calendar month
+  public days = ['H', 'K', 'Sze', 'Cs', 'P', 'Szo', 'V'];
+  public weeksInMonth = [1, 2, 3, 4, 5, 6];
+  public dayList: number[] = []; // Contains the list of days to display in a calendar month
   private updateCalendar: Subscription;
 
   showLoading = true;
@@ -72,7 +72,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
   }
 
-  private nextMonth(): void {
+  public nextMonth(): void {
     if (this.currentMonth === 11) {
       this.currentMonth = 0;
       this.currentYear++;
@@ -84,7 +84,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.showBookedDays(this.currentYear, this.currentMonth);
   }
 
-  private prevMonth(): void {
+  public prevMonth(): void {
     if (this.currentYear === this.today.getFullYear() && this.currentMonth === this.today.getMonth()) {
       return;
     }
@@ -100,7 +100,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   submitDate(event: any, date: number): void {
-    if (!event.target.innerText || event.target.classList.contains('disabled')) { return; }
+    if (!event.target.innerText || event.target.classList.contains('disabled')) {
+      this.destroy.emit(false);
+      return;
+    }
     if (this.selectedDay === undefined) {
       this.selectedDay = date;
     } else {

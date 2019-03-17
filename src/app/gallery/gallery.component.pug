@@ -3,14 +3,14 @@
   .image-container
     .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
       img.image(src='{{ image.location }}', alt='')
-// END OF GALLERY
-// IMAGE CAROUSEL
 .carousel((click)='closeCarousel($event)', [ngStyle]='{ display: displayCarousel }')
-  .prev((click)="loadImage('prev', $event)")
-    i.material-icons keyboard_arrow_left
-  .next((click)="loadImage('next', $event)")
-    i.material-icons keyboard_arrow_right
   .current-image(id="image", appImageLoader)
-    .caption-box
+    //.caption-box
       a {{activeCaption}}
-// END OF IMAGE CAROUSEL
+    .button-box.left
+      .prev((click)="loadImage('prev', $event)")
+        i.fas.fa-angle-left
+    .button-divider
+    .button-box.right
+      .next((click)="loadImage('next', $event)")
+        i.fas.fa-angle-right

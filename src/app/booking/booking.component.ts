@@ -36,7 +36,7 @@ export class BookingComponent implements OnInit {
   private arrivalCalendarActive = false;
   private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  private bookingStage: 'form' | 'overview' | 'result' = 'form';
+  public bookingStage: 'form' | 'overview' | 'result' = 'form';
   private bookingResult: 'success' | 'failed' = 'failed';
   private messageLength = 300;
   reservedDates = [];

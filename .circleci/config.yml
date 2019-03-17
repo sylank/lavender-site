@@ -24,7 +24,7 @@ jobs:
           
       - run:
           name: Run build
-          command: ng build
+          command: ng build --prod
 
       - persist_to_workspace:
           root: .
