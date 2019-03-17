@@ -3,8 +3,6 @@
   .image-container
     .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
       img.image(src='{{ image.location }}', alt='')
-// END OF GALLERY
-// IMAGE CAROUSEL
 .carousel((click)='closeCarousel($event)', [ngStyle]='{ display: displayCarousel }')
   .current-image(id="image", appImageLoader)
     //.caption-box
@@ -16,4 +14,3 @@
     .button-box.right
       .next((click)="loadImage('next', $event)")
         i.fas.fa-angle-right
-// END OF IMAGE CAROUSEL
