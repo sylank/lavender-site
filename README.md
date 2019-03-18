@@ -9,9 +9,9 @@ Lavender summer house one-page frontend application.
 ## About
 This repository contains the Lavender Summer House frontend application. It is written in Angular 7 and Pug with Sass.
 
-DEV site: http://dev.levendulabalatonmaria.info.s3-website.eu-central-1.amazonaws.com/
+DEV site: http://dev.levendulabalatonmaria.info/
 
-PROD site: http://levendulabalatonmaria.info.s3-website.eu-central-1.amazonaws.com/
+PROD site: http://levendulabalatonmaria.info/
 
 ## Backend repositories
 Deploy and infrastructure repository: https://github.com/sylank/lavender-backend-infrastructure

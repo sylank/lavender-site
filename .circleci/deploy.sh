@@ -24,4 +24,4 @@ esac
 
 aws s3 rm $destination --recursive
 
-aws s3 cp s3://artifactory.levendulabalatonmaria.info/static/$VERSION $destination --recursive
+aws s3 cp s3://artifactory.levendulabalatonmaria.info/lavender-site/$1/$VERSION $destination --recursive

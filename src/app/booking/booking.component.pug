@@ -1,4 +1,12 @@
 .hero((window:click)="closeCalendar()")
+  .notification-panel(*ngIf="!bookingEnabled && showNotification")
+      .hero-content
+        h1 Figyelem!
+        p A foglalás weboldalon keresztül átmenetileg szünetel!
+        p A szabad időpontokat megtekinthetők, de új foglalást a weboldalon keresztül nem küldhető be.
+        p Foglalási szándékát kérem Facebookon vagy e-mailban jelezze.
+        p Megértését köszönjük
+        button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
     .booking-form(*ngIf="bookingStage === 'form'")
       h1 Foglalás
@@ -24,18 +32,18 @@
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok:
         .input-wrapper
-          input(type='text', formControlName="name", placeholder='Teljes név *', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="name", placeholder='Teljes név *', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input(type='text', formControlName="phone", placeholder='Telefonszám *', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='Telefonszám *', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
           .input-icon
             i.fas.fa-mobile
         .input-wrapper
-          input(type='email', formControlName="email", placeholder='Email *', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='Email *', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
           .input-icon
             i.fas.fa-envelope
-        textarea.message(formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
+        textarea.message([attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
         .info-wrapper
           p.char-count A *-al jelölt mezők kitöltése kötelező
           p.char-count Ennyi karakter maradt: {{ messageLength }}
@@ -73,14 +81,24 @@
         p {{ booking.email }}
       textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
-      .price-wrapper(style="margin-bottom: 30px")
+      .price-wrapper
         p Fizetendő összeg:
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
         p.small Előleg (50%):
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
-      button.submit((click)="sendBooking()") Foglalás most
+      .checkbox-wrapper
+          label
+            input(type='checkbox', [checked]="accept", (change)="accept=!accept")
+            | Elfogadom az 
+            a(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/open?id=1aoZhmzM2NVp96OXqCxdvPKU6nOsdg9DE') adatkezelési
+            | nyilatkozatot!
+          //input([attr.disabled]="bookingEnabled? null : '' ", type='checkbox')
+          //p Elfogadom az 
+          //a(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/open?id=1aoZhmzM2NVp96OXqCxdvPKU6nOsdg9DE') adatkezelési
+          //| nyilatkozatot!
+      button.submit(type='submit', (click)="sendBooking()", [disabled]="!accept") Foglalás most
       p.back
         span((click)="onBack()") Vissza
     

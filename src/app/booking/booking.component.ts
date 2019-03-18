@@ -28,6 +28,11 @@ export class BookingComponent implements OnInit {
 
   navigationSubscription: any;
 
+  public accept = false;
+
+  public bookingEnabled = true;
+  public showNotification = !this.bookingEnabled;
+
   public showLoading = true;
 
   private basePrice = 25000;
@@ -136,22 +141,20 @@ export class BookingComponent implements OnInit {
         }
     }
     this.setPrice();
-    this.calendarHttpService
-      .getReservedDates(this.booking.arrival, this.booking.departure)
-      .subscribe((reservedDates: any) => {
+    this.calendarHttpService.getReservedDates(this.booking.arrival, this.booking.departure).subscribe(
+      (reservedDates: any) => {
         this.reservedDates = reservedDates.response.reservations;
-        console.log(this.reservedDates);
-      });
+      }
+    );
 
-      this.showLoading = true;
-      this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
-        (costData: any) => {
-          this.basePrice = costData.response.value;
-          console.log(this.basePrice);
-          this.setPrice();
-          this.showLoading = false;
-        }
-      );
+    this.showLoading = true;
+    this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
+      (costData: any) => {
+        this.basePrice = costData.response.value;
+        this.setPrice();
+        this.showLoading = false;
+      }
+    );
   }
 
   setPrice(): void {
@@ -182,6 +185,7 @@ export class BookingComponent implements OnInit {
   }
 
   sendBooking() {
+    this.showLoading = true;
     this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
       const bookingData = new BookingData(this.booking.email,
                                           this.booking.message,
@@ -192,6 +196,8 @@ export class BookingComponent implements OnInit {
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
         console.log(bookingResult);
+
+        this.showLoading = false;
 
         this.bookingStage = 'result';
 
@@ -218,14 +224,6 @@ export class BookingComponent implements OnInit {
     this.showCalendar = false;
     this.arrivalCalendarActive = false;
     this.departureCalendarActive = false;
-  }
-
-  dateFormat(date: Date): string {
-    let month: any = date.getMonth() + 1;
-    if (month < 10) {
-      month = `0${month}`;
-    }
-    return `${date.getFullYear()}-${month}-${date.getDate()}`;
   }
 
   formatCurrency(amount: number) {
@@ -275,11 +273,10 @@ export class BookingComponent implements OnInit {
         useGlobalDomain: false
     });
 
-    this.showLoading = true;
+    this.showLoading = this.bookingEnabled;
     this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
       (costData: any) => {
         this.basePrice = costData.response.value;
-        console.log(this.basePrice);
         this.setPrice();
         this.showLoading = false;
       }

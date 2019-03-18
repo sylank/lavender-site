@@ -1,5 +1,7 @@
+import { environment } from '../../environments/environment';
+
 export class HttpConstants {
-    public static rootUrl = 'https://0cbxxfcehh.execute-api.eu-central-1.amazonaws.com/api';
+    public static rootUrl = environment.baseUrl;
 
     public static calendarQueryEndpoint = '/reservation/query';
     public static calendarEnabledEndpoint = '/reservation/enabled';
