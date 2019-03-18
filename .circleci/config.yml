@@ -61,7 +61,7 @@ jobs:
           - .circleci
           - package.json
 
-  dev-artifactory_copy:
+  dev_artifactory_copy:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -71,7 +71,7 @@ jobs:
           name: Copy build files into artifactory
           command: sh .circleci/artifactory_copy.sh dev
 
-  prod-artifactory_copy:
+  prod_artifactory_copy:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -129,18 +129,18 @@ workflows:
           filters:
             branches:
               only:
-                - dev
+                - master
       - prod_artifactory_copy:
           filters:
             branches:
               only:
-                - dev
+                - master
           requires:
             - prod_build
       - prod_deploy:
           filters:
             branches:
               only:
-                - dev
+                - master
           requires:
             - prod_artifactory_copy
