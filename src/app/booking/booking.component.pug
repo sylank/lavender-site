@@ -94,10 +94,6 @@
             | Elfogadom az 
             a(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/open?id=1aoZhmzM2NVp96OXqCxdvPKU6nOsdg9DE') adatkezelési
             | nyilatkozatot!
-          //input([attr.disabled]="bookingEnabled? null : '' ", type='checkbox')
-          //p Elfogadom az 
-          //a(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/open?id=1aoZhmzM2NVp96OXqCxdvPKU6nOsdg9DE') adatkezelési
-          //| nyilatkozatot!
       button.submit(type='submit', (click)="sendBooking()", [disabled]="!accept") Foglalás most
       p.back
         span((click)="onBack()") Vissza
@@ -122,8 +118,11 @@
     h2 Foglalás információk
     p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak.
     p
-      | - Előleg utalása: 
-      b 12345-12323458
-      | , Faházi-Takács Beatrix, Levendula
+      | - Előleg utalásához az adatokat a 
+      a(href="/contact") kapcsolat menüpont alatt 
+      | találod
     p - Érkezésés a foglalt napon bármikor lehetséges, a távozás is rugalmasan alakítható de szeszonban 10:00 időpontot preferáljuk.
-    p - További információk a Kapcsolat menüpontban
+    p 
+      | - Lemondásról és egyéb információkról részleteket az 
+      a(href="") álltalános szerződési feltételekben 
+      | találsz.

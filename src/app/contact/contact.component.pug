@@ -4,15 +4,6 @@
   .hero-content
     h1 Levendula Apartman
 
-    p.title Kapcsolattartó
-    app-data-hider(defaultValue="Faházi-Takácsxxx", realValue="{{data.contactName}}")
-    p.title Telefon
-    app-data-hider(defaultValue="+3630/482xxxxxxx", realValue="{{data.phone}}")
-    p.title E-mail
-    app-data-hider(defaultValue="levendula.balatx", realValue="{{data.email}}")
-    p.title Cím
-    app-data-hider(defaultValue="Magyarország, 86", realValue="{{data.address}}")
-    p.title Számlaszám
-    app-data-hider(defaultValue="12345-1212211xxx", realValue="{{data.bankAccount}}")
-    .loading(*ngIf="showLoading")
-      app-loading-circle(show="false")
+    .elements(*ngFor='let element of contactInfo; let i = index')
+      p.title {{element.title}}
+      app-data-hider(defaultValue="{{element.defaultValue}}", [resolvDataFunction]="element.callback")
