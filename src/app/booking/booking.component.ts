@@ -15,7 +15,7 @@ import { ReCaptchaV3Service } from 'ngx-captcha';
 import { BookingData } from './booking.data';
 import { Constants } from '../shared/constants';
 import { CostCalculationHttpService } from '../shared/cost-calculation.http.service';
-import { HttpUtils } from '../shared/http.utils';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-booking',
@@ -30,7 +30,7 @@ export class BookingComponent implements OnInit {
 
   public accept = false;
 
-  public bookingEnabled = true;
+  public bookingEnabled = environment.reservationEnabled;
   public showNotification = !this.bookingEnabled;
 
   public showLoading = true;
