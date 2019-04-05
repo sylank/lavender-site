@@ -105,6 +105,9 @@
           i.fas.fa-info-circle.result
           p.status Foglalási igény elküldve
           p.description Foglalási igényét elbírálásra elküldtük. Hamarosan visszajelzünk, köszönjük.
+          p.reservation-info 
+            | Foglalási azonosító: 
+            b {{booking.reservationId}}
         .result.failed(*ngIf="bookingResult === 'failed'")
           i.fas.fa-times.result
           p Sikertelen foglalás

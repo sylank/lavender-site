@@ -58,7 +58,8 @@ export class CalendarHttpService {
       toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
       fullName: bookingData.fullName,
       phoneNumber: bookingData.phoneNumber,
-      costValue: -1
+      costValue: -1,
+      reservationId: '-'
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
   }

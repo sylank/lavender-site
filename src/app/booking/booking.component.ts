@@ -54,7 +54,8 @@ export class BookingComponent implements OnInit {
     name: '',
     phone: '',
     email: '',
-    message: ''
+    message: '',
+    reservationId: ''
   };
   formName: FormGroup;
 
@@ -200,16 +201,15 @@ export class BookingComponent implements OnInit {
         this.showLoading = false;
 
         this.bookingStage = 'result';
+        this.bookingResult = 'failed';
 
         const data = bookingResult.response;
         if (data.enabled === true && data.reservationCause === 'SUCCESS') {
           this.bookingStage = 'result';
           this.bookingResult = 'success';
 
-          return;
+          this.booking.reservationId = data.reservationId;
         }
-
-        this.bookingResult = 'failed';
       });
     }, {
         useGlobalDomain: false
