@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Output, EventEmitter, Input, OnDestroy
 import { CalendarService } from './calendar.service';
 import { Subscription } from 'rxjs';
 import { CalendarHttpService } from 'src/app/shared/calendar.http.service';
+import { ReservedRange } from './reserved.range';
 
 @Component({
   selector: 'app-calendar',
@@ -42,7 +43,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   showLoading = true;
 
-  reservedDates = [];
+  reservedRanges = [];
 
   reserved: Subscription;
 
@@ -124,11 +125,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
     reservedDates.forEach((reserved: any) => {
       const from = this.dateConverter(reserved.fromDate);
       const to = this.dateConverter(reserved.toDate);
-      const range: number[] = this.generateReservedRange(from, to);
-      this.reservedDates.push(...range);
+      const range = new ReservedRange(this.generateReservedRange(from, to), reserved.temporary);
+      this.reservedRanges.push(range);
     });
-    console.log(this.reservedDates);
-    this.calendarService.disableDays.next(this.reservedDates);
+    console.log(this.reservedRanges);
+    this.calendarService.disableDays.next(this.reservedRanges);
   }
 
   private dateConverter(date: string): Date {
@@ -166,8 +167,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.showLoading = true;
 
     this.reserved = this.http.checkAvailabilityInMonth(year, month).subscribe((reservedDates: any) => {
-      this.reservedDates = [];
-      this.generateBookedDaysList(this.reservedDates);
+      this.reservedRanges = [];
+      this.generateBookedDaysList(this.reservedRanges);
       console.log(reservedDates.response.reservations);
       this.generateBookedDaysList(reservedDates.response.reservations);
 

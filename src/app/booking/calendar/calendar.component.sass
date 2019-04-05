@@ -44,6 +44,7 @@ h1
 
 .header
   display: flex
+  width: 100%
   justify-content: center
   height: 40px
   h2
@@ -115,6 +116,10 @@ h1
 
 .content
   z-index: 5
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
 
 .loading
   width: 100%
@@ -125,7 +130,7 @@ h1
   left: 0px
 
 .color-desc
-  display: flex
+  display: inline-flex
   flex-direction: row
   justify-content: center
   flex-flow: space-between
@@ -135,10 +140,14 @@ h1
 .color-element
   display: inline
   padding-left: 15px
-  margin-right: 15px
+  margin-right: 10px
+  height: 15px
+
   p
     background: white
     padding-left: 5px
+    font-size: 12px
+    height: 100%
 
 #free
   background: black
@@ -148,6 +157,9 @@ h1
 
 #selected
   background: #ab6cc3
+
+#temporary
+  background: #E89005
 
 
 @media screen and (max-width: 950px)
