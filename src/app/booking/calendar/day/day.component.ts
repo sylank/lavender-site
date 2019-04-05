@@ -38,6 +38,8 @@ export class DayComponent implements OnInit, OnDestroy, AfterContentChecked {
       this.selected = true;
     }
     this.disableDays = this.calendarService.disableDays.subscribe((reservedRanges: ReservedRange[]) => {
+      this.reserved = false;
+      this.temporary = false;
       reservedRanges.forEach((reservedRange: ReservedRange) => {
         if (reservedRange.range.length === 0) {
           this.reserved = false;

@@ -128,7 +128,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
       const range = new ReservedRange(this.generateReservedRange(from, to), reserved.temporary);
       this.reservedRanges.push(range);
     });
-    console.log(this.reservedRanges);
     this.calendarService.disableDays.next(this.reservedRanges);
   }
 
@@ -181,7 +180,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.updateCalendar = this.calendarService.updateCalendar.subscribe((date: Date) => {
       this.currentYear = date.getFullYear();
       this.currentMonth = date.getMonth();
-      this.displayDaysInMonth(date.getFullYear(), date.getMonth());
+      this.displayDaysInMonth(this.currentYear, this.currentMonth);
     });
 
     this.showBookedDays(this.currentYear, this.currentMonth);
