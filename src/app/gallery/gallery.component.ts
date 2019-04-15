@@ -62,6 +62,10 @@ export class GalleryComponent implements OnInit {
     event.stopPropagation();
   }
 
+  imageClick(event: any) {
+    event.stopPropagation();
+  }
+
   ngOnInit(): void {
     this.galleryService.getGallery().subscribe((response) => {
       this.gallery = response;

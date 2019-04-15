@@ -34,9 +34,12 @@
 
 .current-image
   display: flex
+  justify-content: center
+  align-content: flex-start
+  align-items: center
   width: 100%
   height: calc(100%)
-  margin: 50px auto
+  margin-top: 80px
   background-repeat: no-repeat
   background-size: contain
   background-position: center center
@@ -45,8 +48,10 @@
   opacity: 1 !important
 
 .carousel
+  display: flex
   justify-content: center
   position: fixed
+  flex-direction: row
   top: 0
   right: 0
   left: 0
@@ -56,47 +61,11 @@
   padding-bottom: 150px
   background-color: rgba(0,0,0,0.8)
 
-.button-box
-  width: 5%
-  height: 100%
-  display: flex
-  justify-content: center
-  flex-direction: column
-.button-divider
-  width: 90%
-.description-box
-  margin-top: auto
-  width: 90%
-  height: 10%
+.description
+  width: 40%
+  height: calc(40%)
+  margin-top: 80px
   background: white
-
-.left
-  padding-left: 25px
-.right
-  padding-right: 75px
-
-.prev, .next
-  display: flex
-  justify-content: center
-  align-items: center
-  width: 50px
-  height: 50px
-  border-radius: 10px
-  transition-duration: 0.4s
-  background-color: black
-  opacity: 1
-  cursor: pointer
-  user-select: none
-  i
-    font-size: 60px
-    color: white
-
-.caption-box
-  height: 30px
-  background-color: rgba(0,0,0,0.6)
-  color: white
-  transition: all .2s ease
-  opacity: 0
 
 .current-image:hover > .caption-box
   opacity: 1
