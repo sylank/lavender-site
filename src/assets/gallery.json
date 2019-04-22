@@ -1,50 +1,62 @@
 [
     {
         "location":"assets/img/gallery/1.jpg",
-        "caption":"A nyaraló az utca felől"
+        "caption":"A nyaraló az utca felől",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/2.jpg",
-        "caption":"Hátsó kert"
+        "caption":"Hátsó kert",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/3.jpg",
-        "caption":"Hátsó terasz"
+        "caption":"Hátsó terasz",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/7.jpg",
-        "caption":"Hátsó terasz és grill"
+        "caption":"Hátsó terasz és grill",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/4.jpg",
-        "caption":"Első terasz"
+        "caption":"Első terasz",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/5.jpg",
-        "caption":"Levendula palánta az első teraszon"
+        "caption":"Levendula palánta az első teraszon",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/6.jpg",
-        "caption":"Apartman logó"
+        "caption":"Apartman logó",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/12.jpg",
-        "caption":"Étkező"
+        "caption":"Étkező",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/10.jpg",
-        "caption":"Konyha"
+        "caption":"Konyha",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/8.jpg",
-        "caption":"Nagyobbik szoba"
+        "caption":"Nagyobbik szoba",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/9.jpg",
-        "caption":"Tusoló"
+        "caption":"Tusoló",
+        "text":"Ez egz hosszabb leiras a kephez"
     },
     {
         "location":"assets/img/gallery/13.jpg",
-        "caption":"Mosdó"
+        "caption":"Mosdó",
+        "text":"Ez egz hosszabb leiras a kephez"
     }
 ]

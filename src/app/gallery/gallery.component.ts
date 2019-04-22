@@ -8,13 +8,15 @@ import { GalleryService } from '../shared/gallery.service';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor(private galleryService: GalleryService) { }
-
   gallery: any;
   activeImage: string;
-  activeCaption: string;
   activeIndex: number;
-  displayCarousel = 'none';
+  displayCarousel = 'collapse';
+
+  public activeCaption: string;
+  public activeText: string;
+
+  constructor(private galleryService: GalleryService) { }
 
   onMouseEnter(index: string): void {
     this.galleryService.opacityControl.next(index);
@@ -25,9 +27,10 @@ export class GalleryComponent implements OnInit {
   }
 
   openCarousel(index: number): void {
-    this.displayCarousel = 'flex';
+    this.displayCarousel = 'visible';
     this.activeImage = this.gallery[index].location;
     this.activeCaption = this.gallery[index].caption;
+    this.activeText = this.gallery[index].text;
     this.galleryService.getActiveImage.next(this.activeImage);
     this.galleryService.navbarBackground.next('open');
 
@@ -35,7 +38,7 @@ export class GalleryComponent implements OnInit {
   }
 
   closeCarousel(event: any): void {
-    this.displayCarousel = 'none';
+    this.displayCarousel = 'collapse';
     this.galleryService.navbarBackground.next('close');
     event.stopPropagation();
   }
@@ -57,12 +60,14 @@ export class GalleryComponent implements OnInit {
 
     this.activeImage = this.gallery[this.activeIndex].location;
     this.activeCaption = this.gallery[this.activeIndex].caption;
+    this.activeText = this.gallery[this.activeIndex].text;
     this.galleryService.getActiveImage.next(this.activeImage);
 
     event.stopPropagation();
   }
 
   imageClick(event: any) {
+    this.loadImage('next', event)
     event.stopPropagation();
   }
 

@@ -3,6 +3,17 @@
   .image-container
     .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
       img.image(src='{{ image.location }}', alt='')
-.carousel((click)='closeCarousel($event)', [ngStyle]='{ display: displayCarousel }')
+.carousel((click)='closeCarousel($event)', [ngStyle]='{ visibility: displayCarousel }')
   .current-image((click)="imageClick($event)", id="image", appImageLoader)
+    .button-container
+      .close
+      .button.prev((click)="loadImage('prev', $event)")
+        i.fas.fa-arrow-left
+    .button-container
+      .button.close((click)='closeCarousel($event)')
+        i.far.fa-times-circle
+      .button.close-back.next((click)="loadImage('next', $event)")
+        i.fas.fa-arrow-right
   .description
+    h1 {{activeCaption}}
+    a {{activeText}}
