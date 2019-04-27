@@ -23,14 +23,39 @@
   align-items: center
   width: 300px
   height: 200px
-  cursor: pointer
-  transition: opacity 250ms
+
+.imageasd
+  position: relative
+  text-align: center
+  width: 300px
+  height: 200px
 
 .image
   width: 300px
   height: 200px
-  transition: opacity 250ms
   padding: 10px
+  cursor: pointer
+
+.indicator
+  position: absolute
+  top: 10px
+  left: 10px
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 280px
+  height: 180px
+  opacity: 0
+  background: black
+  transition: opacity 0.25s linear
+  cursor: pointer
+  i
+    color: white
+    opacity: 1
+
+.indicator:hover
+  visibility: visible
+  opacity: .75
 
 .current-image
   display: flex
@@ -67,7 +92,22 @@
   margin-top: auto
   margin-bottom: auto
   background: white
-  padding: 8px
+  padding: 16px
+  border-radius: 5px
+  margin-left: 10px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: -20px
+    top: 35%
+    width: 0
+    height: 0
+    border-left: 10px solid transparent
+    border-right: 10px solid white
+    border-top: 10px solid transparent
+    border-bottom: 10px solid transparent
+    clear: both
 
   h1
     font-weight: 300
@@ -83,6 +123,8 @@
   display: flex
   justify-content: center
   flex-direction: column
+  margin-left: 5px
+  margin-right: 5px
 .button
   width: 38px
   height: 38px
@@ -99,14 +141,13 @@
 .close
   margin-bottom: auto
   border-bottom-left-radius: 5px
+  border-bottom-right-radius: 5px
 .close-back
   transform: translateY(-19px)
 .prev
-  border-top-right-radius: 5px
-  border-bottom-right-radius: 5px
+  border-radius: 5px
 .next
-  border-bottom-left-radius: 5px
-  border-top-left-radius: 5px
+  border-radius: 5px
 
 .current-image:hover > .caption-box
   opacity: 1
@@ -121,6 +162,22 @@
     height: 50%
     margin-top: 0
   .description
-    width: 100%
-    height: 35%
-    margin: 0
+    width: auto
+    height: auto
+    border-radius: 5px
+    margin-top: 10px
+    margin-bottom: 0px
+    margin-left: auto
+    margin-right: auto
+    &::before
+      content: ''
+      position: absolute
+      left: 50%
+      top: -20px
+      width: 0
+      height: 0
+      border-left: 10px solid transparent
+      border-right: 10px solid transparent
+      border-top: 10px solid transparent
+      border-bottom: 10px solid white
+      clear: both

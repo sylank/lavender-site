@@ -1,19 +1,21 @@
-// GALLERY
 .hero
   .image-container
     .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
-      img.image(src='{{ image.location }}', alt='')
+      .imageasd
+        img.image(src='{{ image.location }}', alt='')
+        .indicator
+          i.fas.fa-eye
 .carousel((click)='closeCarousel($event)', [ngStyle]='{ visibility: displayCarousel }')
   .current-image((click)="imageClick($event)", id="image", appImageLoader)
     .button-container
       .close
-      .button.prev((click)="loadImage('prev', $event)")
+      .button.prev((click)="loadPrevImage($event)")
         i.fas.fa-arrow-left
     .button-container
       .button.close((click)='closeCarousel($event)')
-        i.far.fa-times-circle
-      .button.close-back.next((click)="loadImage('next', $event)")
+        i.fas.fa-times
+      .button.close-back.next((click)="loadNextImage($event)")
         i.fas.fa-arrow-right
-  .description
+  .description(*ngIf=('activeCaption.length > 0'))
     h1 {{activeCaption}}
     a {{activeText}}
