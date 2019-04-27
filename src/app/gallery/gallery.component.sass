@@ -23,80 +23,161 @@
   align-items: center
   width: 300px
   height: 200px
-  cursor: pointer
-  transition: opacity 250ms
+
+.imageasd
+  position: relative
+  text-align: center
+  width: 300px
+  height: 200px
 
 .image
   width: 300px
   height: 200px
-  transition: opacity 250ms
   padding: 10px
+  cursor: pointer
+
+.indicator
+  position: absolute
+  top: 10px
+  left: 10px
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 280px
+  height: 180px
+  opacity: 0
+  background: black
+  transition: opacity 0.25s linear
+  cursor: pointer
+  i
+    color: white
+    opacity: 1
+
+.indicator:hover
+  visibility: visible
+  opacity: .75
 
 .current-image
   display: flex
-  width: 100%
-  height: calc(100%)
-  margin: 50px auto
+  justify-content: space-between
+  align-content: center
+  align-items: center
+  width: 50%
+  margin-top: 80px
   background-repeat: no-repeat
   background-size: contain
   background-position: center center
+  background-color: black
 
 .active
   opacity: 1 !important
 
 .carousel
+  display: flex
   justify-content: center
   position: fixed
+  flex-direction: row
   top: 0
   right: 0
   left: 0
   bottom: 0
   height: 100%
+  width: 100%
   padding-top: 75px
   padding-bottom: 150px
   background-color: rgba(0,0,0,0.8)
 
-.button-box
-  width: 5%
+.description
+  width: 25%
+  margin-top: auto
+  margin-bottom: auto
+  background: white
+  padding: 16px
+  border-radius: 5px
+  margin-left: 10px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: -20px
+    top: 35%
+    width: 0
+    height: 0
+    border-left: 10px solid transparent
+    border-right: 10px solid white
+    border-top: 10px solid transparent
+    border-bottom: 10px solid transparent
+    clear: both
+
+  h1
+    font-weight: 300
+    color: #ab6cc3
+    margin-bottom: 15px
+    font-size: 18px
+  a
+    font-size: 12px
+
+.button-container
+  width: 38px
   height: 100%
   display: flex
   justify-content: center
   flex-direction: column
-.button-divider
-  width: 90%
-.description-box
-  margin-top: auto
-  width: 90%
-  height: 10%
-  background: white
-
-.left
-  padding-left: 25px
-.right
-  padding-right: 75px
-
-.prev, .next
+  margin-left: 5px
+  margin-right: 5px
+.button
+  width: 38px
+  height: 38px
+  background: black
   display: flex
   justify-content: center
+  align-content: center
   align-items: center
-  width: 50px
-  height: 50px
-  border-radius: 10px
-  transition-duration: 0.4s
-  background-color: black
-  opacity: 1
   cursor: pointer
-  user-select: none
+  margin-bottom: auto
   i
-    font-size: 60px
     color: white
-
-.caption-box
-  height: 30px
-  background-color: rgba(0,0,0,0.6)
-  color: white
-  transition: all .2s ease
-  opacity: 0
+    font-size: 32px
+.close
+  margin-bottom: auto
+  border-bottom-left-radius: 5px
+  border-bottom-right-radius: 5px
+.close-back
+  transform: translateY(-19px)
+.prev
+  border-radius: 5px
+.next
+  border-radius: 5px
 
 .current-image:hover > .caption-box
   opacity: 1
+
+@media only screen and (max-width: 730px)
+  .carousel
+    display: flex
+    flex-direction: column
+
+  .current-image
+    width: 100%
+    height: 50%
+    margin-top: 0
+  .description
+    width: auto
+    height: auto
+    border-radius: 5px
+    margin-top: 10px
+    margin-bottom: 0px
+    margin-left: auto
+    margin-right: auto
+    &::before
+      content: ''
+      position: absolute
+      left: 50%
+      top: -20px
+      width: 0
+      height: 0
+      border-left: 10px solid transparent
+      border-right: 10px solid transparent
+      border-top: 10px solid transparent
+      border-bottom: 10px solid white
+      clear: both
