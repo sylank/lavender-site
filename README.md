@@ -30,7 +30,8 @@ Other projects: https://github.com/sylank
 
 ## Features
 * Multi langual support
-* Rose graph (to visualize distance and activity)
+* Gallery
+* Events list with filter options
 * Booking service frontend with re-captcha integration
 
 ## Image properties
