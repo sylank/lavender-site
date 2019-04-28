@@ -28,7 +28,10 @@ export class BookingComponent implements OnInit {
 
   navigationSubscription: any;
 
-  public accept = false;
+  public dataProtection = false;
+  public newsLetter = false;
+  public dataHandling  = false;
+  public houseRules = false;
 
   public bookingEnabled = environment.reservationEnabled;
   public showNotification = !this.bookingEnabled;
@@ -183,6 +186,10 @@ export class BookingComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.bookingStage = 'overview';
     console.log(this.booking);
+  }
+
+  isSendingDisabled() {
+    return !(this.dataProtection && this.dataHandling && this.houseRules)
   }
 
   sendBooking() {

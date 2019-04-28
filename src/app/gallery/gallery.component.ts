@@ -17,10 +17,21 @@ export class GalleryComponent implements OnInit {
 
   constructor(private galleryService: GalleryService) {}
 
-  @HostListener("document:keydown.escape", ["$event"]) onKeydownHandler(
+  @HostListener("document:keydown.escape", ["$event"]) onEscKeyDownHandler(
     event: KeyboardEvent
   ) {
     this.closeCarousel(event);
+  }
+
+  @HostListener("document:keydown.ArrowLeft", ["$event"]) onLeftKeyDownHandler(
+    event: KeyboardEvent
+  ) {
+    this.loadPrevImage(event);
+  }
+  @HostListener("document:keydown.ArrowRight", ["$event"]) onRightKeyDownHandler(
+    event: KeyboardEvent
+  ) {
+    this.loadNextImage(event);
   }
 
   openCarousel(index: number): void {

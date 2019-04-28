@@ -32,15 +32,15 @@
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok:
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="name", placeholder='Teljes név *', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="name", placeholder='*Teljes név (Példa Pál)', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='Telefonszám *', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='*Telefonszám (+36301234567)', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
           .input-icon
             i.fas.fa-mobile
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='Email *', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='*E-mail (pelda@email.hu)', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
           .input-icon
             i.fas.fa-envelope
         textarea.message([attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
@@ -75,7 +75,7 @@
           i.fas.fa-mobile
         p {{ booking.phone }}
       .data
-        p Email:
+        p E-mail:
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
@@ -88,16 +88,31 @@
         p.small Előleg (50%):
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
+      .divider
       .checkbox-wrapper
           label
-            input(type='checkbox', [checked]="accept", (change)="accept=!accept")
-            | Elfogadom az 
-            a(target="_blank", rel="noopener noreferrer", href='https://drive.google.com/open?id=1aoZhmzM2NVp96OXqCxdvPKU6nOsdg9DE') adatkezelési
-            | nyilatkozatot!
-      button.submit(type='submit', (click)="sendBooking()", [disabled]="!accept") Foglalás most
+            input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
+            | Elolvastam és elfogadom az
+            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') adatvédelmi
+            | nyilatkozatot! *
+          label
+            input(type='checkbox', [checked]="newsLetter", (change)="newsLetter=!newsLetter")
+            | Szeretnék értesülni az újdonságokról e-mail-ben!
+          label
+            input(type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
+            | Hozzájárulok a megadott adataim kezeléséhez! *
+          label
+            input(type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
+            | Elolvastam és elfogadom a
+            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') házirendet
+            | és a
+            br
+            a.newline(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
+            | ! *
+      button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most
       p.back
         span((click)="onBack()") Vissza
-    
+
     // Overview
     .booking-form(*ngIf="bookingStage === 'result'")
       .result-wrapper
@@ -105,8 +120,8 @@
           i.fas.fa-info-circle.result
           p.status Foglalási igény elküldve
           p.description Foglalási igényét elbírálásra elküldtük. Hamarosan visszajelzünk, köszönjük.
-          p.reservation-info 
-            | Foglalási azonosító: 
+          p.reservation-info
+            | Foglalási azonosító:
             b {{booking.reservationId}}
         .result.failed(*ngIf="bookingResult === 'failed'")
           i.fas.fa-times.result
@@ -118,14 +133,17 @@
       app-loading-circle(show="false")
 
   .hero-content.info(*ngIf="bookingStage === 'overview' || bookingStage === 'form'")
-    h2 Foglalás információk
-    p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak.
+    h2 Foglalással kapcsolatos
+    p - Az Idegen Forgalmi Adó (IFA) nincs az árban.
+    p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
     p
-      | - Előleg utalásához az adatokat a 
-      a(href="/contact") kapcsolat menüpont alatt 
-      | találod
-    p - Érkezésés a foglalt napon bármikor lehetséges, a távozás is rugalmasan alakítható de szeszonban 10:00 időpontot preferáljuk.
-    p 
-      | - Lemondásról és egyéb információkról részleteket az 
-      a(href="") álltalános szerződési feltételekben 
+      | - Kérlek az utás közleményébe írd bele a foglalási számod. Előleg átutalásához szükséges adatokat a
+      a(href="/contact") kapcsolat menüpont alatt
+      | valamint az utalás menetéről e-mail-ben és
+      a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
       | találsz.
+    p - Érkezésés a foglalt napon bármikor lehetséges, a távozás is rugalmasan alakítható de szeszonban 10:00 időpontot preferáljuk.
+    p
+      | - Lemondásról és egyéb információkról részleteket az
+      a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      | vagy a visszaigazoló e-mail-ben találsz.
