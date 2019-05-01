@@ -26,6 +26,7 @@ import { EventComponent } from './events/event/event.component';
 import { LoadingCircleComponent } from './shared/loading-circle/loading-circle.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { DataHiderComponent } from './shared/data-hider/data-hider.component';
+import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DataHiderComponent } from './shared/data-hider/data-hider.component';
     DayComponent,
     EventComponent,
     LoadingCircleComponent,
-    DataHiderComponent
+    DataHiderComponent,
+    DeleteBookingComponent
   ],
   imports: [
     BrowserModule,
