@@ -8,7 +8,7 @@
   justify-content: center
   align-items: center
   width: 100%
-  height: 110vh
+  height: 120vh
   background-image: url("../../assets/img/contact-bg.jpg")
   background-size: cover
 
@@ -27,7 +27,7 @@
   width: 480px
   transition: height 500ms
   > p
-    font-size: 8px
+    font-size: 14px
     font-weight: 500
     margin-bottom: 5px
 
@@ -42,9 +42,6 @@
   z-index: 500
   .submit
     margin-top: 30px
-  b
-    margin-left: 5px
-    margin-right: 5px
 
 h1
   font-weight: 500
@@ -76,32 +73,6 @@ h1
       cursor: text
     &:-webkit-autofill
       box-shadow: 0 0 0px 1000px #fff inset
-.message
-  width: 100%
-  height: 125px
-  margin-bottom: 5px
-  padding: 10px
-  border: 2px solid rgb(222, 222, 222)
-  border-radius: 5px
-  font-family: "Encode Sans"
-  font-weight: 500
-  outline: none
-  resize: none
-  &:hover
-    border-color: rgb(200, 200, 200)
-  &:focus
-    border-color: #ab6cc3
-
-.info-wrapper
-  display: flex
-  justify-content: space-between
-  margin-bottom: 30px
-.char-count
-  display: flex
-  justify-content: flex-end
-  padding-right: 5px
-  font-size: 10px
-  color: rgb(100, 100, 100)
 
 \::-webkit-input-placeholder, \::-moz-placeholder, \:-ms-input-placeholder, \:-moz-placeholder
   color: rgb(30, 180, 180)
@@ -185,6 +156,33 @@ i
   position: absolute
   top: 0px
   left: 0px
+
+.message
+  width: 100%
+  height: 125px
+  margin-bottom: 5px
+  padding: 10px
+  border: 2px solid rgb(222, 222, 222)
+  border-radius: 5px
+  font-family: "Encode Sans"
+  font-weight: 500
+  outline: none
+  resize: none
+  &:hover
+    border-color: rgb(200, 200, 200)
+  &:focus
+    border-color: #ab6cc3
+
+.info-wrapper
+  display: flex
+  justify-content: space-between
+  margin-bottom: 30px
+.char-count
+  display: flex
+  justify-content: flex-end
+  padding-right: 5px
+  font-size: 10px
+  color: rgb(100, 100, 100)
 
 @media screen and (max-width: 950px)
   .hero

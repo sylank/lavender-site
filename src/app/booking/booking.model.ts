@@ -8,4 +8,5 @@ export interface Booking {
   email: string;
   message: string;
   reservationId: string;
+  newsLetter: boolean;
 }

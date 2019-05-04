@@ -60,8 +60,18 @@ export class CalendarHttpService {
       fullName: bookingData.fullName,
       phoneNumber: bookingData.phoneNumber,
       costValue: -1,
-      reservationId: '-'
+      reservationId: '-',
+      subscribe: bookingData.newsLetter
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
+  }
+
+  public deleteBooking(deletionData: any, reCaptchaToken: string) : Observable<Object> {
+    const postData = {
+      'g-recaptcha-response': reCaptchaToken,
+      reservationId:deletionData.bookingSerial,
+      deletionMessage: deletionData.message
+    };
+    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarDeleteReservationEndpoint}`, postData);
   }
 }

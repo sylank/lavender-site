@@ -5,7 +5,8 @@ export class BookingData {
     public fromDate: Date,
     public toDate: Date,
     public fullName: string,
-    public phoneNumber: string
+    public phoneNumber: string,
+    public newsLetter: boolean
     ) {
 
     }

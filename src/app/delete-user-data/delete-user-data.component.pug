@@ -1,0 +1,37 @@
+.hero
+  .notification-panel(*ngIf="showNotification")
+      .hero-content
+        h1 Figyelem!
+        p Tárolt adatait töröltük a rendszerből.
+        p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
+        button.submit((click)="showNotification=!showNotification") Bezárás
+  .hero-content
+    .loading(*ngIf="showLoading")
+      app-loading-circle(show="false")
+    form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
+      h1 Felhasználói adatok törlése
+      p Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
+      p
+        | Adataidat a
+        i Adatok törlése
+        | gomb lenyomásával törölheted.
+      p
+        b Fontos:
+        |  Ezesetben csak a tárolt adataidat töröljük, a hírlevélről való leiratkozáshoz a hírlevélben találsz több információt.
+      p Az adatfelhasználásról részleteket
+        a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") alábbi linken
+        | .
+      .divider
+      p Adatok:
+      .input-wrapper
+        input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+        .input-icon
+          i.fas.fa-tag
+      textarea.message(formControlName="message", maxlength='300', placeholder='Törlés oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')
+      .info-wrapper
+        p.char-count A *-al jelölt mezők kitöltése kötelező
+        p.char-count Ennyi karakter maradt: {{ messageLength }}
+      label
+        input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
+        | Törölni szeretném az adataimat!
+      button.submit([disabled]="sendingDisabled()") Adatok törlése
