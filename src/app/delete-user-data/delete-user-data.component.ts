@@ -14,6 +14,7 @@ export class DeleteUserDataComponent implements OnInit {
   public sureCheck: boolean = false;
   public email: string = "";
   public showLoading: boolean;
+  public showNotification:boolean;
 
   formName: FormGroup;
   constructor(
@@ -39,14 +40,15 @@ export class DeleteUserDataComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     this.showLoading = true;
+    this.showNotification = false;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-user-data', (token) => {
       this.deleteUserDataService.deleteUserData(this.email, token).subscribe((deleteResponse: any)=>{
         this.showLoading = false;
+        this.showLoading = true;
       });
     }, {
         useGlobalDomain: false
     });
-
   }
 
 }

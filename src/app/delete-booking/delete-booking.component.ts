@@ -14,6 +14,7 @@ export class DeleteBookingComponent implements OnInit {
   public sureCheck: boolean = false;
   public bookingSerial: string = "";
   public showLoading: boolean;
+  public showNotification:boolean;
 
   formName: FormGroup;
 
@@ -42,12 +43,14 @@ export class DeleteBookingComponent implements OnInit {
     this.showLoading = true;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
       this.calendarHttpService.deleteBooking(this.bookingSerial,token).subscribe((deleteResult: any)=> {
-
         this.showLoading = false;
+        this.showNotification = true;
       });
     }, {
         useGlobalDomain: false
     });
 
+    this.showLoading =false;
+    this.showNotification = true;
   }
 }

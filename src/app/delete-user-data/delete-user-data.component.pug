@@ -1,4 +1,10 @@
 .hero
+  .notification-panel(*ngIf="showNotification")
+      .hero-content
+        h1 Figyelem!
+        p Tárolt adatait töröltük a rendszerből.
+        p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
+        button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")

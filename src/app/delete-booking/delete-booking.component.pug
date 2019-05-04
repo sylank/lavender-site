@@ -1,4 +1,14 @@
 .hero
+  .notification-panel(*ngIf="showNotification")
+    .hero-content
+      h1 Figyelem!
+      p
+       | A
+       b {{bookingSerial}}
+       | azonsítóval ellátott foglalás törlése megkezdődött.
+      p A további információkat a foglalás mellé csatolt e-mail címre kiküldtük.
+      p Reméljük még találkozunk.
+      button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
