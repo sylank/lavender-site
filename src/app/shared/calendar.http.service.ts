@@ -31,6 +31,7 @@ export class CalendarHttpService {
     const toDate = HttpUtils.convertDepartureDate(
       new Date(year, month, daysInMonth)
     );
+    console.log("fromDate: "+fromDate+" toDate: "+toDate)
     return this.http.get(
       `${HttpConstants.rootUrl}${
         HttpConstants.calendarQueryEndpoint
@@ -58,8 +59,19 @@ export class CalendarHttpService {
       toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
       fullName: bookingData.fullName,
       phoneNumber: bookingData.phoneNumber,
-      costValue: -1
+      costValue: -1,
+      reservationId: '-',
+      subscribe: bookingData.newsLetter
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
+  }
+
+  public deleteBooking(deletionData: any, reCaptchaToken: string) : Observable<Object> {
+    const postData = {
+      'g-recaptcha-response': reCaptchaToken,
+      reservationId:deletionData.bookingSerial,
+      deletionMessage: deletionData.message
+    };
+    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarDeleteReservationEndpoint}`, postData);
   }
 }

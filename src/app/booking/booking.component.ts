@@ -15,7 +15,8 @@ import { ReCaptchaV3Service } from 'ngx-captcha';
 import { BookingData } from './booking.data';
 import { Constants } from '../shared/constants';
 import { CostCalculationHttpService } from '../shared/cost-calculation.http.service';
-import { HttpUtils } from '../shared/http.utils';
+import { environment } from '../../environments/environment';
+import { HttpConstants } from '../shared/http.constants';
 
 @Component({
   selector: 'app-booking',
@@ -23,10 +24,14 @@ import { HttpUtils } from '../shared/http.utils';
   styleUrls: ['./booking.component.sass']
 })
 export class BookingComponent implements OnInit {
-
-  siteKey = '6LfhH5UUAAAAAIPkIxC6e8SmerK17bNnCjgL8nPD';
-
   navigationSubscription: any;
+
+  public dataProtection = false;
+  public dataHandling  = false;
+  public houseRules = false;
+
+  public bookingEnabled = environment.reservationEnabled;
+  public showNotification = !this.bookingEnabled;
 
   public showLoading = true;
 
@@ -49,7 +54,9 @@ export class BookingComponent implements OnInit {
     name: '',
     phone: '',
     email: '',
-    message: ''
+    message: '',
+    reservationId: '',
+    newsLetter: false,
   };
   formName: FormGroup;
 
@@ -136,22 +143,20 @@ export class BookingComponent implements OnInit {
         }
     }
     this.setPrice();
-    this.calendarHttpService
-      .getReservedDates(this.booking.arrival, this.booking.departure)
-      .subscribe((reservedDates: any) => {
+    this.calendarHttpService.getReservedDates(this.booking.arrival, this.booking.departure).subscribe(
+      (reservedDates: any) => {
         this.reservedDates = reservedDates.response.reservations;
-        console.log(this.reservedDates);
-      });
+      }
+    );
 
-      this.showLoading = true;
-      this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
-        (costData: any) => {
-          this.basePrice = costData.response.value;
-          console.log(this.basePrice);
-          this.setPrice();
-          this.showLoading = false;
-        }
-      );
+    this.showLoading = true;
+    this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
+      (costData: any) => {
+        this.basePrice = costData.response.value;
+        this.setPrice();
+        this.showLoading = false;
+      }
+    );
   }
 
   setPrice(): void {
@@ -181,29 +186,36 @@ export class BookingComponent implements OnInit {
     console.log(this.booking);
   }
 
+  isSendingDisabled() {
+    return !(this.dataProtection && this.dataHandling && this.houseRules)
+  }
+
   sendBooking() {
-    this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
+    this.showLoading = true;
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'booking', (token) => {
       const bookingData = new BookingData(this.booking.email,
                                           this.booking.message,
                                           this.booking.arrival,
                                           this.booking.departure,
                                           this.booking.name,
-                                          this.booking.phone);
+                                          this.booking.phone,
+                                          this.booking.newsLetter);
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
         console.log(bookingResult);
 
+        this.showLoading = false;
+
         this.bookingStage = 'result';
+        this.bookingResult = 'failed';
 
         const data = bookingResult.response;
         if (data.enabled === true && data.reservationCause === 'SUCCESS') {
           this.bookingStage = 'result';
           this.bookingResult = 'success';
 
-          return;
+          this.booking.reservationId = data.reservationId;
         }
-
-        this.bookingResult = 'failed';
       });
     }, {
         useGlobalDomain: false
@@ -218,14 +230,6 @@ export class BookingComponent implements OnInit {
     this.showCalendar = false;
     this.arrivalCalendarActive = false;
     this.departureCalendarActive = false;
-  }
-
-  dateFormat(date: Date): string {
-    let month: any = date.getMonth() + 1;
-    if (month < 10) {
-      month = `0${month}`;
-    }
-    return `${date.getFullYear()}-${month}-${date.getDate()}`;
   }
 
   formatCurrency(amount: number) {
@@ -270,16 +274,15 @@ export class BookingComponent implements OnInit {
         this.reservedDates = reservedDates.response.reservations;
       });
 
-    this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'booking', (token) => {
     }, {
         useGlobalDomain: false
     });
 
-    this.showLoading = true;
+    this.showLoading = this.bookingEnabled;
     this.costCalculationHttpService.getCostCalculationBetweenDate(this.booking.arrival, this.booking.departure).subscribe(
       (costData: any) => {
         this.basePrice = costData.response.value;
-        console.log(this.basePrice);
         this.setPrice();
         this.showLoading = false;
       }

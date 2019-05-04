@@ -1,16 +1,21 @@
-// GALLERY
 .hero
   .image-container
     .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
-      img.image(src='{{ image.location }}', alt='')
-.carousel((click)='closeCarousel($event)', [ngStyle]='{ display: displayCarousel }')
-  .current-image(id="image", appImageLoader)
-    //.caption-box
-      a {{activeCaption}}
-    .button-box.left
-      .prev((click)="loadImage('prev', $event)")
-        i.fas.fa-angle-left
-    .button-divider
-    .button-box.right
-      .next((click)="loadImage('next', $event)")
-        i.fas.fa-angle-right
+      .imageasd
+        img.image(src='{{ image.location }}', alt='')
+        .indicator
+          i.fas.fa-eye
+.carousel((click)='closeCarousel($event)', [ngStyle]='{ visibility: displayCarousel }')
+  .current-image((click)="imageClick($event)", id="image", appImageLoader)
+    .button-container
+      .close
+      .button.prev((click)="loadPrevImage($event)")
+        i.fas.fa-arrow-left
+    .button-container
+      .button.close((click)='closeCarousel($event)')
+        i.fas.fa-times
+      .button.close-back.next((click)="loadNextImage($event)")
+        i.fas.fa-arrow-right
+  .description(*ngIf=('activeCaption.length > 0'))
+    h1 {{activeCaption}}
+    a {{activeText}}

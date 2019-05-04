@@ -6,6 +6,7 @@ nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='chan
       a(routerLink='/gallery', routerLinkActive='active', (click)='clearHeader()') Galéria
       a(routerLink='/events', routerLinkActive='active', (click)='clearHeader()') Élmények
       a(routerLink='/contact', routerLinkActive='active', (click)='clearHeader()') Kapcsolat
+      a(routerLink='/delete-booking', routerLinkActive='active', (click)='clearHeader()') Lemondás
       a.booking(routerLink='/booking', (click)='clearHeader()') Foglalás
     .container((click)="animation=!animation; changeBg(); hamburger=!hamburger")
       .bar1([ngClass]="animation ? 'cbar1' : 'bar1'")

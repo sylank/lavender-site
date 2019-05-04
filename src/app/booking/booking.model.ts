@@ -7,4 +7,6 @@ export interface Booking {
   phone: string;
   email: string;
   message: string;
+  reservationId: string;
+  newsLetter: boolean;
 }

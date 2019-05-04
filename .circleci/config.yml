@@ -5,7 +5,35 @@ defaults: &defaults
     - image: edgecase/docker-ubuntu-node-awscli
 
 jobs:
-  build:
+  dev_build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - run:
+          name: Run install
+          command: npm install --unsafe-perm
+
+      - run:
+          name: Run install angular-cli
+          command: npm install -g @angular/cli
+
+      - run:
+          name: Post install
+          command: node ./ng-add-pug-loader.js
+          
+      - run:
+          name: Run build
+          command: ng build
+
+      - persist_to_workspace:
+          root: .
+          paths:
+          - dist
+          - .circleci
+          - package.json
+
+  prod_build:
     <<: *defaults
     steps:
       - checkout
@@ -33,7 +61,7 @@ jobs:
           - .circleci
           - package.json
 
-  artifactory_copy:
+  dev_artifactory_copy:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -41,22 +69,17 @@ jobs:
 
       - run:
           name: Copy build files into artifactory
-          command: sh .circleci/artifactory_copy.sh
+          command: sh .circleci/artifactory_copy.sh dev
 
-  version_check:
+  prod_artifactory_copy:
     <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
 
       - run:
-          name: Version check
-          command: sh .circleci/version_check.sh
-
-      - persist_to_workspace:
-          root: .
-          paths:
-          - .circleci
-          - package.json
+          name: Copy build files into artifactory
+          command: sh .circleci/artifactory_copy.sh prod
 
   dev_deploy:
     <<: *defaults
@@ -80,37 +103,44 @@ workflows:
   version: 2
   dev_deploy:
     jobs:
-      - build:
+      - dev_build:
           filters:
             branches:
               only:
                 - dev
-      - artifactory_copy:
+      - dev_artifactory_copy:
           filters:
             branches:
               only:
                 - dev
           requires:
-            - build
+            - dev_build
       - dev_deploy:
           filters:
             branches:
               only:
                 - dev
           requires:
-            - artifactory_copy
+            - dev_artifactory_copy
 
   prod_deploy:
     jobs:
-      - version_check:
+      - prod_build:
           filters:
             branches:
               only:
                 - master
+      - prod_artifactory_copy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - prod_build
       - prod_deploy:
           filters:
             branches:
               only:
                 - master
           requires:
-            - version_check
+            - prod_artifactory_copy

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { StaticInformationHttpService } from '../static-information.http.service';
 
 @Component({
   selector: 'app-data-hider',
@@ -11,13 +12,29 @@ export class DataHiderComponent implements OnInit {
   private defaultValue: string;
 
   @Input()
-  private realValue: string;
+  private resolvDataFunction: Function;
 
+  public realValue: string;
   public showValue = false;
 
-  constructor() { }
+  constructor(private staticInfoService: StaticInformationHttpService) { }
 
   ngOnInit() {
+  }
+
+  public retrieveRealValue() {
+    this.showValue = false;
+    // this.showLoading = true;
+
+    this.staticInfoService.getStaticInformation().subscribe(
+      (staticData: any) => {
+        const data =  this.resolvDataFunction(staticData.response);
+
+        this.realValue = data;
+        this.showValue = true;
+        // this.showLoading = false;
+      }
+    );
   }
 
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StaticInformationHttpService } from '../shared/static-information.http.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,32 +6,47 @@ import { StaticInformationHttpService } from '../shared/static-information.http.
   styleUrls: ['./contact.component.sass']
 })
 export class ContactComponent implements OnInit {
-  public showLoading = true;
-  public data = {
-    contactName: '',
-    phone: '',
-    email: '',
-    address: '',
-    bankAccount: ''
-  };
 
-  constructor(private staticInfoService: StaticInformationHttpService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.showLoading = true;
-
-    this.staticInfoService.getStaticInformation().subscribe(
-      (staticData: any) => {
-        console.log(staticData);
-        this.data.contactName = staticData.response.contactName;
-        this.data.phone = staticData.response.phoneNumber;
-        this.data.email = staticData.response.emailAddress;
-        this.data.address = staticData.response.address;
-        this.data.bankAccount = staticData.response.bankAccountId;
-
-        this.showLoading = false;
+  public contactInfo = [
+    {
+      title: 'Kapcsolattartó',
+      defaultValue: 'Faházi-Takácsxxx',
+      callback : function(data) {
+        return data.contactName;
       }
-    );
-  }
+    },
+    {
+      title: 'Telefon',
+      defaultValue: '+3630/482xxxxxxx',
+      callback : function(data) {
+        return data.phoneNumber;
+      }
+    },
+    {
+      title: 'E-mail',
+      defaultValue: 'levendula.balatx',
+      callback : function(data) {
+        return data.emailAddress;
+      }
+    },
+    {
+      title: 'Cím',
+      defaultValue: 'Magyarország, 86',
+      callback : function(data) {
+        return data.address;
+      }
+    },
+    {
+      title: 'Számlaszám',
+      defaultValue: '12345-1212211xxx',
+      callback : function(data) {
+        return data.bankAccountId;
+      }
+    }
+  ];
+
+  ngOnInit() { }
 
 }
