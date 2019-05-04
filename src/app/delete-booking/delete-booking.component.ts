@@ -28,14 +28,10 @@ export class DeleteBookingComponent implements OnInit {
       sureField: ["", [Validators.required]]
     });
 
-    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'booking', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
     }, {
         useGlobalDomain: false
     });
-  }
-
-  deleteBooking() {
-    console.log("aaa");
   }
 
   sendingDisabled() {
@@ -44,7 +40,7 @@ export class DeleteBookingComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     this.showLoading = true;
-    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'booking', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
       this.calendarHttpService.deleteBooking(this.bookingSerial,token).subscribe((deleteResult: any)=> {
 
         this.showLoading = false;
