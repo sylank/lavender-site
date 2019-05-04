@@ -8,7 +8,7 @@
   .hero-content
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
-    form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
+    form((ngSubmit)="onSubmit()", [formGroup]="formName")
       h1 Felhasználói adatok törlése
       p Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
       p
@@ -24,7 +24,7 @@
       .divider
       p Adatok:
       .input-wrapper
-        input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+        input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="deletion.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
         .input-icon
           i.fas.fa-tag
       textarea.message(formControlName="message", maxlength='300', placeholder='Törlés oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')

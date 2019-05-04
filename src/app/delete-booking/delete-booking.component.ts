@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators, NgForm } from "@angular/forms";
-import { CustomValidator } from "../shared/validators/email.validator";
 import { CalendarHttpService } from "../shared/calendar.http.service";
 import { ReCaptchaV3Service } from 'ngx-captcha';
 import { HttpConstants } from '../shared/http.constants';
@@ -46,7 +45,7 @@ export class DeleteBookingComponent implements OnInit {
     return !this.sureCheck || this.formName.invalid;
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(): void {
     this.showLoading = true;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
       this.calendarHttpService.deleteBooking(this.deletion,token).subscribe((deleteResult: any)=> {

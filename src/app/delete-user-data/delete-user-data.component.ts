@@ -46,7 +46,7 @@ export class DeleteUserDataComponent implements OnInit {
     return !this.sureCheck || this.formName.invalid;
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(): void {
     this.showLoading = true;
     this.showNotification = false;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-user-data', (token) => {
