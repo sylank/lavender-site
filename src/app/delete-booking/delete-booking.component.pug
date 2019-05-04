@@ -12,7 +12,7 @@
   .hero-content
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
-    form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
+    form((ngSubmit)="onSubmit()", [formGroup]="formName")
       h1 Foglalás lemondása
       p A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tályékoztatni.
       p
