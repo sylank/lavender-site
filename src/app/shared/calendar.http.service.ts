@@ -64,4 +64,12 @@ export class CalendarHttpService {
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
   }
+
+  public deleteBooking(bookingSerial: string, reCaptchaToken: string) : Observable<Object> {
+    const postData = {
+      'g-recaptcha-response': reCaptchaToken,
+      reservationId:bookingSerial
+    };
+    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarDeleteReservationEndpoint}`, postData);
+  }
 }

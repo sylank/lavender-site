@@ -16,6 +16,7 @@ import { BookingData } from './booking.data';
 import { Constants } from '../shared/constants';
 import { CostCalculationHttpService } from '../shared/cost-calculation.http.service';
 import { environment } from '../../environments/environment';
+import { HttpConstants } from '../shared/http.constants';
 
 @Component({
   selector: 'app-booking',
@@ -23,9 +24,6 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./booking.component.sass']
 })
 export class BookingComponent implements OnInit {
-
-  siteKey = '6LfhH5UUAAAAAIPkIxC6e8SmerK17bNnCjgL8nPD';
-
   navigationSubscription: any;
 
   public dataProtection = false;
@@ -194,7 +192,7 @@ export class BookingComponent implements OnInit {
 
   sendBooking() {
     this.showLoading = true;
-    this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'booking', (token) => {
       const bookingData = new BookingData(this.booking.email,
                                           this.booking.message,
                                           this.booking.arrival,
@@ -275,7 +273,7 @@ export class BookingComponent implements OnInit {
         this.reservedDates = reservedDates.response.reservations;
       });
 
-    this.reCaptchaV3Service.execute(this.siteKey, 'booking', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'booking', (token) => {
     }, {
         useGlobalDomain: false
     });
