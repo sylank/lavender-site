@@ -12,11 +12,16 @@ import { HttpConstants } from '../shared/http.constants';
 })
 export class DeleteBookingComponent implements OnInit {
   public sureCheck: boolean = false;
-  public bookingSerial: string = "";
   public showLoading: boolean;
   public showNotification:boolean;
+  public messageLength: number;
 
-  formName: FormGroup;
+  public formName: FormGroup;
+
+  public deletion :any = {
+    bookingSerial: "",
+    message:""
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -25,8 +30,10 @@ export class DeleteBookingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.messageLength=300;
     this.formName = this.fb.group({
-      sureField: ["", [Validators.required]]
+      sureField: ["", [Validators.required]],
+      message: ['', []]
     });
 
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
@@ -42,7 +49,7 @@ export class DeleteBookingComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.showLoading = true;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
-      this.calendarHttpService.deleteBooking(this.bookingSerial,token).subscribe((deleteResult: any)=> {
+      this.calendarHttpService.deleteBooking(this.deletion,token).subscribe((deleteResult: any)=> {
         this.showLoading = false;
         this.showNotification = true;
       });
@@ -52,5 +59,9 @@ export class DeleteBookingComponent implements OnInit {
 
     this.showLoading =false;
     this.showNotification = true;
+  }
+
+  onMessageInput(): void {
+    this.messageLength = 300 - this.formName.get('message').value.length;
   }
 }

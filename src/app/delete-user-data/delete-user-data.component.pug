@@ -27,6 +27,10 @@
         input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
         .input-icon
           i.fas.fa-tag
+      textarea.message(formControlName="message", maxlength='300', placeholder='Törlés oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')
+      .info-wrapper
+        p.char-count A *-al jelölt mezők kitöltése kötelező
+        p.char-count Ennyi karakter maradt: {{ messageLength }}
       label
         input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Törölni szeretném az adataimat!

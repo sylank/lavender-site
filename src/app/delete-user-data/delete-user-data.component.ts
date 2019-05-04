@@ -12,11 +12,17 @@ import { UserDataHttpService } from '../shared/user-data.http.service';
 })
 export class DeleteUserDataComponent implements OnInit {
   public sureCheck: boolean = false;
-  public email: string = "";
   public showLoading: boolean;
   public showNotification:boolean;
+  public messageLength: number;
 
-  formName: FormGroup;
+  public formName: FormGroup;
+
+  public deletion: any = {
+    email: "",
+    message: ""
+  }
+
   constructor(
     private fb: FormBuilder,
     private deleteUserDataService: UserDataHttpService,
@@ -24,8 +30,10 @@ export class DeleteUserDataComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.messageLength = 300
     this.formName = this.fb.group({
       email: ['', [Validators.required, CustomValidator.emailValidator]],
+      message: ['', []],
     });
 
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-user-data', (token) => {
@@ -42,13 +50,17 @@ export class DeleteUserDataComponent implements OnInit {
     this.showLoading = true;
     this.showNotification = false;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-user-data', (token) => {
-      this.deleteUserDataService.deleteUserData(this.email, token).subscribe((deleteResponse: any)=>{
+      this.deleteUserDataService.deleteUserData(this.deletion.email, token).subscribe((deleteResponse: any)=>{
         this.showLoading = false;
         this.showLoading = true;
       });
     }, {
         useGlobalDomain: false
     });
+  }
+
+  onMessageInput(): void {
+    this.messageLength = 300 - this.formName.get('message').value.length;
   }
 
 }

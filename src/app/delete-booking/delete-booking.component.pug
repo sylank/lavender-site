@@ -27,9 +27,13 @@
       .divider
       p Adatok:
       .input-wrapper
-        input(type='text', formControlName="sureField", placeholder='*Azonosító', [(ngModel)]="bookingSerial", [ngClass]="{'invalid-input': formName.get('sureField').touched && formName.get('sureField').hasError('required')}")
+        input(type='text', formControlName="sureField", placeholder='*Azonosító', [(ngModel)]="deletion.bookingSerial", [ngClass]="{'invalid-input': formName.get('sureField').touched && formName.get('sureField').hasError('required')}")
         .input-icon
           i.fas.fa-tag
+      textarea.message(formControlName="message", maxlength='300', placeholder='Lemondás oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')
+      .info-wrapper
+        p.char-count A *-al jelölt mezők kitöltése kötelező
+        p.char-count Ennyi karakter maradt: {{ messageLength }}
       label
         input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Törölni szeretném a foglalásom!
