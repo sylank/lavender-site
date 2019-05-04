@@ -27,7 +27,6 @@ export class BookingComponent implements OnInit {
   navigationSubscription: any;
 
   public dataProtection = false;
-  public newsLetter = false;
   public dataHandling  = false;
   public houseRules = false;
 
@@ -56,7 +55,8 @@ export class BookingComponent implements OnInit {
     phone: '',
     email: '',
     message: '',
-    reservationId: ''
+    reservationId: '',
+    newsLetter: false,
   };
   formName: FormGroup;
 
@@ -198,7 +198,8 @@ export class BookingComponent implements OnInit {
                                           this.booking.arrival,
                                           this.booking.departure,
                                           this.booking.name,
-                                          this.booking.phone);
+                                          this.booking.phone,
+                                          this.booking.newsLetter);
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
         console.log(bookingResult);

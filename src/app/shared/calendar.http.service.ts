@@ -60,7 +60,8 @@ export class CalendarHttpService {
       fullName: bookingData.fullName,
       phoneNumber: bookingData.phoneNumber,
       costValue: -1,
-      reservationId: '-'
+      reservationId: '-',
+      subscribe: bookingData.newsLetter
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
   }

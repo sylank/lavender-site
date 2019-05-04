@@ -10,10 +10,11 @@ import { map } from "rxjs/operators";
 export class UserDataHttpService {
   constructor(private http: HttpClient) {}
 
-  public deleteUserData(emailAddress: string, reCaptchaToken: string): Observable<Object> {
+  public deleteUserData(deleteUserData: any, reCaptchaToken: string): Observable<Object> {
     const postData = {
       "g-recaptcha-response": reCaptchaToken,
-      email: emailAddress
+      email: deleteUserData.email,
+      message: deleteUserData.message
     };
     return this.http.post(
       `${HttpConstants.rootUrl}${HttpConstants.deleteUserDataEndpoint}`,
