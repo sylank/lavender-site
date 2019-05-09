@@ -30,7 +30,7 @@
         p.price.small {{ formatCurrency(booking.price/2) }} Ft
       .divider
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
-        p.title Foglalási adatok:
+        p.title Foglalási adatok
         .input-wrapper
           input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="name", placeholder='*Teljes név (Példa Pál)', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
           .input-icon
@@ -53,13 +53,13 @@
     .booking-form(*ngIf="bookingStage === 'overview'")
       h1 Áttekintés
       .data
-        p Érkezés:
+        p Érkezés
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
           | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
       .data
-        p Távozás:
+        p Távozás
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
@@ -82,11 +82,11 @@
       textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper
-        p Összesen fizetendő:
+        p Összesen fizetendő
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
-        p.small Előleg (50%):
-        p.price.small {{ formatCurrency(booking.price/2) }} Ft
+        p.small Előleg (30%)
+        p.price.small {{ formatCurrency(booking.price/0.3) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       .divider
       .checkbox-wrapper

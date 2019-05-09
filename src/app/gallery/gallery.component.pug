@@ -1,7 +1,7 @@
 .hero
   .image-container
-    .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, (mouseenter)='onMouseEnter(i)', (mouseleave)='onMouseLeave()', id='{{ i }}')
-      .imageasd
+    .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, id='{{ i }}')
+      .image-element
         img.image(src='{{ image.location }}', alt='')
         .indicator
           i.fas.fa-eye
