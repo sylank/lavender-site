@@ -12,21 +12,21 @@
       h1 Foglalás
       .date-picker
         .arrival
-          p.title Érkezés:
+          p.title Érkezés
           .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
             i.fas.fa-calendar-alt
             | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
         .departure
-          p.title Távozás:
+          p.title Távozás
           .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
             i.fas.fa-calendar-alt
             | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
-        label Összesen fizetendő:
+        p Összesen fizetendő
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
-        p.small Előleg (30%):
+        p.small Előleg (30%)
         p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       .divider
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
