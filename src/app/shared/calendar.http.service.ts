@@ -62,7 +62,7 @@ export class CalendarHttpService {
       costValue: -1,
       depositCost: -1,
       reservationId: '-',
-      subscribe: bookingData.newsLetter
+      subscribe: bookingData.subscribe
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
   }

@@ -56,7 +56,7 @@ export class BookingComponent implements OnInit {
     email: '',
     message: '',
     reservationId: '',
-    newsLetter: false,
+    subscribe: false,
   };
   formName: FormGroup;
 
@@ -183,6 +183,10 @@ export class BookingComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     this.bookingStage = 'overview';
+    this.dataProtection = false
+    this.dataHandling = false
+    this.houseRules = false
+    this.booking.subscribe = false
     console.log(this.booking);
   }
 
@@ -199,7 +203,7 @@ export class BookingComponent implements OnInit {
                                           this.booking.departure,
                                           this.booking.name,
                                           this.booking.phone,
-                                          this.booking.newsLetter);
+                                          this.booking.subscribe);
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
         console.log(bookingResult);
