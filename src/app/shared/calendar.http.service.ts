@@ -60,6 +60,7 @@ export class CalendarHttpService {
       fullName: bookingData.fullName,
       phoneNumber: bookingData.phoneNumber,
       costValue: -1,
+      depositCost: -1,
       reservationId: '-',
       subscribe: bookingData.newsLetter
     };

@@ -23,11 +23,11 @@
             | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
-        p Összesen fizetendő:
+        label Összesen fizetendő:
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
-        p.small Előleg (50%):
-        p.price.small {{ formatCurrency(booking.price/2) }} Ft
+        p.small Előleg (30%):
+        p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       .divider
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok
@@ -79,6 +79,8 @@
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
+      .data(*ngIf="booking.message.length>0")
+        p Megjegyzések
       textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper
@@ -86,34 +88,33 @@
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
         p.small Előleg (30%)
-        p.price.small {{ formatCurrency(booking.price/0.3) }} Ft
+        p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       .divider
       .checkbox-wrapper
-          label
+          p
             input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
             | Elolvastam és elfogadom az
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') adatvédelmi
             | nyilatkozatot! *
-          label
+          p
             input(type='checkbox', [checked]="booking.newsLetter", (change)="booking.newsLetter=!booking.newsLetter")
             | Szeretnék értesülni az újdonságokról e-mail-ben!
-          label
+          p
             input(type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
             | Hozzájárulok a megadott adataim kezeléséhez! *
-          label
+          p
             input(type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
             | Elolvastam és elfogadom a
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') házirendet
             | és a
-            br
-            a.newline(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
+            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
             | ! *
       button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most
       p.back
         span((click)="onBack()") Vissza
 
-    // Overview
+    // Result
     .booking-form(*ngIf="bookingStage === 'result'")
       .result-wrapper
         .result.success(*ngIf="bookingResult === 'success'")
