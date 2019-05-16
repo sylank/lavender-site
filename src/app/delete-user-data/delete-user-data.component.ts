@@ -13,7 +13,7 @@ import { UserDataHttpService } from '../shared/user-data.http.service';
 export class DeleteUserDataComponent implements OnInit {
   public sureCheck: boolean = false;
   public showLoading: boolean;
-  public showNotification:boolean;
+  public showNotification: boolean;
   public messageLength: number;
 
   public formName: FormGroup;
@@ -36,7 +36,7 @@ export class DeleteUserDataComponent implements OnInit {
       message: ['', []],
     });
 
-    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-user-data', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'deleteuserdata', (token) => {
     }, {
         useGlobalDomain: false
     });
@@ -48,11 +48,10 @@ export class DeleteUserDataComponent implements OnInit {
 
   onSubmit(): void {
     this.showLoading = true;
-    this.showNotification = false;
-    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-user-data', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'deleteuserdata', (token) => {
       this.deleteUserDataService.deleteUserData(this.deletion, token).subscribe((deleteResponse: any)=>{
         this.showLoading = false;
-        this.showLoading = true;
+        this.showNotification = true;
       });
     }, {
         useGlobalDomain: false
