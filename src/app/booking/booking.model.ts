@@ -9,4 +9,6 @@ export interface Booking {
   message: string;
   reservationId: string;
   subscribe: boolean;
+  personCount: number;
+  petCount: number;
 }

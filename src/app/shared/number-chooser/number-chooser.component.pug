@@ -1,0 +1,3 @@
+.wrapper
+  .chooser(*ngFor="let element of numbers; let i = index", (click)="selected(i); sel(i) ", [ngClass]="selectedIndex==i? 'selected-class': 'chooser'")
+    p {{element}}

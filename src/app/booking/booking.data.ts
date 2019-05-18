@@ -6,7 +6,9 @@ export class BookingData {
     public toDate: Date,
     public fullName: string,
     public phoneNumber: string,
-    public subscribe: boolean
+    public subscribe: boolean,
+    public personCount: number,
+    public petCount: number,
     ) {
 
     }

@@ -28,6 +28,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { DataHiderComponent } from './shared/data-hider/data-hider.component';
 import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.component';
+import { NumberChooserComponent } from './shared/number-chooser/number-chooser.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.com
     LoadingCircleComponent,
     DataHiderComponent,
     DeleteBookingComponent,
-    DeleteUserDataComponent
+    DeleteUserDataComponent,
+    NumberChooserComponent
   ],
   imports: [
     BrowserModule,

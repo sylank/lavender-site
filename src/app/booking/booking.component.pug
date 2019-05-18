@@ -8,7 +8,9 @@
         p Megértését köszönjük
         button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
-    .booking-form(*ngIf="bookingStage === 'form'")
+
+    // Person number
+    .booking-form(*ngIf="bookingStage === 'person'")
       h1 Foglalás
       .date-picker
         .arrival
@@ -29,6 +31,16 @@
         p.small Előleg (30%)
         p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       .divider
+      form((ngSubmit)="onPersonSubmit(form)", [formGroup]="formName")
+        p.title Személyek (felnőtt + gyermek) *
+        app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
+        p.title Négylábú személyek *
+        app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
+        button.submit(type='submit') Tovább
+
+    // booking data
+    .booking-form(*ngIf="bookingStage === 'data'")
+      h1 Foglalás
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok
         .input-wrapper
@@ -48,22 +60,34 @@
           p.char-count A *-al jelölt mezők kitöltése kötelező
           p.char-count Ennyi karakter maradt: {{ messageLength }}
         button.submit(type='submit', [disabled]="formName.invalid") Tovább
+        p.back
+          span((click)='onBack(0)') Vissza
 
     // Overview
     .booking-form(*ngIf="bookingStage === 'overview'")
       h1 Áttekintés
       .data
-        p Érkezés
+        p Érkezés:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
           | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
       .data
-        p Távozás
+        p Távozás:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
           | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
+      .data
+        p Személyek száma:
+        .icon-wrapper
+          i.fas.fa-users
+        p {{ booking.personCount+1 }} fő
+      .data
+        p Négylábúak száma:
+        .icon-wrapper
+          i.fas.fa-paw
+        p {{ booking.petCount }} fő
       .data
         p Teljes név:
         .icon-wrapper
@@ -118,7 +142,7 @@
             | ! *
       button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
       p.back
-        span((click)="onBack()") Vissza
+        span((click)='onBack(1)') Vissza
 
     // Result
     .booking-form(*ngIf="bookingStage === 'result'")
@@ -136,12 +160,13 @@
           p Sikertelen foglalás
           p.description Kérjük próbálja meg más időponttal.
       p.back
-        span((click)="onBack()") Vissza
+        span((click)="onBack(0)") Vissza
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
 
-  .hero-content.info(*ngIf="bookingStage === 'overview' || bookingStage === 'form'")
-    h2 Foglalással kapcsolatos
+  .hero-content.info(*ngIf="bookingStage === 'person' || bookingStage === 'data'")
+    h2 Információk
+    p - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
     p - Az Idegenforgalmi Adó (IFA) nincs az árban.
     p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
     p

@@ -41,7 +41,7 @@ export class BookingComponent implements OnInit {
   private arrivalCalendarActive = false;
   private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  public bookingStage: 'form' | 'overview' | 'result' = 'form';
+  public bookingStage: 'person' | 'data' | 'overview' | 'result' = 'person';
   private bookingResult: 'success' | 'failed' = 'failed';
   private messageLength = 300;
   reservedDates = [];
@@ -57,6 +57,8 @@ export class BookingComponent implements OnInit {
     message: '',
     reservationId: '',
     subscribe: false,
+    personCount: 1,
+    petCount: 0,
   };
   formName: FormGroup;
 
@@ -71,7 +73,7 @@ export class BookingComponent implements OnInit {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
       if (e instanceof NavigationEnd) {
-        this.bookingStage = 'form';
+        this.bookingStage = 'person';
         this.scrollToPosition()
       }
     });
@@ -193,6 +195,13 @@ export class BookingComponent implements OnInit {
     console.log(this.booking);
   }
 
+  onPersonSubmit(): void {
+    console.log(this.booking)
+    this.bookingStage = 'data';
+
+    this.scrollToPosition()
+  }
+
   isSendingDisabled() {
     return !(this.dataProtection && this.dataHandling && this.houseRules)
   }
@@ -206,7 +215,9 @@ export class BookingComponent implements OnInit {
                                           this.booking.departure,
                                           this.booking.name,
                                           this.booking.phone,
-                                          this.booking.subscribe);
+                                          this.booking.subscribe,
+                                          this.booking.personCount,
+                                          this.booking.petCount);
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
         console.log(bookingResult);
@@ -230,8 +241,16 @@ export class BookingComponent implements OnInit {
     });
   }
 
-  onBack(): void {
-    this.bookingStage = 'form';
+  onBack(stateName: number): void {
+    switch (stateName) {
+      case 0:
+        this.bookingStage = 'person'
+        break;
+      case 1:
+        this.bookingStage = 'data'
+        break;
+    }
+
     this.scrollToPosition()
   }
 
