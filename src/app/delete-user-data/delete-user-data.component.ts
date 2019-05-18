@@ -49,13 +49,23 @@ export class DeleteUserDataComponent implements OnInit {
   onSubmit(): void {
     this.showLoading = true;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'deleteuserdata', (token) => {
-      this.deleteUserDataService.deleteUserData(this.deletion, token).subscribe((deleteResponse: any)=>{
-        this.showLoading = false;
-        this.showNotification = true;
+      this.deleteUserDataService.deleteUserData(this.deletion, token).subscribe( result => {
+        this.showNotificationPane()
+      },
+      error => {
+        this.showNotificationPane()
+      },
+      () => {
+        this.showNotificationPane()
       });
     }, {
         useGlobalDomain: false
     });
+  }
+
+  showNotificationPane() {
+    this.showLoading = false
+    this.showNotification = true
   }
 
   onMessageInput(): void {

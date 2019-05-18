@@ -95,7 +95,9 @@
           p
             input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
             | Elolvastam és elfogadom az
+            |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') adatvédelmi
+            |
             | nyilatkozatot! *
           p
             input(type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
@@ -106,9 +108,13 @@
           p
             input(type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
             | Elolvastam és elfogadom a
+            |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') házirendet
+            |
             | és a
+            |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
+            |
             | ! *
       button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
       p.back
@@ -123,6 +129,7 @@
           p.description Foglalási igényét elbírálásra elküldtük. Hamarosan visszajelzünk, köszönjük.
           p.reservation-info
             | Foglalási azonosító:
+            |
             b {{booking.reservationId}}
         .result.failed(*ngIf="bookingResult === 'failed'")
           i.fas.fa-times.result
@@ -139,12 +146,18 @@
     p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
     p
       | - Kérlek az utás közleményébe írd bele a foglalási számod. Előleg átutalásához szükséges adatokat a
+      |
       a(href="/contact") kapcsolat menüpont alatt
+      |
       | valamint az utalás menetéről e-mail-ben és
+      |
       a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      |
       | találsz.
     p - Érkezésés a foglalt napon bármikor lehetséges, a távozás is rugalmasan alakítható de szeszonban 10:00 időpontot preferáljuk.
     p
       | - Lemondásról és egyéb információkról részleteket az
+      |
       a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      |
       | vagy a visszaigazoló e-mail-ben találsz.

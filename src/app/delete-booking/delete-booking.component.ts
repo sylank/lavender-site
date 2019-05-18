@@ -48,13 +48,23 @@ export class DeleteBookingComponent implements OnInit {
   onSubmit(): void {
     this.showLoading = true;
     this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'deletebooking', (token) => {
-      this.calendarHttpService.deleteBooking(this.deletion,token).subscribe((deleteResult: any)=> {
-        this.showLoading = false;
-        this.showNotification = true;
+      this.calendarHttpService.deleteBooking(this.deletion,token).subscribe( result => {
+        this.showNotificationPane()
+      },
+      error => {
+        this.showNotificationPane()
+      },
+      () => {
+        this.showNotificationPane()
       });
     }, {
         useGlobalDomain: false
     });
+  }
+
+  showNotificationPane() {
+    this.showLoading = false
+    this.showNotification = true
   }
 
   onMessageInput(): void {

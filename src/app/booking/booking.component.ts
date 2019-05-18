@@ -72,6 +72,7 @@ export class BookingComponent implements OnInit {
       // If it is a NavigationEnd event re-initalise the component
       if (e instanceof NavigationEnd) {
         this.bookingStage = 'form';
+        this.scrollToPosition()
       }
     });
   }
@@ -187,6 +188,8 @@ export class BookingComponent implements OnInit {
     this.dataHandling = false
     this.houseRules = false
     this.booking.subscribe = false
+
+    this.scrollToPosition()
     console.log(this.booking);
   }
 
@@ -219,6 +222,7 @@ export class BookingComponent implements OnInit {
           this.bookingResult = 'success';
 
           this.booking.reservationId = data.reservationId;
+          this.scrollToPosition()
         }
       });
     }, {
@@ -228,6 +232,7 @@ export class BookingComponent implements OnInit {
 
   onBack(): void {
     this.bookingStage = 'form';
+    this.scrollToPosition()
   }
 
   closeCalendar(): void {
@@ -295,6 +300,10 @@ export class BookingComponent implements OnInit {
 
   getMonthNameById(id: number) {
     return Constants.months[id];
+  }
+
+  scrollToPosition(x: number =0, y: number=0) {
+    window.scrollTo(x, y);
   }
 
   handleReset() {
