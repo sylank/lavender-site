@@ -1,0 +1,24 @@
+.hero
+  .hero-content
+    form((ngSubmit)="onSubmit()", [formGroup]="formName")
+      h1 Hírlevél feliratkozás
+      p Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb ajánlatainkról.
+      p Leiratkozásról információkat a hírlevél lábjegyzetében találsz.
+      .divider
+      p Adatok:
+      .input-wrapper
+        input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="user.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+        .input-icon
+          i.fas.fa-envelope
+      .input-wrapper
+        input(type='text', formControlName="firstName", placeholder='Keresztnév', [(ngModel)]="user.firstName")
+        .input-icon
+          i.fas.fa-user
+      .input-wrapper
+        input(type='text', formControlName="lastName", placeholder='Vezetéknév', [(ngModel)]="user.lastName")
+        .input-icon
+          i.fas.fa-user
+      .info-wrapper
+        p.char-count A *-al jelölt mezők kitöltése kötelező
+        p.char-count Ennyi karakter maradt: {{ messageLength }}
+      button.submit([disabled]="formName.invalid") Feliratkozás

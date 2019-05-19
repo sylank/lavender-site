@@ -29,6 +29,7 @@ import { DataHiderComponent } from './shared/data-hider/data-hider.component';
 import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.component';
 import { NumberChooserComponent } from './shared/number-chooser/number-chooser.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NumberChooserComponent } from './shared/number-chooser/number-chooser.c
     DataHiderComponent,
     DeleteBookingComponent,
     DeleteUserDataComponent,
-    NumberChooserComponent
+    NumberChooserComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
