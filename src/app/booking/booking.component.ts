@@ -17,6 +17,8 @@ import { Constants } from '../shared/constants';
 import { CostCalculationHttpService } from '../shared/cost-calculation.http.service';
 import { environment } from '../../environments/environment';
 import { HttpConstants } from '../shared/http.constants';
+import { MailChimpService } from '../shared/mail-chimp.service';
+import { SubscriptionModel } from '../subscribe/subscription-model';
 
 @Component({
   selector: 'app-booking',
@@ -66,6 +68,7 @@ export class BookingComponent implements OnInit {
     private calendarService: CalendarService,
     private calendarHttpService: CalendarHttpService,
     private costCalculationHttpService: CostCalculationHttpService,
+    private mailchimpService: MailChimpService,
     private fb: FormBuilder,
     private router: Router,
     private reCaptchaV3Service: ReCaptchaV3Service
@@ -239,6 +242,26 @@ export class BookingComponent implements OnInit {
     }, {
         useGlobalDomain: false
     });
+
+    if (this.booking.subscribe) {
+      const names = this.booking.name.split(" ");
+      const subscriptionModel = new SubscriptionModel(this.booking.email, names[0]|| '', names[1]||'')
+
+      let user = {
+        email: this.booking.email,
+        firstName: names[0]|| '',
+        lastName: names[1]|| ''
+      }
+      this.mailchimpService.submitSubscription(subscriptionModel).subscribe( result => {
+        console.log('success')
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        console.log('else')
+      });
+    }
   }
 
   onBack(stateName: number): void {

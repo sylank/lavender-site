@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
 import { GalleryService } from './shared/gallery.service';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '../../node_modules/@angular/common/http';
 import { ImageLoaderDirective } from './shared/image-loader.directive';
 import { ImageOpacityDirective } from './shared/image-opacity.directive';
 import { CalendarComponent } from './booking/calendar/calendar.component';
@@ -61,6 +61,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    HttpClientJsonpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAUJ5jGs6beGOY_Ts8PSloxQw09IVZfcdw'
     })
