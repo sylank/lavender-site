@@ -57,11 +57,11 @@ export class CalendarHttpService {
       body: bookingData.body,
       fromDate: HttpUtils.convertArrivalDate(bookingData.fromDate),
       toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
-      fullName: bookingData.fullName,
+      fullName: bookingData.fname+bookingData.lname,
       phoneNumber: bookingData.phoneNumber,
-      costValue: -1,
-      reservationId: '-',
-      subscribe: bookingData.newsLetter
+      subscribe: bookingData.subscribe,
+      personCount: bookingData.personCount+1,
+      petCount: bookingData.petCount,
     };
     return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
   }

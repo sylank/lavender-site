@@ -16,9 +16,6 @@ export class UserDataHttpService {
       email: deleteUserData.email,
       message: deleteUserData.message
     };
-    return this.http.post(
-      `${HttpConstants.rootUrl}${HttpConstants.deleteUserDataEndpoint}`,
-      postData
-    );
+    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.deleteUserDataEndpoint}`, postData);
   }
 }

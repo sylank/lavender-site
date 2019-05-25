@@ -4,9 +4,12 @@ export class BookingData {
     public body: string,
     public fromDate: Date,
     public toDate: Date,
-    public fullName: string,
+    public fname: string,
+    public lname: string,
     public phoneNumber: string,
-    public newsLetter: boolean
+    public subscribe: boolean,
+    public personCount: number,
+    public petCount: number,
     ) {
 
     }

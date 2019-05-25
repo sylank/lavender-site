@@ -1,6 +1,6 @@
 {
   "name": "lavender-site",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,6 +25,7 @@
     "core-js": "^2.6.2",
     "ng-cli-pug-loader": "^0.1.7",
     "ngx-captcha": "^6.3.0",
+    "node-sass": "^4.12.0",
     "rxjs": "^6.3.3",
     "terser": "^3.17.0",
     "tslib": "^1.9.0",

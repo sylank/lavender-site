@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
 import { GalleryService } from './shared/gallery.service';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '../../node_modules/@angular/common/http';
 import { ImageLoaderDirective } from './shared/image-loader.directive';
 import { ImageOpacityDirective } from './shared/image-opacity.directive';
 import { CalendarComponent } from './booking/calendar/calendar.component';
@@ -28,6 +28,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { DataHiderComponent } from './shared/data-hider/data-hider.component';
 import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.component';
+import { NumberChooserComponent } from './shared/number-chooser/number-chooser.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.com
     LoadingCircleComponent,
     DataHiderComponent,
     DeleteBookingComponent,
-    DeleteUserDataComponent
+    DeleteUserDataComponent,
+    NumberChooserComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,7 @@ import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.com
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    HttpClientJsonpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAUJ5jGs6beGOY_Ts8PSloxQw09IVZfcdw'
     })

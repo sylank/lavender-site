@@ -16,7 +16,7 @@ export class HttpUtils {
   }
 
   public static convertDepartureDate(date: Date): string {
-    return encodeURIComponent(`${HttpUtils.dateFormat(date)}T23:59:59+01:00`);
+    return encodeURIComponent(`${HttpUtils.dateFormat(date)}T10:00:00+01:00`);
   }
 
   public static getEndOfTheYear() {

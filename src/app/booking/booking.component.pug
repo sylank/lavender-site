@@ -8,31 +8,48 @@
         p Megértését köszönjük
         button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
-    .booking-form(*ngIf="bookingStage === 'form'")
+
+    // Person number
+    .booking-form(*ngIf="bookingStage === 'person'")
       h1 Foglalás
+      p Válassz időpontot vagy csak nézd meg a szabad heteket.
       .date-picker
         .arrival
-          p.title Érkezés:
+          p.title Érkezés
           .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
             i.fas.fa-calendar-alt
             | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
         .departure
-          p.title Távozás:
+          p.title Távozás
           .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
             i.fas.fa-calendar-alt
             | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
-        p Összesen fizetendő:
+        p Összesen fizetendő
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
-        p.small Előleg (50%):
-        p.price.small {{ formatCurrency(booking.price/2) }} Ft
+        p.small Előleg (30%)
+        p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       .divider
+      form((ngSubmit)="onPersonSubmit(form)", [formGroup]="formName")
+        p.title Személyek (felnőtt + gyermek) *
+        app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
+        p.title Négylábú személyek *
+        app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
+        button.submit(type='submit') Tovább
+
+    // booking data
+    .booking-form(*ngIf="bookingStage === 'data'")
+      h1 Foglalás
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
-        p.title Foglalási adatok:
+        p.title Foglalási adatok
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="name", placeholder='*Teljes név (Példa Pál)', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
+          .input-icon
+            i.fas.fa-user
+        .input-wrapper
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
@@ -48,6 +65,8 @@
           p.char-count A *-al jelölt mezők kitöltése kötelező
           p.char-count Ennyi karakter maradt: {{ messageLength }}
         button.submit(type='submit', [disabled]="formName.invalid") Tovább
+        p.back
+          span((click)='onBack(0)') Vissza
 
     // Overview
     .booking-form(*ngIf="bookingStage === 'overview'")
@@ -65,6 +84,16 @@
         p
           | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
       .data
+        p Személyek száma:
+        .icon-wrapper
+          i.fas.fa-users
+        p {{ booking.personCount+1 }} fő
+      .data
+        p Négylábúak száma:
+        .icon-wrapper
+          i.fas.fa-paw
+        p {{ booking.petCount }} fő
+      .data
         p Teljes név:
         .icon-wrapper
           i.fas.fa-user
@@ -79,41 +108,48 @@
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
+      .data(*ngIf="booking.message.length>0")
+        p Megjegyzések
       textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper
-        p Összesen fizetendő:
+        p Összesen fizetendő
         p.price {{ formatCurrency(booking.price) }} Ft
         p ({{ booking.nights }} éjszaka)
-        p.small Előleg (50%):
-        p.price.small {{ formatCurrency(booking.price/2) }} Ft
+        p.small Előleg (30%)
+        p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       .divider
       .checkbox-wrapper
-          label
+          p
             input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
             | Elolvastam és elfogadom az
+            |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') adatvédelmi
+            |
             | nyilatkozatot! *
-          label
-            input(type='checkbox', [checked]="booking.newsLetter", (change)="booking.newsLetter=!booking.newsLetter")
+          p
+            input(type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
             | Szeretnék értesülni az újdonságokról e-mail-ben!
-          label
+          p
             input(type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
             | Hozzájárulok a megadott adataim kezeléséhez! *
-          label
+          p
             input(type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
             | Elolvastam és elfogadom a
+            |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') házirendet
+            |
             | és a
-            br
-            a.newline(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
+            |
+            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
+            |
             | ! *
-      button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most
+      button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
       p.back
-        span((click)="onBack()") Vissza
+        span((click)='onBack(1)') Vissza
 
-    // Overview
+    // Result
     .booking-form(*ngIf="bookingStage === 'result'")
       .result-wrapper
         .result.success(*ngIf="bookingResult === 'success'")
@@ -122,28 +158,36 @@
           p.description Foglalási igényét elbírálásra elküldtük. Hamarosan visszajelzünk, köszönjük.
           p.reservation-info
             | Foglalási azonosító:
+            |
             b {{booking.reservationId}}
         .result.failed(*ngIf="bookingResult === 'failed'")
           i.fas.fa-times.result
           p Sikertelen foglalás
           p.description Kérjük próbálja meg más időponttal.
       p.back
-        span((click)="onBack()") Vissza
+        span((click)="onBack(0)") Vissza
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
 
-  .hero-content.info(*ngIf="bookingStage === 'overview' || bookingStage === 'form'")
-    h2 Foglalással kapcsolatos
+  .hero-content.info(*ngIf="bookingStage === 'person' || bookingStage === 'data'")
+    h2 Információk
+    p - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
     p - Az Idegenforgalmi Adó (IFA) nincs az árban.
     p - A lefoglalt időintervalumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
     p
       | - Kérlek az utás közleményébe írd bele a foglalási számod. Előleg átutalásához szükséges adatokat a
+      |
       a(href="/contact") kapcsolat menüpont alatt
+      |
       | valamint az utalás menetéről e-mail-ben és
+      |
       a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      |
       | találsz.
     p - Érkezésés a foglalt napon bármikor lehetséges, a távozás is rugalmasan alakítható de szeszonban 10:00 időpontot preferáljuk.
     p
       | - Lemondásról és egyéb információkról részleteket az
+      |
       a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      |
       | vagy a visszaigazoló e-mail-ben találsz.

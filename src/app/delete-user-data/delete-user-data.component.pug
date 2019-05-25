@@ -2,7 +2,12 @@
   .notification-panel(*ngIf="showNotification")
       .hero-content
         h1 Figyelem!
-        p Tárolt adatait töröltük a rendszerből.
+        p
+          | A
+          |
+          b {{deletion.email}}
+          |
+          | címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
         p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
         button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
@@ -13,12 +18,16 @@
       p Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
       p
         | Adataidat a
+        |
         i Adatok törlése
+        |
         | gomb lenyomásával törölheted.
       p
         b Fontos:
         |  Ezesetben csak a tárolt adataidat töröljük, a hírlevélről való leiratkozáshoz a hírlevélben találsz több információt.
-      p Az adatfelhasználásról részleteket
+      p
+        | Az adatfelhasználásról részleteket
+        |
         a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") alábbi linken
         | .
       .divider

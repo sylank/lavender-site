@@ -3,10 +3,13 @@ export interface Booking {
   departure: Date;
   nights: number;
   price: number;
-  name: string;
+  fname: string;
+  lname: string;
   phone: string;
   email: string;
   message: string;
   reservationId: string;
-  newsLetter: boolean;
+  subscribe: boolean;
+  personCount: number;
+  petCount: number;
 }

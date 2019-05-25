@@ -31,11 +31,11 @@ export class DeleteBookingComponent implements OnInit {
   ngOnInit() {
     this.messageLength=300;
     this.formName = this.fb.group({
-      sureField: ["", [Validators.required]],
+      sureField: ['', [Validators.required]],
       message: ['', []]
     });
 
-    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'deletebooking', (token) => {
     }, {
         useGlobalDomain: false
     });
@@ -47,17 +47,24 @@ export class DeleteBookingComponent implements OnInit {
 
   onSubmit(): void {
     this.showLoading = true;
-    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'delete-booking', (token) => {
-      this.calendarHttpService.deleteBooking(this.deletion,token).subscribe((deleteResult: any)=> {
-        this.showLoading = false;
-        this.showNotification = true;
+    this.reCaptchaV3Service.execute(HttpConstants.reCaptchaSiteKey, 'deletebooking', (token) => {
+      this.calendarHttpService.deleteBooking(this.deletion,token).subscribe( result => {
+        this.showNotificationPane()
+      },
+      error => {
+        this.showNotificationPane()
+      },
+      () => {
+        this.showNotificationPane()
       });
     }, {
         useGlobalDomain: false
     });
+  }
 
-    this.showLoading =false;
-    this.showNotification = true;
+  showNotificationPane() {
+    this.showLoading = false
+    this.showNotification = true
   }
 
   onMessageInput(): void {

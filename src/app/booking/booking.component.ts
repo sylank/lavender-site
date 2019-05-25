@@ -17,6 +17,8 @@ import { Constants } from '../shared/constants';
 import { CostCalculationHttpService } from '../shared/cost-calculation.http.service';
 import { environment } from '../../environments/environment';
 import { HttpConstants } from '../shared/http.constants';
+import { MailChimpService } from '../shared/mail-chimp.service';
+import { SubscriptionModel } from '../subscribe/subscription-model';
 
 @Component({
   selector: 'app-booking',
@@ -41,7 +43,7 @@ export class BookingComponent implements OnInit {
   private arrivalCalendarActive = false;
   private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  public bookingStage: 'form' | 'overview' | 'result' = 'form';
+  public bookingStage: 'person' | 'data' | 'overview' | 'result' = 'person';
   private bookingResult: 'success' | 'failed' = 'failed';
   private messageLength = 300;
   reservedDates = [];
@@ -51,12 +53,15 @@ export class BookingComponent implements OnInit {
     departure: new Date(),
     nights: 1,
     price: 25000,
-    name: '',
+    fname: '',
+    lname: '',
     phone: '',
     email: '',
     message: '',
     reservationId: '',
-    newsLetter: false,
+    subscribe: false,
+    personCount: 1,
+    petCount: 0,
   };
   formName: FormGroup;
 
@@ -64,6 +69,7 @@ export class BookingComponent implements OnInit {
     private calendarService: CalendarService,
     private calendarHttpService: CalendarHttpService,
     private costCalculationHttpService: CostCalculationHttpService,
+    private mailchimpService: MailChimpService,
     private fb: FormBuilder,
     private router: Router,
     private reCaptchaV3Service: ReCaptchaV3Service
@@ -71,7 +77,8 @@ export class BookingComponent implements OnInit {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
       if (e instanceof NavigationEnd) {
-        this.bookingStage = 'form';
+        this.bookingStage = 'person';
+        this.scrollToPosition()
       }
     });
   }
@@ -183,7 +190,20 @@ export class BookingComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     this.bookingStage = 'overview';
+    this.dataProtection = false
+    this.dataHandling = false
+    this.houseRules = false
+    this.booking.subscribe = false
+
+    this.scrollToPosition()
     console.log(this.booking);
+  }
+
+  onPersonSubmit(): void {
+    console.log(this.booking)
+    this.bookingStage = 'data';
+
+    this.scrollToPosition()
   }
 
   isSendingDisabled() {
@@ -197,9 +217,12 @@ export class BookingComponent implements OnInit {
                                           this.booking.message,
                                           this.booking.arrival,
                                           this.booking.departure,
-                                          this.booking.name,
+                                          this.booking.fname,
+                                          this.booking.lname,
                                           this.booking.phone,
-                                          this.booking.newsLetter);
+                                          this.booking.subscribe,
+                                          this.booking.personCount,
+                                          this.booking.petCount);
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
         console.log(bookingResult);
@@ -215,15 +238,38 @@ export class BookingComponent implements OnInit {
           this.bookingResult = 'success';
 
           this.booking.reservationId = data.reservationId;
+          this.scrollToPosition()
         }
       });
     }, {
         useGlobalDomain: false
     });
+
+    if (this.booking.subscribe) {
+      const subscriptionModel = new SubscriptionModel(this.booking.email, this.booking.fname, this.booking.lname)
+      this.mailchimpService.submitSubscription(subscriptionModel).subscribe( result => {
+        console.log('success')
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        console.log('else')
+      });
+    }
   }
 
-  onBack(): void {
-    this.bookingStage = 'form';
+  onBack(stateName: number): void {
+    switch (stateName) {
+      case 0:
+        this.bookingStage = 'person'
+        break;
+      case 1:
+        this.bookingStage = 'data'
+        break;
+    }
+
+    this.scrollToPosition()
   }
 
   closeCalendar(): void {
@@ -291,6 +337,10 @@ export class BookingComponent implements OnInit {
 
   getMonthNameById(id: number) {
     return Constants.months[id];
+  }
+
+  scrollToPosition(x: number =0, y: number=0) {
+    window.scrollTo(x, y);
   }
 
   handleReset() {
