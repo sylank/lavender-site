@@ -12,6 +12,7 @@
     // Person number
     .booking-form(*ngIf="bookingStage === 'person'")
       h1 Foglalás
+      p Válassz időpontot vagy csak nézd meg a szabad heteket.
       .date-picker
         .arrival
           p.title Érkezés
@@ -44,7 +45,11 @@
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="name", placeholder='*Teljes név (Példa Pál)', [(ngModel)]="booking.name", [ngClass]="{'invalid-input': formName.get('name').touched && formName.get('name').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
+          .input-icon
+            i.fas.fa-user
+        .input-wrapper
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper

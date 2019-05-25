@@ -53,7 +53,8 @@ export class BookingComponent implements OnInit {
     departure: new Date(),
     nights: 1,
     price: 25000,
-    name: '',
+    fname: '',
+    lname: '',
     phone: '',
     email: '',
     message: '',
@@ -216,7 +217,8 @@ export class BookingComponent implements OnInit {
                                           this.booking.message,
                                           this.booking.arrival,
                                           this.booking.departure,
-                                          this.booking.name,
+                                          this.booking.fname,
+                                          this.booking.lname,
                                           this.booking.phone,
                                           this.booking.subscribe,
                                           this.booking.personCount,
@@ -244,14 +246,7 @@ export class BookingComponent implements OnInit {
     });
 
     if (this.booking.subscribe) {
-      const names = this.booking.name.split(" ");
-      const subscriptionModel = new SubscriptionModel(this.booking.email, names[0]|| '', names[1]||'')
-
-      let user = {
-        email: this.booking.email,
-        firstName: names[0]|| '',
-        lastName: names[1]|| ''
-      }
+      const subscriptionModel = new SubscriptionModel(this.booking.email, this.booking.fname, this.booking.lname)
       this.mailchimpService.submitSubscription(subscriptionModel).subscribe( result => {
         console.log('success')
       },

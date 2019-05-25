@@ -17,6 +17,8 @@ export class SubscribeComponent implements OnInit {
     lastName: ''
   }
 
+  public showNotification: boolean;
+
   constructor(private fb: FormBuilder, private mailchimpService: MailChimpService) { }
 
   ngOnInit() {
@@ -31,11 +33,14 @@ export class SubscribeComponent implements OnInit {
   onSubmit(form: NgForm) {
       this.mailchimpService.submitSubscription(this.user).subscribe( result => {
         console.log('success')
+        this.showNotification = true
       },
       error => {
+        this.showNotification = true
         console.log(error)
       },
       () => {
+        this.showNotification = true
         console.log('else')
       });
   }

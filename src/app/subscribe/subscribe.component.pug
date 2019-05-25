@@ -1,4 +1,10 @@
 .hero
+  .notification-panel(*ngIf="showNotification")
+    .hero-content
+      h1 Köszönjük!
+      p
+        | Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.
+      button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
       h1 Hírlevél feliratkozás
@@ -20,5 +26,4 @@
           i.fas.fa-user
       .info-wrapper
         p.char-count A *-al jelölt mezők kitöltése kötelező
-        p.char-count Ennyi karakter maradt: {{ messageLength }}
       button.submit([disabled]="formName.invalid") Feliratkozás

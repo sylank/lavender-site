@@ -57,7 +57,7 @@ export class CalendarHttpService {
       body: bookingData.body,
       fromDate: HttpUtils.convertArrivalDate(bookingData.fromDate),
       toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
-      fullName: bookingData.fullName,
+      fullName: bookingData.fname+bookingData.lname,
       phoneNumber: bookingData.phoneNumber,
       subscribe: bookingData.subscribe,
       personCount: bookingData.personCount+1,
