@@ -9,7 +9,6 @@ import { MailChimpService } from '../shared/mail-chimp.service';
   styleUrls: ['./subscribe.component.sass']
 })
 export class SubscribeComponent implements OnInit {
-
   public formName: FormGroup;
   public user = {
     email: '',
@@ -27,10 +26,9 @@ export class SubscribeComponent implements OnInit {
       firstName: ['', []],
       lastName: ['', []],
     });
-
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
       this.mailchimpService.submitSubscription(this.user).subscribe( result => {
         console.log('success')
         this.showNotification = true
