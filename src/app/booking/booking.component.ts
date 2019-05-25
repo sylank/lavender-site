@@ -306,7 +306,8 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.formName = this.fb.group({
-      name: ['', [Validators.required]],
+      fname: ['', [Validators.required]],
+      lname: ['', [Validators.required]],
       phone: ['', [Validators.required]],
       email: ['', [Validators.required, CustomValidator.emailValidator]],
       message: ['', []]
