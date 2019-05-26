@@ -19,6 +19,8 @@ import { environment } from '../../environments/environment';
 import { HttpConstants } from '../shared/http.constants';
 import { MailChimpService } from '../shared/mail-chimp.service';
 import { SubscriptionModel } from '../subscribe/subscription-model';
+import { GoogleAnalyticsService } from '../shared/google-analytics.service';
+import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
 
 @Component({
   selector: 'app-booking',
@@ -72,7 +74,8 @@ export class BookingComponent implements OnInit {
     private mailchimpService: MailChimpService,
     private fb: FormBuilder,
     private router: Router,
-    private reCaptchaV3Service: ReCaptchaV3Service
+    private reCaptchaV3Service: ReCaptchaV3Service,
+    private googleAnalyticsService: GoogleAnalyticsService
   ) {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
@@ -105,6 +108,12 @@ export class BookingComponent implements OnInit {
     this.calendarService.setSelectedDate(this.booking.arrival);
     this.calendarService.updateCalendar.next(this.booking.arrival);
     this.calendarService.reservedDates.next(this.reservedDates);
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.ARRIVAL_SHOW_EVENT,
+      GoogleAnalyticsConstants.OPEN_ACTION,
+      '',
+      1)
   }
 
   toggleDepartureCalendar(event: PointerEvent): void {
@@ -125,6 +134,12 @@ export class BookingComponent implements OnInit {
     this.calendarService.setSelectedDate(this.booking.departure);
     this.calendarService.updateCalendar.next(this.booking.departure);
     this.calendarService.reservedDates.next(this.reservedDates);
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.DEPARTURE_SHOW_EVENT,
+      GoogleAnalyticsConstants.OPEN_ACTION,
+      '',
+      1)
   }
 
   setDate(date: Date): void {
@@ -197,6 +212,12 @@ export class BookingComponent implements OnInit {
 
     this.scrollToPosition()
     console.log(this.booking);
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.PERSONAL_DATA_SUBMIT_EVENT,
+      GoogleAnalyticsConstants.TRUE_ACTION,
+      '',
+      1)
   }
 
   onPersonSubmit(): void {
@@ -204,6 +225,12 @@ export class BookingComponent implements OnInit {
     this.bookingStage = 'data';
 
     this.scrollToPosition()
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.PEOPLE_DATA_SUBMIT_EVENT,
+      GoogleAnalyticsConstants.TRUE_ACTION,
+      '',
+      1)
   }
 
   isSendingDisabled() {
@@ -239,6 +266,18 @@ export class BookingComponent implements OnInit {
 
           this.booking.reservationId = data.reservationId;
           this.scrollToPosition()
+
+          this.googleAnalyticsService.eventEmitter(
+            GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
+            GoogleAnalyticsConstants.SUCCEED_ACTION,
+            '',
+            1)
+        } else {
+          this.googleAnalyticsService.eventEmitter(
+            GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
+            GoogleAnalyticsConstants.FAILED_ACTION,
+            '',
+            1)
         }
       });
     }, {
@@ -256,7 +295,25 @@ export class BookingComponent implements OnInit {
       () => {
         console.log('else')
       });
+
+      this.googleAnalyticsService.eventEmitter(
+        GoogleAnalyticsConstants.SUBSCRIBE_TO_NEWSLETTER_CHECKBOX_EVENT,
+        GoogleAnalyticsConstants.TRUE_ACTION,
+        '',
+        1)
+    } else {
+      this.googleAnalyticsService.eventEmitter(
+        GoogleAnalyticsConstants.SUBSCRIBE_TO_NEWSLETTER_CHECKBOX_EVENT,
+        GoogleAnalyticsConstants.FALSE_ACTION,
+        '',
+        1)
     }
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
+      GoogleAnalyticsConstants.OPEN_ACTION,
+      '',
+      1)
   }
 
   onBack(stateName: number): void {

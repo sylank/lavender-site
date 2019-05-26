@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { GalleryService } from "../shared/gallery.service";
+import { GoogleAnalyticsService } from '../shared/google-analytics.service';
+import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
 
 @Component({
   selector: "app-gallery",
@@ -15,7 +17,7 @@ export class GalleryComponent implements OnInit {
   public activeCaption: string = "";
   public activeText: string = "";
 
-  constructor(private galleryService: GalleryService) {}
+  constructor(private galleryService: GalleryService, private googleAnalyticsService: GoogleAnalyticsService) {}
 
   @HostListener("document:keydown.escape", ["$event"]) onEscKeyDownHandler(
     event: KeyboardEvent
@@ -43,12 +45,24 @@ export class GalleryComponent implements OnInit {
     this.galleryService.navbarBackground.next("open");
 
     this.activeIndex = index;
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
+      GoogleAnalyticsConstants.OPEN_ACTION,
+      '',
+      1)
   }
 
   closeCarousel(event: any): void {
     this.displayCarousel = "collapse";
     this.galleryService.navbarBackground.next("close");
     event.stopPropagation();
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
+      GoogleAnalyticsConstants.CLOSE_ACTION,
+      '',
+      1)
   }
 
   loadNextImage(event: any) {
@@ -59,6 +73,12 @@ export class GalleryComponent implements OnInit {
 
     this.loadImage();
     event.stopPropagation();
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
+      GoogleAnalyticsConstants.NEXT_ACTION,
+      '',
+      1)
   }
 
   loadPrevImage(event: any) {
@@ -69,6 +89,12 @@ export class GalleryComponent implements OnInit {
 
     this.loadImage();
     event.stopPropagation();
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
+      GoogleAnalyticsConstants.BACK_ACTION,
+      '',
+      1)
   }
 
   loadImage(): void {
