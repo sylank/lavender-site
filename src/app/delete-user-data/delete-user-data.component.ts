@@ -4,6 +4,8 @@ import { ReCaptchaV3Service } from 'ngx-captcha';
 import { HttpConstants } from '../shared/http.constants';
 import { CustomValidator } from '../shared/validators/email.validator';
 import { UserDataHttpService } from '../shared/user-data.http.service';
+import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
+import { GoogleAnalyticsService } from '../shared/google-analytics.service';
 
 @Component({
   selector: 'app-delete-user-data',
@@ -26,7 +28,8 @@ export class DeleteUserDataComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private deleteUserDataService: UserDataHttpService,
-    private reCaptchaV3Service: ReCaptchaV3Service
+    private reCaptchaV3Service: ReCaptchaV3Service,
+    private googleAnalyticsService: GoogleAnalyticsService
   ) { }
 
   ngOnInit() {
@@ -61,6 +64,12 @@ export class DeleteUserDataComponent implements OnInit {
     }, {
         useGlobalDomain: false
     });
+
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.DELETE_USER_SUBMIT_EVENT,
+      GoogleAnalyticsConstants.TRUE_ACTION,
+      '',
+      1)
   }
 
   showNotificationPane() {

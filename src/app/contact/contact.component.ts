@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleAnalyticsService } from '../shared/google-analytics.service';
+import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
 
 @Component({
   selector: 'app-contact',
@@ -7,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private googleAnalyticsService: GoogleAnalyticsService) { }
 
   public contactInfo = [
     {
       title: 'Kapcsolattartó',
       defaultValue: 'Faházi-Takácsxxx',
       callback : function(data) {
+        this.sendToAnalytics(0)
         return data.contactName;
       }
     },
@@ -21,6 +24,7 @@ export class ContactComponent implements OnInit {
       title: 'Telefon',
       defaultValue: '+3630/482xxxxxxx',
       callback : function(data) {
+        this.sendToAnalytics(1)
         return data.phoneNumber;
       }
     },
@@ -28,6 +32,7 @@ export class ContactComponent implements OnInit {
       title: 'E-mail',
       defaultValue: 'levendula.balatx',
       callback : function(data) {
+        this.sendToAnalytics(2)
         return data.emailAddress;
       }
     },
@@ -35,6 +40,7 @@ export class ContactComponent implements OnInit {
       title: 'Cím',
       defaultValue: 'Magyarország, 86',
       callback : function(data) {
+        this.sendToAnalytics(3)
         return data.address;
       }
     },
@@ -42,6 +48,7 @@ export class ContactComponent implements OnInit {
       title: 'Számlaszám',
       defaultValue: '12345-1212211xxx',
       callback : function(data) {
+        this.sendToAnalytics(4)
         return data.bankAccountId;
       }
     }
@@ -49,4 +56,11 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() { }
 
+  sendToAnalytics(actionId: number) {
+    this.googleAnalyticsService.eventEmitter(
+      GoogleAnalyticsConstants.SHOW_CONTACTS_EVENT,
+      GoogleAnalyticsConstants.TRUE_ACTION,
+      '',
+      actionId)
+  }
 }

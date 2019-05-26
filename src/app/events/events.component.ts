@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import DistanceUtils from './distance-utils';
 import { EventHttpService } from '../shared/event.http.service';
 import { HttpUtils } from '../shared/http.utils';
+import { GoogleAnalyticsService } from '../shared/google-analytics.service';
+import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
 
 @Component({
   selector: 'app-events',
@@ -18,7 +20,7 @@ export class EventsComponent implements OnInit {
 
   selectedButtonIdx = 0;
 
-  constructor(private eventsHttpService: EventHttpService) { }
+  constructor(private eventsHttpService: EventHttpService, private googleAnalyticsService: GoogleAnalyticsService) { }
 
   ngOnInit() {
     this.filterArrayById(-1);
@@ -38,16 +40,34 @@ export class EventsComponent implements OnInit {
   filterArrayById(id: number) {
     if (id === 1) {
       this.filteredData = this.eventsList.filter(item => DistanceUtils.isWalkDistance(item.distance));
+
+      this.googleAnalyticsService.eventEmitter(
+        GoogleAnalyticsConstants.WALK_FILTER_EVENT,
+        GoogleAnalyticsConstants.TRUE_ACTION,
+        '',
+        1)
       return;
     }
 
     if (id === 2) {
       this.filteredData = this.eventsList.filter(item => DistanceUtils.isBikeDistance(item.distance));
+
+      this.googleAnalyticsService.eventEmitter(
+        GoogleAnalyticsConstants.BICYCLE_FILTER_EVENT,
+        GoogleAnalyticsConstants.TRUE_ACTION,
+        '',
+        1)
       return;
     }
 
     if (id === 3) {
       this.filteredData = this.eventsList.filter(item => DistanceUtils.isCarDistance(item.distance));
+
+      this.googleAnalyticsService.eventEmitter(
+        GoogleAnalyticsConstants.CAR_FILTER_EVENT,
+        GoogleAnalyticsConstants.TRUE_ACTION,
+        '',
+        1)
       return;
     }
 
