@@ -2,10 +2,19 @@
   .notification-panel(*ngIf="!bookingEnabled && showNotification")
       .hero-content
         h1 Figyelem!
-        p A foglalás weboldalon keresztül átmenetileg szünetel!
-        p A szabad időpontokat megtekinthetők, de új foglalást a weboldalon keresztül nem küldhető be.
-        p Foglalási szándékát kérem Facebookon vagy e-mailban jelezze.
-        p Megértését köszönjük
+        p Foglalás a veboldalon keresztül jelenleg szünetel.
+        p A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
+        p
+          | Foglalási szándékodat kérlek
+          |
+          a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
+          |
+          | vagy az
+          |
+          a(routerLink='/contact', routerLinkActive='active', href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') elérhetőségeink
+          |
+          | valamelyikén jelezd.
+        p Megértésedet köszönjük!
         button.submit((click)="showNotification=!showNotification") Bezárás
   .hero-content
 
