@@ -1,17 +1,20 @@
 .record-wrapper
     display: flex
     flex-wrap: nowrap
-    height: 110px
+    height: auto
     width: 100%
     border-radius: 5px
     border-style: solid
     border-width: 2px
 
 .date-container
-    height: 100%
-    width: 155px
-    display: inline
-    margin: auto
+    height: auto
+    width: 150px
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+    align-items: center
+    align-content: center
     margin-left: 0
     background: yellow
     padding-top: 30px
@@ -39,6 +42,7 @@
     display: block
     width: 350px
     padding-top: 10px
+    padding-bottom: 10px
     height: 100%
     h1
         font-weight: normal
@@ -48,7 +52,7 @@
         list-style-type: none
     li
         font-weight: normal
-        font-size: 13px  
+        font-size: 13px
     .url
         color: #ab6cc3
         text-decoration: none
@@ -72,7 +76,7 @@
 @media screen and (max-width: 650px)
     .record-wrapper
         flex-direction: column
-        height: 215px
+        height: auto
     .date-container
         display: flex
         width: 100%
