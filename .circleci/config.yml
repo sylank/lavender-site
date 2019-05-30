@@ -44,7 +44,7 @@ jobs:
 
       - run:
           name: Run install angular-cli
-          command: npm install -g @angular/cli
+          command: npm install -g @angular/cli@7.x
 
       - run:
           name: Post install

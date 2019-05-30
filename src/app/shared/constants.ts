@@ -1,16 +1,16 @@
 export class Constants {
     public static months: string[] = [
-        'január',
-        'február',
-        'március',
-        'április',
-        'május',
-        'június',
-        'július',
-        'augusztus',
-        'szeptember',
-        'október',
-        'november',
-        'december'
+        'jan.',
+        'feb.',
+        'már.',
+        'ápr.',
+        'máj.',
+        'jún.',
+        'júl.',
+        'aug.',
+        'szep.',
+        'okt.',
+        'nov.',
+        'dec.'
       ];
 }
