@@ -21,7 +21,6 @@ import { ImageOpacityDirective } from './shared/image-opacity.directive';
 import { CalendarComponent } from './booking/calendar/calendar.component';
 import { DayComponent } from './booking/calendar/day/day.component';
 
-import { AgmCoreModule } from '@agm/core';
 import { EventComponent } from './events/event/event.component';
 import { LoadingCircleComponent } from './shared/loading-circle/loading-circle.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
@@ -62,9 +61,6 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     ReactiveFormsModule,
     NgxCaptchaModule,
     HttpClientJsonpModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAUJ5jGs6beGOY_Ts8PSloxQw09IVZfcdw'
-    })
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent]
