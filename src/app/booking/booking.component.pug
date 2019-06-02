@@ -2,7 +2,7 @@
   .notification-panel(*ngIf="!bookingEnabled && showNotification")
       .hero-content
         h1 Figyelem!
-        p Foglalás a veboldalon keresztül jelenleg szünetel.
+        p Foglalás a weboldalon keresztül jelenleg szünetel.
         p A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
         p
           | Foglalási szándékodat kérlek
@@ -46,7 +46,7 @@
         app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
         p.title Négylábú személyek *
         app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
-        button.submit(type='submit') Tovább
+        button.submit(type='submit', [attr.disabled]="bookingEnabled? null : '' ") Tovább
 
     // booking data
     .booking-form(*ngIf="bookingStage === 'data'")
@@ -54,11 +54,11 @@
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
         p.title Foglalási adatok
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
+          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
@@ -78,8 +78,10 @@
           span((click)='onBack(0)') Vissza
 
     // Overview
-    .booking-form(*ngIf="bookingStage === 'overview'")
+    .booking-form.scroll-form(*ngIf="bookingStage === 'overview'")
       h1 Áttekintés
+      .info-wrapper
+          p.char-info A foglalás elküldéséhez tekerj lejjebb.
       .data
         p Érkezés:
         .icon-wrapper
@@ -178,7 +180,7 @@
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
 
-  .hero-content.info(*ngIf="bookingStage === 'person' || bookingStage === 'data'")
+  .hero-content.info
     h2 Információk
     p - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
     p - Az Idegenforgalmi Adó (IFA) nincs az árban.
