@@ -64,19 +64,6 @@ export class ContactComponent implements OnInit {
           );
           return data.address;
         }
-      },
-      {
-        title: "Számlaszám",
-        defaultValue: "12345-1212211xxx",
-        callback: function(data) {
-          googleAnalyticsService.eventEmitter(
-            GoogleAnalyticsConstants.SHOW_CONTACTS_EVENT,
-            GoogleAnalyticsConstants.TRUE_ACTION,
-            "",
-            4
-          );
-          return data.bankAccountId;
-        }
       }
     ];
   }

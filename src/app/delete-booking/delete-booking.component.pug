@@ -16,7 +16,7 @@
       app-loading-circle(show="false")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
       h1 Foglalás lemondása
-      p A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tályékoztatni.
+      p A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
       p
         | A
         |
@@ -42,5 +42,5 @@
         p.char-count Ennyi karakter maradt: {{ messageLength }}
       label
         input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
-        | Törölni szeretném a foglalásom!
+        | Le szeretném mondani a foglalásom!
       button.submit([disabled]="sendingDisabled()") Lemondás

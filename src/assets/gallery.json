@@ -22,7 +22,7 @@
   {
     "location": "assets/img/gallery/4.jpg",
     "caption": "Utcára néző terasz",
-    "text": "A ház két terasszal is rendelkezik így mindenkinek van saját helye elfogyasztani a reggeli kávéját. Strandolás után kényelembe helyezhetjük magunkat, valamint este kiülhetünk beszélgetni is egy pohár bor társaságában."
+    "text": "A ház két terasszal is rendelkezik így mindenkinek van saját területe elfogyasztani a reggeli kávéját. Strandolás után kényelembe helyezhetjük magunkat, valamint este kiülhetünk beszélgetni is egy pohár bor társaságában."
   },
   {
     "location": "assets/img/gallery/5.jpg",
@@ -31,32 +31,32 @@
   },
   {
     "location": "assets/img/gallery/6.jpg",
-    "caption": "Ház szám",
+    "caption": "Házszám",
     "text": "Az apartman könnyen felismerhető az utcáról is, köszönhetően az egyedi táblának."
   },
   {
     "location": "assets/img/gallery/12.jpg",
     "caption": "Étkező",
-    "text": "Az étkezőben található kanapé kihúyható, így két ember tud akár ott is aludni. WiFi és kábeltévé is van bekötve így nem maradsz le a kedvenc soroyatodról, vagy meg tudod osztani a képeket amiket aznap készítettél."
+    "text": "Az étkezőben található kanapé kihúzható, így két ember tud akár ott is aludni. WiFi és kábeltévé is van bekötve így nem maradsz le a kedvenc sorozatodról, vagy meg tudod osztani a képeket az interneten, amiket aznap készítettél."
   },
   {
     "location": "assets/img/gallery/10.jpg",
     "caption": "Konyha",
-    "text": "Az apartmanban mosogató, hűtő, kávéfőző, vízforraló, mikró, valamint tányérok és evőeszközök is találhatók. Valamint légkondícionáló is beépítésre került."
+    "text": "Az apartmanban mosogató, hűtő, kávéfőző, vízforraló, mikró, valamint tányérok és evőeszközök is találhatók. Légkondícionáló is beépítésre került."
   },
   {
     "location": "assets/img/gallery/8.jpg",
     "caption": "Nagyobbik szoba",
-    "text": "Az apartmanban két hálószoba található de az étkezőben lévő kanapét is ki lehet húzni, így összesen 6 felnőtt fér el kényelmesen. A nagyobbik szobában francia ágy található és egy pakolós szekrény. Egy ablak található a nagyobbik szobában a tér tágítása és a jobb fényviszonyok miatt, de az ablakok redőnyökkel eltakarhatók."
+    "text": "Az apartmanban két hálószoba található de az étkezőben lévő kanapét is ki lehet húzni, így összesen 6 felnőtt fér el kényelmesen. A nagyobbik szobában francia ágy található és egy szekrény. Az étkező és a nagzobbik szoba között egy ablak található a tér tágítása és a jobb fényviszonyok érdekében, de az ablak redőnnyel eltakarható."
   },
   {
     "location": "assets/img/gallery/9.jpg",
     "caption": "Tusoló",
-    "text": "A mosdó, wc, tusoló egy helyiségben található. Törülközők valamint egyéb kiegészítő eszközök egyaránt megtalálhatóak. A kertben is található egy régimódi, olajos hordóból átalakított tusoló ami felfrissülést nyújthat meleg nyári délutánokon."
+    "text": "A mosdó, wc, tusoló egy helyiségben található. Törülközők valamint egyéb kiegészítő eszközök egyaránt megtalálhatóak. A kertben is található egy régimódi, hordóból átalakított tusoló ami felfrissülést nyújthat meleg nyári délutánokon."
   },
   {
     "location": "assets/img/gallery/13.jpg",
     "caption": "Mosdó",
-    "text": "Hajszárító is tartozik az apartmanhoz."
+    "text": "Hajszárító, valamint kis és nagy törülközők is találhatók az apartmanban."
   }
 ]
