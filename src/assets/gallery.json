@@ -1,8 +1,8 @@
 [
   {
     "location": "assets/img/gallery/1.jpg",
-    "caption": "A nyaraló az utca felől",
-    "text": "Az utca front felőli látkép, nyáron még a levendula bokrok is virágba borulnak."
+    "caption": "A nyaraló az utcafrontról",
+    "text": "Az utcafront felőli látkép, nyáron még a levendula bokrok is virágba borulnak."
   },
   {
     "location": "assets/img/gallery/2.jpg",
@@ -12,16 +12,16 @@
   {
     "location": "assets/img/gallery/3.jpg",
     "caption": "Hátsó terasz",
-    "text": "A hátsó teraszon kényelmesen elfogyasztható a reggeli vagy akár a délutáni sütögetés végeredménye is. Az egész család elfér a 6 személyes asztalnál."
+    "text": "A hátsó teraszon kényelmesen elfogyasztható a reggeli vagy akár a délutáni sütögetés végeredménye is. Az egész család elfér a hat személyes asztalnál."
   },
   {
     "location": "assets/img/gallery/7.jpg",
     "caption": "Hátsó terasz és grill",
-    "text": "Az asztalnál mindenki kényelmesen elfér és az egész kertre rálátni."
+    "text": "Az asztalnál mindenki kényelmesen elfér és az egész kertre rálátni. A nyaralóban minden nyílászáró szúnyoghálóval és redőnnyel van felszerelve."
   },
   {
     "location": "assets/img/gallery/4.jpg",
-    "caption": "Utcára néző terasz",
+    "caption": "Kávézó terasz",
     "text": "A ház két terasszal is rendelkezik így mindenkinek van saját területe elfogyasztani a reggeli kávéját. Strandolás után kényelembe helyezhetjük magunkat, valamint este kiülhetünk beszélgetni is egy pohár bor társaságában."
   },
   {
@@ -31,23 +31,23 @@
   },
   {
     "location": "assets/img/gallery/6.jpg",
-    "caption": "Házszám",
-    "text": "Az apartman könnyen felismerhető az utcáról is, köszönhetően az egyedi táblának."
+    "caption": "Kerti tusoló",
+    "text": "A nagy kánikulában felfrissülést nyújthat egy régimódi, de modernizált kerti tusoló, ami az udvar végében található."
   },
   {
     "location": "assets/img/gallery/12.jpg",
     "caption": "Étkező",
-    "text": "Az étkezőben található kanapé kihúzható, így két ember tud akár ott is aludni. WiFi és kábeltévé is van bekötve így nem maradsz le a kedvenc sorozatodról, vagy meg tudod osztani a képeket az interneten, amiket aznap készítettél."
+    "text": "Az étkezőben található kanapé kihúzható, így két ember számára is kényelmes lehet. WiFi és kábeltévé is van bekötve így nem maradsz le a kedvenc sorozatodról, vagy meg tudod osztani a képeket az interneten, amiket aznap készítettél. Az étkezőből közvetlenül a hátsó teraszra jutunk."
   },
   {
     "location": "assets/img/gallery/10.jpg",
     "caption": "Konyha",
-    "text": "Az apartmanban mosogató, hűtő, kávéfőző, vízforraló, mikró, valamint tányérok és evőeszközök is találhatók. Légkondícionáló is beépítésre került."
+    "text": "Az apartmanban főzőlap, mosogató, hűtő, kávéfőző, vízforraló, mikró, valamint tányérok és evőeszközök is találhatók. Légkondícionáló is beépítésre került."
   },
   {
     "location": "assets/img/gallery/8.jpg",
-    "caption": "Nagyobbik szoba",
-    "text": "Az apartmanban két hálószoba található de az étkezőben lévő kanapét is ki lehet húzni, így összesen 6 felnőtt fér el kényelmesen. A nagyobbik szobában francia ágy található és egy szekrény. Az étkező és a nagzobbik szoba között egy ablak található a tér tágítása és a jobb fényviszonyok érdekében, de az ablak redőnnyel eltakarható."
+    "caption": "Franciaágyas szoba",
+    "text": "Az apartmanban két hálószoba található de az étkezőben lévő kanapét is ki lehet húzni, így összesen 6 felnőtt fér el kényelmesen. A nagyobbik szobában francia ágy található és egy szekrény. Az étkező és a nagyobbik szoba között egy ablak található a tér tágítása és a jobb fényviszonyok érdekében, de az ablak redőnnyel eltakarható."
   },
   {
     "location": "assets/img/gallery/9.jpg",
@@ -56,7 +56,7 @@
   },
   {
     "location": "assets/img/gallery/13.jpg",
-    "caption": "Mosdó",
-    "text": "Hajszárító, valamint kis és nagy törülközők is találhatók az apartmanban."
+    "caption": "Két ágyas szoba",
+    "text": "A másik szobában két felnőtt méretű ágy található, valamint egy szekrény. "
   }
 ]

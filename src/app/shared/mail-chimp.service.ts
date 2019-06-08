@@ -16,5 +16,5 @@ export class MailChimpService {
   public submitSubscription(subscriptionData: SubscriptionModel): Observable<Object> {
     const mailChimpUrl = `${MailChimpService.postUrl}?u=${MailChimpService.accountId}&id=${MailChimpService.lavenderId}&EMAIL=${subscriptionData.email}&FNAME=${subscriptionData.firstName}&LNAME=${subscriptionData.lastName}`
     return  this.http.jsonp<any>(mailChimpUrl, 'c')
-   }
+  }
 }

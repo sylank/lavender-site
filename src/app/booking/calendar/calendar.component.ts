@@ -168,7 +168,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.reserved = this.http.checkAvailabilityInMonth(year, month).subscribe((reservedDates: any) => {
       this.reservedRanges = [];
       this.generateBookedDaysList(this.reservedRanges);
-      console.log(reservedDates.response.reservations);
       this.generateBookedDaysList(reservedDates.response.reservations);
 
       this.showLoading = false;

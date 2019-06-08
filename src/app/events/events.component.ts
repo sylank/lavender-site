@@ -28,7 +28,6 @@ export class EventsComponent implements OnInit {
     this.showLoading = true;
     this.eventsHttpService.getEventsByFromDateAndToDate(new Date(), HttpUtils.getEndOfTheYear(), 999).subscribe(
       (queriedEvents: any) => {
-        console.log(queriedEvents);
         this.eventsList = queriedEvents.response.events;
         this.filterArrayById(-1);
 
