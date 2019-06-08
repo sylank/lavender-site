@@ -211,8 +211,6 @@ export class BookingComponent implements OnInit {
     this.booking.subscribe = false
 
     this.scrollToPosition()
-    console.log(this.booking);
-
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.PERSONAL_DATA_SUBMIT_EVENT,
       GoogleAnalyticsConstants.TRUE_ACTION,
@@ -221,7 +219,6 @@ export class BookingComponent implements OnInit {
   }
 
   onPersonSubmit(): void {
-    console.log(this.booking)
     this.bookingStage = 'data';
 
     this.scrollToPosition()
@@ -252,8 +249,6 @@ export class BookingComponent implements OnInit {
                                           this.booking.petCount);
 
       this.calendarHttpService.submitBooking(bookingData, token).subscribe((bookingResult: any) => {
-        console.log(bookingResult);
-
         this.showLoading = false;
 
         this.bookingStage = 'result';

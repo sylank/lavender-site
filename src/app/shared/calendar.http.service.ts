@@ -31,7 +31,7 @@ export class CalendarHttpService {
     const toDate = HttpUtils.convertDepartureDate(
       new Date(year, month, daysInMonth)
     );
-    console.log("fromDate: "+fromDate+" toDate: "+toDate)
+    
     return this.http.get(
       `${HttpConstants.rootUrl}${
         HttpConstants.calendarQueryEndpoint
