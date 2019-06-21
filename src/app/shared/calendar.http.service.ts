@@ -31,7 +31,7 @@ export class CalendarHttpService {
     const toDate = HttpUtils.convertDepartureDate(
       new Date(year, month, daysInMonth)
     );
-    
+
     return this.http.get(
       `${HttpConstants.rootUrl}${
         HttpConstants.calendarQueryEndpoint
@@ -57,7 +57,7 @@ export class CalendarHttpService {
       body: bookingData.body,
       fromDate: HttpUtils.convertArrivalDate(bookingData.fromDate),
       toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
-      fullName: bookingData.fname+bookingData.lname,
+      fullName: bookingData.lname+" "+bookingData.fname,
       phoneNumber: bookingData.phoneNumber,
       subscribe: bookingData.subscribe,
       personCount: bookingData.personCount+1,
