@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://x30i7tv277.execute-api.eu-central-1.amazonaws.com/api',
+  baseUrl: 'https://mx272fxw6g.execute-api.eu-central-1.amazonaws.com/api',
   reservationEnabled: true
 };
 
