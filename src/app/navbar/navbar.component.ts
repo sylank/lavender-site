@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     if (this.animation) {
       this.background = true;
     } else {
-      window.scrollY > 80 ? this.background = true : this.background = false;
+      window.scrollY > 10 ? this.background = true : this.background = false;
     }
   }
 

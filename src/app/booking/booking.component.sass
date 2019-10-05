@@ -8,7 +8,7 @@
   justify-content: center
   align-items: center
   width: 100%
-  height: 110vh
+  height: 100vh
   background-image: url("../../assets/img/booking-bg.jpg")
   background-size: cover
 
@@ -337,38 +337,50 @@ a
 a:visited
   color: #ab6cc3
 
+@media screen and (max-height: 785px)
+  .hero-content
+    max-height: 550px
+    overflow: auto
+
 @media screen and (max-width: 950px)
   .hero
+    height: auto
     justify-content: flex-start
     flex-direction: column
     padding-top: 75px
-    height: 125vh
 
   .hero-content
     margin-right: 0
     margin-bottom: 15px
+    max-height: none
+    overflow: visible
 
 @media screen and (max-width: 485px)
   .hero-content
     padding: 20px
+    max-height: none
+    overflow: visible
     .booking-form
       width: 100%
-      display: flex
-      flex-direction: column
-      justify-content: flex-start
+
   .date-picker
     display: flex
-    justify-content: space-between
+    flex-direction: column
+    justify-content: center
+    align-items: center
     margin: 0
     margin-bottom: 35px
-    .date-field
-      height: 100px
     .arrival, .departure
-      width: 100px
-      height: 100px
+      display: flex
+      flex-direction: column
+      align-items: center
+      height: 80px
       margin: 0
       margin-left: auto
       margin-right: auto
+      .date-field
+        width: 100%
+        justify-content: center
   .date-picker > *
     margin-bottom: 15px
   .divider
@@ -405,11 +417,3 @@ a:visited
       color: #ab6cc3
   a:visited
     color: #ab6cc3
-
-@media screen and (max-width: 949px)
-    .hero
-      height: 200vh
-
-@media screen and (max-height: 568px)
-    .hero
-      height: 200vh
