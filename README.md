@@ -1,5 +1,5 @@
-Master: [![CircleCI](https://circleci.com/gh/sylank/lavender-site/tree/master.svg?style=svg)](https://circleci.com/gh/sylank/lavender-site/tree/master)
-Dev:[![CircleCI](https://circleci.com/gh/sylank/lavender-site/tree/dev.svg?style=svg)](https://circleci.com/gh/sylank/lavender-site/tree/dev)
+Master: [![Build Status](https://app.bitrise.io/app/cd44da0c6bc31992/status.svg?token=Ur3vseFGfI6ch_NyVR7sRg&branch=master)](https://app.bitrise.io/app/cd44da0c6bc31992)
+Dev: [![Build Status](https://app.bitrise.io/app/cd44da0c6bc31992/status.svg?token=Ur3vseFGfI6ch_NyVR7sRg&branch=dev)](https://app.bitrise.io/app/cd44da0c6bc31992)
 # Lavender website
 
 Lavender summer house one-page frontend application.
