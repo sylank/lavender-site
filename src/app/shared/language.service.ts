@@ -63,6 +63,10 @@ export class LanguageService {
     return this.languageItem$
   }
 
+  public getSelectedLanguage() {
+    return this.selectedLanguage
+  }
+
   private selectLanguage(language: string) {
     this.selectedLanguage = this.cutLocale(language);
 

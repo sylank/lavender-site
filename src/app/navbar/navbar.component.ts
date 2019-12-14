@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { GalleryService } from '../shared/gallery.service';
+import { LanguageService } from '../shared/language.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +10,12 @@ import { GalleryService } from '../shared/gallery.service';
 export class NavbarComponent implements OnInit {
 
   animation = false;
+  langSelector = false;
 
   @HostBinding('class.hamburger') hamburger = false;
 
-  constructor(private galleryService: GalleryService) { }
+  constructor(private galleryService: GalleryService,
+    private languageService: LanguageService) { }
 
   background = false;
   opacity = false;
@@ -38,8 +41,18 @@ export class NavbarComponent implements OnInit {
   clearHeader() {
     this.galleryService.navbarBackground.next('close');
     this.hamburger = false;
+    this.langSelector = false
     this.animation = false;
     this.changeBg();
   }
 
+  selectLanguage(value: string) {
+    this.langSelector = true
+
+    this.languageService.setLanguage(value)
+  }
+
+  getLanguageClass() {
+    return this.languageService.getSelectedLanguage()
+  }
 }

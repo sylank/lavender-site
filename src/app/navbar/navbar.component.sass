@@ -42,7 +42,7 @@ nav
 
 .menu
   display: flex
-  align-items: baseline
+  align-items: center
 
 .booking
   display: flex
@@ -84,6 +84,45 @@ nav
 .cbar3
   -webkit-transform: rotate(45deg) translate(-8px, -8px)
   transform: rotate(45deg) translate(-8px, -8px)
+
+
+.language-selector
+  width: 24px
+  height: 24px
+  cursor: pointer
+  background-repeat: no-repeat
+
+  .language-list
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    align-content: center
+    height: 110px
+    width: 25px
+    z-index: 5
+    cursor: default
+    margin-top: 30px
+    border-radius: 5px
+    .lang-item
+      background-repeat: no-repeat
+      margin-bottom: 7px
+      margin-top: 7px
+      cursor: pointer
+      width: 24px
+      height: 24px
+
+.lng-hu
+  background-image: url("../../assets/img/flags/hu.svg")
+  z-index: 6
+
+.lng-en
+  background-image: url("../../assets/img/flags/en.svg")
+  z-index: 6
+
+.lng-de
+  background-image: url("../../assets/img/flags/de.svg")
+  z-index: 6
 
 @media only screen and (max-width: 730px)
   .wrapper
