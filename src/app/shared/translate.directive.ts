@@ -8,14 +8,22 @@ export class TranslateDirective implements OnInit {
 
   @Input() key: string
 
-  constructor(private elementRef: ElementRef, private languageService: LanguageService) { }
+  constructor(private elementRef: ElementRef, private languageService: LanguageService) {
+    this.languageService.observer().subscribe((event: string) => this.refreshComponentText())
+  }
 
   ngOnInit(): void {
+    this.refreshComponentText()
+  }
+
+  private refreshComponentText() {
     const pathElements = this.key.split('.')
     this.languageService.getTranslation().subscribe(
       (value: any) => {
-        var val = pathElements.reduce((o, n) => o[n], value)
-        this.elementRef.nativeElement.innerText = val;
+        var val: string = pathElements.reduce((o, n) => o[n], value)
+        if (val !== undefined && val.length != 0) {
+          this.elementRef.nativeElement.innerText = val;
+        }
       }
     );
   }
