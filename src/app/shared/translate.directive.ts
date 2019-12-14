@@ -17,14 +17,16 @@ export class TranslateDirective implements OnInit {
   }
 
   private refreshComponentText() {
-    const pathElements = this.key.split('.')
-    this.languageService.getTranslation().subscribe(
-      (value: any) => {
-        var val: string = pathElements.reduce((o, n) => o[n], value)
-        if (val !== undefined && val.length != 0) {
-          this.elementRef.nativeElement.innerText = val;
+    if (this.key !== undefined) {
+      const pathElements = this.key.split('.')
+      this.languageService.getTranslation().subscribe(
+        (value: any) => {
+          var val: string = pathElements.reduce((o, n) => o[n], value)
+          if (val !== undefined && val.length != 0) {
+            this.elementRef.nativeElement.innerText = val;
+          }
         }
-      }
-    );
+      );
+    }
   }
 }

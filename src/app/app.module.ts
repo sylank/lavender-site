@@ -31,6 +31,8 @@ import { NumberChooserComponent } from './shared/number-chooser/number-chooser.c
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { TranslateDirective } from './shared/translate.directive';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,7 @@ import { TranslateDirective } from './shared/translate.directive';
     ReactiveFormsModule,
     NgxCaptchaModule,
     HttpClientJsonpModule,
+    BrowserAnimationsModule,
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent]
