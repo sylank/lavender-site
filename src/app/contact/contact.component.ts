@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { GoogleAnalyticsService } from "../shared/google-analytics.service";
 import { GoogleAnalyticsConstants } from "../shared/google.analytics.constants";
+import { LanguageService } from '../shared/language.service';
 
 @Component({
   selector: "app-contact",
@@ -10,7 +11,7 @@ import { GoogleAnalyticsConstants } from "../shared/google.analytics.constants";
 export class ContactComponent implements OnInit {
   public contactInfo = [];
 
-  constructor(googleAnalyticsService: GoogleAnalyticsService) {
+  constructor(googleAnalyticsService: GoogleAnalyticsService, languageService: LanguageService) {
     this.contactInfo = [
       {
         title: "Kapcsolattartó",
@@ -66,6 +67,14 @@ export class ContactComponent implements OnInit {
         }
       }
     ];
+
+    //translate
+    languageService.getTranslation().subscribe((translations: any) => {
+      this.contactInfo[0].title = translations["contacts"].contact_person
+      this.contactInfo[1].title = translations["contacts"].phone
+      this.contactInfo[2].title = translations["contacts"].email
+      this.contactInfo[3].title = translations["contacts"].address
+    })
   }
 
   ngOnInit() {}

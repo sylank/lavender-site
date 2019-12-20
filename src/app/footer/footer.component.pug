@@ -5,23 +5,23 @@
       p Levendula apartman, {{ date.getFullYear() }}
 
     ul.menu.flex-small
-      li.title Menü
-      li.menu-item(routerLink='/home') Kezdőlap
-      li.menu-item(routerLink='/gallery') Galéria
-      li.menu-item(routerLink='/events') Programok
-      li.menu-item(routerLink='/contact') Kapcsolat
-      li.menu-item(routerLink='/delete-booking') Lemondás
-      li.menu-item(routerLink='/booking') Foglalás
+      li.title(translate key="footer.menu") Menü
+      li.menu-item(routerLink='/home', translate key="nav.home") Kezdőlap
+      li.menu-item(routerLink='/gallery', translate key="nav.gallery") Galéria
+      li.menu-item(routerLink='/events', translate key="nav.events") Programok
+      li.menu-item(routerLink='/contact', translate key="nav.contacts") Kapcsolat
+      li.menu-item(routerLink='/delete-booking', translate key="nav.cancel") Lemondás
+      li.menu-item(routerLink='/booking', translate key="nav.booking") Foglalás
 
     ul.menu.flex-small
-      li.title Információk
+      li.title(translate key="footer.information") Információk
       li
-        a.menu-item(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') Házirend
+        a.menu-item(translate key="footer.house_rule", target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') Házirend
       li
-        a.menu-item(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') Foglalással kapcsolatos információk
+        a.menu-item(translate key="footer.booking_information", target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') Foglalással kapcsolatos információk
       li
-        a.menu-item(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') Adatvédelmi nyilatkozat
-      li.menu-item(routerLink='/delete-user-data') Felhasználói adatok törlése
+        a.menu-item(translate key="footer.privacy_statement", target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') Adatvédelmi nyilatkozat
+      li.menu-item(translate key="footer.delete_user_data", routerLink='/delete-user-data') Felhasználói adatok törlése
 
     iframe#social-detailed.flex-small(media="none", class="social-wide", src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flevendulabalatonmaria%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1066614486739525', scrolling='no', frameborder='0', allowtransparency='true', allow='encrypted-media')
 

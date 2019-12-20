@@ -1,152 +1,162 @@
 .hero((window:click)="closeCalendar()")
   .notification-panel(*ngIf="!bookingEnabled && showNotification")
       .hero-content
-        h1 Figyelem!
-        p Foglalás a weboldalon keresztül jelenleg szünetel.
-        p A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
-        p
+        h1(translate key="booking.dialog.dialog_header") Figyelem!
+        p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
+        p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
+        p(translate key="booking.dialog.dialog_desc3")
           | Foglalási szándékodat kérlek
           |
           a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
           |
           | vagy az
           |
-          a(routerLink='/contact', routerLinkActive='active', href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') elérhetőségeink
+          a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
           |
           | valamelyikén jelezd.
-        p Megértésedet köszönjük!
-        button.submit((click)="showNotification=!showNotification") Bezárás
+        p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
+        button.submit(translate key="booking.dialog.dialog_button", (click)="showNotification=!showNotification") Bezárás
   .hero-content
 
-    // Person number
+    // Date form
     .booking-form(*ngIf="bookingStage === 'person'")
-      h1 Foglalás
-      p Válassz időpontot vagy csak nézd meg a szabad heteket.
+      h1(translate key="booking.date_form.title") Foglalás
+      p(translate key="booking.date_form.choose_date") Válassz időpontot vagy csak nézd meg a szabad heteket.
       .date-picker
         .arrival
-          p.title Érkezés
+          p.title(translate key="booking.date_form.arrival") Érkezés
           .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
             i.fas.fa-calendar-alt
             | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
         .departure
-          p.title Távozás
+          p.title(translate key="booking.date_form.departure") Távozás
           .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
             i.fas.fa-calendar-alt
             | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
         app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
       .price-wrapper
-        p Összesen fizetendő
+        p(translate key="booking.date_form.summary") Összesen fizetendő
         p.price {{ formatCurrency(booking.price) }} Ft
-        p ({{ booking.nights }} éjszaka)
-        p.small Előleg (30%)
-        p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
+        .nights-wrapper
+          p ({{ booking.nights }}
+          p(translate key="booking.date_form.night_count") éjszaka)
+        p.small(translate key="booking.date_form.before_money") Előleg (30%)
+        p.price.small {{ formatCurrency(booking.price * 0.3) }} Ft
       .divider
       form((ngSubmit)="onPersonSubmit(form)", [formGroup]="formName")
-        p.title Személyek (felnőtt + gyermek) *
+        p.title(translate key="booking.date_form.person_count") Személyek (felnőtt + gyermek) *
         app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
-        p.title Négylábú személyek *
+        p.title(translate key="booking.date_form.pet_count") Négylábú személyek *
         app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
-        button.submit(type='submit', [attr.disabled]="bookingEnabled? null : '' ") Tovább
+        button.submit(translate key="booking.date_form.next_button", type='submit', [attr.disabled]="bookingEnabled? null : '' ") Tovább
 
-    // booking data
+    // Personal data form
     .booking-form(*ngIf="bookingStage === 'data'")
-      h1 Foglalás
+      h1(translate key="booking.personal_data_form.title") Foglalás
       form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
-        p.title Foglalási adatok
+        p.title(translate key="booking.personal_data_form.personal_data") Foglalási adatok
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
+          input(translate key="booking.personal_data_form.first_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
+          input(translate key="booking.personal_data_form.last_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
           .input-icon
             i.fas.fa-user
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='*Telefonszám (+36301234567)', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
+          input(translate key="booking.personal_data_form.mobile" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='*Telefonszám (+36301234567)', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
           .input-icon
             i.fas.fa-mobile
         .input-wrapper
-          input([attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='*E-mail (pelda@email.hu)', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+          input(translate key="booking.personal_data_form.email" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='*E-mail (pelda@email.hu)', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
           .input-icon
             i.fas.fa-envelope
-        textarea.message([attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
+        textarea.message(translate key="booking.personal_data_form.hints" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
         .info-wrapper
-          p.char-count A *-al jelölt mezők kitöltése kötelező
-          p.char-count Ennyi karakter maradt: {{ messageLength }}
-        button.submit(type='submit', [disabled]="formName.invalid") Tovább
+          p.char-count(translate key="delete_booking.info_mandatory") A *-al jelölt mezők kitöltése kötelező
+          .remaining-chars-wrapper
+            p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
+            p.char-count {{ messageLength }}
+        button.submit(translate key="booking.date_form.next_button", type='submit', [disabled]="formName.invalid") Tovább
         p.back
-          span((click)='onBack(0)') Vissza
+          span(translate key="booking.personal_data_form.back_button", (click)='onBack(0)') Vissza
 
     // Overview
     .booking-form.scroll-form(*ngIf="bookingStage === 'overview'")
-      h1 Áttekintés
+      h1(translate key="booking.overview_form.title") Áttekintés
       .info-wrapper
-          p.char-info A foglalás elküldéséhez tekerj lejjebb.
+          p.char-info(translate key="booking.overview_form.info") A foglalás elküldéséhez tekerj lejjebb.
       .data
-        p Érkezés:
+        p(translate key="booking.date_form.arrival") Érkezés:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
           | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
       .data
-        p Távozás:
+        p(translate key="booking.date_form.departure") Távozás:
         .icon-wrapper
           i.fas.fa-calendar-alt
         p
           | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
       .data
-        p Személyek száma:
+        p(translate key="booking.overview_form.person_count") Személyek száma:
         .icon-wrapper
           i.fas.fa-users
-        p {{ booking.personCount+1 }} fő
+        .nights-wrapper
+          p {{ booking.personCount+1 }}
+          p(translate key="booking.overview_form.person") fő
       .data
-        p Négylábúak száma:
+        p(translate key="booking.overview_form.pet_count") Négylábúak száma:
         .icon-wrapper
           i.fas.fa-paw
-        p {{ booking.petCount }} fő
+        .nights-wrapper
+          p {{ booking.petCount }}
+          p(translate key="booking.overview_form.person") fő
       .data
-        p Teljes név:
+        p(translate key="booking.overview_form.full_name") Teljes név:
         .icon-wrapper
           i.fas.fa-user
         p {{ booking.lname + ' ' + booking.fname }}
       .data
-        p Telefonszám:
+        p(translate key="booking.overview_form.mobile") Telefonszám:
         .icon-wrapper
           i.fas.fa-mobile
         p {{ booking.phone }}
       .data
-        p E-mail:
+        p(translate key="booking.overview_form.email") E-mail:
         .icon-wrapper
           i.fas.fa-envelope
         p {{ booking.email }}
       .data(*ngIf="booking.message.length>0")
-        p Megjegyzések
-      textarea.message.disabled(disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
+        p(translate key="booking.personal_data_form.hints") Megjegyzések
+      textarea.message.disabled(translate key="booking.overview_form.hint_placeholder" destination="placeholder", disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
       .divider
       .price-wrapper
-        p Összesen fizetendő
+        p(translate key="booking.date_form.summary") Összesen fizetendő
         p.price {{ formatCurrency(booking.price) }} Ft
-        p ({{ booking.nights }} éjszaka)
-        p.small Előleg (30%)
+        .nights-wrapper
+          p ({{ booking.nights }}
+          p(translate key="booking.date_form.night_count") éjszaka)
+        p.small(translate key="booking.date_form.before_money") Előleg (30%)
         p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       .divider
       .checkbox-wrapper
           p
-            input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
+            input(translate key="booking.overview_form.privacy_notice_text", type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
             | Elolvastam és elfogadom az
             |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') adatvédelmi
             |
             | nyilatkozatot! *
           p
-            input(type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
+            input(translate key="booking.overview_form.newsletter_text", type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
             | Szeretnék értesülni az újdonságokról e-mail-ben!
           p
-            input(type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
+            input(translate key="booking.overview_form.data_handling", type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
             | Hozzájárulok a megadott adataim kezeléséhez! *
           p
-            input(type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
+            input(translate key="booking.overview_form.house_rules", type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
             | Elolvastam és elfogadom a
             |
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') házirendet
@@ -156,38 +166,37 @@
             a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
             |
             | ! *
-      button.submit(type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
+      button.submit(translate key="booking.overview_form.booking_now", type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
       p.back
-        span((click)='onBack(1)') Vissza
+        span(translate key="booking.personal_data_form.back_button", (click)='onBack(1)') Vissza
 
     // Result
     .booking-form(*ngIf="bookingStage === 'result'")
       .result-wrapper
         .result.success(*ngIf="bookingResult === 'success'")
           i.fas.fa-info-circle.result
-          p.status Foglalási igény elküldve
-          p.description Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott e-mail címre elküldtük.
-          p.reservation-info
-            | Foglalási azonosító:
-            |
+          p.status(translate key="booking.results.title") Foglalási igény elküldve
+          p.description(translate key="booking.results.description") Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott e-mail címre elküldtük.
+          .reservation-info
+            p(translate key="booking.results.reservation_info") Foglalási azonosító:
             b {{booking.reservationId}}
         .result.failed(*ngIf="bookingResult === 'failed'")
           i.fas.fa-times.result
-          p Sikertelen foglalás
-          p.description Kérjük próbálja meg más időponttal.
+          p(translate key="booking.results.failed_text") Sikertelen foglalás
+          p.description(translate key="booking.results.failed_description") Kérjük próbálja meg más időponttal.
       p.back
-        span((click)="onBack(0)") Vissza
+        span(translate key="booking.personal_data_form.back_button", (click)="onBack(0)") Vissza
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
 
   .hero-content.info
-    h2 Információk
-    p - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
-    p - Az Idegenforgalmi Adó (IFA) nincs az árban.
-    p - A főszezon június 15-től augusztus 31-ig tart.
-    p - Főszezonban leginkább hét éjszakás (szombattól szombatig) foglalásokat várunk. Szezonon kívül minimum két éj foglalható.
-    p - A lefoglalt időintervallumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
-    p
+    h2(translate key="booking.booking_informations.title") Információk
+    p(translate key="booking.booking_informations.desc1") - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
+    p(translate key="booking.booking_informations.desc2") - Az Idegenforgalmi Adó (IFA) nincs az árban.
+    p(translate key="booking.booking_informations.desc3") - A főszezon június 15-től augusztus 31-ig tart.
+    p(translate key="booking.booking_informations.desc4") - Főszezonban leginkább hét éjszakás (szombattól szombatig) foglalásokat várunk. Szezonon kívül minimum két éj foglalható.
+    p(translate key="booking.booking_informations.desc5") - A lefoglalt időintervallumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
+    p(translate key="booking.booking_informations.desc6")
       | - Kérlek az utalás közleményébe írd bele a foglalási számod. Előleg átutalásához szükséges adatokat a
       |
       a(href="/contact") kapcsolat menüpont alatt
@@ -197,8 +206,8 @@
       a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
       |
       | találsz.
-    p - Érkezés a foglalt napon 14:00 órától lehetséges, a távozás 10:00 órától szükséges.
-    p
+    p(translate key="booking.booking_informations.desc7") - Érkezés a foglalt napon 14:00 órától lehetséges, a távozás 10:00 órától szükséges.
+    p(translate key="booking.booking_informations.desc8")
       | - Lemondásról és egyéb információkról részleteket az
       |
       a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken

@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from "@angular/core";
 import { GalleryService } from "../shared/gallery.service";
 import { GoogleAnalyticsService } from '../shared/google-analytics.service';
 import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
+import { LanguageService } from '../shared/language.service';
 
 @Component({
   selector: "app-gallery",
@@ -17,7 +18,12 @@ export class GalleryComponent implements OnInit {
   public activeCaption: string = "";
   public activeText: string = "";
 
-  constructor(private galleryService: GalleryService, private googleAnalyticsService: GoogleAnalyticsService) {}
+  constructor(
+    private galleryService: GalleryService,
+    private googleAnalyticsService: GoogleAnalyticsService,
+    private languageService: LanguageService) {
+      this.languageService.observer().subscribe((data: any) => this.loadGalleryData())
+    }
 
   @HostListener("document:keydown.escape", ["$event"]) onEscKeyDownHandler(
     event: KeyboardEvent
@@ -110,6 +116,10 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadGalleryData()
+  }
+
+  private loadGalleryData() {
     this.galleryService.getGallery().subscribe(response => {
       this.gallery = response;
       this.activeImage = this.gallery[0].location;
