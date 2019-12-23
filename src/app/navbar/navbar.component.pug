@@ -12,11 +12,9 @@ nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='chan
         .language-list(*ngIf='langSelector', [@inOutAnimation])
           .lang-item.lng-hu((click)='selectLanguage("hu")')
           .lang-item.lng-en((click)='selectLanguage("en")')
-          .lang-item.lng-de((click)='selectLanguage("de")')
       .language-list-hamburger
         .lang-item.lng-hu((click)='selectLanguage("hu")')
         .lang-item.lng-en((click)='selectLanguage("en")')
-        .lang-item.lng-de((click)='selectLanguage("de")')
     .container((click)="animation=!animation; changeBg(); hamburger=!hamburger")
       .bar1([ngClass]="animation ? 'cbar1' : 'bar1'")
       .bar2([ngClass]="animation ? 'cbar2' : 'bar2'")
