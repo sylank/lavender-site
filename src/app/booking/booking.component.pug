@@ -39,7 +39,7 @@
         p.price {{ formatCurrency(booking.price) }} Ft
         .nights-wrapper
           p ({{ booking.nights }}
-          p(translate key="booking.date_form.night_count") éjszaka)
+          p.nights(translate key="booking.date_form.night_count") éjszaka)
         p.small(translate key="booking.date_form.before_money") Előleg (30%)
         p.price.small {{ formatCurrency(booking.price * 0.3) }} Ft
       .divider
