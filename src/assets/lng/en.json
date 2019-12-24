@@ -95,6 +95,7 @@
       "person_count": "Number of people:",
       "pet_count":"Number of four-legged:",
       "person": "person",
+      "pets": "pets",
       "full_name": "Full name:",
       "mobile": "Phone number:",
       "email": "E-mail:",

@@ -19,10 +19,9 @@ export class TranslateDirective implements OnInit {
 
   private refreshComponentText() {
     if (this.key !== undefined) {
-      const pathElements = this.key.split('.')
       this.languageService.getTranslation().subscribe(
         (value: any) => {
-          var val: string = pathElements.reduce((o, n) => o[n], value)
+          var val: string = this.languageService.getValueByKey(this.key, value)
           if (val !== undefined && val.length != 0) {
             if (this.destination !== undefined && this.destination === 'placeholder') {
               this.elementRef.nativeElement.placeholder = val;

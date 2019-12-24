@@ -102,16 +102,16 @@
         p(translate key="booking.overview_form.person_count") Személyek száma:
         .icon-wrapper
           i.fas.fa-users
-        .nights-wrapper
+        .person-wrapper
           p {{ booking.personCount+1 }}
-          p(translate key="booking.overview_form.person") fő
+          p.person(translate key="booking.overview_form.person") fő
       .data
         p(translate key="booking.overview_form.pet_count") Négylábúak száma:
         .icon-wrapper
           i.fas.fa-paw
-        .nights-wrapper
+        .person-wrapper
           p {{ booking.petCount }}
-          p(translate key="booking.overview_form.person") fő
+          p.person(translate key="booking.overview_form.pets") fő
       .data
         p(translate key="booking.overview_form.full_name") Teljes név:
         .icon-wrapper
@@ -136,36 +136,28 @@
         p.price {{ formatCurrency(booking.price) }} Ft
         .nights-wrapper
           p ({{ booking.nights }}
-          p(translate key="booking.date_form.night_count") éjszaka)
+          p.nights(translate key="booking.date_form.night_count") éjszaka)
         p.small(translate key="booking.date_form.before_money") Előleg (30%)
         p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
       ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
       .divider
       .checkbox-wrapper
+        .checker
           p
-            input(translate key="booking.overview_form.privacy_notice_text", type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
-            | Elolvastam és elfogadom az
-            |
-            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') adatvédelmi
-            |
-            | nyilatkozatot! *
+            input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
+          p(translate key="booking.overview_form.privacy_notice_text")
+        .checker
           p
             input(translate key="booking.overview_form.newsletter_text", type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
-            | Szeretnék értesülni az újdonságokról e-mail-ben!
+          p(translate key="booking.overview_form.newsletter_text",)
+        .checker
           p
             input(translate key="booking.overview_form.data_handling", type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
-            | Hozzájárulok a megadott adataim kezeléséhez! *
+          p(translate key="booking.overview_form.data_handling")
+        .checker
           p
             input(translate key="booking.overview_form.house_rules", type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
-            | Elolvastam és elfogadom a
-            |
-            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') házirendet
-            |
-            | és a
-            |
-            a(target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') foglalási feltételeket
-            |
-            | ! *
+          p(translate key="booking.overview_form.house_rules")
       button.submit(translate key="booking.overview_form.booking_now", type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
       p.back
         span(translate key="booking.personal_data_form.back_button", (click)='onBack(1)') Vissza

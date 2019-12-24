@@ -53,6 +53,11 @@ export class LanguageService {
     }
   }
 
+  public getValueByKey(key: string, obj: any) {
+    const pathElements = key.split('.')
+    return pathElements.reduce((o, n) => o[n], obj)
+  }
+
   public setLanguage(language: string) {
       this.selectLanguage(language)
 
