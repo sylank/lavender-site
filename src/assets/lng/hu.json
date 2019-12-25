@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "home": "Kezdőlap",
+    "gallery": "Galéria",
+    "events": "Élmények",
+    "contacts": "Kapcsolat",
+    "cancel":"Lemondás",
+    "booking": "Foglalás"
+  },
+  "footer": {
+      "menu":"Menü",
+      "information": "Információk",
+      "house_rule": "Házirend",
+      "booking_information": "Foglalással kapcsolatos információk",
+      "privacy_statement": "Adatvédelmi nyilatkozat",
+      "delete_user_data":"Felhasználói adatok törlése"
+  },
+  "home": {
+    "free_periods": "Szabad időpontok",
+    "introduction": "Bemutatkozás",
+    "intro1": "A Levendula apartman egy régóta dédelgetett álmunk volt, mely 2017-ben vált valósággá. Férjemmel mindketten a Balaton mellett nőttünk fel és szerettünk volna abból a sok szépségből és élményből másoknak is átadni amennyit csak lehet. Hosszú keresés után bukkantunk rá egy ideális helyen lévő házra, melyet teljesen felújítottunk. A felújítás során igyekeztünk mindenre gondolni, amely az itteni időtöltést megszépíti: az apró veranda helyett két, nagyobb méretű, grillezésre is alkalmas teraszt építettünk, a házat fűtő-hűtő klímával és remekül szigetelő ablakokkal láttuk el és a ház elrendezését is átalakítottuk a maximális kényelem érdekében. A munka nagyjából egy évig tartott, de nem álltunk meg: a szabad időpontokban folyamatosan újítjuk, alakítjuk a házat és a kertet is.",
+    "intro2": "A 2018-as nyarat már vendégekkel kezdtük - Izgalommal vártuk az első lakókat és a kulcsok átadása után nehéz szívvel hagytuk magára szeretett nyaralónkat, mely immáron megérett a nyaralni vágyók fogadására. A ház gondozása mellett ügyelünk arra is, hogy a foglalás és az ott töltött idő alatt minden olajozottan menjen. Ebben nagy segítségünkre van fiúnk, akinek többek között ezt a weboldalt is köszönhetjük.",
+    "intro3": "Bízunk benne, hogy leendő vendégeink, nemcsak a házban, de a környékbeli élményekben is örömüket lelik, ezért itt, az oldalon mindig frissítjük a közeli programok, élmények listáját. Családom nevében is köszönöm, hogy ellátogatott az oldalunkra, és bízunk benne, hogy hamarosan vendégként üdvözölhetjük Önt a balatonmáriafürdői Levendula apartmanban."
+  },
+  "events": {
+    "title": "Közelben lévő programok, élmények",
+    "cat_all": "Összes",
+    "cat_walk": "Gyalog",
+    "cat_bike": "Bicikli",
+    "cat_car": "Autó",
+    "not_found": "Jelenleg nincsenek közelgő élmények",
+    "distance": "Távolság:",
+    "location": "Helyszín:",
+    "web": "Weboldal:"
+  },
+  "contacts": {
+    "show": "Mutat",
+    "contact_person": "Kapcsolattartó",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "address": "Cím"
+  },
+  "delete_booking": {
+    "dialog_title": "Figyelem!",
+    "dialog_text": "Az alábbiakban megadott azonosítóhoz rendelt foglalás törlését megkezdtük:",
+    "dialog_infos": "The important information has been sent to the email address you provided at booking time, you will find details in the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'> booking document</a>  as well.",
+    "farwell": "Hope to see you again.",
+    "dialog_button": "Close",
+    "title": "Cancel reservation",
+    "desc1": "To cancel your booking, you must provide the booking ID you received after booking. Each step will be emailed to you.",
+    "desc2": "Pressing the <i>Cancel</i> button will begin the cancellation process.",
+    "desc3": "<b> Important: </b> We can only cancel your booking with a valid booking ID. Details can be found at the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>link</a> below!",
+    "data_caption": "Data:",
+    "booking_id_placeholder": "*ID",
+    "cancelation_reason_placeholder": "Lemondás oka (opcionális)",
+    "info_mandatory": "A *-al jelölt mezők kitöltése kötelező",
+    "info_char_remaining": "Ennyi karakter maradt:",
+    "checkbox": "Le szeretném mondani a foglalásom!",
+    "button": "Lemondás"
+  },
+  "booking": {
+    "dialog" : {
+      "dialog_header": "Figyelem!",
+      "dialog_desc1": "Foglalás a weboldalon keresztül jelenleg szünetel.",
+      "dialog_desc2": "A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.",
+      "dialog_desc3": "Foglalási szándékodat kérlek <a target='_blank', rel='noopener noreferrer', href='https://www.facebook.com/levendulabalatonmaria'>Facebookon</a> vagy az <a target='_blank', rel='noopener noreferrer', href='https://levendulabalatonmaria.info/contact'>elérhetőségeink</a> valamelyikén jelezd.",
+      "dialog_desc4": "Megértésed köszönjük!",
+      "dialog_button": "Bezárás"
+    },
+    "date_form": {
+      "title": "Foglalás",
+      "choose_date": "Válassz időpontot vagy csak nézd meg a szabad heteket.",
+      "arrival": "Érkezés",
+      "departure": "Távozás",
+      "summary": "Összesen fizetendő",
+      "night_count": "éjszaka)",
+      "before_money": "Előleg (30%)",
+      "person_count": "Személyek (felnőtt + gyermek) *",
+      "pet_count": "Négylábú személyek *",
+      "next_button": "Tovább"
+    },
+    "personal_data_form": {
+      "title": "Foglalás",
+      "personal_data": "Foglalási adatok",
+      "first_name":"*Vezetéknév (Kovács)",
+      "last_name":"*Keresztnév (Pál)",
+      "mobile":"*Telefonszám (+36301234567)",
+      "email":"*E-mail (pelda@email.hu)",
+      "hints":"Megjegyzések",
+      "back_button": "Vissza"
+    },
+    "overview_form": {
+      "title": "Áttekintés",
+      "info": "A foglalás elküldéséhez tekerj lejjebb.",
+      "person_count": "Személyek száma:",
+      "pet_count":"Négylábúak száma:",
+      "person": "fő",
+      "pets": "",
+      "full_name": "Teljes név:",
+      "mobile": "Telefonszám:",
+      "email": "E-mail:",
+      "hint_placeholder": "Nincsenek megjegyzések",
+      "privacy_notice_text": "Elolvastam és elfogadom az <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf')>adatvédelmi</a> nyilatkozatot! *",
+      "newsletter_text": "Szeretnék értesülni az újdonságokról e-mail-ben!",
+      "data_handling": "Hozzájárulok a megadott adataim kezeléséhez! *",
+      "house_rules": "Elolvastam és elfogadom a <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf')>házirendet</a> és a <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf')>foglalási feltételeket</a> ! *",
+      "booking_now":"Foglalás most!"
+    },
+    "results": {
+      "title":"Foglalási igény elküldve",
+      "description": "Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott e-mail címre elküldtük.",
+      "reservation_info": "Foglalási azonosító:",
+      "failed_text":"Sikertelen foglalás",
+      "failed_description":"Kérjük próbálja meg más időponttal."
+    },
+    "booking_informations": {
+      "title":"Információk",
+      "desc1":"- A szálláshely kistestű kutya és macskaféle befogadására alkalmas.",
+      "desc2":"- Az Idegenforgalmi Adó (IFA) nincs az árban.",
+      "desc3":"- A főszezon június 15-től augusztus 31-ig tart.",
+      "desc4":"- Főszezonban leginkább hét éjszakás (szombattól szombatig) foglalásokat várunk. Szezonon kívül minimum két éj foglalható.",
+      "desc5":"- A lefoglalt időintervallumot az előleg átutalása után tekintjük hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!",
+      "desc6":"- Kérlek az utalás közleményébe írd bele a foglalási számod. Előleg átutalásához szükséges adatokat a <a href='/contact'> kapcsolat menüpont alatt</a> valamint az utalás menetéről e-mail-ben és <a target='_blank' rel='noopener noreferrer', href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf')az alábbi linken</a> találsz.",
+      "desc7":"- Érkezés a foglalt napon 14:00 órától lehetséges, a távozás 10:00 órától szükséges.",
+      "desc8":"- Lemondásról és egyéb információkról részleteket az <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf')az alábbi linken</a> vagy a visszaigazoló e-mail-ben találsz."
+    }
+  }
+}

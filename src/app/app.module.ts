@@ -29,6 +29,9 @@ import { DeleteBookingComponent } from './delete-booking/delete-booking.componen
 import { DeleteUserDataComponent } from './delete-user-data/delete-user-data.component';
 import { NumberChooserComponent } from './shared/number-chooser/number-chooser.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { TranslateDirective } from './shared/translate.directive';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,8 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     DeleteBookingComponent,
     DeleteUserDataComponent,
     NumberChooserComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    TranslateDirective
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     ReactiveFormsModule,
     NgxCaptchaModule,
     HttpClientJsonpModule,
+    BrowserAnimationsModule,
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent]

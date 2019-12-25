@@ -1,29 +1,25 @@
 .hero
   .notification-panel(*ngIf="showNotification")
     .hero-content
-      h1 Figyelem!
-      p
-       | A
-       |
-       b {{deletion.bookingSerial}}
-       |
-       | azonsítóval ellátott foglalás törlése megkezdődött.
-      p A további információkat a foglalás mellé csatolt e-mail címre kiküldtük.
-      p Reméljük még találkozunk.
-      button.submit((click)="showNotification=!showNotification") Bezárás
+      h1(translate key="delete_booking.dialog_title") Figyelem!
+      p(translate key="delete_booking.dialog_text") Az alábbiakban megadott azonosítóhoz rendelt foglalás törlését megkezdtük:
+      b.booking-id {{deletion.bookingSerial}}
+      p(translate key="delete_booking.dialog_infos") A szükséges információkat a foglaláskor megadot e-mail címre elküldtük, valamint részleteket a foglalással kapcsolatos dokumentumban találsz.
+      p(translate key="delete_booking.farwell") Reméljük még találkozunk.
+      button.submit(translate key="delete_booking.dialog_button", (click)="showNotification=!showNotification") Bezárás
   .hero-content
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
-      h1 Foglalás lemondása
-      p A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
-      p
+      h1(translate key="delete_booking.title") Foglalás lemondása
+      p(translate key="delete_booking.desc1") A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
+      p(translate key="delete_booking.desc2")
         | A
         |
         i Lemondás
         |
         | gomb lenyomásával elkezdődik a foglalás törlésének folyamata.
-      p
+      p(translate key="delete_booking.desc3")
         b Fontos:
         |  Csak érvényes foglalás azonosítóval tudjuk törölni a foglalásodat. Részleteket az
         |
@@ -31,16 +27,18 @@
         |
         | találsz!
       .divider
-      p Adatok:
+      p(translate key="delete_booking.data_caption")  Adatok:
       .input-wrapper
-        input(type='text', formControlName="sureField", placeholder='*Azonosító', [(ngModel)]="deletion.bookingSerial", [ngClass]="{'invalid-input': formName.get('sureField').touched && formName.get('sureField').hasError('required')}")
+        input(translate key="delete_booking.booking_id_placeholder" destination="placeholder", type='text', formControlName="sureField", placeholder='*Azonosító', [(ngModel)]="deletion.bookingSerial", [ngClass]="{'invalid-input': formName.get('sureField').touched && formName.get('sureField').hasError('required')}")
         .input-icon
           i.fas.fa-tag
       textarea.message(formControlName="message", maxlength='300', placeholder='Lemondás oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')
       .info-wrapper
-        p.char-count A *-al jelölt mezők kitöltése kötelező
-        p.char-count Ennyi karakter maradt: {{ messageLength }}
+        p.char-count(translate key="delete_booking.info_mandatory")  A *-al jelölt mezők kitöltése kötelező
+        .remaining-chars-wrapper
+          p.char-count(translate key="delete_booking.info_char_remaining")  Ennyi karakter maradt:
+          p.char-count {{ messageLength }}
       label
-        input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
+        input(translate key="delete_booking.checkbox", type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Le szeretném mondani a foglalásom!
-      button.submit([disabled]="sendingDisabled()") Lemondás
+      button.submit([disabled]="sendingDisabled()", translate key="delete_booking.button") Lemondás
