@@ -4,16 +4,16 @@
     "gallery": "Gallery",
     "events": "Events",
     "contacts": "Contacts",
-    "cancel":"Cancellation",
+    "cancel": "Cancellation",
     "booking": "Booking"
   },
   "footer": {
-      "menu":"Menu",
-      "information": "Info",
-      "house_rule": "House rules",
-      "booking_information": "About booking",
-      "privacy_statement": "Privacy notice",
-      "delete_user_data":"Delete user data"
+    "menu": "Menu",
+    "information": "Info",
+    "house_rule": "House rules",
+    "booking_information": "About booking",
+    "privacy_statement": "Privacy notice",
+    "delete_user_data": "Delete user data"
   },
   "home": {
     "free_periods": "Free weeks",
@@ -59,7 +59,7 @@
     "button": "Cancell"
   },
   "booking": {
-    "dialog" : {
+    "dialog": {
       "dialog_header": "Caution!",
       "dialog_desc1": "Reservation through the website is currently paused.",
       "dialog_desc2": "You can view your free dates, but you will not be able to submit a new booking through the website.",
@@ -82,47 +82,48 @@
     "personal_data_form": {
       "title": "Booking",
       "personal_data": "Booking details",
-      "first_name":"*Surname (Smith)",
-      "last_name":"*First Name (Paul)",
-      "mobile":"*Phone number (+36301234567)",
-      "email":"*Email (example@email.com)",
-      "hints":"Notices",
+      "first_name": "*Surname (Smith)",
+      "last_name": "*First Name (Paul)",
+      "mobile": "*Phone number (+36301234567)",
+      "email": "*Email (example@email.com)",
+      "hints": "Notices",
       "back_button": "Back"
     },
     "overview_form": {
       "title": "Overview",
       "info": "Scroll down to submit your reservation.",
       "person_count": "Number of people:",
-      "pet_count":"Number of four-legged:",
+      "pet_count": "Number of four-legged:",
       "person": "person",
       "pets": "pets",
       "full_name": "Full name:",
       "mobile": "Phone number:",
       "email": "E-mail:",
       "hint_placeholder": "No Comments",
-      "privacy_notice_text": "I have read and accept the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf')>Privacy statement</a>! *",
+      "privacy_notice_text": "I have read and accept the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>Privacy statement</a>! *",
       "newsletter_text": "I would like to be notified by email!",
       "data_handling": "I consent to the management of my data! *",
-      "house_rules": "I have read and accept the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf')>house policy</a> and the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf')>booking terms</a>! *",
-      "booking_now":"Book now!"
+      "house_rules": "I have read and accept the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf'>house policy</a> and the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>booking terms</a>! *",
+      "booking_now": "Book now!"
     },
     "results": {
-      "title":"Booking request sent",
+      "title": "Booking request sent",
       "description": "Your reservation request has been submitted for review. Further steps have been sent to the email address you provided.",
       "reservation_info": "Booking ID:",
-      "failed_text":"Failed reservation",
-      "failed_description":"Please try again."
+      "failed_text": "Failed reservation",
+      "failed_description": "Please try again."
     },
     "booking_informations": {
-      "title":"Information",
-      "desc1":"- The place accommodates small dogs and cats.",
-      "desc2":"- Tourist tax (IFA) is not included",
-      "desc3":"- The high season runs from 15 June to 31 August.",
-      "desc4":"- Seven nights (Saturday to Saturday) are most likely to be booked during the high season. A minimum of two nights can be booked in low season.",
-      "desc5":"- The booked time period is considered official after the deposit has been transferred. Unconfirmed bookings will be canceled within 72 hours!",
-      "desc6":"- Please enter your booking number in the bank transfer notice. Details for making a deposit via the <a href='/contact'>contact menu</a> as well as the progress of the transfer via email and <a target='_blank' rel='noopener noreferrer', href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf')you can find here</a>.",
-      "desc7":"- Arrival on the booked day is from 14:00, departure is from 10:00.",
-      "desc8":"- For details about cancellation and other information, please see the  <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf')at the link below</a> or in the confirmation email. "
+      "title": "Information",
+      "desc1": "- The place accommodates small dogs and cats.",
+      "desc2": "- Tourist tax (IFA) is not included",
+      "desc3": "- The high season runs from 15 June to 31 August.",
+      "desc_otp": "You can even pay with <a target='_blank' rel='noopener noreferrer' href='https://www.otpportalok.hu/fooldal/'> OTP SZÉP kártya</a> on the spot.",
+      "desc4": "- Seven nights (Saturday to Saturday) are most likely to be booked during the high season. A minimum of two nights can be booked in low season.",
+      "desc5": "- The booked time period is considered official after the deposit has been transferred. Unconfirmed bookings will be canceled within 72 hours!",
+      "desc6": "- Please enter your booking number in the bank transfer notice. Details for making a deposit via the <a href='/contact'>contact menu</a> as well as the progress of the transfer via email and <a target='_blank' rel='noopener noreferrer', href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'you can find here</a>.",
+      "desc7": "- Arrival on the booked day is from 14:00, departure is from 10:00.",
+      "desc8": "- For details about cancellation and other information, please see the  <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>at the link below</a> or in the confirmation email. "
     }
   }
 }
