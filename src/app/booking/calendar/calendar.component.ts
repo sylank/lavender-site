@@ -1,17 +1,27 @@
-import { Component, OnInit, HostListener, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
-import { CalendarService } from './calendar.service';
-import { Subscription } from 'rxjs';
-import { CalendarHttpService } from 'src/app/shared/calendar.http.service';
-import { ReservedRange } from './reserved.range';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Output,
+  EventEmitter,
+  Input,
+  OnDestroy
+} from "@angular/core";
+import { CalendarService } from "./calendar.service";
+import { Subscription } from "rxjs";
+import { CalendarHttpService } from "src/app/shared/calendar.http.service";
+import { ReservedRange } from "./reserved.range";
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.pug',
-  styleUrls: ['./calendar.component.sass']
+  selector: "app-calendar",
+  templateUrl: "./calendar.component.pug",
+  styleUrls: ["./calendar.component.sass"]
 })
 export class CalendarComponent implements OnInit, OnDestroy {
-
-  constructor(private calendarService: CalendarService, private http: CalendarHttpService) { }
+  constructor(
+    private calendarService: CalendarService,
+    private http: CalendarHttpService
+  ) {}
 
   public today = new Date();
 
@@ -23,20 +33,22 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   public selectedDay: number;
 
-  public months = ['január',
-                    'február',
-                    'március',
-                    'április',
-                    'május',
-                    'június',
-                    'július',
-                    'augusztus',
-                    'szeptember',
-                    'október',
-                    'november',
-                    'december'];
+  public months = [
+    "január",
+    "február",
+    "március",
+    "április",
+    "május",
+    "június",
+    "július",
+    "augusztus",
+    "szeptember",
+    "október",
+    "november",
+    "december"
+  ];
 
-  public days = ['H', 'K', 'Sze', 'Cs', 'P', 'Szo', 'V'];
+  public days = ["H", "K", "Sze", "Cs", "P", "Szo", "V"];
   public weeksInMonth = [1, 2, 3, 4, 5, 6];
   public dayList: number[] = []; // Contains the list of days to display in a calendar month
   private updateCalendar: Subscription;
@@ -57,15 +69,17 @@ export class CalendarComponent implements OnInit, OnDestroy {
     // Fill daysList with the proper numbers
     this.dayList = [];
     for (let i = 0; i < 42; i++) {
-      if (firstDay === 0) { // If the first day of the month is Sunday
+      if (firstDay === 0) {
+        // If the first day of the month is Sunday
         if (i < 6 || i >= daysInMonth + 6) {
           this.dayList[i] = null;
         } else {
           this.dayList[i] = i - 5;
         }
-      } else { // If the first day of the month is NOT Sunday
+      } else {
+        // If the first day of the month is NOT Sunday
         if (i < firstDay - 1 || i > daysInMonth + firstDay - 2) {
-        this.dayList[i] = null;
+          this.dayList[i] = null;
         } else {
           this.dayList[i] = i - firstDay + 2;
         }
@@ -86,7 +100,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   public prevMonth(): void {
-    if (this.currentYear === this.today.getFullYear() && this.currentMonth === this.today.getMonth()) {
+    if (
+      this.currentYear === this.today.getFullYear() &&
+      this.currentMonth === this.today.getMonth()
+    ) {
       return;
     }
     if (this.currentMonth === 0) {
@@ -101,7 +118,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   submitDate(event: any, date: number): void {
-    if (!event.target.innerText || event.target.classList.contains('disabled')) {
+    if (
+      !event.target.innerText ||
+      event.target.classList.contains("disabled")
+    ) {
       this.destroy.emit(false);
       return;
     }
@@ -111,21 +131,28 @@ export class CalendarComponent implements OnInit, OnDestroy {
       this.selectedDay = undefined;
     }
     if (this.selectedDay) {
-      const submitDate = new Date(this.currentYear, this.currentMonth, this.selectedDay);
+      const submitDate = new Date(
+        this.currentYear,
+        this.currentMonth,
+        this.selectedDay
+      );
       this.submit.emit(submitDate);
     }
     this.destroy.emit(false);
   }
 
-  @HostListener('click', ['$event']) hostClick = (event) => {
+  @HostListener("click", ["$event"]) hostClick = event => {
     event.stopPropagation();
-  }
+  };
 
   private generateBookedDaysList(reservedDates: any) {
     reservedDates.forEach((reserved: any) => {
       const from = this.dateConverter(reserved.fromDate);
       const to = this.dateConverter(reserved.toDate);
-      const range = new ReservedRange(this.generateReservedRange(from, to), reserved.temporary);
+      const range = new ReservedRange(
+        this.generateReservedRange(from, to),
+        reserved.temporary
+      );
       this.reservedRanges.push(range);
     });
     this.calendarService.disableDays.next(this.reservedRanges);
@@ -150,7 +177,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
         reservedRange.push(i);
       }
     } else if (fromMonth === this.currentMonth) {
-      const daysInMonth: number = 32 - new Date(from.getFullYear(), fromMonth, 32).getDate();
+      const daysInMonth: number =
+        32 - new Date(from.getFullYear(), fromMonth, 32).getDate();
       for (let i = fromDate; i <= daysInMonth; i++) {
         reservedRange.push(i);
       }
@@ -165,22 +193,26 @@ export class CalendarComponent implements OnInit, OnDestroy {
   private showBookedDays(year: number, month: number) {
     this.showLoading = true;
 
-    this.reserved = this.http.checkAvailabilityInMonth(year, month).subscribe((reservedDates: any) => {
-      this.reservedRanges = [];
-      this.generateBookedDaysList(this.reservedRanges);
-      this.generateBookedDaysList(reservedDates.response.reservations);
+    this.reserved = this.http
+      .checkAvailabilityInMonth(year, month)
+      .subscribe((reservedDates: any) => {
+        this.reservedRanges = [];
+        this.generateBookedDaysList(this.reservedRanges);
+        this.generateBookedDaysList(reservedDates.response.reservations);
 
-      this.showLoading = false;
-    });
+        this.showLoading = false;
+      });
   }
 
   ngOnInit() {
     this.displayDaysInMonth(this.currentYear, this.currentMonth);
-    this.updateCalendar = this.calendarService.updateCalendar.subscribe((date: Date) => {
-      this.currentYear = date.getFullYear();
-      this.currentMonth = date.getMonth();
-      this.displayDaysInMonth(this.currentYear, this.currentMonth);
-    });
+    this.updateCalendar = this.calendarService.updateCalendar.subscribe(
+      (date: Date) => {
+        this.currentYear = date.getFullYear();
+        this.currentMonth = date.getMonth();
+        this.displayDaysInMonth(this.currentYear, this.currentMonth);
+      }
+    );
 
     this.showBookedDays(this.currentYear, this.currentMonth);
   }
@@ -189,5 +221,4 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.updateCalendar.unsubscribe();
     this.reserved.unsubscribe();
   }
-
 }
