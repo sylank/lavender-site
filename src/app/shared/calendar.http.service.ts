@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { HttpConstants } from './http.constants';
-import { HttpUtils } from './http.utils';
-import { BookingData } from '../booking/booking.data';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { HttpConstants } from "./http.constants";
+import { HttpUtils } from "./http.utils";
+import { BookingData } from "../booking/booking.data";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class CalendarHttpService {
   constructor(private http: HttpClient) {}
@@ -16,9 +16,7 @@ export class CalendarHttpService {
     departure: string
   ): Observable<Object> {
     return this.http.get(
-      `${HttpConstants.rootUrl}${
-        HttpConstants.calendarEnabledEndpoint
-      }?fromDate=${arrival}&toDate=${departure}`
+      `${HttpConstants.rootUrl}${HttpConstants.calendarEnabledEndpoint}?fromDate=${arrival}&toDate=${departure}`
     );
   }
 
@@ -32,46 +30,60 @@ export class CalendarHttpService {
       new Date(year, month, daysInMonth)
     );
 
+    console.log(
+      `${HttpConstants.rootUrl}${HttpConstants.calendarQueryEndpoint}?fromDate=${fromDate}&toDate=${toDate}`
+    );
+
     return this.http.get(
-      `${HttpConstants.rootUrl}${
-        HttpConstants.calendarQueryEndpoint
-      }?fromDate=${fromDate}&toDate=${toDate}`
+      `${HttpConstants.rootUrl}${HttpConstants.calendarQueryEndpoint}?fromDate=${fromDate}&toDate=${toDate}`
     );
   }
 
   public getReservedDates(arrival: Date, departure: Date): Observable<Object> {
     return this.http.get(
-      `${HttpConstants.rootUrl}${HttpConstants.calendarQueryEndpoint}?fromDate=${HttpUtils.convertArrivalDate(
+      `${HttpConstants.rootUrl}${
+        HttpConstants.calendarQueryEndpoint
+      }?fromDate=${HttpUtils.convertArrivalDate(
         arrival
-      )}&toDate=${HttpUtils.convertDepartureDate(
-        departure
-      )}`
+      )}&toDate=${HttpUtils.convertDepartureDate(departure)}`
     );
   }
 
-  public submitBooking(bookingData: BookingData, reCaptchaToken: string): Observable<Object> {
+  public submitBooking(
+    bookingData: BookingData,
+    reCaptchaToken: string
+  ): Observable<Object> {
     // transform
     const postData = {
-      'g-recaptcha-response': reCaptchaToken,
+      "g-recaptcha-response": reCaptchaToken,
       email: bookingData.email,
       body: bookingData.body,
       fromDate: HttpUtils.convertArrivalDate(bookingData.fromDate),
       toDate: HttpUtils.convertDepartureDate(bookingData.toDate),
-      fullName: bookingData.lname+" "+bookingData.fname,
+      fullName: bookingData.lname + " " + bookingData.fname,
       phoneNumber: bookingData.phoneNumber,
       subscribe: bookingData.subscribe,
-      personCount: bookingData.personCount+1,
-      petCount: bookingData.petCount,
+      personCount: bookingData.personCount + 1,
+      petCount: bookingData.petCount
     };
-    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`, postData);
+    return this.http.post(
+      `${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`,
+      postData
+    );
   }
 
-  public deleteBooking(deletionData: any, reCaptchaToken: string) : Observable<Object> {
+  public deleteBooking(
+    deletionData: any,
+    reCaptchaToken: string
+  ): Observable<Object> {
     const postData = {
-      'g-recaptcha-response': reCaptchaToken,
-      reservationId:deletionData.bookingSerial,
+      "g-recaptcha-response": reCaptchaToken,
+      reservationId: deletionData.bookingSerial,
       deletionMessage: deletionData.message
     };
-    return this.http.post(`${HttpConstants.rootUrl}${HttpConstants.calendarDeleteReservationEndpoint}`, postData);
+    return this.http.post(
+      `${HttpConstants.rootUrl}${HttpConstants.calendarDeleteReservationEndpoint}`,
+      postData
+    );
   }
 }
