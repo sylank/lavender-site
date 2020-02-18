@@ -31,7 +31,8 @@
     "not_found": "Jelenleg nincsenek közelgő élmények",
     "distance": "Távolság:",
     "location": "Helyszín:",
-    "web": "Weboldal:"
+    "web": "Weboldal:",
+    "click_here": "Kattints ide!"
   },
   "contacts": {
     "show": "Mutat",

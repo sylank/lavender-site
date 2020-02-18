@@ -31,7 +31,8 @@
     "not_found": "Events not found",
     "distance": "Distance:",
     "location": "Location:",
-    "web": "Website:"
+    "web": "Website:",
+    "click_here": "Click here!"
   },
   "contacts": {
     "show": "Show",
