@@ -126,5 +126,24 @@
       "desc7": "- Érkezés a foglalt napon 14:00 órától lehetséges, a távozás 10:00 órától szükséges.",
       "desc8": "- Lemondásról és egyéb információkról részleteket az <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>az alábbi linken</a> vagy a visszaigazoló e-mail-ben találsz."
     }
+  },
+  "subscribe": {
+    "floating_text": "Hírlevél",
+    "success": {
+      "title": "Köszönjük!",
+      "description": "Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.",
+      "button": "Bezárás"
+    },
+    "title": "Hírlevél feliratkozás",
+    "description1": "Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.",
+    "description2": "Leiratkozásról információkat a hírlevél lábjegyzetében találsz.",
+    "data": {
+      "title": "Adatok:",
+      "email": "*E-mail",
+      "first_name": "Keresztnév",
+      "last_name": "Vezetéknév"
+    },
+    "hint": "A *-al jelölt mezők kitöltése kötelező",
+    "button": "Feliratkozás"
   }
 }
