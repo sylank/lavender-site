@@ -1,29 +1,29 @@
 .hero
   .notification-panel(*ngIf="showNotification")
     .hero-content
-      h1 Köszönjük!
-      p
+      h1(translate key="subscribe.success.title") Köszönjük!
+      p(translate key="subscribe.success.description")
         | Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.
-      button.submit((click)="showNotification=!showNotification") Bezárás
+      button.submit(translate key="subscribe.success.button", (click)="showNotification=!showNotification") Bezárás
   .hero-content
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
-      h1 Hírlevél feliratkozás
-      p Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.
-      p Leiratkozásról információkat a hírlevél lábjegyzetében találsz.
+      h1(translate key="subscribe.title") Hírlevél feliratkozás
+      p(translate key="subscribe.description1") Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.
+      p(translate key="subscribe.description2") Leiratkozásról információkat a hírlevél lábjegyzetében találsz.
       .divider
-      p Adatok:
+      p(translate key="subscribe.data.title") Adatok:
       .input-wrapper
-        input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="user.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+        input(translate key="subscribe.data.email", destination='placeholder', type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="user.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
         .input-icon
           i.fas.fa-envelope
       .input-wrapper
-        input(type='text', formControlName="firstName", placeholder='Keresztnév', [(ngModel)]="user.firstName")
+        input(translate key="subscribe.data.first_name", destination='placeholder', type='text', formControlName="firstName", placeholder='Keresztnév', [(ngModel)]="user.firstName")
         .input-icon
           i.fas.fa-user
       .input-wrapper
-        input(type='text', formControlName="lastName", placeholder='Vezetéknév', [(ngModel)]="user.lastName")
+        input(translate key="subscribe.data.last_name", destination='placeholder', type='text', formControlName="lastName", placeholder='Vezetéknév', [(ngModel)]="user.lastName")
         .input-icon
           i.fas.fa-user
       .info-wrapper
-        p.char-count A *-al jelölt mezők kitöltése kötelező
-      button.submit([disabled]="formName.invalid") Feliratkozás
+        p.char-count(translate key="subscribe.hint") A *-al jelölt mezők kitöltése kötelező
+      button.submit(translate key="subscribe.button", [disabled]="formName.invalid") Feliratkozás

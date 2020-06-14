@@ -126,5 +126,24 @@
       "desc7": "- Arrival on the booked day is from 14:00, departure is from 10:00.",
       "desc8": "- For details about cancellation and other information, please see the  <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>at the link below</a> or in the confirmation email. "
     }
+  },
+  "subscribe": {
+    "floating_text": "Newsletter",
+    "success": {
+      "title": "Thank You!",
+      "description": "You have successfully subscribed to our newsletter. You can find details about unsubscribing in the footer of the newsletter.",
+      "button": "Close"
+    },
+    "title": "Sign up for newsletter",
+    "description1": "If you would like to be informed about the news and our seasonal offers, sign up for our newsletter and we will inform you about the latest information.",
+    "description2": "Information on unsubscribing can be found in the footnote of the newsletter.",
+    "data": {
+      "title": "Data:",
+      "email": "*E-mail",
+      "first_name": "First Name",
+      "last_name": "Last Name"
+    },
+    "hint": "Fields marked with * are required",
+    "button": "Sign up"
   }
 }
