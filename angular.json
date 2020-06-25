@@ -1,4 +1,4 @@
-  {
+{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -31,6 +32,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -125,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "lavender-site"
+  "defaultProject": "lavender-site",
+  "cli": {
+    "analytics": "3a95794c-678d-4883-9b9a-80a86789be40"
+  }
 }
