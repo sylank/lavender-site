@@ -1,4 +1,4 @@
-  {
+{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "lavender-site"
+  "defaultProject": "lavender-site",
+  "cli": {
+    "analytics": "3a95794c-678d-4883-9b9a-80a86789be40"
+  }
 }
