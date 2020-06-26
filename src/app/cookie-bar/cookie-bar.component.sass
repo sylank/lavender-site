@@ -9,7 +9,8 @@
   .container
     margin: 0 auto
     height: 100%
-
+    padding-left: 10px
+    padding-right: 10px
     display: flex
     align-items: center
     justify-content: space-between
@@ -35,6 +36,7 @@
         .description
           color: white
           font-size: 15px
+
     .button-container
       .cancel
         cursor: pointer
@@ -48,3 +50,21 @@
         &:hover
           background-color: #fff
           color: #2b1133
+
+@media only screen and (max-width: 764px)
+  .wrapper
+    position: fixed
+    bottom: 0px
+    width: 100%
+    height: auto
+    padding: 10px
+
+    .container
+      flex-direction: column
+
+    .button-container
+      margin-top: 20px
+    .text-container
+      display: flex
+      justify-content: center
+      align-items: center
