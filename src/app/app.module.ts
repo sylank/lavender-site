@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import {CustomValidator} from './shared/validators/email.validator';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -32,6 +31,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
 import { TranslateDirective } from './shared/translate.directive';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieBarComponent } from './cookie-bar/cookie-bar.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DeleteUserDataComponent,
     NumberChooserComponent,
     SubscribeComponent,
-    TranslateDirective
+    TranslateDirective,
+    CookieBarComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientJsonpModule,
     BrowserAnimationsModule,
   ],
-  providers: [GalleryService],
+  providers: [GalleryService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

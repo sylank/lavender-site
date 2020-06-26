@@ -23,6 +23,7 @@
     "core-js": "^2.6.2",
     "ng-cli-pug-loader": "^0.1.7",
     "ngx-captcha": "^7.0.0",
+    "ngx-cookie-service": "^3.0.4",
     "node-sass": "^4.14.1",
     "rxjs": "^6.5.5",
     "terser": "^3.17.0",

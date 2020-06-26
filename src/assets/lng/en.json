@@ -145,5 +145,10 @@
     },
     "hint": "Fields marked with * are required",
     "button": "Sign up"
+  },
+  "cookie-bar": {
+    "title": "We use cookies for a better user experience",
+    "description": "What are cookies? Visit <a target='_blank' rel='noopener noreferrer' href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>to this page</a>. How the Lavender Apartment uses cookies? You can find more information on <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>this page</a>.",
+    "button": "Okay"
   }
 }

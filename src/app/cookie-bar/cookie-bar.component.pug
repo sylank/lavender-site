@@ -1,0 +1,18 @@
+.wrapper(*ngIf="showCookieBar")
+  .container
+    .text-container
+      i.fas.fa-cookie-bite
+      .info-container
+        .title(translate key="cookie-bar.title") A jobb felhasználói élmény érdekében sütiket használunk
+        .description(translate key="cookie-bar.description")
+          | Mik azok a sütik? Látogass el
+          |
+          a(target="_blank", rel="noopener noreferrer", href="https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti") erre az oldalra.
+          |
+          | Hogy a Levendula Apartman mire használja a sütiket,
+          |
+          a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf") ezen az oldalon
+          |
+          | bővebb információkat találsz.
+    .button-container
+      a.cancel(translate key="cookie-bar.button", (click)="close()") Rendben

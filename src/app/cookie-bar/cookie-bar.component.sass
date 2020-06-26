@@ -1,0 +1,70 @@
+.wrapper
+  position: fixed
+  bottom: 0px
+  width: 100%
+  height: 95px
+  background: black
+  border-top: 1px solid #8F9491
+
+  .container
+    margin: 0 auto
+    height: 100%
+    padding-left: 10px
+    padding-right: 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .text-container
+      display: flex
+      color: white
+
+      i
+        color: #D38436
+        font-size: 60px
+        margin-right: 40px
+
+      .info-container
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+        .title
+          color: #C4E372
+          font-size: 20px
+          margin-bottom: 10px
+        .description
+          color: white
+          font-size: 15px
+
+    .button-container
+      .cancel
+        cursor: pointer
+        color: white
+        display: flex
+        justify-content: center
+        align-items: center
+        border: 2px solid #fff
+        border-radius: 10px
+        padding: 5px 20px
+        &:hover
+          background-color: #fff
+          color: #2b1133
+
+@media only screen and (max-width: 764px)
+  .wrapper
+    position: fixed
+    bottom: 0px
+    width: 100%
+    height: auto
+    padding: 10px
+
+    .container
+      flex-direction: column
+
+    .button-container
+      margin-top: 20px
+    .text-container
+      display: flex
+      justify-content: center
+      align-items: center
