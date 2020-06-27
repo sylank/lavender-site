@@ -14,7 +14,6 @@ export class CookieBarComponent implements OnInit {
 
   ngOnInit(): void {
     const cookieValue = this.cookieService.get('show-cookie-bar');
-    console.log(cookieValue)
     if (cookieValue) {
       this.showCookieBar = (/true/i).test(cookieValue);
     }
