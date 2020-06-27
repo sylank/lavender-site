@@ -1,21 +1,21 @@
 .hero((window:click)="closeCalendar()")
   .notification-panel(*ngIf="!bookingEnabled && showNotification")
-      .hero-content
-        h1(translate key="booking.dialog.dialog_header") Figyelem!
-        p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
-        p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
-        p(translate key="booking.dialog.dialog_desc3")
-          | Foglalási szándékodat kérlek
-          |
-          a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
-          |
-          | vagy az
-          |
-          a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
-          |
-          | valamelyikén jelezd.
-        p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
-        button.submit(translate key="booking.dialog.dialog_button", (click)="showNotification=!showNotification") Bezárás
+    .hero-content
+      h1(translate key="booking.dialog.dialog_header") Figyelem!
+      p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
+      p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
+      p(translate key="booking.dialog.dialog_desc3")
+        | Foglalási szándékodat kérlek
+        |
+        a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
+        |
+        | vagy az
+        |
+        a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
+        |
+        | valamelyikén jelezd.
+      p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
+      button.submit(translate key="booking.dialog.dialog_button", (click)="showNotification=!showNotification") Bezárás
   .hero-content.info
     h2(translate key="booking.booking_informations.title") Információk
     p(translate key="booking.booking_informations.desc1") - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
@@ -55,6 +55,15 @@
     // Date form
     .booking-form(*ngIf="bookingStage === 'person'")
       h1(translate key="booking.date_form.title") Foglalás
+      p()
+      | Válassz apartmant.
+      |
+      a(target="_blank", rel="noopener noreferrer", href="") További információk.
+      .house-chooser
+        .house
+          house-chooser-button(name="Levendula 1", description="Levendula Apartman (baloldal) - 6 fő részére", (buttonSelected)="houseChooserSelected($event)" selected="true")
+        .house
+          house-chooser-button(disabled="true", name="Levendula 2", description="Levendula Apartman (jobboldal)- 12 fő részére", infoText="Hamarosan", (buttonSelected)="houseChooserSelected($event)")
       p(translate key="booking.date_form.choose_date") Válassz időpontot vagy csak nézd meg a szabad heteket.
       .date-picker
         .arrival
@@ -119,7 +128,7 @@
     .booking-form.scroll-form(*ngIf="bookingStage === 'overview'")
       h1(translate key="booking.overview_form.title") Áttekintés
       .info-wrapper
-          p.char-info(translate key="booking.overview_form.info") A foglalás elküldéséhez tekerj lejjebb.
+        p.char-info(translate key="booking.overview_form.info") A foglalás elküldéséhez tekerj lejjebb.
       .data
         p(translate key="booking.date_form.arrival") Érkezés:
         .icon-wrapper

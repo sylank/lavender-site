@@ -1,0 +1,66 @@
+.container
+  display: flex
+  background: white
+  border: 1px solid #dedede
+  border-radius: 5px
+  width: 250px
+  height: 90px
+  cursor: pointer
+
+  &:hover
+    border: 1px solid #AC6AC3
+
+  .icon-container
+    justify-content: center
+    align-items: center
+    align-content: center
+    display: flex
+    color: #AC6AC3
+    font-size: 32px
+
+    i
+      padding: 20px
+
+  .text-container
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    .description
+      font-size: 14px;
+
+.info-container
+  display: flex
+  justify-content: center
+  height: 0
+  position: relative
+  font-size: 14px
+  top: -8px
+  .info-text
+    display: flex
+    justify-content: center
+    background: #AC6AC3
+    width: 90px
+    height: 19px
+    color: white
+    border-radius: 5px
+
+.disabledContainer
+  background: #EDEDED
+  cursor: unset
+
+  .icon-container
+    i
+      color: #898989
+
+  .text-container
+    color: #898989
+
+    .description
+      color: #898989
+
+  &:hover
+    border: 1px solid #dedede
+
+.containerSelected
+  border: 1px solid #AC6AC3
