@@ -39,7 +39,7 @@ export class BookingComponent implements OnInit {
     "Levendula Apartman (baloldal) - 6 fő részére";
   public lavender2Subtitle: string =
     "Levendula Apartman (jobboldal)- 12 fő részére";
-  public comingSoon: string = "Hamarosan";
+  public comingSoon: string = "Érdeklődj facebookon";
 
   public dataProtection = false;
   public dataHandling = false;
