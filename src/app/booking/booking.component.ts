@@ -21,6 +21,7 @@ import { MailChimpService } from "../shared/mail-chimp.service";
 import { SubscriptionModel } from "../subscribe/subscription-model";
 import { GoogleAnalyticsService } from "../shared/google-analytics.service";
 import { GoogleAnalyticsConstants } from "../shared/google.analytics.constants";
+import { LanguageService } from "../shared/language.service";
 
 @Component({
   selector: "app-booking",
@@ -32,6 +33,13 @@ export class BookingComponent implements OnInit {
 
   public lavender1Selected: boolean;
   public lavender2Selected: boolean;
+  public lavender1Title: string = "Levendula 1";
+  public lavender2Title: string = "Levendula 2";
+  public lavender1Subtitle: string =
+    "Levendula Apartman (baloldal) - 6 fő részére";
+  public lavender2Subtitle: string =
+    "Levendula Apartman (jobboldal)- 12 fő részére";
+  public comingSoon: string = "Hamarosan";
 
   public dataProtection = false;
   public dataHandling = false;
@@ -78,7 +86,8 @@ export class BookingComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private reCaptchaV3Service: ReCaptchaV3Service,
-    private googleAnalyticsService: GoogleAnalyticsService
+    private googleAnalyticsService: GoogleAnalyticsService,
+    private languageService: LanguageService
   ) {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
@@ -87,6 +96,10 @@ export class BookingComponent implements OnInit {
         this.scrollToPosition();
       }
     });
+
+    this.languageService
+      .observer()
+      .subscribe((event: string) => this.refreshHouseChooserText());
   }
 
   houseChooserSelected(event) {
@@ -435,6 +448,22 @@ export class BookingComponent implements OnInit {
         this.setPrice();
         this.showLoading = false;
       });
+
+    this.refreshHouseChooserText();
+  }
+
+  refreshHouseChooserText() {
+    this.languageService.getTranslation().subscribe((translations: any) => {
+      this.lavender1Title =
+        translations["booking"].house_chooser.lavender1_title;
+      this.lavender2Title =
+        translations["booking"].house_chooser.lavender2_title;
+      this.lavender1Subtitle =
+        translations["booking"].house_chooser.lavender1_subtitle;
+      this.lavender2Subtitle =
+        translations["booking"].house_chooser.lavender2_subtitle;
+      this.comingSoon = translations["booking"].house_chooser.coming_soon;
+    });
   }
 
   getMonthNameById(id: number) {

@@ -55,15 +55,15 @@
     // Date form
     .booking-form(*ngIf="bookingStage === 'person'")
       h1(translate key="booking.date_form.title") Foglalás
-      p()
-      | Válassz apartmant.
-      |
-      a(target="_blank", rel="noopener noreferrer", href="") További információk.
+      p(translate key="booking.house_chooser.choose_caption")
+        | Válassz apartmant,
+        |
+        a(translate key="booking.house_chooser.more_info", target="_blank", rel="noopener noreferrer", href="") további információk.
       .house-chooser
         .house
-          house-chooser-button(name="Levendula 1", description="Levendula Apartman (baloldal) - 6 fő részére", (buttonSelected)="houseChooserSelected($event)" selected="true")
+          house-chooser-button([name]="lavender1Title", [description]="lavender1Subtitle", (buttonSelected)="houseChooserSelected($event)" selected="true")
         .house
-          house-chooser-button(disabled="true", name="Levendula 2", description="Levendula Apartman (jobboldal)- 12 fő részére", infoText="Hamarosan", (buttonSelected)="houseChooserSelected($event)")
+          house-chooser-button(disabled="true", [name]="lavender2Title", [description]="lavender2Subtitle", [infoText]="comingSoon", (buttonSelected)="houseChooserSelected($event)")
       p(translate key="booking.date_form.choose_date") Válassz időpontot vagy csak nézd meg a szabad heteket.
       .date-picker
         .arrival

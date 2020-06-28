@@ -2,27 +2,26 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of, BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";
-import { EventEmitter } from 'events';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class LanguageService {
   private languageFiles = {
     hu: "../../assets/lng/hu.json",
     en: "../../assets/lng/en.json",
-    de: "../../assets/lng/de.json"
+    de: "../../assets/lng/de.json",
   };
 
   private translations = {
     hu: {},
     en: {},
-    de: {}
+    de: {},
   };
 
   private selectedLanguage: string;
-  private _languageSource : BehaviorSubject<string>;
-  private languageItem$: Observable<string>
+  private _languageSource: BehaviorSubject<string>;
+  private languageItem$: Observable<string>;
   private observable;
 
   constructor(private http: HttpClient) {
@@ -39,7 +38,7 @@ export class LanguageService {
       this.observable = this.http
         .get(this.languageFiles[this.selectedLanguage])
         .pipe(
-          map(response => {
+          map((response) => {
             this.observable = null;
             this.translations[this.selectedLanguage] = response;
 
@@ -54,22 +53,22 @@ export class LanguageService {
   }
 
   public getValueByKey(key: string, obj: any) {
-    const pathElements = key.split('.')
-    return pathElements.reduce((o, n) => o[n], obj)
+    const pathElements = key.split(".");
+    return pathElements.reduce((o, n) => o[n], obj);
   }
 
   public setLanguage(language: string) {
-      this.selectLanguage(language)
+    this.selectLanguage(language);
 
-      this._languageSource.next(this.selectedLanguage)
+    this._languageSource.next(this.selectedLanguage);
   }
 
   public observer() {
-    return this.languageItem$
+    return this.languageItem$;
   }
 
   public getSelectedLanguage() {
-    return this.selectedLanguage
+    return this.selectedLanguage;
   }
 
   private selectLanguage(language: string) {
