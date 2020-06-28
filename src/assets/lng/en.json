@@ -68,6 +68,14 @@
       "dialog_desc4": "Thank you for your patience.",
       "dialog_button": "Close"
     },
+    "house_chooser": {
+      "choose_caption": "Choose apartments, <a target='_blank' rel='noopener noreferrer' href='https://levendulabalatonmaria.info/gallery'> more information</a>.",
+      "lavender1_title": "Levendula 1",
+      "lavender1_subtitle": "Levendula Apartman (left) - for 6 people",
+      "lavender2_title": "Levendula 2",
+      "lavender2_subtitle": "Levendula Apartman (right) - for 12 people",
+      "coming_soon": "Reach us on facebook"
+    },
     "date_form": {
       "title": "Booking",
       "choose_date": "Choose a date or just look at the free weeks.",
@@ -115,7 +123,7 @@
       "failed_description": "Please try again."
     },
     "booking_informations": {
-      "title": "Information",
+      "title": "Information about booking",
       "desc1": "- The place accommodates small dogs and cats.",
       "desc2": "- Tourist tax (IFA) is not included",
       "desc3": "- The high season runs from 15 June to 31 August.",

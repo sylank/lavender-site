@@ -1,0 +1,10 @@
+.info-container(*ngIf="infoText && disabled")
+  p.info-text {{infoText}}
+.container([ngClass]='{disabledContainer: disabled, containerSelected: selected}', (click)="click()")
+  .icon-container
+    i.fas.fa-home
+  .text-container
+    .name
+      b {{name}}
+    .description
+      | {{description}}
