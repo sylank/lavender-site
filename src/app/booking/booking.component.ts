@@ -36,9 +36,9 @@ export class BookingComponent implements OnInit {
   public lavender1Title: string = "Levendula 1";
   public lavender2Title: string = "Levendula 2";
   public lavender1Subtitle: string =
-    "Levendula Apartman (baloldal) - 6 fő részére";
+    "Levendula Apartman (baloldal) - 5 fő részére";
   public lavender2Subtitle: string =
-    "Levendula Apartman (jobboldal)- 12 fő részére";
+    "Levendula Apartman (jobboldal)- 5 fő részére";
   public comingSoon: string = "Érdeklődj facebookon";
 
   public dataProtection = false;
