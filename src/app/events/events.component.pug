@@ -1,20 +1,19 @@
-.hero
-    .hero-content
-        h1(translate key="events.title") Közelben lévő programok, élmények
-        .filter
-            button.button.all(translate key="events.cat_all", (click)='filterArrayById(0); selectedButtonIdx=0',[ngClass]="selectedButtonIdx==0 ? 'all-selected' : 'all'") Összes
-            button.button.walk(translate key="events.cat_walk", (click)='filterArrayById(1); selectedButtonIdx=1' ,[ngClass]="selectedButtonIdx==1 ? 'walk-selected' : 'walk'") Gyalog
-            button.button.bike(translate key="events.cat_bike", (click)='filterArrayById(2); selectedButtonIdx=2', [ngClass]="selectedButtonIdx==2 ? 'bike-selected' : 'bike'") Bicikli
-            button.button.car(translate key="events.cat_car", (click)='filterArrayById(3); selectedButtonIdx=3', [ngClass]="selectedButtonIdx==3 ? 'car-selected' : 'car'") Autó
-        .empty-container(*ngIf='filteredData.length==0')
-            h2(translate key="events.not_found") Jelenleg nincsenek közelgő élmények
-        .cont
-            .record-container(*ngFor='let element of filteredData; let i = index')
-                event-record(fromDate='{{element.fromDate}}'
-                                toDate='{{element.toDate}}'
-                                eventName='{{element.summary}}'
-                                eventLocation='{{element.location}}'
-                                distance='{{element.distance}}'
-                                description='{{element.description}}')
-            .loading(*ngIf="showLoading")
-                app-loading-circle(show="false")
+hero-container
+  card-container(title="Közelben lévő programok, élmények")
+    .filter
+      button.button.all(translate key="events.cat_all", (click)='filterArrayById(0); selectedButtonIdx=0',[ngClass]="selectedButtonIdx==0 ? 'all-selected' : 'all'") Összes
+      button.button.walk(translate key="events.cat_walk", (click)='filterArrayById(1); selectedButtonIdx=1' ,[ngClass]="selectedButtonIdx==1 ? 'walk-selected' : 'walk'") Gyalog
+      button.button.bike(translate key="events.cat_bike", (click)='filterArrayById(2); selectedButtonIdx=2', [ngClass]="selectedButtonIdx==2 ? 'bike-selected' : 'bike'") Bicikli
+      button.button.car(translate key="events.cat_car", (click)='filterArrayById(3); selectedButtonIdx=3', [ngClass]="selectedButtonIdx==3 ? 'car-selected' : 'car'") Autó
+    .empty-container(*ngIf='filteredData.length==0')
+      h2(translate key="events.not_found") Jelenleg nincsenek közelgő élmények
+    .cont
+      .record-container(*ngFor='let element of filteredData; let i = index')
+        event-record(fromDate='{{element.fromDate}}'
+          toDate='{{element.toDate}}'
+          eventName='{{element.summary}}'
+          eventLocation='{{element.location}}'
+          distance='{{element.distance}}'
+          description='{{element.description}}')
+      .loading(*ngIf="showLoading")
+        app-loading-circle(show="false")

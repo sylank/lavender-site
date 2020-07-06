@@ -1,0 +1,37 @@
+hero-container
+  card-container(title="Felszereltség")
+    p Mindkét nyaraló rendelkezik első és hátsó terasszal. A parkolás az udvarban valamint a ház előtt is lehetséges.
+    p Mindkét apartmanban megtalálható eszközök:
+    .equipments
+      .inside.listing
+        h3 A házban
+        ul
+          li Wi-Fi
+          li TV
+          li Konyhai eszközök
+          li Mikró
+          li Törülköző
+          li Ágynemű
+
+      .outside.listing
+        h3 Az udvarban
+  //- .image-container
+  //-   .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, id='{{ i }}')
+  //-     .image-element
+  //-       img.image(src='{{ image.location }}', alt='')
+  //-       .indicator
+  //-         i.fas.fa-eye
+.carousel((click)='closeCarousel($event)', [ngStyle]='{ visibility: displayCarousel }')
+  .current-image((click)="imageClick($event)", id="image", appImageLoader)
+    .button-container
+      .close
+      .button.prev((click)="loadPrevImage($event)")
+        i.fas.fa-arrow-left
+    .button-container
+      .button.close((click)='closeCarousel($event)')
+        i.fas.fa-times
+      .button.close-back.next((click)="loadNextImage($event)")
+        i.fas.fa-arrow-right
+  .description(*ngIf='activeCaption.length > 0')
+    h1 {{activeCaption}}
+    a {{activeText}}

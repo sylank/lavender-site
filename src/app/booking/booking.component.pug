@@ -1,6 +1,6 @@
-.hero((window:click)="closeCalendar()")
+hero-container((window:click)="closeCalendar()")
   .notification-panel(*ngIf="!bookingEnabled && showNotification")
-    .hero-content
+    card-container
       h1(translate key="booking.dialog.dialog_header") Figyelem!
       p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
       p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
@@ -16,8 +16,7 @@
         | valamelyikén jelezd.
       p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
       button.submit(translate key="booking.dialog.dialog_button", (click)="showNotification=!showNotification") Bezárás
-  .hero-content.info
-    h2(translate key="booking.booking_informations.title") Információk
+  card-container(title="Információk", titleStyle="x2").info
     p(translate key="booking.booking_informations.desc1") - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
     p(translate key="booking.booking_informations.desc2") - Az Idegenforgalmi Adó (IFA) nincs az árban.
     p(translate key="booking.booking_informations.desc_otp")
@@ -50,11 +49,9 @@
       |
       | vagy a visszaigazoló e-mail-ben találsz.
 
-  .hero-content
-
+  card-container(title="Foglalás")
     // Date form
     .booking-form(*ngIf="bookingStage === 'person'")
-      h1(translate key="booking.date_form.title") Foglalás
       p(translate key="booking.house_chooser.choose_caption")
         | Válassz apartmant,
         |

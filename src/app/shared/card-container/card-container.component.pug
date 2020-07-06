@@ -1,0 +1,4 @@
+.container
+  h1(*ngIf="titleStyle === 'x1' || titleStyle === undefined") {{title}}
+  h2(*ngIf="titleStyle === 'x2'") {{title}}
+  ng-content

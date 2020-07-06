@@ -1,15 +1,15 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { GalleryService } from "../shared/gallery.service";
-import { GoogleAnalyticsService } from '../shared/google-analytics.service';
-import { GoogleAnalyticsConstants } from '../shared/google.analytics.constants';
-import { LanguageService } from '../shared/language.service';
+import { GoogleAnalyticsService } from "../shared/google-analytics.service";
+import { GoogleAnalyticsConstants } from "../shared/google.analytics.constants";
+import { LanguageService } from "../shared/language.service";
 
 @Component({
-  selector: "app-gallery",
-  templateUrl: "./gallery.component.pug",
-  styleUrls: ["./gallery.component.sass"]
+  selector: "app-apartments",
+  templateUrl: "./apartments.component.pug",
+  styleUrls: ["./apartments.component.sass"],
 })
-export class GalleryComponent implements OnInit {
+export class ApartmentsComponent implements OnInit {
   gallery: any;
   activeImage: string;
   activeIndex: number;
@@ -21,9 +21,12 @@ export class GalleryComponent implements OnInit {
   constructor(
     private galleryService: GalleryService,
     private googleAnalyticsService: GoogleAnalyticsService,
-    private languageService: LanguageService) {
-      this.languageService.observer().subscribe((data: any) => this.loadGalleryData())
-    }
+    private languageService: LanguageService
+  ) {
+    this.languageService
+      .observer()
+      .subscribe((data: any) => this.loadGalleryData());
+  }
 
   @HostListener("document:keydown.escape", ["$event"]) onEscKeyDownHandler(
     event: KeyboardEvent
@@ -36,9 +39,8 @@ export class GalleryComponent implements OnInit {
   ) {
     this.loadPrevImage(event);
   }
-  @HostListener("document:keydown.ArrowRight", ["$event"]) onRightKeyDownHandler(
-    event: KeyboardEvent
-  ) {
+  @HostListener("document:keydown.ArrowRight", ["$event"])
+  onRightKeyDownHandler(event: KeyboardEvent) {
     this.loadNextImage(event);
   }
 
@@ -55,8 +57,9 @@ export class GalleryComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.OPEN_ACTION,
-      '',
-      1)
+      "",
+      1
+    );
   }
 
   closeCarousel(event: any): void {
@@ -67,8 +70,9 @@ export class GalleryComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.CLOSE_ACTION,
-      '',
-      1)
+      "",
+      1
+    );
   }
 
   loadNextImage(event: any) {
@@ -83,8 +87,9 @@ export class GalleryComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.NEXT_ACTION,
-      '',
-      1)
+      "",
+      1
+    );
   }
 
   loadPrevImage(event: any) {
@@ -99,8 +104,9 @@ export class GalleryComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.BACK_ACTION,
-      '',
-      1)
+      "",
+      1
+    );
   }
 
   loadImage(): void {
@@ -116,11 +122,11 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadGalleryData()
+    this.loadGalleryData();
   }
 
   private loadGalleryData() {
-    this.galleryService.getGallery().subscribe(response => {
+    this.galleryService.getGallery().subscribe((response) => {
       this.gallery = response;
       this.activeImage = this.gallery[0].location;
     });

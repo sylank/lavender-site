@@ -1,17 +1,15 @@
-.hero
+hero-container
   .notification-panel(*ngIf="showNotification")
-    .hero-content
-      h1(translate key="delete_booking.dialog_title") Figyelem!
+    card-container(title="Figyelem!")
       p(translate key="delete_booking.dialog_text") Az alábbiakban megadott azonosítóhoz rendelt foglalás törlését megkezdtük:
       b.booking-id {{deletion.bookingSerial}}
       p(translate key="delete_booking.dialog_infos") A szükséges információkat a foglaláskor megadot e-mail címre elküldtük, valamint részleteket a foglalással kapcsolatos dokumentumban találsz.
       p(translate key="delete_booking.farwell") Reméljük még találkozunk.
       button.submit(translate key="delete_booking.dialog_button", (click)="showNotification=!showNotification") Bezárás
-  .hero-content
+  card-container(title="Foglalás lemondása")
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
-      h1(translate key="delete_booking.title") Foglalás lemondása
       p(translate key="delete_booking.desc1") A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
       p(translate key="delete_booking.desc2")
         | A
