@@ -1,26 +1,63 @@
 hero-container
-  card-container(title="Felszereltség")
+  card-container(title="Az apartmanokról")
     p Mindkét nyaraló rendelkezik első és hátsó terasszal. A parkolás az udvarban valamint a ház előtt is lehetséges.
-    p Mindkét apartmanban megtalálható eszközök:
+    p A nyaraló állapotának megörzése érdekében a Levendula Apartman nem alkalmas legénybúcsúk valamint nagy hangzavarral vagy felfordulással járó események megredezésére.
     .equipments
       .inside.listing
-        h3 A házban
-        ul
-          li Wi-Fi
-          li TV
-          li Konyhai eszközök
-          li Mikró
-          li Törülköző
-          li Ágynemű
+        h3 Mindkét házban megtalálható (fontosabb dolgok)
+        ul.float
+          li.float-item Wi-Fi
+          li.float-item Légkondícionáló
+          li.float-item TV
+          li.float-item Konyhai eszközök
+          li.float-item Mikró
+          li.float-item Törülközők
+          li.float-item Ágynemű
+          li.float-item Gyereksarok
+          li.float-item Gyerek hinta
+          li.float-item Grill sütő
+          li.float-item Bogrács
+          li.float-item Villany rezso
 
       .outside.listing
-        h3 Az udvarban
-  //- .image-container
-  //-   .wrapper(*ngFor='let image of gallery; let i = index', (click)='openCarousel(i)', appImageOpacity, id='{{ i }}')
-  //-     .image-element
-  //-       img.image(src='{{ image.location }}', alt='')
-  //-       .indicator
-  //-         i.fas.fa-eye
+        h3 A kertben
+        ul.float
+          li.float-item Ping-Pong asztal
+          li.float-item Csocsó asztal
+          li.float-item Grill sütő
+          li.float-item Napozó ágyak
+    p Az apartman kutya és macska barát.
+  card-container(title="Levendula 1")
+    .properties
+      .unique
+        p Apartman maximum 5 fő részére.
+        p A kertben található egy retro (de felújított) kerti tusoló ami jó szolgálatot tesz nyári meleg napokon.
+      .picture
+        img.lavender1.img(src="../../assets/img/gallery/1.jpg", alt='')
+        .indicator
+          i.far.fa-images
+    .apartment-description
+      h3 Pár szó a házról
+      p A levendula apartman jelenlegi helyén lévő ház teljeseb máshogy festett mint, amit napjainkban láthattok. Kicsit leharcolt kicsit talán a 70-es évek nyaralóját idéző látvány fogadott bennünket. Kintről megközelíthető mosdóval és linoleum padlóval. Az egésznek volt egy kis szocreál romantikája. Egyből megláttuk benne a lehetőséget. Nem is haboztunk sokáig, megvettük es neki is láttunk a felújításnak. Nem volt egyszerű dolgunk de férjemmel karöltve kiforgattuk a sarkából a kis épületet és, amit most láttok mar csak nyomokban emlékeztet a régi vikkend házra.
+      p Az utca jo adottságokkal rendelkezik révén közel van a központhoz és a balatonmáriai strandhoz is. Az utcában található éttermekbe, fagyizóba es az utcaval szembe lévő Coop áruházba mi is szívesen járunk.
+      p Balatonmáriafürdő egyike azon üdülőfalvaknak, ahol üzemel szabadstrand is valamint a strandon mellékhelyiség is található.
+      p Visszakanyarodva a házra, mikor a kertkapun belépünk az utca felőli teraszra érkezünk. A parkolás megengedett a kerítésen belül, mivel a ház mellett térkő fut egészen a hátsó teraszig. Az első teraszon kényelmesen elfogyaszthatjuk a reggeli kávénkat vagy az esti pohár borunkat. A hátsó terasz mellett helyezkedik el a grill sütő. Alkalmas családi vacsorákra, csocsózásra, őrült társasjáték party-k lebonyolítására vagy egyszerűen csak egy délutáni szundira, mivel itt található a függőágy is.
+      p A hátsó kertben kapott helyet a szabadtéri (mobil) ping-pong asztal valamint a napozó ágyak is. A kert végében található a kinti retro tusoló, amit fel kell tölteni vízzel es estére felmelegszik (kőkorszaki napelemmel működik).
+      p Este pedig a környéken élő békák rákezdenek énekükre, amit a teraszról élvezhetünk. Az égésznek kölcsönöz egy kis vidéki balatoni érzést. Ha a kinti világítást felkapcsoljuk, akkor még egy kis esti beszélgetés is belefér.
+      p A házból már nem hallani a békák társalgását. A TV-ben talán még elkaphatjuk a Barátok Közt 7452. epizódját de ha nem is nézünk tévét, akkor nyugalomba helyezhetjük magunkat a kanapén, vagy elkezdhetjük a gyerekek éjszakai üzemmódba kapcsolását.
+      p Reggel pedig nekiláthatunk elkészíteni a tojásrántottát a villany rezsón es futhatunk is le a Balatonra csobbanni.
+
+
+  card-container(title="Levendula 2")
+    .properties
+      .unique
+        p Apartman maximum 5 fő részére.
+      .picture
+        img.lavender1.img(src="../../assets/img/gallery/1.jpg", alt='')
+        .indicator.disabled
+          p Képek hamarosan, érdeklődj Facebookon
+    .apartment-description
+      h3 Pár szó a házról
 .carousel((click)='closeCarousel($event)', [ngStyle]='{ visibility: displayCarousel }')
   .current-image((click)="imageClick($event)", id="image", appImageLoader)
     .button-container

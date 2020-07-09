@@ -4,55 +4,58 @@ p
 ul
   padding-left: 30px
 
-.image-container
+.listing
+  margin-bottom: 20px
+  margin-top: 20px
+
+.float
   max-width: 1200px
+  margin: 0 auto
+
+.float:after
+  content: "."
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+
+.float-item
+  float: left
+  min-width: 200px
+
+.properties
   display: flex
-  justify-content: center
-  align-items: flex-start
-  flex-wrap: wrap
-  margin-top: 75px
 
-.wrapper
-  position: relative
-  display: flex
-  justify-content: center
-  align-items: center
-  width: 300px
-  height: 200px
+  .picture
+    position: relative
+    cursor: pointer
+    margin-left: 20px
+    margin-bottom: 20px
+    .img
+      display: block;
+      width: 300px
+      height: 200px
+      border-radius: 10px;
 
-.image-element
-  position: relative
-  text-align: center
-  width: 300px
-  height: 200px
+    .indicator
+      position: absolute
+      top: 0
+      left: 0
+      width: 300px
+      height: 200px
+      background: black
+      opacity: .5
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 10px;
 
-.image
-  width: 300px
-  height: 200px
-  padding: 10px
-  cursor: pointer
-
-.indicator
-  position: absolute
-  top: 10px
-  left: 10px
-  display: flex
-  justify-content: center
-  align-items: center
-  width: 280px
-  height: 180px
-  opacity: 0
-  background: black
-  transition: opacity 0.25s linear
-  cursor: pointer
-  i
-    color: white
-    opacity: 1
-    font-size: 25px
-
-.indicator:hover
-  visibility: visible
-  opacity: .75
+      i
+        font-size: 100px
+        color: white
+    .disabled
+      opacity: 1
+      color: white
 
 .current-image
   display: flex
@@ -142,3 +145,13 @@ ul
 .current-image:hover > .caption-box
   opacity: 1
 
+
+
+
+@media screen and (max-width: 750px)
+  .properties
+    flex-direction: column
+    .img
+      margin-top: 10px
+    .indicator
+      top: 10px
