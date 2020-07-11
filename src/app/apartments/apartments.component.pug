@@ -33,8 +33,8 @@ hero-container
         p Apartman maximum 5 fő részére.
         p A kertben található egy retro (de felújított) kerti tusoló ami jó szolgálatot tesz nyári meleg napokon.
       .picture
-        img.lavender1.img(src="../../assets/img/gallery/1.jpg", alt='')
-        .indicator
+        img.lavender1.img(src="../../assets/gallery/lavender1/img/1.jpg", alt='')
+        .indicator((click)='openCarousel("lavender1")')
           i.far.fa-images
     .apartment-description
       h3 Pár szó a házról
@@ -53,15 +53,15 @@ hero-container
       .unique
         p Apartman maximum 5 fő részére.
       .picture
-        img.lavender1.img(src="../../assets/img/gallery/1.jpg", alt='')
-        .indicator.disabled
+        img.lavender1.img(src="", alt='')
+        .indicator.disabled((click)='openCarousel("lavender2")')
           p Képek hamarosan, érdeklődj Facebookon
     .apartment-description
       h3 Pár szó a házról
       p A Levendula 2 közvetlenül a Levendula 1 szomszédságában helyezkedik el, mivel egy ikerházról van szó. Ahogy a képeken is látszik a Levendula Apartman két különálló nyaralóról. Az eredeti építtető a saját családjának építette, de az évek során külön kézbe került. Mikor a Levendula 1 nyaralót megvásároltuk szinte biztosak voltunk benne, hogy a nyaraló másik felét is meg szeretnénk vásárolni, ha úgy alakul. Ahogy látjátok sikerült a tervünk megvalósítása és 2019-ben a másik házat is megvásároltuk.
       p Minden ami a Levendula 1 re igaz igaz a Levendula 2 re is. A nyaralót a másik nyaraló tükörképére kialakítottuk ki. Azonos elrendezés, azonos méretek. Az első évben a belső terek kialakításával kezdtünk. A másodikban pedig a teraszok elkészítését tűztük ki célnak.
       p A ket nyaralót próbáljuk két külön entitásnak tekinteni. Nincs közvetlen átjárás a két ház között (belső ajtó vagy kertkapu). Nem hallatszik át zaj, ha mindkét oldalon vannak vendegek. 2021-től már a Levendula 2 is foglalható a webes felületünkön keresztül.
-.carousel((click)='closeCarousel($event)', [ngStyle]='{ visibility: displayCarousel }')
+.carousel([ngStyle]='{ visibility: displayCarousel }')
   .current-image((click)="imageClick($event)", id="image", appImageLoader)
     .button-container
       .close

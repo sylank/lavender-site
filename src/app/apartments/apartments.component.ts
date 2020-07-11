@@ -14,6 +14,7 @@ export class ApartmentsComponent implements OnInit {
   activeImage: string;
   activeIndex: number;
   displayCarousel = "collapse";
+  selectedApartment: "lavender1" | "lavender2" = "lavender1";
 
   public activeCaption: string = "";
   public activeText: string = "";
@@ -44,20 +45,23 @@ export class ApartmentsComponent implements OnInit {
     this.loadNextImage(event);
   }
 
-  openCarousel(index: number): void {
-    this.displayCarousel = "visible";
-    this.activeImage = this.gallery[index].location;
-    this.activeCaption = this.gallery[index].caption;
-    this.activeText = this.gallery[index].text;
-    this.galleryService.getActiveImage.next(this.activeImage);
-    this.galleryService.navbarBackground.next("open");
+  openCarousel(apartmentKey: "lavender1" | "lavender2" = "lavender1"): void {
+    this.selectedApartment = apartmentKey;
+    if (this.gallery[apartmentKey].length != 0) {
+      this.displayCarousel = "visible";
+      this.activeImage = this.gallery[apartmentKey][0].location;
+      this.activeCaption = this.gallery[apartmentKey][0].caption;
+      this.activeText = this.gallery[apartmentKey][0].text;
+      this.galleryService.getActiveImage.next(this.activeImage);
+      this.galleryService.navbarBackground.next("open");
 
-    this.activeIndex = index;
+      this.activeIndex = 0;
+    }
 
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.OPEN_ACTION,
-      "",
+      this.selectedApartment,
       1
     );
   }
@@ -70,14 +74,14 @@ export class ApartmentsComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.CLOSE_ACTION,
-      "",
+      this.selectedApartment,
       1
     );
   }
 
   loadNextImage(event: any) {
     this.activeIndex++;
-    if (this.activeIndex === this.gallery.length) {
+    if (this.activeIndex === this.gallery[this.selectedApartment].length) {
       this.activeIndex = 0;
     }
 
@@ -87,7 +91,7 @@ export class ApartmentsComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.NEXT_ACTION,
-      "",
+      this.selectedApartment,
       1
     );
   }
@@ -95,7 +99,7 @@ export class ApartmentsComponent implements OnInit {
   loadPrevImage(event: any) {
     this.activeIndex--;
     if (this.activeIndex < 0) {
-      this.activeIndex = this.gallery.length - 1;
+      this.activeIndex = this.gallery[this.selectedApartment].length - 1;
     }
 
     this.loadImage();
@@ -104,15 +108,21 @@ export class ApartmentsComponent implements OnInit {
     this.googleAnalyticsService.eventEmitter(
       GoogleAnalyticsConstants.IMAGE_VIEW_EVENT,
       GoogleAnalyticsConstants.BACK_ACTION,
-      "",
+      this.selectedApartment,
       1
     );
   }
 
   loadImage(): void {
-    this.activeImage = this.gallery[this.activeIndex].location;
-    this.activeCaption = this.gallery[this.activeIndex].caption;
-    this.activeText = this.gallery[this.activeIndex].text;
+    this.activeImage = this.gallery[this.selectedApartment][
+      this.activeIndex
+    ].location;
+    this.activeCaption = this.gallery[this.selectedApartment][
+      this.activeIndex
+    ].caption;
+    this.activeText = this.gallery[this.selectedApartment][
+      this.activeIndex
+    ].text;
     this.galleryService.getActiveImage.next(this.activeImage);
   }
 
@@ -128,7 +138,7 @@ export class ApartmentsComponent implements OnInit {
   private loadGalleryData() {
     this.galleryService.getGallery().subscribe((response) => {
       this.gallery = response;
-      this.activeImage = this.gallery[0].location;
+      this.activeImage = this.gallery[this.selectedApartment][0].location;
     });
   }
 }

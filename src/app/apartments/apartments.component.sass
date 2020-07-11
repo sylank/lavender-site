@@ -32,15 +32,17 @@ ul
     margin-left: 20px
     margin-bottom: 20px
     .img
-      display: block;
+      display: block
       width: 300px
       height: 200px
-      border-radius: 10px;
+      border-radius: 10px
 
     .indicator
       position: absolute
       top: 0
+      right: 0
       left: 0
+      bottom: 0
       width: 300px
       height: 200px
       background: black
@@ -48,7 +50,7 @@ ul
       display: flex
       justify-content: center
       align-items: center
-      border-radius: 10px;
+      border-radius: 10px
 
       i
         font-size: 100px
@@ -58,6 +60,7 @@ ul
       opacity: 1
       color: white
       padding: 10px
+      cursor: default
 
 .current-image
   display: flex
@@ -148,12 +151,12 @@ ul
   opacity: 1
 
 
-
-
 @media screen and (max-width: 750px)
   .properties
     flex-direction: column
-    .img
-      margin-top: 10px
-    .indicator
-      top: 10px
+    .picture
+      .img
+        margin-top: 10px
+
+      .indicator
+        top: auto
