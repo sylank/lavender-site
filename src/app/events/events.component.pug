@@ -1,5 +1,5 @@
 hero-container
-  card-container(title="Közelben lévő programok, élmények")
+  card-container(title="Közelben lévő programok, élmények", translateKey="events.title")
     .filter
       button.button.all(translate key="events.cat_all", (click)='filterArrayById(0); selectedButtonIdx=0',[ngClass]="selectedButtonIdx==0 ? 'all-selected' : 'all'") Összes
       button.button.walk(translate key="events.cat_walk", (click)='filterArrayById(1); selectedButtonIdx=1' ,[ngClass]="selectedButtonIdx==1 ? 'walk-selected' : 'walk'") Gyalog

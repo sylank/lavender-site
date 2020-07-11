@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { LanguageService } from "../language.service";
 
 @Component({
   selector: "card-container",
@@ -8,8 +9,24 @@ import { Component, OnInit, Input } from "@angular/core";
 export class CardContainerComponent implements OnInit {
   @Input() title: string;
   @Input() titleStyle: string;
+  @Input() translateKey: string;
 
-  constructor() {}
+  constructor(private languageService: LanguageService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.translateKey) {
+      this.languageService
+        .observer()
+        .subscribe((event: string) => this.refreshTitleText());
+    }
+  }
+
+  refreshTitleText() {
+    this.languageService.getTranslation().subscribe((translations: any) => {
+      this.title = this.languageService.getValueByKey(
+        this.translateKey,
+        translations
+      );
+    });
+  }
 }

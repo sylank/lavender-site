@@ -35,6 +35,7 @@
     "click_here": "Kattints ide!"
   },
   "contacts": {
+    "title": "Levendula Apartman",
     "show": "Mutat",
     "contact_person": "Kapcsolattartó",
     "phone": "Telefon",
@@ -158,5 +159,6 @@
     "title": "A jobb felhasználói élmény érdekében sütiket használunk",
     "description": "Mik azok a sütik? Látogass el <a target='_blank' rel='noopener noreferrer' href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>erre az oldalra</a>. Hogy a Levendula Apartman mire használja a sütiket, <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>ezen az oldalon</a> bővebb információkat találsz.",
     "button": "Rendben"
-  }
+  },
+  "delete_user_data": {}
 }

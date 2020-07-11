@@ -23,7 +23,7 @@
     "intro3": "I hope during your holiday you would have enough time to discover the local sights or events. You can find some event ideas on this site. Thank you to reach us and visit our website. I hope we will see each other in the near future in the Levendula Apartman at Balatonmáriafürdő."
   },
   "events": {
-    "title": "Close events and experiences",
+    "title": "Upcoming events",
     "cat_all": "All",
     "cat_walk": "By walk",
     "cat_bike": "By bicycle",
@@ -35,6 +35,7 @@
     "click_here": "Click here!"
   },
   "contacts": {
+    "title": "Levendula Apartman",
     "show": "Show",
     "contact_person": "Contact person",
     "phone": "Mobile",
