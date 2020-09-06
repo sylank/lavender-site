@@ -1,14 +1,12 @@
 hero-container
-  .notification-panel(*ngIf="showNotification")
-    card-container(title="Figyelem!")
-      p
-        | A
-        |
-        b {{deletion.email}}
-        |
-        | címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
-      p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
-      button.submit((click)="showNotification=!showNotification") Bezárás
+  notification-dialog(*ngIf="showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
+    p
+      | A
+      |
+      b {{deletion.email}}
+      |
+      | címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
+    p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
   card-container(title="Felhasználói adatok törlése")
     .loading(*ngIf="showLoading")
       app-loading-circle(show="false")
@@ -41,4 +39,4 @@ hero-container
       label
         input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Törölni szeretném az adataimat!
-      button.submit([disabled]="sendingDisabled()") Adatok törlése
+      submit-button((submitDisabled)="sendingDisabled()") Adatok törlése

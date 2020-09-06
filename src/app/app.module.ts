@@ -38,6 +38,8 @@ import { CookieBarComponent } from "./cookie-bar/cookie-bar.component";
 import { HouseChooserButtonComponent } from "./shared/house-chooser-button/house-chooser-button.component";
 import { CardContainerComponent } from "./shared/card-container/card-container.component";
 import { HeroContainerComponent } from "./shared/hero-container/hero-container.component";
+import { NotificationDialogComponent } from './shared/notification-dialog/notification-dialog.component';
+import { SubmitButtonComponent } from './shared/submit-button/submit-button.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { HeroContainerComponent } from "./shared/hero-container/hero-container.c
     HouseChooserButtonComponent,
     CardContainerComponent,
     HeroContainerComponent,
+    NotificationDialogComponent,
+    SubmitButtonComponent,
   ],
   imports: [
     BrowserModule,

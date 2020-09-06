@@ -1,9 +1,7 @@
 hero-container
-  .notification-panel(*ngIf="showNotification")
-    card-container(title="Köszönjük!", translateKey="subscribe.success.title")
-      p(translate key="subscribe.success.description")
-        | Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.
-      button.submit(translate key="subscribe.success.button", (click)="showNotification=!showNotification") Bezárás
+  notification-dialog(*ngIf="showNotification", title="Köszönjük!", (closeButtonClicked)="showNotification=!showNotification")
+    p(translate key="subscribe.success.description")
+      | Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.
   card-container(title="Hírlevél feliratkozás", translateKey="subscribe.title")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
       p(translate key="subscribe.description1") Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.

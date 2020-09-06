@@ -3,20 +3,7 @@
   padding: 0
   box-sizing: border-box
 
-.notification-panel
-  display: flex
-  justify-content: center
-  align-items: center
-  position: absolute
-  width: inherit
-  height: inherit
-  z-index: 800
-  background: rgba(0,0,0,.25)
-  .submit
-    margin-top: 30px
-  p
-    font-size: 12px
-
+notification-dialog
   .booking-id
     margin: 0px auto 10px auto
     font-size: 30px
@@ -122,24 +109,6 @@ a:visited
   color: #ab6cc3
 .newline
   margin-left: 22px
-
-.submit
-  display: block
-  margin: 0 auto
-  border: none
-  cursor: pointer
-  border-radius: 10px
-  height: 40px
-  padding: 0 60px
-  color: #fff
-  font-size: 20px
-  background-color: #ab6cc3
-  margin-top: 20px
-  &:hover
-    background-color: #c88cde
-  &[disabled]
-    background-color: rgb(228, 215, 234)
-    cursor: not-allowed
 
 .invalid-input
   background: #F2D5F8

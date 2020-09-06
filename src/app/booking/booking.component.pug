@@ -1,20 +1,18 @@
+notification-dialog(*ngIf="!bookingEnabled && showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
+  p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
+  p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
+  p(translate key="booking.dialog.dialog_desc3")
+    | Foglalási szándékodat kérlek
+    |
+    a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
+    |
+    | vagy az
+    |
+    a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
+    |
+    | valamelyikén jelezd.
+  p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
 hero-container((window:click)="closeCalendar()")
-  .notification-panel(*ngIf="!bookingEnabled && showNotification")
-    card-container(title="Figyelem", translateKey="booking.dialog.dialog_header")
-      p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
-      p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
-      p(translate key="booking.dialog.dialog_desc3")
-        | Foglalási szándékodat kérlek
-        |
-        a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
-        |
-        | vagy az
-        |
-        a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
-        |
-        | valamelyikén jelezd.
-      p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
-      button.submit(translate key="booking.dialog.dialog_button", (click)="showNotification=!showNotification") Bezárás
   card-container(title="Információk a foglalással kapcsolatban", titleStyle="x2", translateKey="booking.booking_informations.title").info
     p(translate key="booking.booking_informations.desc1") - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
     p(translate key="booking.booking_informations.desc2") - Az Idegenforgalmi Adó (IFA) nincs az árban.
