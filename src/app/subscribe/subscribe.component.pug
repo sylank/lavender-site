@@ -22,4 +22,4 @@ hero-container
           i.fas.fa-user
       .info-wrapper
         p.char-count(translate key="subscribe.hint") A *-al jelölt mezők kitöltése kötelező
-      button.submit(translate key="subscribe.button", [disabled]="formName.invalid") Feliratkozás
+      submit-button([submitDisabled]="formName.invalid") Feliratkozás
