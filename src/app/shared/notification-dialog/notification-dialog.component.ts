@@ -27,6 +27,10 @@ export class NotificationDialogComponent implements OnInit {
     this.closeButtonClicked.emit(false);
   }
 
+  stopPropogation(event: PointerEvent) {
+    event.stopPropagation();
+  }
+
   @HostListener("document:keydown.escape", ["$event"]) onEscKeyDownHandler(
     event: KeyboardEvent
   ) {

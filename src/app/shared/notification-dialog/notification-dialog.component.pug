@@ -1,4 +1,5 @@
 .notification-panel((keydown)="handleClose()", (click)="handleClose()")
-  card-container([title]="title")
+  card-container([title]="title", (click)="stopPropogation($event)")
     ng-content
-    submit-button.sbutton((click)="handleClose()") Bezárás
+    .button-container
+      submit-button((click)="handleClose()") Bezárás

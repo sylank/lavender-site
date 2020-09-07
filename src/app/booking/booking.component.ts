@@ -41,6 +41,8 @@ export class BookingComponent implements OnInit {
 
   public bookingEnabled = environment.reservationEnabled;
   public showNotification = !this.bookingEnabled;
+  public showSuccessfulBookingDialog: boolean = false;
+  public showFailedBookingDialog: boolean = false;
 
   public showLoading = true;
   public showDateLoading = true;
@@ -51,8 +53,7 @@ export class BookingComponent implements OnInit {
   private arrivalCalendarActive = false;
   private departureCalendarActive = false;
   private calendarInitDate: Date; // To determine which date the calendar should open up with
-  public bookingStage: "person" | "data" | "overview" | "result" = "person";
-  private bookingResult: "success" | "failed" = "failed";
+  public bookingStage: "person" | "data" | "overview" = "person";
   reservedDates = [];
 
   private booking: Booking = {
@@ -287,16 +288,14 @@ export class BookingComponent implements OnInit {
           .subscribe((bookingResult: any) => {
             this.showLoading = false;
 
-            this.bookingStage = "result";
-            this.bookingResult = "failed";
+            this.bookingStage = "person";
 
             const data = bookingResult.response;
             if (data.enabled === true && data.reservationCause === "SUCCESS") {
-              this.bookingStage = "result";
-              this.bookingResult = "success";
-
               this.booking.reservationId = data.reservationId;
               this.scrollToPosition();
+
+              this.showSuccessfulBookingDialog = true;
 
               this.googleAnalyticsService.eventEmitter(
                 GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
@@ -305,6 +304,8 @@ export class BookingComponent implements OnInit {
                 1
               );
             } else {
+              this.showFailedBookingDialog = true;
+
               this.googleAnalyticsService.eventEmitter(
                 GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
                 GoogleAnalyticsConstants.FAILED_ACTION,

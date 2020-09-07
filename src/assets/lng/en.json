@@ -90,7 +90,7 @@
       "next_button": "Next"
     },
     "personal_data_form": {
-      "title": "Booking",
+      "title": "Personal data",
       "personal_data": "Booking details",
       "first_name": "*Surname (Smith)",
       "last_name": "*First Name (Paul)",

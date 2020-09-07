@@ -12,6 +12,17 @@ notification-dialog(*ngIf="!bookingEnabled && showNotification", title="Figyelem
     |
     | valamelyikén jelezd.
   p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
+
+notification-dialog(*ngIf="showSuccessfulBookingDialog", title="Sikeres foglalás!", (closeButtonClicked)="showSuccessfulBookingDialog=!showSuccessfulBookingDialog")
+  p Foglalásodat az általad megadott adatokkal az alábbi azonosítóval ideiglenesen lefoglaltuk:
+  b.booking-id {{ booking.reservationId }}
+  p Foglalásodat az előleg elküldédsével tudod véglegesíteni. Amennyiben nem érkezik meg a foglaló 72 órán belül, a foglalásod autómatikusan törlésre kerül.
+  p Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál levelet tőlük akkor kérlek ellenőriz a levélszemetek között is).
+  p További szép napot, Levendula Apartman
+
+notification-dialog(*ngIf="showFailedBookingDialog", title="Sikertelen foglalás!", (closeButtonClicked)="showFailedBookingDialog=!showFailedBookingDialog")
+  p Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon.
+
 hero-container((window:click)="closeCalendar()")
   card-container(title="Információk a foglalással kapcsolatban", titleStyle="x2", translateKey="booking.booking_informations.title").info
     p(translate key="booking.booking_informations.desc1") - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
@@ -86,10 +97,9 @@ hero-container((window:click)="closeCalendar()")
       app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
       submit-button(type='submit', [submitDisabled]="bookingEnabled? null : '' ") Tovább
 
-  card-container(*ngIf="bookingStage === 'data'", title="Foglalás", translateKey="booking.personal_data_form.title")
+  card-container(*ngIf="bookingStage === 'data'", title="Személyes adatok", translateKey="booking.personal_data_form.title")
     // Personal data form
     form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
-      p.title(translate key="booking.personal_data_form.personal_data")
       .input-wrapper
         input(translate key="booking.personal_data_form.first_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
         .input-icon
@@ -195,23 +205,3 @@ hero-container((window:click)="closeCalendar()")
     submit-button(type='submit', (click)="sendBooking()", [submitDisabled]="isSendingDisabled()") Foglalás most!
     p.back
       span(translate key="booking.personal_data_form.back_button", (click)='onBack(1)') Vissza
-
-  card-container(*ngIf="bookingStage === 'result'")
-    // Result
-    .result-wrapper
-      .result.success(*ngIf="bookingResult === 'success'")
-        i.fas.fa-info-circle.result
-        p.status(translate key="booking.results.title") Foglalási igény elküldve
-        p.description(translate key="booking.results.description") Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott e-mail címre elküldtük.
-        .reservation-info
-          p(translate key="booking.results.reservation_info") Foglalási azonosító:
-          b {{booking.reservationId}}
-      .result.failed(*ngIf="bookingResult === 'failed'")
-        i.fas.fa-times.result
-        p(translate key="booking.results.failed_text") Sikertelen foglalás
-        p.description(translate key="booking.results.failed_description") Kérjük próbálja meg más időponttal.
-    p.back
-      span(translate key="booking.personal_data_form.back_button", (click)="onBack(0)") Vissza
-    .loading(*ngIf="showLoading")
-      app-loading-circle(show="false")
-
