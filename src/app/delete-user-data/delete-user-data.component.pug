@@ -7,9 +7,7 @@ hero-container
       |
       | címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
     p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
-  card-container(title="Felhasználói adatok törlése")
-    .loading(*ngIf="showLoading")
-      app-loading-circle(show="false")
+  card-container(title="Felhasználói adatok törlése", [showLoading]="showLoading")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
       p Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
       p

@@ -10,6 +10,7 @@ export class CardContainerComponent implements OnInit {
   @Input() title: string;
   @Input() titleStyle: string;
   @Input() translateKey: string;
+  @Input() showLoading: boolean;
 
   constructor(private languageService: LanguageService) {}
 

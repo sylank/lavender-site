@@ -46,7 +46,7 @@ hero-container((window:click)="closeCalendar()")
       |
       | vagy a visszaigazoló e-mail-ben találsz.
 
-  card-container(*ngIf="bookingStage === 'person'", title="Foglalás", translateKey="booking.date_form.title")
+  card-container(*ngIf="bookingStage === 'person'", title="Foglalás", translateKey="booking.date_form.title", [showLoading]="showDateLoading")
     // Date form
     p(translate key="booking.house_chooser.choose_caption")
       | Válassz apartmant,
@@ -106,12 +106,12 @@ hero-container((window:click)="closeCalendar()")
         input(translate key="booking.personal_data_form.email" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='*E-mail (pelda@email.hu)', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
         .input-icon
           i.fas.fa-envelope
-      textarea.message(translate key="booking.personal_data_form.hints" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
+      textarea.message(translate key="booking.personal_data_form.hints" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message")
       .info-wrapper
         p.char-count(translate key="delete_booking.info_mandatory") A *-al jelölt mezők kitöltése kötelező
         .remaining-chars-wrapper
           p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
-          p.char-count {{ messageLength }}
+          p.char-count {{ getMessageLength() }}
       submit-button(type='submit', [submitDisabled]="formName.invalid") Tovább
       p.back
         span(translate key="booking.personal_data_form.back_button", (click)='onBack(0)') Vissza

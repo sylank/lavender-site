@@ -1,12 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CalendarService } from "./calendar/calendar.service";
-import {
-  NgForm,
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from "@angular/forms";
+import { NgForm, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CalendarHttpService } from "../shared/calendar.http.service";
 import { Booking } from "./booking.model";
 import { CustomValidator } from "../shared/validators/email.validator";
@@ -49,6 +43,7 @@ export class BookingComponent implements OnInit {
   public showNotification = !this.bookingEnabled;
 
   public showLoading = true;
+  public showDateLoading = true;
 
   private basePrice = 25000;
   private calendarMode: "arrival" | "departure" = "arrival";
@@ -58,7 +53,6 @@ export class BookingComponent implements OnInit {
   private calendarInitDate: Date; // To determine which date the calendar should open up with
   public bookingStage: "person" | "data" | "overview" | "result" = "person";
   private bookingResult: "success" | "failed" = "failed";
-  private messageLength = 300;
   reservedDates = [];
 
   private booking: Booking = {
@@ -114,8 +108,8 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  onMessageInput(): void {
-    this.messageLength = 300 - this.formName.get("message").value.length;
+  getMessageLength(): number {
+    return 300 - this.booking.message.length;
   }
 
   toggleArrivalCalendar(event: PointerEvent): void {
@@ -422,10 +416,13 @@ export class BookingComponent implements OnInit {
     this.booking.arrival.setDate(this.booking.arrival.getDate() + 1);
     this.booking.departure.setDate(this.booking.departure.getDate() + 2);
 
+    this.showDateLoading = true;
     this.calendarHttpService
       .getReservedDates(this.booking.arrival, this.booking.departure)
       .subscribe((reservedDates: any) => {
         this.reservedDates = reservedDates.response.reservations;
+
+        this.showDateLoading = false;
       });
 
     this.reCaptchaV3Service.execute(

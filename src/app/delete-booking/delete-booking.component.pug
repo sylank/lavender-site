@@ -4,9 +4,7 @@ hero-container
     b.booking-id {{deletion.bookingSerial}}
     p(translate key="delete_booking.dialog_infos") A szükséges információkat a foglaláskor megadot e-mail címre elküldtük, valamint részleteket a foglalással kapcsolatos dokumentumban találsz.
     p(translate key="delete_booking.farwell") Reméljük még találkozunk.
-  card-container(title="Foglalás lemondása", translateKey="delete_booking.title")
-    .loading(*ngIf="showLoading")
-      app-loading-circle(show="false")
+  card-container(title="Foglalás lemondása", translateKey="delete_booking.title", [showLoading]="showLoading")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
       p(translate key="delete_booking.desc1") A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
       p(translate key="delete_booking.desc2")
@@ -28,12 +26,12 @@ hero-container
         input(translate key="delete_booking.booking_id_placeholder" destination="placeholder", type='text', formControlName="sureField", placeholder='*Azonosító', [(ngModel)]="deletion.bookingSerial", [ngClass]="{'invalid-input': formName.get('sureField').touched && formName.get('sureField').hasError('required')}")
         .input-icon
           i.fas.fa-tag
-      textarea.message(formControlName="message", maxlength='300', placeholder='Lemondás oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')
+      textarea.message(formControlName="message", maxlength='300', placeholder='Lemondás oka (opcionális)', [(ngModel)]="deletion.message")
       .info-wrapper
         p.char-count(translate key="delete_booking.info_mandatory")  A *-al jelölt mezők kitöltése kötelező
         .remaining-chars-wrapper
           p.char-count(translate key="delete_booking.info_char_remaining")  Ennyi karakter maradt:
-          p.char-count {{ messageLength }}
+          p.char-count {{ getMessageLength() }}
       label
         input(translate key="delete_booking.checkbox", type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Le szeretném mondani a foglalásom!

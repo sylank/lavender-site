@@ -12,10 +12,10 @@ import { GoogleAnalyticsConstants } from "../shared/google.analytics.constants";
   styleUrls: ["./delete-booking.component.sass"],
 })
 export class DeleteBookingComponent implements OnInit {
+  public showLoading: boolean = false;
+
   public sureCheck: boolean = false;
-  public showLoading: boolean;
   public showNotification: boolean;
-  public messageLength: number;
 
   public formName: FormGroup;
 
@@ -32,7 +32,6 @@ export class DeleteBookingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.messageLength = 300;
     this.formName = this.fb.group({
       sureField: ["", [Validators.required]],
       message: ["", []],
@@ -88,7 +87,7 @@ export class DeleteBookingComponent implements OnInit {
     this.showNotification = true;
   }
 
-  onMessageInput(): void {
-    this.messageLength = 300 - this.formName.get("message").value.length;
+  getMessageLength(): number {
+    return 300 - this.deletion.message.length;
   }
 }
