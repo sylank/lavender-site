@@ -37,4 +37,4 @@ hero-container
       label
         input(translate key="delete_booking.checkbox", type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Le szeretném mondani a foglalásom!
-      submit-button((submitDisabled)="sendingDisabled()") Lemondás
+      submit-button([submitDisabled]="sendingDisabled()") Lemondás

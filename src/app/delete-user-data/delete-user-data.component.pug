@@ -39,4 +39,4 @@ hero-container
       label
         input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
         | Törölni szeretném az adataimat!
-      submit-button((submitDisabled)="sendingDisabled()") Adatok törlése
+      submit-button([submitDisabled]="sendingDisabled()") Adatok törlése
