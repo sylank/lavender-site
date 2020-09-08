@@ -7,34 +7,37 @@ hero-container
       |
       | címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
     p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
-  card-container(title="Felhasználói adatok törlése", [showLoading]="showLoading")
+  card-container(title="Felhasználói adatok törlése", translateKey="delete_user_data.title", [showLoading]="showLoading")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
-      p Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
-      p
+      p(translate key="delete_user_data.desc1") Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
+      p(translate key="delete_user_data.desc2")
         | Adataidat a
         |
         i Adatok törlése
         |
         | gomb lenyomásával törölheted.
-      p
+      p(translate key="delete_user_data.desc3")
         b Fontos:
         |  Ezesetben csak a tárolt adataidat töröljük, a hírlevélről való leiratkozáshoz a hírlevélben találsz több információt.
-      p
+      p(translate key="delete_user_data.desc4")
         | Az adatfelhasználásról részleteket
         |
         a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") alábbi linken
         | .
       .divider
-      p Adatok:
+      p(translate key="delete_user_data.data_caption") Adatok:
       .input-wrapper
-        input(type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="deletion.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+        input(translate key="delete_user_data.email_placeholder" destination="placeholder", type='text', formControlName="email", placeholder='*E-mail', [(ngModel)]="deletion.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
         .input-icon
           i.fas.fa-tag
-      textarea.message(formControlName="message", maxlength='300', placeholder='Törlés oka (opcionális)', [(ngModel)]="deletion.message", (input)='onMessageInput()')
+      textarea.message(translate key="delete_user_data.cancelation_reason_placeholder" destination="placeholder", formControlName="message", maxlength='300', placeholder='Törlés oka (opcionális)', [(ngModel)]="deletion.message")
       .info-wrapper
-        p.char-count A *-al jelölt mezők kitöltése kötelező
-        p.char-count Ennyi karakter maradt: {{ messageLength }}
-      label
-        input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
-        | Törölni szeretném az adataimat!
-      submit-button([submitDisabled]="sendingDisabled()") Adatok törlése
+        p.char-count(translate key="delete_booking.info_mandatory") A *-al jelölt mezők kitöltése kötelező
+        .remaining-chars-wrapper
+          p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
+          p.char-count {{ getMessageLength() }}
+      .checker
+        p
+          input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
+        p(translate key="delete_user_data.checkbox") Törölni szeretném az adataimat!
+      submit-button(translateKey="delete_user_data.delete_button", [submitDisabled]="sendingDisabled()") Adatok törlése

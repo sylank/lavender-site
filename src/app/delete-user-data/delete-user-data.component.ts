@@ -16,7 +16,6 @@ export class DeleteUserDataComponent implements OnInit {
   public sureCheck: boolean = false;
   public showLoading: boolean;
   public showNotification: boolean;
-  public messageLength: number;
 
   public formName: FormGroup;
 
@@ -33,7 +32,6 @@ export class DeleteUserDataComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.messageLength = 300;
     this.formName = this.fb.group({
       email: ["", [Validators.required, CustomValidator.emailValidator]],
       message: ["", []],
@@ -91,7 +89,7 @@ export class DeleteUserDataComponent implements OnInit {
     this.showNotification = true;
   }
 
-  onMessageInput(): void {
-    this.messageLength = 300 - this.formName.get("message").value.length;
+  getMessageLength(): number {
+    return 300 - this.deletion.message.length;
   }
 }

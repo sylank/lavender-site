@@ -160,5 +160,18 @@
     "description": "Mik azok a sütik? Látogass el <a target='_blank' rel='noopener noreferrer' href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>erre az oldalra</a>. Hogy a Levendula Apartman mire használja a sütiket, <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>ezen az oldalon</a> bővebb információkat találsz.",
     "button": "Rendben"
   },
-  "delete_user_data": {}
+  "delete_user_data": {
+    "delete_button": "Adatok törlése",
+    "title": "Felhasználói adatok törlése",
+    "desc1": "Miután elküldted a foglalásod az általad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.",
+    "desc2": "Adataidat a <i>Adatok törlése</i> gomb lenyomásával törölheted.",
+    "desc3": "<b> Fontos: </b> Ezesetben csak a tárolt adataidat töröljük, a hírlevélről való leiratkozáshoz a hírlevélben találsz több információt.",
+    "desc4": "Az adatfelhasználásról részleteket az <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>alábbi linken</a> találsz!",
+    "data_caption": "Adatok:",
+    "email_placeholder": "*E-mail",
+    "cancelation_reason_placeholder": "Törlés oka (opcionális)",
+    "info_mandatory": "A *-al jelölt mezők kitöltése kötelező",
+    "info_char_remaining": "Ennyi karakter maradt:",
+    "checkbox": "Törölni szeretném az adataimat!"
+  }
 }

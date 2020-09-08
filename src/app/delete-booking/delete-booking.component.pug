@@ -26,13 +26,14 @@ hero-container
         input(translate key="delete_booking.booking_id_placeholder" destination="placeholder", type='text', formControlName="sureField", placeholder='*Azonosító', [(ngModel)]="deletion.bookingSerial", [ngClass]="{'invalid-input': formName.get('sureField').touched && formName.get('sureField').hasError('required')}")
         .input-icon
           i.fas.fa-tag
-      textarea.message(formControlName="message", maxlength='300', placeholder='Lemondás oka (opcionális)', [(ngModel)]="deletion.message")
+      textarea.message(translate key="delete_booking.cancelation_reason_placeholder" destination="placeholder", formControlName="message", maxlength='300', placeholder='Lemondás oka (opcionális)', [(ngModel)]="deletion.message")
       .info-wrapper
-        p.char-count(translate key="delete_booking.info_mandatory")  A *-al jelölt mezők kitöltése kötelező
+        p.char-count(translate key="delete_booking.info_mandatory") A *-al jelölt mezők kitöltése kötelező
         .remaining-chars-wrapper
-          p.char-count(translate key="delete_booking.info_char_remaining")  Ennyi karakter maradt:
+          p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
           p.char-count {{ getMessageLength() }}
-      label
-        input(translate key="delete_booking.checkbox", type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
-        | Le szeretném mondani a foglalásom!
-      submit-button([submitDisabled]="sendingDisabled()") Lemondás
+      .checker
+        p
+          input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
+        p(translate key="delete_booking.checkbox") Le szeretném mondani a foglalásom!
+      submit-button(translateKey="delete_booking.button", [submitDisabled]="sendingDisabled()") Lemondás

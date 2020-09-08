@@ -95,7 +95,7 @@ hero-container((window:click)="closeCalendar()")
       app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
       p.title(translate key="booking.date_form.pet_count") Négylábú személyek *
       app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
-      submit-button(type='submit', [submitDisabled]="bookingEnabled? null : '' ") Tovább
+      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="bookingEnabled? null : '' ") Tovább
 
   card-container(*ngIf="bookingStage === 'data'", title="Személyes adatok", translateKey="booking.personal_data_form.title")
     // Personal data form
@@ -122,9 +122,9 @@ hero-container((window:click)="closeCalendar()")
         .remaining-chars-wrapper
           p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
           p.char-count {{ getMessageLength() }}
-      submit-button(type='submit', [submitDisabled]="formName.invalid") Tovább
+      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="formName.invalid") Tovább
       p.back
-        span(translate key="booking.personal_data_form.back_button", (click)='onBack(0)') Vissza
+        span(translate key="booking.personal_data_form.back_button", (click)='onBack("person")') Vissza
 
   card-container(*ngIf="bookingStage === 'overview'", title="Áttekintés", translateKey="booking.overview_form.title")
     // Overview
@@ -202,6 +202,6 @@ hero-container((window:click)="closeCalendar()")
         p
           input(translate key="booking.overview_form.house_rules", type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
         p(translate key="booking.overview_form.house_rules")
-    submit-button(type='submit', (click)="sendBooking()", [submitDisabled]="isSendingDisabled()") Foglalás most!
+    submit-button(translateKey="booking.overview_form.booking_now", type='submit', (click)="sendBooking()", [submitDisabled]="isSendingDisabled()") Foglalás most!
     p.back
-      span(translate key="booking.personal_data_form.back_button", (click)='onBack(1)') Vissza
+      span(translate key="booking.personal_data_form.back_button", (click)='onBack("data")') Vissza

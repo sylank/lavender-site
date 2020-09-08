@@ -47,18 +47,18 @@
     "dialog_text": "We have begun canceling the reservation associated with the following ID:",
     "dialog_infos": "The required information has been sent to the email address you provided at the time of booking and you will find details <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>about the booking.</a>.",
     "farwell": "Hope to see you again.",
-    "dialog_button": "Cancell",
-    "title": "Cancell booking",
+    "dialog_button": "Cancel",
+    "title": "Cancel booking",
     "desc1": "To cancel your booking, you must provide the booking ID you received after booking. Each step will be emailed to you.",
-    "desc2": "Pressing the <i>Cancell</i> button will begin the process of canceling your reservation.",
+    "desc2": "Pressing the <i>Cancel</i> button will begin the process of canceling your reservation.",
     "desc3": "<b>Important:</b> We can only cancel your booking with a valid booking ID. Details can be found at the link below!",
     "data_caption": "Data:",
-    "booking_id_placeholder": "*ID",
-    "cancelation_reason_placeholder": "Cause of the cancellation: (opcionális)",
+    "booking_id_placeholder": "*Booking ID",
+    "cancelation_reason_placeholder": "Reason of the cancellation (optional)",
     "info_mandatory": "Fields marked with * are required",
     "info_char_remaining": "Remaining characters:",
-    "checkbox": "I would like to cancell my booking",
-    "button": "Cancell"
+    "checkbox": "I would like to cancel my booking",
+    "button": "Cancel"
   },
   "booking": {
     "dialog": {
@@ -159,5 +159,19 @@
     "title": "We use cookies for a better user experience",
     "description": "What are cookies? Visit <a target='_blank' rel='noopener noreferrer' href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>to this page</a>. How the Lavender Apartment uses cookies? You can find more information on <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>this page</a>.",
     "button": "Okay"
+  },
+  "delete_user_data": {
+    "delete_button": "Delete data",
+    "title": "Delete user data",
+    "desc1": "Once you have submitted your booking, the data you provide will be stored for statistical and analytical purposes. As this is personal data, you can request that the data be removed from the system at any time.",
+    "desc2": "You can delete your data by pressing the <i>Clear Data</i> button.",
+    "desc3": "<b> Important: </b> In this case, we will only delete your stored data, you can find more information in the newsletter to unsubscribe from the newsletter.",
+    "desc4": "Details of the use of the data can be found on the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>following page</a>!",
+    "data_caption": "Data:",
+    "email_placeholder": "*E-mail",
+    "cancelation_reason_placeholder": "Cause of deletion (optional)",
+    "info_mandatory": "Fields marked with * are required",
+    "info_char_remaining": "Remaining characters:",
+    "checkbox": "I would like to delete my personal data!"
   }
 }

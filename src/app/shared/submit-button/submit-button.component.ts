@@ -10,7 +10,7 @@ export class SubmitButtonComponent implements OnInit {
   submitDisabled: boolean;
 
   @Input()
-  caption: string;
+  translateKey: string;
 
   constructor() {}
 

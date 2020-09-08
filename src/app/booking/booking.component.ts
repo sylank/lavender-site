@@ -361,16 +361,8 @@ export class BookingComponent implements OnInit {
     );
   }
 
-  onBack(stateName: number): void {
-    switch (stateName) {
-      case 0:
-        this.bookingStage = "person";
-        break;
-      case 1:
-        this.bookingStage = "data";
-        break;
-    }
-
+  onBack(stateName: "person" | "data"): void {
+    this.bookingStage = stateName;
     this.scrollToPosition();
   }
 
