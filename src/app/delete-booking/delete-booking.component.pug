@@ -1,5 +1,5 @@
 hero-container
-  notification-dialog(*ngIf="showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification" )
+  notification-dialog(titleTranslateKey="delete_booking.dialog_title", *ngIf="showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification" )
     p(translate key="delete_booking.dialog_text") Az alábbiakban megadott azonosítóhoz rendelt foglalás törlését megkezdtük:
     b.booking-id {{deletion.bookingSerial}}
     p(translate key="delete_booking.dialog_infos") A szükséges információkat a foglaláskor megadot e-mail címre elküldtük, valamint részleteket a foglalással kapcsolatos dokumentumban találsz.
@@ -33,7 +33,8 @@ hero-container
           p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
           p.char-count {{ getMessageLength() }}
       .checker
-        p
-          input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
-        p(translate key="delete_booking.checkbox") Le szeretném mondani a foglalásom!
+        label
+          p
+            input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
+          p(translate key="delete_booking.checkbox") Le szeretném mondani a foglalásom!
       submit-button(translateKey="delete_booking.button", [submitDisabled]="sendingDisabled()") Lemondás

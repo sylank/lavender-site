@@ -16,6 +16,9 @@ export class NotificationDialogComponent implements OnInit {
   @Input()
   title: string;
 
+  @Input()
+  titleTranslateKey: string;
+
   @Output()
   closeButtonClicked = new EventEmitter();
 

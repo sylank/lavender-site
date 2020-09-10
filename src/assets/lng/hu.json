@@ -69,6 +69,17 @@
       "dialog_desc4": "Megértésed köszönjük!",
       "dialog_button": "Bezárás"
     },
+    "success_dialog": {
+      "dialog_header": "Sikeres foglalás!",
+      "dialog_desc1": "Foglalásodat az általad megadott adatokkal az alábbi azonosítóval ideiglenesen lefoglaltuk:",
+      "dialog_desc2": "Foglalásodat az előleg elküldésével tudod véglegesíteni. Amennyiben nem érkezik meg a foglaló 72 órán belül, a foglalásod automatikusan törlésre kerül.",
+      "dialog_desc3": "Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál levelet tőlük akkor kérlek ellenőriz a levélszemétben is).",
+      "dialog_desc4": "További szép napot, Levendula Apartman"
+    },
+    "failed_dialog": {
+      "dialog_header": "Sikertelen foglalás!",
+      "dialog_desc1": "Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon."
+    },
     "house_chooser": {
       "choose_caption": "Válassz apartmant, <a target='_blank' rel='noopener noreferrer' href='https://levendulabalatonmaria.info/gallery'> további információk</a>.",
       "lavender1_title": "Levendula 1",
@@ -161,6 +172,11 @@
     "button": "Rendben"
   },
   "delete_user_data": {
+    "dialog": {
+      "dialog_title": "Figyelem!",
+      "dialog_desc1": "e-mail címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.",
+      "dialog_desc2": "A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében találsz."
+    },
     "delete_button": "Adatok törlése",
     "title": "Felhasználói adatok törlése",
     "desc1": "Miután elküldted a foglalásod az általad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.",

@@ -69,6 +69,17 @@
       "dialog_desc4": "Thank you for your patience.",
       "dialog_button": "Close"
     },
+    "success_dialog": {
+      "dialog_header": "Successful booking!",
+      "dialog_desc1": "We have temporarily booked with your provided data on this ID:",
+      "dialog_desc2": "You can finalize your reservation by sending a deposit money. If the deposit money is not received within 72 hours, your booking will be automatically canceled.",
+      "dialog_desc3": "We will inform you about the further details of the reference by e-mail (if you have not received a letter from us, please check your spam as well).",
+      "dialog_desc4": "Have a nice day, Levendula Apartman"
+    },
+    "failed_dialog": {
+      "dialog_header": "Unsuccessful booking!",
+      "dialog_desc1": "Please try another date or contact us on Facebook."
+    },
     "house_chooser": {
       "choose_caption": "Choose apartments, <a target='_blank' rel='noopener noreferrer' href='https://levendulabalatonmaria.info/gallery'> more information</a>.",
       "lavender1_title": "Levendula 1",
@@ -161,6 +172,11 @@
     "button": "Okay"
   },
   "delete_user_data": {
+    "dialog": {
+      "dialog_title": "Attention!",
+      "dialog_desc1": "We have started deleting the data belonging to the e-mail address.",
+      "dialog_desc2": "Information on unsubscribing to the newsletter can be found in the footnote of the newsletter."
+    },
     "delete_button": "Delete data",
     "title": "Delete user data",
     "desc1": "Once you have submitted your booking, the data you provide will be stored for statistical and analytical purposes. As this is personal data, you can request that the data be removed from the system at any time.",

@@ -1,12 +1,8 @@
 hero-container
-  notification-dialog(*ngIf="showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
-    p
-      | A
-      |
-      b {{deletion.email}}
-      |
-      | címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
-    p A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében talál.
+  notification-dialog(titleTranslateKey="delete_user_data.dialog.dialog_title", *ngIf="showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
+    b.email-address {{deletion.email}}
+    p(translate key="delete_user_data.dialog.dialog_desc1") e-mail címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím akkor hamarosan e-mailben értesítünk.
+    p(translate key="delete_user_data.dialog.dialog_desc2") A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében találsz.
   card-container(title="Felhasználói adatok törlése", translateKey="delete_user_data.title", [showLoading]="showLoading")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
       p(translate key="delete_user_data.desc1") Miután elküldted a foglalásod az álltalad megadott adatokat tároljuk statisztikai és analitikai célból. Mivel személyes adatokról van szó, bármikor kérheted az adatok eltávolítását a rendszerből.
@@ -37,7 +33,8 @@ hero-container
           p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
           p.char-count {{ getMessageLength() }}
       .checker
-        p
-          input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
-        p(translate key="delete_user_data.checkbox") Törölni szeretném az adataimat!
+        label
+          p
+            input(type='checkbox', [checked]="sureCheck", (change)="sureCheck=!sureCheck")
+          p(translate key="delete_user_data.checkbox") Törölni szeretném az adataimat!
       submit-button(translateKey="delete_user_data.delete_button", [submitDisabled]="sendingDisabled()") Adatok törlése

@@ -1,4 +1,4 @@
-notification-dialog(*ngIf="!bookingEnabled && showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
+notification-dialog(titleTranslateKey="booking.dialog.dialog_header", *ngIf="!bookingEnabled && showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
   p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
   p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
   p(translate key="booking.dialog.dialog_desc3")
@@ -13,15 +13,15 @@ notification-dialog(*ngIf="!bookingEnabled && showNotification", title="Figyelem
     | valamelyikén jelezd.
   p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
 
-notification-dialog(*ngIf="showSuccessfulBookingDialog", title="Sikeres foglalás!", (closeButtonClicked)="showSuccessfulBookingDialog=!showSuccessfulBookingDialog")
-  p Foglalásodat az általad megadott adatokkal az alábbi azonosítóval ideiglenesen lefoglaltuk:
+notification-dialog(titleTranslateKey="booking.success_dialog.dialog_header", *ngIf="showSuccessfulBookingDialog", title="Sikeres foglalás!", (closeButtonClicked)="showSuccessfulBookingDialog=!showSuccessfulBookingDialog")
+  p(translate key="booking.success_dialog.dialog_desc1") Foglalásodat az általad megadott adatokkal az alábbi azonosítóval ideiglenesen lefoglaltuk:
   b.booking-id {{ booking.reservationId }}
-  p Foglalásodat az előleg elküldédsével tudod véglegesíteni. Amennyiben nem érkezik meg a foglaló 72 órán belül, a foglalásod autómatikusan törlésre kerül.
-  p Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál levelet tőlük akkor kérlek ellenőriz a levélszemetek között is).
-  p További szép napot, Levendula Apartman
+  p(translate key="booking.success_dialog.dialog_desc2") Foglalásodat az előleg elküldédsével tudod véglegesíteni. Amennyiben nem érkezik meg a foglaló 72 órán belül, a foglalásod autómatikusan törlésre kerül.
+  p(translate key="booking.success_dialog.dialog_desc3") Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál levelet tőlük akkor kérlek ellenőriz a levélszemetek között is).
+  p(translate key="booking.success_dialog.dialog_desc4") További szép napot, Levendula Apartman
 
-notification-dialog(*ngIf="showFailedBookingDialog", title="Sikertelen foglalás!", (closeButtonClicked)="showFailedBookingDialog=!showFailedBookingDialog")
-  p Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon.
+notification-dialog(titleTranslateKey="booking.failed_dialog.dialog_header", *ngIf="showFailedBookingDialog", title="Sikertelen foglalás!", (closeButtonClicked)="showFailedBookingDialog=!showFailedBookingDialog")
+  p(translate key="booking.failed_dialog.dialog_desc1") Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon.
 
 hero-container((window:click)="closeCalendar()")
   card-container(title="Információk a foglalással kapcsolatban", titleStyle="x2", translateKey="booking.booking_informations.title").info
@@ -187,21 +187,25 @@ hero-container((window:click)="closeCalendar()")
     .divider
     .checkbox-wrapper
       .checker
-        p
-          input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
-        p(translate key="booking.overview_form.privacy_notice_text")
+        label
+          p
+            input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
+          p(translate key="booking.overview_form.privacy_notice_text")
       .checker
-        p
-          input(translate key="booking.overview_form.newsletter_text", type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
-        p(translate key="booking.overview_form.newsletter_text",)
+        label
+          p
+            input(translate key="booking.overview_form.newsletter_text", type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
+          p(translate key="booking.overview_form.newsletter_text",)
       .checker
-        p
-          input(translate key="booking.overview_form.data_handling", type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
-        p(translate key="booking.overview_form.data_handling")
+        label
+          p
+            input(translate key="booking.overview_form.data_handling", type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
+          p(translate key="booking.overview_form.data_handling")
       .checker
-        p
-          input(translate key="booking.overview_form.house_rules", type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
-        p(translate key="booking.overview_form.house_rules")
+        label
+          p
+            input(translate key="booking.overview_form.house_rules", type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
+          p(translate key="booking.overview_form.house_rules")
     submit-button(translateKey="booking.overview_form.booking_now", type='submit', (click)="sendBooking()", [submitDisabled]="isSendingDisabled()") Foglalás most!
     p.back
       span(translate key="booking.personal_data_form.back_button", (click)='onBack("data")') Vissza

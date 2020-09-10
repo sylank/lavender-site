@@ -1,6 +1,6 @@
 .container
   .loading(*ngIf="showLoading")
     app-loading-circle(show="false")
-  h1(*ngIf="titleStyle === 'x1' || titleStyle === undefined") {{title}}
+  h1(translate [key]="translateKey", *ngIf="titleStyle === 'x1' || titleStyle === undefined") {{title}}
   h2(*ngIf="titleStyle === 'x2'") {{title}}
   ng-content

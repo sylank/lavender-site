@@ -1,5 +1,5 @@
 .notification-panel((keydown)="handleClose()", (click)="handleClose()")
-  card-container([title]="title", (click)="stopPropogation($event)")
+  card-container([translateKey]="titleTranslateKey", [title]="title", (click)="stopPropogation($event)")
     ng-content
     .button-container
-      submit-button((click)="handleClose()") Bezárás
+      submit-button(translateKey="delete_booking.dialog_button", (click)="handleClose()") Bezárás
