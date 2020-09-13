@@ -6,7 +6,7 @@ import { HttpUtils } from "./http.utils";
 import { BookingData } from "../booking/booking.data";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CalendarHttpService {
   constructor(private http: HttpClient) {}
@@ -28,10 +28,6 @@ export class CalendarHttpService {
     const fromDate = HttpUtils.convertArrivalDate(new Date(year, month, 1));
     const toDate = HttpUtils.convertDepartureDate(
       new Date(year, month, daysInMonth)
-    );
-
-    console.log(
-      `${HttpConstants.rootUrl}${HttpConstants.calendarQueryEndpoint}?fromDate=${fromDate}&toDate=${toDate}`
     );
 
     return this.http.get(
@@ -64,7 +60,7 @@ export class CalendarHttpService {
       phoneNumber: bookingData.phoneNumber,
       subscribe: bookingData.subscribe,
       personCount: bookingData.personCount + 1,
-      petCount: bookingData.petCount
+      petCount: bookingData.petCount,
     };
     return this.http.post(
       `${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`,
@@ -79,7 +75,7 @@ export class CalendarHttpService {
     const postData = {
       "g-recaptcha-response": reCaptchaToken,
       reservationId: deletionData.bookingSerial,
-      deletionMessage: deletionData.message
+      deletionMessage: deletionData.message,
     };
     return this.http.post(
       `${HttpConstants.rootUrl}${HttpConstants.calendarDeleteReservationEndpoint}`,

@@ -5,7 +5,7 @@ import {
   Output,
   EventEmitter,
   Input,
-  OnDestroy
+  OnDestroy,
 } from "@angular/core";
 import { CalendarService } from "./calendar.service";
 import { Subscription } from "rxjs";
@@ -15,7 +15,7 @@ import { ReservedRange } from "./reserved.range";
 @Component({
   selector: "app-calendar",
   templateUrl: "./calendar.component.pug",
-  styleUrls: ["./calendar.component.sass"]
+  styleUrls: ["./calendar.component.sass"],
 })
 export class CalendarComponent implements OnInit, OnDestroy {
   constructor(
@@ -45,7 +45,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     "szeptember",
     "október",
     "november",
-    "december"
+    "december",
   ];
 
   public days = ["H", "K", "Sze", "Cs", "P", "Szo", "V"];
@@ -141,7 +141,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.destroy.emit(false);
   }
 
-  @HostListener("click", ["$event"]) hostClick = event => {
+  @HostListener("click", ["$event"]) hostClick = (event) => {
     event.stopPropagation();
   };
 

@@ -1,0 +1,22 @@
+.submit
+  display: block
+  margin: 0 auto
+  border: none
+  cursor: pointer
+  border-radius: 10px
+  height: 40px
+  padding: 0 60px
+  color: #fff
+  font-size: 20px
+  background-color: #ab6cc3
+  margin-top: 20px
+  &:hover
+    background-color: #c88cde
+  &[disabled]
+    background-color: rgb(228, 215, 234)
+    cursor: not-allowed
+
+
+@media screen and (max-width: 364px)
+  .submit
+    height: 60px

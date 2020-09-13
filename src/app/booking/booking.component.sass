@@ -3,32 +3,13 @@
   padding: 0
   box-sizing: border-box
 
-.hero
-  display: flex
-  flex-direction: column
-  align-items: center
-  width: 100%
-  padding: 100px 50px
-  background-image: url("../../assets/img/booking-bg.jpg")
-  background-size: cover
+notification-dialog
+  .booking-id
+    margin: 0px auto 10px auto
+    font-size: 30px
 
 .background
   width: 100%
-
-.hero-content
-  position: relative
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  padding: 30px 60px
-  background-color: #fff
-  border-radius: 10px
-  box-shadow: 7px 7px 27px rgba(0, 0, 0, 0.33)
-  transition: height 500ms
-  max-width: 660px;
-  > p
-    font-size: 14px
-    font-weight: 500
 
 .divider
   width: 100%
@@ -180,23 +161,6 @@ h1
   font-size: 15px
   color: rgb(100, 100, 100)
 
-.submit
-  display: block
-  margin: 0 auto
-  border: none
-  cursor: pointer
-  border-radius: 10px
-  height: 40px
-  padding: 0 60px
-  color: #fff
-  font-size: 20px
-  background-color: #ab6cc3
-  &:hover
-    background-color: #c88cde
-  &[disabled]
-    background-color: rgb(228, 215, 234)
-    cursor: not-allowed
-
 .price-wrapper
   display: flex
   flex-direction: column
@@ -229,7 +193,7 @@ h1
   .person
     margin-left: 5px
 
-.checker
+.checker, label
   display: flex
 
 .far, .fas
@@ -275,13 +239,6 @@ h1
   background-color: rgba(0, 0, 0, 0.5)
 
 .info
-  padding: 30px 30px
-  margin-bottom: 25px
-  h2
-    font-weight: 500
-    color: #ab6cc3
-    margin-bottom: 15px
-    font-size: 16px
   p
     margin-bottom: 5px
     font-size: 12px
@@ -295,47 +252,6 @@ h1
   -webkit-appearance: none
   padding-bottom: 30px
   margin-bottom: 0px
-
-.result-wrapper
-  display: flex
-  flex-direction: column
-  font-size: 14px
-  font-weight: 500
-.result
-  text-align: center
-  i
-    font-size: 200px
-    margin-bottom: 15px
-  p
-    margin-bottom: 15px
-.success
-  i
-    color: #2292A4
-.failed
-  i
-    color: #FF6B35
-
-.loading
-  width: 100%
-  height: 100%
-  z-index: 3001
-  position: absolute
-  top: 0px
-  left: 0px
-
-.notification-panel
-  display: flex
-  justify-content: center
-  align-items: center
-  position: absolute
-  width: inherit
-  height: inherit
-  background: rgba(0,0,0,.25)
-  z-index: 800
-  .submit
-    margin-top: 30px
-  p
-    font-size: 12px
 
 .checkbox-wrapper
   font-size: 12px
@@ -360,13 +276,6 @@ a:visited
   color: #ab6cc3
 
 @media screen and (max-width: 485px)
-  .hero-content
-    padding: 20px
-    max-height: none
-    overflow: visible
-    .booking-form
-      width: 100%
-
   .date-picker
     display: flex
     flex-direction: column
@@ -402,13 +311,6 @@ a:visited
     z-index: 99999
 
 @media screen and (max-width: 548px)
-  .hero
-    padding-left: 0
-    padding-right: 0
-  .hero-content
-    width: 100%
-    border-radius: 0
-
   .house-chooser
     flex-direction: column
     align-items: center
