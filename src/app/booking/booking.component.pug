@@ -126,7 +126,7 @@ hero-container((window:click)="closeCalendar()")
       p.back
         span(translate key="booking.personal_data_form.back_button", (click)='onBack("person")') Vissza
 
-  card-container(*ngIf="bookingStage === 'overview'", title="Áttekintés", translateKey="booking.overview_form.title")
+  card-container(*ngIf="bookingStage === 'overview'", title="Áttekintés", translateKey="booking.overview_form.title", [showLoading]="showBookingLoading")
     // Overview
     .info-wrapper
       p.char-info(translate key="booking.overview_form.info") A foglalás elküldéséhez tekerj lejjebb.

@@ -37,6 +37,7 @@ export class BookingComponent implements OnInit {
 
   public dataProtection = false;
   public dataHandling = false;
+  public showBookingLoading = false;
   public houseRules = false;
 
   public bookingEnabled = environment.reservationEnabled;
@@ -266,6 +267,7 @@ export class BookingComponent implements OnInit {
 
   sendBooking() {
     this.showLoading = true;
+    this.showBookingLoading = true;
     this.reCaptchaV3Service.execute(
       HttpConstants.reCaptchaSiteKey,
       "booking",
@@ -296,6 +298,7 @@ export class BookingComponent implements OnInit {
               this.scrollToPosition();
 
               this.showSuccessfulBookingDialog = true;
+              this.showBookingLoading = false;
 
               this.googleAnalyticsService.eventEmitter(
                 GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
@@ -305,6 +308,7 @@ export class BookingComponent implements OnInit {
               );
             } else {
               this.showFailedBookingDialog = true;
+              this.showBookingLoading = false;
 
               this.googleAnalyticsService.eventEmitter(
                 GoogleAnalyticsConstants.SEND_BOOKING_SUBMIT_EVENT,
