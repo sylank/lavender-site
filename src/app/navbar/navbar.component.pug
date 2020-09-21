@@ -6,6 +6,12 @@ nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='chan
       a(routerLink='/apartments', routerLinkActive='active', (click)='clearHeader()', translate key="nav.gallery") Apartmanok
       a(routerLink='/events', routerLinkActive='active', (click)='clearHeader()', translate key="nav.events") Élmények
       a(routerLink='/contact', routerLinkActive='active', (click)='clearHeader()', translate key="nav.contacts") Kapcsolat
+
+      dropdown-button(title="Dokumentumok")
+        a(routerLink='/contact', routerLinkActive='active', (click)='clearHeader()', translate key="footer.house_rule") Házirend
+        a(routerLink='/events', routerLinkActive='active', (click)='clearHeader()', translate key="footer.booking_information") Foglalással kapcsolatos információk
+        a(routerLink='/home', routerLinkActive='active', (click)='clearHeader()', translate key="footer.privacy_statement") Adatvédelmi nyilatkozat
+
       a(routerLink='/delete-booking', routerLinkActive='active', (click)='clearHeader()', translate key="nav.cancel") Lemondás
       a.booking(routerLink='/booking', (click)='clearHeader()', translate key="nav.booking") Foglalás
       .language-selector((click)='langSelector=!langSelector', [ngClass]="'lng-' + getLanguageClass()")

@@ -1,0 +1,44 @@
+a
+  display: flex
+  align-items: center
+  text-decoration: none
+  color: white
+  font-size: 16px
+  margin-left: 20px
+  &:hover
+    color: #c4e372
+    cursor: pointer
+
+i
+  margin-left: 8px
+  font-size: 20px
+  &:hover
+    color: #c4e372
+    cursor: pointer
+
+.rotatedArrow
+  transform: rotate(180deg);
+
+.dropdown-menu-list
+  display: flex
+  flex-direction: column
+  position: absolute
+  margin-left: 5px
+  margin-top: 10px
+  background: white
+  border-radius: 10px
+  box-shadow: 7px 7px 27px rgba(0, 0, 0, 0.33)
+  padding: 10px 0
+  min-width: 120px
+  max-width: 190px
+
+  ::ng-deep a
+    margin: 0
+    width: 100%
+    padding: 10px 10px
+    margin: 0
+    color: black
+    &:hover
+      color: #c4e372
+      background: black
+      cursor: pointer
