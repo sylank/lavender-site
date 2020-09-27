@@ -45,7 +45,7 @@
   "delete_booking": {
     "dialog_title": "Attention!",
     "dialog_text": "We have begun canceling the reservation associated with the following ID:",
-    "dialog_infos": "The required information has been sent to the email address you provided at the time of booking and you will find details <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>about the booking.</a>.",
+    "dialog_infos": "The required information has been sent to the email address you provided at the time of booking and you will find details <a href='/booking-info'>about the booking.</a>.",
     "farwell": "Hope to see you again.",
     "dialog_button": "Cancel",
     "title": "Cancel booking",
@@ -81,7 +81,7 @@
       "dialog_desc1": "Please try another date or contact us on Facebook."
     },
     "house_chooser": {
-      "choose_caption": "Choose apartments, <a target='_blank' rel='noopener noreferrer' href='https://levendulabalatonmaria.info/gallery'> more information</a>.",
+      "choose_caption": "Choose apartments, <a href='https://levendulabalatonmaria.info/gallery'> more information</a>.",
       "lavender1_title": "Levendula 1",
       "lavender1_subtitle": "Levendula Apartman (left) - for 5 people",
       "lavender2_title": "Levendula 2",
@@ -121,10 +121,10 @@
       "mobile": "Phone number:",
       "email": "E-mail:",
       "hint_placeholder": "No Comments",
-      "privacy_notice_text": "I have read and accept the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>Privacy statement</a>! *",
+      "privacy_notice_text": "I have read and accept the <a href='/privacy-statement'>Privacy statement</a>! *",
       "newsletter_text": "I would like to be notified by email!",
       "data_handling": "I consent to the management of my data! *",
-      "house_rules": "I have read and accept the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf'>house policy</a> and the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>booking terms</a>! *",
+      "house_rules": "I have read and accept the <a href='/house-rules'>house policy</a> and the <a href='/booking-info'>booking terms</a>! *",
       "booking_now": "Book now!"
     },
     "results": {
@@ -139,12 +139,12 @@
       "desc1": "- The place accommodates small dogs and cats.",
       "desc2": "- Tourist tax (IFA) is not included",
       "desc3": "- The high season runs from 15 June to 31 August.",
-      "desc_otp": "- You can even pay with <a target='_blank' rel='noopener noreferrer' href='https://www.otpportalok.hu/fooldal/'> OTP SZÉP kártya</a>.",
+      "desc_otp": "- You can even pay with <a href='https://www.otpportalok.hu/fooldal/'> OTP SZÉP kártya</a>.",
       "desc4": "- <b>Seven nights (Saturday to Saturday) are most likely</b> to be booked during the high season. A minimum of two nights can be booked in low season.",
       "desc5": "- The booked time period is considered official after the deposit has been transferred. Unconfirmed bookings will be canceled within 72 hours!",
-      "desc6": "- Please enter your booking number in the bank transfer notice. Details for making a deposit via the <a href='/contact'>contact menu</a> as well as the progress of the transfer via email and <a target='_blank' rel='noopener noreferrer', href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>you can find here</a>.",
+      "desc6": "- Please enter your booking number in the bank transfer notice. Details for making a deposit via the <a href='/contact'>contact menu</a> as well as the progress of the transfer via email and <a target='_blank' rel='noopener noreferrer', href='/booking-info'>you can find here</a>.",
       "desc7": "- Arrival on the booked day is from 14:00, departure is from 10:00.",
-      "desc8": "- For details about cancellation and other information, please see the  <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>at the link below</a> or in the confirmation email. "
+      "desc8": "- For details about cancellation and other information, please see the  <a href='/booking-info'>at the link below</a> or in the confirmation email. "
     }
   },
   "subscribe": {
@@ -157,6 +157,11 @@
     "title": "Sign up for newsletter",
     "description1": "If you would like to be informed about the news and our seasonal offers, sign up for our newsletter and we will inform you about the latest information.",
     "description2": "Information on unsubscribing can be found in the footnote of the newsletter.",
+    "description3": "There are a few topics you will definitely find in our newsletters:",
+    "description4": "<b>House-related novelties and remodeling</b>: We will inform you if we have done any renovation or remodeling of the apartment, and we will write to you if we introduce a new service.",
+    "description5": "<b>Seasonal offers</b>: We will inform you about our seasonal prices as well as information about our holiday offers.",
+    "description6": "<b>Last minute occasions</b>: It's also a good idea to sign up for our newsletter system because cancellation may result in the availability of times that are right for you again.",
+    "description7": "<b>Questionnaires</b>: In the future, we may ask for your opinion on a remodeling, service, so we can design your vacation home and the environment as you wish.",
     "data": {
       "title": "Data:",
       "email": "*E-mail",
@@ -168,7 +173,7 @@
   },
   "cookie-bar": {
     "title": "We use cookies for a better user experience",
-    "description": "What are cookies? Visit <a target='_blank' rel='noopener noreferrer' href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>to this page</a>. How the Lavender Apartment uses cookies? You can find more information on <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf'>this page</a>.",
+    "description": "What are cookies? Visit <a href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>to this page</a>. How the Lavender Apartment uses cookies? You can find more information on <a href='/privacy-statement'>this page</a>.",
     "button": "Okay"
   },
   "delete_user_data": {
@@ -182,7 +187,7 @@
     "desc1": "Once you have submitted your booking, the data you provide will be stored for statistical and analytical purposes. As this is personal data, you can request that the data be removed from the system at any time.",
     "desc2": "You can delete your data by pressing the <i>Clear Data</i> button.",
     "desc3": "<b> Important: </b> In this case, we will only delete your stored data, you can find more information in the newsletter to unsubscribe from the newsletter.",
-    "desc4": "Details of the use of the data can be found on the <a target='_blank' rel='noopener noreferrer' href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf'>following page</a>!",
+    "desc4": "Details of the use of the data can be found on the <a href='/booking-info'>following page</a>!",
     "data_caption": "Data:",
     "email_placeholder": "*E-mail",
     "cancelation_reason_placeholder": "Cause of deletion (optional)",
