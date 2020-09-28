@@ -10,13 +10,11 @@ export class LanguageService {
   private languageFiles = {
     hu: "../../assets/lng/hu.json",
     en: "../../assets/lng/en.json",
-    de: "../../assets/lng/de.json",
   };
 
   private translations = {
     hu: {},
     en: {},
-    de: {},
   };
 
   private selectedLanguage: string;

@@ -194,5 +194,8 @@
     "info_mandatory": "A *-al jelölt mezők kitöltése kötelező",
     "info_char_remaining": "Ennyi karakter maradt:",
     "checkbox": "Törölni szeretném az adataimat!"
+  },
+  "house_rules": {
+    "translated_by": ""
   }
 }

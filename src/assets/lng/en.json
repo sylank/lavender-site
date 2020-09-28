@@ -194,5 +194,8 @@
     "info_mandatory": "Fields marked with * are required",
     "info_char_remaining": "Remaining characters:",
     "checkbox": "I would like to delete my personal data!"
+  },
+  "house_rules": {
+    "translated_by": "Translated by Google Translate"
   }
 }
