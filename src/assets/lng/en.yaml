@@ -1,0 +1,367 @@
+nav:
+  home: Home
+  gallery: Apartments
+  events: Events
+  contacts: Contacts
+  cancel: Cancellation
+  booking: Booking
+footer:
+  menu: Menu
+  information: Information
+  house_rule: House rules
+  booking_information: About booking
+  privacy_statement: Privacy notice
+  delete_user_data: Delete user data
+home:
+  free_periods: Free weeks
+  introduction: Introduction
+  intro1: >-
+    We have been dreaming about a place like Levendula apartment for a long time
+    ago. The dream comes true in 2017. We grow up by the lake of Balaton and we
+    wanted to share the feeling with the others. It took a long time to find the
+    best place, but finally, we found an old house. We had to fully renovate it
+    but it worth the time and the cost because we could customize the building
+    on our own. During the renovation we tried to create a modern apartment
+    with: instead of the old small porch we created two big terraces where you
+    are able to have BBQ, there is a built-in air conditioner and it is suitable
+    for heating too, the original walls are re-arranged and built-in new
+    windows. The renovation took about a year, but it is not the end. When we do
+    not have guests we continuously maintain the building and the garden as
+    well.
+  intro2: >-
+    So after renovation and customization, we could welcome our first guests in
+    the summer of 2018. It was really exciting. We handed over the keys to our
+    first guest with a heavy heart because during the year we fell in love with
+    our little house but on the other hand, it was ready for the guests. However
+    we take scheduled maintains we want to give you an easy booking solution, so
+    you should have to have a good time during your holiday. Everybody in the
+    family is helping us to maintain the apartment, for example, this website is
+    made by our son.
+  intro3: >-
+    I hope during your holiday you would have enough time to discover the local
+    sights or events. You can find some event ideas on this site. Thank you to
+    reach us and visit our website. I hope we will see each other in the near
+    future in the Levendula Apartman at Balatonmáriafürdő.
+events:
+  title: Upcoming events
+  cat_all: All
+  cat_walk: By walk
+  cat_bike: By bicycle
+  cat_car: By car
+  not_found: Events not found
+  distance: "Distance:"
+  location: "Location:"
+  web: "Website:"
+  click_here: Click here!
+contacts:
+  title: Levendula Apartman
+  show: Show
+  contact_person: Contact person
+  phone: Mobile
+  email: E-mail
+  address: Address
+delete_booking:
+  dialog_title: Attention!
+  dialog_text: "We have begun canceling the reservation associated with the following ID:"
+  dialog_infos: >-
+    The required information has been sent to the email address you provided at
+    the time of booking and you will find details <a href='/booking-info'>about
+    the booking.</a>.
+  farwell: Hope to see you again.
+  dialog_button: Cancel
+  title: Cancel booking
+  desc1: >-
+    To cancel your booking, you must provide the booking ID you received after
+    booking. Each step will be emailed to you.
+  desc2: >-
+    Pressing the <i>Cancel</i> button will begin the process of canceling your
+    reservation.
+  desc3: >-
+    <b>Important:</b> We can only cancel your booking with a valid booking ID.
+    Details can be found at the link below!
+  data_caption: "Data:"
+  booking_id_placeholder: "*Booking ID"
+  cancelation_reason_placeholder: Reason of the cancellation (optional)
+  info_mandatory: Fields marked with * are required
+  info_char_remaining: "Remaining characters:"
+  checkbox: I would like to cancel my booking
+  button: Cancel
+booking:
+  dialog:
+    dialog_header: Caution!
+    dialog_desc1: Reservation through the website is currently paused.
+    dialog_desc2: >-
+      You can view your free dates, but you will not be able to submit a new
+      booking through the website.
+    dialog_desc3: >-
+      Please indicate your reservation intention on <a target='_blank',
+      rel='noopener noreferrer',
+      href='https://www.facebook.com/levendulabalatonmaria'>Facebook</a> or one
+      of our <a target='_blank', rel='noopener noreferrer',
+      href='https://levendulabalatonmaria.info/contact'>contact details</a>.
+    dialog_desc4: Thank you for your patience.
+    dialog_button: Close
+  success_dialog:
+    dialog_header: Successful booking!
+    dialog_desc1: "We have temporarily booked with your provided data on this ID:"
+    dialog_desc2: >-
+      You can finalize your reservation by sending a deposit money. If the
+      deposit money is not received within 72 hours, your booking will be
+      automatically canceled.
+    dialog_desc3: >-
+      We will inform you about the further details of the reference by e-mail
+      (if you have not received a letter from us, please check your spam as
+      well).
+    dialog_desc4: "Have a nice day, Levendula Apartman"
+  failed_dialog:
+    dialog_header: Unsuccessful booking!
+    dialog_desc1: Please try another date or contact us on Facebook.
+  house_chooser:
+    choose_caption: >-
+      Choose apartments, <a href='https://levendulabalatonmaria.info/gallery'>
+      more information</a>.
+    lavender1_title: Levendula 1
+    lavender1_subtitle: Levendula Apartman (left) - for 5 people
+    lavender2_title: Levendula 2
+    lavender2_subtitle: Levendula Apartman (right) - for 5 people
+    coming_soon: Reach us on facebook
+  date_form:
+    title: Booking
+    choose_date: Choose a date or just look at the free weeks.
+    arrival: Arrival
+    departure: Departure
+    summary: Total payable
+    night_count: nights)
+    before_money: Down payment (30%)
+    person_count: People (adult + child) *
+    pet_count: Pet *
+    next_button: Next
+  personal_data_form:
+    title: Personal data
+    personal_data: Booking details
+    first_name: "*Surname (Smith)"
+    last_name: "*First Name (Paul)"
+    mobile: "*Phone number (+36301234567)"
+    email: "*Email (example@email.com)"
+    hints: Notices
+    back_button: Back
+  overview_form:
+    title: Overview
+    info: Scroll down to submit your reservation.
+    person_count: "Number of people:"
+    pet_count: "Number of four-legged:"
+    person: person
+    pets: pets
+    full_name: "Full name:"
+    mobile: "Phone number:"
+    email: "E-mail:"
+    hint_placeholder: No Comments
+    privacy_notice_text: >-
+      I have read and accept the <a href='/privacy-statement'>Privacy
+      statement</a>! *
+    newsletter_text: I would like to be notified by email!
+    data_handling: I consent to the management of my data! *
+    house_rules: >-
+      I have read and accept the <a href='/house-rules'>house policy</a> and the
+      <a href='/booking-info'>booking terms</a>! *
+    booking_now: Book now!
+  results:
+    title: Booking request sent
+    description: >-
+      Your reservation request has been submitted for review. Further steps have
+      been sent to the email address you provided.
+    reservation_info: "Booking ID:"
+    failed_text: Failed reservation
+    failed_description: Please try again.
+  booking_informations:
+    title: Information about booking
+    desc1: "- The place accommodates small dogs and cats."
+    desc2: "- Tourist tax (IFA) is not included"
+    desc3: "- The high season runs from 15 June to 31 August."
+    desc_otp: >-
+      - You can even pay with <a href='https://www.otpportalok.hu/fooldal/'> OTP
+      SZÉP kártya</a>.
+    desc4: >-
+      - <b>Seven nights (Saturday to Saturday) are most likely</b> to be booked
+      during the high season. A minimum of two nights can be booked in low
+      season.
+    desc5: >-
+      - The booked time period is considered official after the deposit has been
+      transferred. Unconfirmed bookings will be canceled within 72 hours!
+    desc6: >-
+      - Please enter your booking number in the bank transfer notice. Details
+      for making a deposit via the <a href='/contact'>contact menu</a> as well
+      as the progress of the transfer via email and <a target='_blank'
+      rel='noopener noreferrer', href='/booking-info'>you can find here</a>.
+    desc7: "- Arrival on the booked day is from 14:00, departure is from 10:00."
+    desc8: >-
+      - For details about cancellation and other information, please see the  <a
+      href='/booking-info'>at the link below</a> or in the confirmation email.
+subscribe:
+  floating_text: Newsletter
+  success:
+    title: Thank You!
+    description: >-
+      You have successfully subscribed to our newsletter. You can find details
+      about unsubscribing in the footer of the newsletter.
+    button: Close
+  title: Sign up for newsletter
+  description1: >-
+    If you would like to be informed about the news and our seasonal offers,
+    sign up for our newsletter and we will inform you about the latest
+    information.
+  description2: Information on unsubscribing can be found in the footnote of the newsletter.
+  description3: "There are a few topics you will definitely find in our newsletters:"
+  description4: >-
+    <b>House-related novelties and remodeling</b>: We will inform you if we have
+    done any renovation or remodeling of the apartment, and we will write to you
+    if we introduce a new service.
+  description5: >-
+    <b>Seasonal offers</b>: We will inform you about our seasonal prices as well
+    as information about our holiday offers.
+  description6: >-
+    <b>Last minute occasions</b>: It's also a good idea to sign up for our
+    newsletter system because cancellation may result in the availability of
+    times that are right for you again.
+  description7: >-
+    <b>Questionnaires</b>: In the future, we may ask for your opinion on a
+    remodeling, service, so we can design your vacation home and the environment
+    as you wish.
+  data:
+    title: "Data:"
+    email: "*E-mail"
+    first_name: First Name
+    last_name: Last Name
+  hint: Fields marked with * are required
+  button: Sign up
+cookie-bar:
+  title: We use cookies for a better user experience
+  description: >-
+    What are cookies? Visit <a
+    href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>to this page</a>. How
+    the Lavender Apartment uses cookies? You can find more information on <a
+    href='/privacy-statement'>this page</a>.
+  button: Okay
+delete_user_data:
+  dialog:
+    dialog_title: Attention!
+    dialog_desc1: We have started deleting the data belonging to the e-mail address.
+    dialog_desc2: >-
+      Information on unsubscribing to the newsletter can be found in the
+      footnote of the newsletter.
+  delete_button: Delete data
+  title: Delete user data
+  desc1: >-
+    Once you have submitted your booking, the data you provide will be stored
+    for statistical and analytical purposes. As this is personal data, you can
+    request that the data be removed from the system at any time.
+  desc2: You can delete your data by pressing the <i>Clear Data</i> button.
+  desc3: >-
+    <b> Important: </b> In this case, we will only delete your stored data, you
+    can find more information in the newsletter to unsubscribe from the
+    newsletter.
+  desc4: >-
+    Details of the use of the data can be found on the <a
+    href='/booking-info'>following page</a>!
+  data_caption: "Data:"
+  email_placeholder: "*E-mail"
+  cancelation_reason_placeholder: Cause of deletion (optional)
+  info_mandatory: Fields marked with * are required
+  info_char_remaining: "Remaining characters:"
+  checkbox: I would like to delete my personal data!
+house_rules:
+  title: House rules
+  translated_by: Translated by Google Translate
+  content: >-
+    <p> Lavender Apartment welcomes you as a guest. We hope you enjoy your stay.
+    <h2> Hotel reservation </h2>
+    <p> The reservation is made by e-mail, letter, telephone or via the website.
+        <b> 30% deposit paid </b>.
+    </p>
+    <p> In case of no-show, we will not be able to refund the deposit. </p>
+    <p> The accommodation fee includes utilities and other overheads, bed linen with a cover, weekly linen change for stays of more than a week, and final cleaning. </p>
+    <h3> Login / Logout </h3>
+    <p> Accommodation can be booked between 14:00 and 20:00 on the day of arrival. You must leave the house no later than 10:00 on the day of departure. </p>
+    <p> Levendula Apartman is suitable for guests, but can accommodate a pre-arranged number of people. </p>
+    <h3> Payment </h3>
+    <p> The balance of the accommodation fee and the tourist tax will be paid upon arrival at the same time as the check-in form. </p>
+    <p> If, for any reason, you leave the accommodation before the end of the pre-booked period, we will not be able to reduce or refund the accommodation fee. </p>
+    <h2> Yard and building closure </h2>
+    <p> When leaving and for the night, please lock the gate and the entrances to the building! In the event of any loss of the handed-over keys, guests are required to report it immediately and reimburse the hotel for the price or replacement. </p>
+    <h2> Smoking </h2>
+    <p> Smoking is only allowed in designated areas. We respectfully ask our smoking guests not to scatter the butts in the yard and throughout the guest house in order to maintain cleanliness, but to collect them in the trash.
+        <b> No smoking in the building! </b> </p>
+    <h2> Using Furnishings </h2>
+    <p> Please use the equipment as intended! The furnishings and equipment of the rooms, including towels, blankets and bed linen, must not be taken out of the house! </p>
+    <p> Furniture can only be rearranged with the owner's consent. Upon arrival and departure, the rooms will be inspected and, in the event of any damage, the resulting costs will be reimbursed to the guest on site. We respectfully ask
+        You should not apply insects to the wall surface. </p>
+    <h2> Cleaning </h2>
+    <p> The rooms are taken over by the guests clean and tidy. Bed linen change once a week for stays longer than 7 days. Of course, we will meet other needs at an additional cost. </p>
+    <h2> Garbage disposal, treatment </h2>
+    <p> It is possible to collect household rubbish in the trash can in the kitchen (the kitchen trash bag is in the drawer). If this happens during your stay, please empty it into the trash next to the house. </p>
+    <h2> Meals </h2>
+    <p> The guest house has a well-equipped kitchen. Guests take care of themselves. A cooking hob and microwave are at guests' disposal. Do not place metal objects in the microwave. Please do not eat in the rooms! </p>
+    <h2> Other </h2>
+    <p> Please note that the owner is not in a position to accept liability and compensation for damages or accidents resulting from events beyond his / her own fault (eg natural disaster, hail, fire, power failure, etc.). </p>
+    <p> If you have any problems with the apartment or room during your stay, please inform the hotel immediately. We are unable to accept subsequent complaints! </p>
+    <p> In the event of a fire, start the rescue immediately and call the firefighters at 105 and then the landlord! </p>
+    <p> When you leave the property permanently, you must hand over the key to the hotel. Pets are not allowed in the apartment or guest room without permission. We are not responsible for personal items left in the rooms. Bed linen, dishwashing sponge,
+        we provide paper towels, soap, toilet paper! </p>
+    <p> The owners have the right to cancel the accommodation if the guest does not follow the policy if he breaks the peace. All disputes that cannot be discussed with each other will be settled through Civil Litigation. </p>
+    </p>
+booking_info:
+  title: Booking information
+  translated_by: "Translated by Google Translate"
+  content: >-
+    <p>
+        Below you will find information about booking and canceling your booking. Information on the advance payment (e-mail, telephone number, etc.) a
+        Under <a routerLink="/contact"> connections </a>.
+      </p>
+      <h2> Submit a reservation </h2>
+      <p>
+        On the website a
+        <a routerLink="/contact"> Booking </a>
+        In the calendar view, you can see the free (unoccupied) days in the traditional black font color, the busy letters in gray letters and the unconfirmed reservations in yellow letters.
+      </p>
+      <p> Unconfirmed bookings will expire after <b> 72 hours </b>, so that period will be freed up and can be booked by other users. </p>
+      <p> You can easily submit your reservation under the reservation menu. All fields are required for a successful booking, except for the comments section, which is optional. </p>
+      <p> The fields are: </p>
+      <ul>
+        <li> <b> Arrival and Departure </b>: Here you can choose from free times. </li>
+        <li> <b> Name </b>: Please enter your name as you would like it to be addressed (adhering to the Code of Ethics) </li>
+        <li> <b> Phone number </b>: Please enter a real phone number. </li>
+        <li> <b> Email </b>: Entering the correct email address is the most important thing as we will send your booking ID and additional information here. </li>
+        <li> <b> Note </b>: If you have a message for us about your booking, you can write it here. </li>
+      </ul>
+      <p> If we're done filling out the information, we'll be able to verify the information we've provided for the last time on the overview page, and you'll need to accept a few of the checkboxes below. </p>
+      <p> Until we accept the required fields, we will not be able to place your online reservation. </p>
+      <ul>
+        <li> <b> Privacy Statement (Required) </b>: Required for online data management and online booking. Details a
+          <a routerLink="/privacy-statement"> document. </a>
+        </li>
+        <li> <b> Newsletter Subscription Statement (Optional) </b>: If you would like to be notified
+          <a routerLink="/subscribe"> news and promotions </a>
+          , please check this box as well. You can find information about unsubscribing and data management in the privacy statement, and you will also receive an abbreviated version by e-mail after subscribing.
+        </li>
+        <li> <b> Privacy Statement (Required) </b>: Your booking information will be read and stored in our system and will be deleted and processed after a period of time. Required to submit an online reservation
+          <a routerLink="/privacy-statement"> Privacy Statement </a>
+          adoption as well.
+        </li>
+        <li> <b> Adoption Policy (Required) </b>: We want to keep the apartment in the best possible condition, but it's up to you. THE
+          <a routerLink="/house-rules"> policy </a>
+          compliance is expected. Please accept the policy, this is required to make an online booking.
+        </li>
+      </ul>
+      <p> Once you have accepted the required checkboxes, you can submit your booking and if the booking was successful you will receive a booking ID which will also be emailed to you. You can further manage your reservation with this ID. The time interval you entered will be temporarily booked, meaning that others will not be able to book that time, but you will need to finalize your reservation or it will be canceled automatically within 72 hours. </p>
+      <h2> Finalize booking </h2>
+      <p> After a successful booking, you must finalize your booking by sending a deposit, which you can do within 72 hours of booking. <b> IMPORTANT </b> that non-confirmed bookings will be automatically canceled after 72 hours so we cannot guarantee that other users do not include that date. It is a good idea not to leave the deposit to be sent at the last minute, but to finalize it after booking. </p>
+      <p> <b> IMPORTANT </b>, please include your booking ID in the referral message, as we can identify the basis of your booking. If you accidentally forget this, we can call or email you, but please don't forget to book quickly and smoothly. </p>
+      <p> <b> IMPORTANT </b> also that the Tourist Tax (IFA) is not included in the price, it is paid on the spot. </p>
+      <p> We'll notify you via email within a few hours of finalizing, please be patient as this is a manual step on our part, as we will need to retrieve your transfer details with your booking ID in the banking system (your transfer details will not be stored or used in any form, remain in the system provided by the bank). </p>
+      <p> Everything was successful, we look forward to seeing you on that day. </p>
+      <h2> Cancel a reservation </h2>
+      <p>
+        The cancellation process for your booking can be found on the website
+
+        <a routerLink="/delete-booking"> Cancel a reservation </a>
+        menu item

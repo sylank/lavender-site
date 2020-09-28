@@ -1,0 +1,380 @@
+nav:
+  home: Kezdőlap
+  gallery: Apartmanok
+  events: Élmények
+  contacts: Kapcsolat
+  cancel: Lemondás
+  booking: Foglalás
+footer:
+  menu: Menü
+  information: Információk
+  house_rule: Házirend
+  booking_information: Foglalással kapcsolatos információk
+  privacy_statement: Adatvédelmi nyilatkozat
+  delete_user_data: Felhasználói adatok törlése
+home:
+  free_periods: Szabad időpontok
+  introduction: Bemutatkozás
+  intro1: >-
+    A Levendula apartman egy régóta dédelgetett álmunk volt, mely 2017-ben vált
+    valósággá. Férjemmel mindketten a Balaton mellett nőttünk fel és szerettünk
+    volna abból a sok szépségből és élményből másoknak is átadni amennyit csak
+    lehet. Hosszú keresés után bukkantunk rá egy ideális helyen lévő házra,
+    melyet teljesen felújítottunk. A felújítás során igyekeztünk mindenre
+    gondolni, amely az itteni időtöltést megszépíti: az apró veranda helyett
+    két, nagyobb méretű, grillezésre is alkalmas teraszt építettünk, a házat
+    fűtő-hűtő klímával és remekül szigetelő ablakokkal láttuk el és a ház
+    elrendezését is átalakítottuk a maximális kényelem érdekében. A munka
+    nagyjából egy évig tartott, de nem álltunk meg: a szabad időpontokban
+    folyamatosan újítjuk, alakítjuk a házat és a kertet is.
+  intro2: >-
+    A 2018-as nyarat már vendégekkel kezdtük - Izgalommal vártuk az első lakókat
+    és a kulcsok átadása után nehéz szívvel hagytuk magára szeretett
+    nyaralónkat, mely immáron megérett a nyaralni vágyók fogadására. A ház
+    gondozása mellett ügyelünk arra is, hogy a foglalás és az ott töltött idő
+    alatt minden olajozottan menjen. Ebben nagy segítségünkre van fiúnk, akinek
+    többek között ezt a weboldalt is köszönhetjük.
+  intro3: >-
+    Bízunk benne, hogy leendő vendégeink, nemcsak a házban, de a környékbeli
+    élményekben is örömüket lelik, ezért itt, az oldalon mindig frissítjük a
+    közeli programok, élmények listáját. Családom nevében is köszönöm, hogy
+    ellátogatott az oldalunkra, és bízunk benne, hogy hamarosan vendégként
+    üdvözölhetjük Önt a balatonmáriafürdői Levendula apartmanban.
+events:
+  title: "Közelben lévő programok, élmények"
+  cat_all: Összes
+  cat_walk: Gyalog
+  cat_bike: Bicikli
+  cat_car: Autó
+  not_found: Jelenleg nincsenek közelgő élmények
+  distance: "Távolság:"
+  location: "Helyszín:"
+  web: "Weboldal:"
+  click_here: Kattints ide!
+contacts:
+  title: Levendula Apartman
+  show: Mutat
+  contact_person: Kapcsolattartó
+  phone: Telefon
+  email: E-mail
+  address: Cím
+delete_booking:
+  dialog_title: Figyelem!
+  dialog_text: "Az alábbiakban megadott azonosítóhoz rendelt foglalás törlését megkezdtük:"
+  dialog_infos: " A szükséges információkat a foglaláskor megadot e-mail címre elküldtük, valamint részleteket a foglalással kapcsolatos <a href='/booking-info'> dokumentumban találsz</a>."
+  farwell: Reméljük még találkozunk.
+  dialog_button: Bezárás
+  title: Foglalás lemondása
+  desc1: >-
+    A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási
+    azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
+  desc2: >-
+    A <i>Lemondás</i> gomb lenyomásával elkezdődik a foglalás törlésének
+    folyamata.
+  desc3: >-
+    <b> Fontos: </b> Csak érvényes foglalás azonosítóval tudjuk törölni a
+    foglalásodat. Részleteket az <a href='/booking-info'>alábbi linken</a>
+    találsz!
+  data_caption: "Adatok:"
+  booking_id_placeholder: "*Azonosító"
+  cancelation_reason_placeholder: Lemondás oka (opcionális)
+  info_mandatory: A *-al jelölt mezők kitöltése kötelező
+  info_char_remaining: "Ennyi karakter maradt:"
+  checkbox: Le szeretném mondani a foglalásom!
+  button: Lemondás
+booking:
+  dialog:
+    dialog_header: Figyelem!
+    dialog_desc1: Foglalás a weboldalon keresztül jelenleg szünetel.
+    dialog_desc2: >-
+      A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a
+      weboldalon keresztül.
+    dialog_desc3: >-
+      Foglalási szándékodat kérlek <a target='_blank', rel='noopener
+      noreferrer',
+      href='https://www.facebook.com/levendulabalatonmaria'>Facebookon</a> vagy
+      az <a target='_blank', rel='noopener noreferrer',
+      href='https://levendulabalatonmaria.info/contact'>elérhetőségeink</a>
+      valamelyikén jelezd.
+    dialog_desc4: Megértésed köszönjük!
+    dialog_button: Bezárás
+  success_dialog:
+    dialog_header: Sikeres foglalás!
+    dialog_desc1: >-
+      Foglalásodat az általad megadott adatokkal az alábbi azonosítóval
+      ideiglenesen lefoglaltuk:
+    dialog_desc2: >-
+      Foglalásodat az előleg elküldésével tudod véglegesíteni. Amennyiben nem
+      érkezik meg a foglaló 72 órán belül, a foglalásod automatikusan törlésre
+      kerül.
+    dialog_desc3: >-
+      Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál
+      levelet tőlük akkor kérlek ellenőriz a levélszemétben is).
+    dialog_desc4: "További szép napot, Levendula Apartman"
+  failed_dialog:
+    dialog_header: Sikertelen foglalás!
+    dialog_desc1: "Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon."
+  house_chooser:
+    choose_caption: >-
+      Válassz apartmant, <a href='https://levendulabalatonmaria.info/gallery'>
+      további információk</a>.
+    lavender1_title: Levendula 1
+    lavender1_subtitle: Levendula Apartman (baloldal) - 5 fő részére
+    lavender2_title: Levendula 2
+    lavender2_subtitle: Levendula Apartman (jobboldal)- 5 fő részére
+    coming_soon: Érdeklődj facebookon
+  date_form:
+    title: Foglalás
+    choose_date: Válassz időpontot vagy csak nézd meg a szabad heteket.
+    arrival: Érkezés
+    departure: Távozás
+    summary: Összesen fizetendő
+    night_count: éjszaka)
+    before_money: Előleg (30%)
+    person_count: Személyek (felnőtt + gyermek) *
+    pet_count: Négylábú személyek *
+    next_button: Tovább
+  personal_data_form:
+    title: Személyes adatok
+    personal_data: Foglalási adatok
+    first_name: "*Vezetéknév (Kovács)"
+    last_name: "*Keresztnév (Pál)"
+    mobile: "*Telefonszám (+36301234567)"
+    email: "*E-mail (pelda@email.hu)"
+    hints: Megjegyzések
+    back_button: Vissza
+  overview_form:
+    title: Áttekintés
+    info: A foglalás elküldéséhez tekerj lejjebb.
+    person_count: "Személyek száma:"
+    pet_count: "Négylábúak száma:"
+    person: fő
+    pets: ""
+    full_name: "Teljes név:"
+    mobile: "Telefonszám:"
+    email: "E-mail:"
+    hint_placeholder: Nincsenek megjegyzések
+    privacy_notice_text: >-
+      Elolvastam és elfogadom az <a href='/privacy-statement'>adatvédelmi</a>
+      nyilatkozatot! *
+    newsletter_text: Szeretnék értesülni az újdonságokról e-mail-ben!
+    data_handling: Hozzájárulok a megadott adataim kezeléséhez! *
+    house_rules: >-
+      Elolvastam és elfogadom a <a href='/house-rules'>házirendet</a> és a <a
+      href='/booking-info'>foglalási feltételeket</a> ! *
+    booking_now: Foglalás most!
+  results:
+    title: Foglalási igény elküldve
+    description: >-
+      Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott
+      e-mail címre elküldtük.
+    reservation_info: "Foglalási azonosító:"
+    failed_text: Sikertelen foglalás
+    failed_description: Kérjük próbálja meg más időponttal.
+  booking_informations:
+    title: Információk a foglalással kapcsolatban
+    desc1: "- A szálláshely kistestű kutya és macskaféle befogadására alkalmas."
+    desc2: "- Az Idegenforgalmi Adó (IFA) nincs az árban."
+    desc3: "- A főszezon június 15-től augusztus 31-ig tart."
+    desc_otp: >-
+      - Akár <a href='https://www.otpportalok.hu/fooldal/'> OTP SZÉP kártyás</a>
+      fizetést is igénybe vehetsz.
+    desc4: >-
+      - <b>Főszezonban leginkább hét éjszakás (szombattól szombatig)</b>
+      foglalásokat várunk. Szezonon kívül minimum két éj foglalható.
+    desc5: >-
+      - A lefoglalt időintervallumot az előleg átutalása után tekintjük
+      hivatalosnak. A vissza nem igazolt foglalások 72 órán belül törlődnek!
+    desc6: >-
+      - Kérlek az utalás közleményébe írd bele a foglalási számod. Előleg
+      átutalásához szükséges adatokat a <a href='/contact'> kapcsolat menüpont
+      alatt</a> valamint az utalás menetéről e-mail-ben és <a target='_blank'
+      rel='noopener noreferrer', href='/booking-info'>az alábbi linken</a>
+      találsz.
+    desc7: >-
+      - Érkezés a foglalt napon 14:00 órától lehetséges, a távozás 10:00 órától
+      szükséges.
+    desc8: >-
+      - Lemondásról és egyéb információkról részleteket az <a
+      href='/booking-info'>az alábbi linken</a> vagy a visszaigazoló e-mail-ben
+      találsz.
+subscribe:
+  floating_text: Hírlevél
+  success:
+    title: Köszönjük!
+    description: >-
+      Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a
+      hírlevél lábrészében találsz.
+    button: Bezárás
+  title: Hírlevél feliratkozás
+  description1: >-
+    Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor
+    iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.
+  description2: Leiratkozásról információkat a hírlevél lábjegyzetében találsz.
+  description3: "Az alábbi pár témával találkozhatsz majd a hírleveleinkben:"
+  description4: >-
+    <b>Házzal kapcsolatos újdonságok és átalakítások</b>: Tájékoztatunk ha
+    valamilyen felújítást, átalakítást végeztünk el az apartmanon, valamint
+    akkor is írunk neked ha új szolgáltatást vezetünk be.
+  description5: >-
+    <b>Szezonális ajánlatok</b>: Értesítünk a szezonális árainkról, valamint az
+    ünnepi ajánlatainkról is küldünk információkat.
+  description6: >-
+    <b>Last minute alkalmak</b>: Azért is érdemes feliratkozni a hírlevél
+    rendszerre, mert előfordulhat, hogy visszamondás miatt újra elérhetővé
+    válnak számodra alkalmas időpontok.
+  description7: >-
+    <b>Kérdőívek</b>: A jövőben kikérhetjük véleményed egy átalakítással,
+    szolgáltatással kapcsolatosan, így úgy tudjuk kialakítani a nyaralót és
+    környezetét, ahogy Te szeretnéd.
+  data:
+    title: "Adatok:"
+    email: "*E-mail"
+    first_name: Keresztnév
+    last_name: Vezetéknév
+  hint: A *-al jelölt mezők kitöltése kötelező
+  button: Feliratkozás
+cookie-bar:
+  title: A jobb felhasználói élmény érdekében sütiket használunk
+  description: >-
+    Mik azok a sütik? Látogass el <a
+    href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>erre az oldalra</a>.
+    Hogy a Levendula Apartman mire használja a sütiket, <a
+    href='/privacy-statement'>ezen az oldalon</a> bővebb információkat találsz.
+  button: Rendben
+delete_user_data:
+  dialog:
+    dialog_title: Figyelem!
+    dialog_desc1: >-
+      e-mail címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím
+      akkor hamarosan e-mailben értesítünk.
+    dialog_desc2: A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében találsz.
+  delete_button: Adatok törlése
+  title: Felhasználói adatok törlése
+  desc1: >-
+    Miután elküldted a foglalásod az általad megadott adatokat tároljuk
+    statisztikai és analitikai célból. Mivel személyes adatokról van szó,
+    bármikor kérheted az adatok eltávolítását a rendszerből.
+  desc2: Adataidat a <i>Adatok törlése</i> gomb lenyomásával törölheted.
+  desc3: >-
+    <b> Fontos: </b> Ezesetben csak a tárolt adataidat töröljük, a hírlevélről
+    való leiratkozáshoz a hírlevélben találsz több információt.
+  desc4: >-
+    Az adatfelhasználásról részleteket az <a href='/booking-info'>alábbi
+    linken</a> találsz!
+  data_caption: "Adatok:"
+  email_placeholder: "*E-mail"
+  cancelation_reason_placeholder: Törlés oka (opcionális)
+  info_mandatory: A *-al jelölt mezők kitöltése kötelező
+  info_char_remaining: "Ennyi karakter maradt:"
+  checkbox: Törölni szeretném az adataimat!
+house_rules:
+  title: Házirend
+  translated_by: " "
+  content: >-
+    <p>A Levendula Apartman szeretettel üdvözli Önt vendégei körében. Bízunk benne, hogy a kiválasztott szálláshellyel elégedett lesz.
+    <h2>Szállásfoglalás</h2>
+    <p>A szállásfoglalás e-mailben, levélben, telefonon, vagy a weboldalon keresztül történik, A szállásfoglalás
+        <b>30% foglaló befizetésével</b> történik.
+    </p>
+    <p>Meg nem érkezés esetén a foglalót nem áll módunkban visszafizetni.</p>
+    <p>A szállásdíj tartalmazza a közüzemi díjakat és egyéb rezsi költségeket, az ágyneműt huzattal, egy héten túli tartózkodás esetén heti ágyneműcserét, valamint a végső takarítást.</p>
+    <h3>Bejelentkezés / Kijelentkezés</h3>
+    <p>A szállást az érkezés napján, 14:00 és 20:00 óra között lehet elfoglalni. Az elutazás napján legkésőbb 10:00 óráig kell elhagyni a házat.</p>
+    <p>A Levendula Apartman vendégek fogadására alkalmas, viszont a szálláshelyen az előre egyeztetett létszámú személyek nyaralhatnak.</p>
+    <h3>Fizetés</h3>
+    <p>A szállásdíj fennmaradó része és az idegenforgalmi adó fizetése a megérkezéskor a bejelentkező lap kitöltésével egyidejűleg történik.</p>
+    <p>Ha valami miatt az Ön által előre lefoglalt időszak vége előtt távozik a szállásról, nem áll módunkban a szállásdíjat csökkenteni, visszafizetni.</p>
+    <h2>Az udvar és az épület zárása</h2>
+    <p>Eltávozáskor és éjszakára kérjük a kaput és az épület bejáratait kulcsra zárni! Az átadott kulcsok esetleges elveszése esetén a vendégek kötelesek azt haladéktalanul jelezni és annak árát, illetve a zárcserét a szállásadónak megtéríteni.</p>
+    <h2>Dohányzás</h2>
+    <p>Csak a kijelölt helyeken szabad a dohányzás. Tisztelettel megkérjük dohányzó Vendégeinket, hogy a tisztaság fenntartása érdekében az udvaron, és a vendégház teljes területén a csikkeket ne szórják el, hanem azokat összegyűjtve a szemetesekbe helyezzék.
+        <b>Az épületben a dohányzás TILOS!</b></p>
+    <h2>Berendezési tárgyak használata</h2>
+    <p>Kérjük a berendezési tárgyak rendeltetésszerű használatát! A szobák berendezését és felszerelését, beleértve a törölközőket, plédeket, ágyneműt a házból kivinni tilos!</p>
+    <p>A bútorokat átrendezni kizárólag a tulajdonos beleegyezésével lehet. Az érkezéskor és induláskor a szobákat megvizsgáljuk és az esetleges károk okozása esetén, az ebből fakadó költségeket a vendéggel a helyszínen megtéríttetjük. Tisztelettel megkérjük
+        Önöket, hogy a falfelületre ne kenjék fel a rovarokat.</p>
+    <h2>Takarítás</h2>
+    <p>A szobákat a vendégek tisztán, kitakarítva veszik át. 7 napnál hosszabb elszállásolás során heti egy alkalommal ágyhuzat-csere. Az ettől eltérő igényeknek természetesen eleget teszünk, felár ellenében.</p>
+    <h2>Szemételhelyezés, kezelés</h2>
+    <p>A háztartási szemét gyűjtése a konyhában található szemetesben lehetséges (konyhai szemetesbe való zsák a fiókban található). Ha ez megtelne az Önök itt tartózkodása alatt, kérjük, ürítsék ki azt a ház mellett található szemeteskukába.</p>
+    <h2>Étkezés</h2>
+    <p>A vendégház jól felszerelt konyhával rendelkezik. A vendégek saját magukról gondoskodnak. Főzésre főzőlap, mikro áll a vendégek rendelkezésére. A mikrohullámú sütőbe ne tegyenek be fémet tartalmazó tárgyat. Kérjük, a szobákban ne étkezzenek!</p>
+    <h2>Egyéb</h2>
+    <p>Felhívjuk figyelmét, hogy a tulajdonosnak nem áll módjában felelősséget vállalni és kártérítést fizetni az önhibáján kívül történt eseményekből eredő károkért, balesetekért.(pl. természeti csapás, jégeső, tűz, áramszünet, stb.).</p>
+    <p>Amennyiben a tartózkodás alatt az apartmannal, szobával kapcsolatban bármilyen probléma felmerül, kérjük, haladéktalanul értesítse arról a szállásadót. Utólagos reklamációt nem áll módunkban elfogadni!</p>
+    <p>Tűz esetén azonnal kezdje a mentést és hívja a tűzoltókat 105-ös számon majd azt követően a szállásadót!</p>
+    <p>A szálláshely végleges elhagyásakor a kulcsot le kell adnia szállásadó részére. Háziállatot tilos engedély nélkül az apartmanba, illetve a vendégszobába bevinni. Szobákban hagyott személyes tárgyakért felelősséget nem vállalunk. Ágyneműt, mosogatószert-szivacsot,
+        papírtörlőt, szappant, wc-papírt biztosítunk!</p>
+    <p>A tulajdonosoknak jogukban áll lemondani a szállást, ha a vendég nem tartja be a házirendet, ha megbontja a békét. Minden vita, amit nem lehet megbeszélni egymás között Polgári Peres úton kerül rendezésre.</p>
+    </p>
+booking_info:
+  title: Foglalással kapcsolatos információk
+  translated_by: " "
+  content: >-
+    <p>
+      Az alábbi oldalon a foglalással és a foglalás lemondásával kapcsolatos információkat találod. Az előleg utalásával kapcsolatos információkat (e-mail, telefonszám, stb…) a
+      <a routerLink="/contact">kapcsolatok</a> menüpont alatt.
+    </p>
+    <h2>Foglalás küldése</h2>
+    <p>
+      A weboldalon a ​
+      <a routerLink="/contact">foglalás​</a>
+      menüpont alatt a naptár nézetben hagyományos fekete betű színnel láthatod a szabad (nem foglalt) napokat, szürkén szedett betűvel a foglalt napokat és sárga betűvel a még nem véglegesített foglalásokat látod.
+    </p>
+    <p>A vissza nem igazolt foglalások<b> 72 óra után lejárnak</b>, így az az időszak felszabadul és más felhasználók lefoglalhatják azt.</p>
+    <p>Foglalásod könnyedén elküldheted a ​foglalás​ menüpont alatt. A sikeres foglaláshoz az összes mező kitöltése kötelező kivéve a megjegyzés részt, ami opcionális.</p>
+    <p>A mezők:</p>
+    <ul>
+      <li><b>Érkezés és távozás</b>: Itt választhatsz a szabad időpontok közül.</li>
+      <li><b>Név</b>: Kérlek úgy add meg a neved ahogy szeretnéd hogy szólítsunk (az etikai szabályokat betartva )</li>
+      <li><b>Telefonszám</b>: Kérlek valós telefonszámot adj meg.</li>
+      <li><b>E-mail</b>: A helyes e-mail cím megadása a legfontosabb mivel ide küldjük a foglalás azonosítódat és a további információkat.</li>
+      <li><b>Megjegyzés</b>: Ha van valami üzeneted számunkra a foglalással kapcsolatban akkor azt itt írhatod meg.</li>
+    </ul>
+    <p>Ha az adatok kitöltésével megvagyunk akkor az áttekintő lapon még utoljára ellenőrizhetjük a megadott adatainkat, majd el kell fogadni az alábbi jelölő négyzetek közül pár kötelezőt.</p>
+    <p>Amíg a kötelező mezőket nem fogadjuk el addig nem tudjuk leadni az online foglalásunkat.</p>
+    <ul>
+      <li><b>Adatvédelmi​ nyilatkozat (kötelező)</b>: Az online adatkezeléshez és online foglalás elküldése miatt van rá szükség. Részletek a
+        <a routerLink="/privacy-statement">dokumentumban.</a>
+      </li>
+      <li><b>Hírlevél feliratkozási nyilatkozat (nem kötelező)</b>: Ha szeretnél értesülni az
+        <a routerLink="/subscribe">újdonságokról és promóciókról</a>
+        , akkor kérlek pipáld be ezt a jelölő négyzetet is. Leiratkozásról és az adatok kezeléséről információkat az adatvédelmi nyilatkozatban találsz, valamint e-mailben is megkapod a rövidített verziót a feliratkozás után.
+      </li>
+      <li><b>Adatkezelési nyilatkozat (kötelező)</b>: A foglalással kapcsolatos adataidat elolvassuk és tároljuk a rendszerünkben majd egy idő után töröljük, vagyis kezeljük azokat. Az online foglalás elküldéséhez szükséges
+        <a routerLink="/privacy-statement">adatkezelési nyilatkozat</a>
+        elfogadása is.
+      </li>
+      <li><b>Házirend​ elfogadása (kötelező)</b>: Szeretnénk az apartmant a lehető legjobb  állapotban tartani, de ez rajtad is múlik. A
+        <a routerLink="/house-rules">házirend</a>
+        betartása elvárt. Kérlek fogadd el a házirendet, ez szükséges az online foglalás leadásához.
+      </li>
+    </ul>
+    <p>A miután a kötelező jelőlő négyzeteket elfogadtad elküldheted a foglalást és ha a foglalás sikeres volt kapsz egy foglalás azonosítót, amit e-mailben is elküldünk. A foglalásodat a továbbiakban ezzel az azonosítóval tudod kezelni. A megadott időintervallum ideiglenes foglalásba kerül, vagyis mások nem tudják lefoglalni azt az időpontot, de véglegesítened kell a foglalásod különben 72 órán belül automatikusan törlődik.</p>
+    <h2>Foglalás véglegesítése</h2>
+    <p>Sikeres foglalást követően véglegesítened kell a foglalásodat az előleg elküldésével amit a foglalást követő 72 órában tudsz megtenni.<b>​ FONTOS</b>,​ hogy a vissza nem igazolt foglalások automatikus törlésre kerülnek 72 óra múlva így nem tudjuk garantálni, hogy más felhasználók nem foglalják be azt az időpontot. Célszerű nem az utolsó pillanatra hagyni az előleg elküldését, hanem a foglalást követően véglegesítsük azt.</p>
+    <p><b> FONTOS​</b>, hogy az utalás közleményébe írd bele a foglalási azonosítódat, mivel az alapját tudjuk beazonosítani a foglalásodat. Ha ezt véletlenül elfelejtenéd, fel tudunk hívni vagy meg tudunk keresni e-mailben, de a gyors és zökkenőmentes foglalás érdekében kérlek ne felejtsd el.</p>
+    <p><b>FONTOS​</b> továbbá, hogy az Idegenforgalmi Adó (IFA) nincs az árban, ennek a fizetése a helyszínen történik.</p>
+    <p>A véglegesítés után pár órán belül e-mailben értesítünk, légy türelemmel mivel ez egy manuális lépés részünkről, mivel meg kell keresnünk a foglalási azonosítóval elküldött utalási adataidat a banki rendszerben (az utalással kapcsolatos adataidat nem tároljuk és nem használjuk fel semmilyen formában, a banki által nyújtott rendszerben maradnak).</p>
+    <p>A minden sikeres volt várunk sok szeretettel a megadott napon.</p>
+    <h2>Foglalás lemondása</h2>
+    <p>
+      A foglalásod lemondásának folyamatát a weboldalon található
+
+      <a routerLink="/delete-booking">​foglalás lemondása</a>
+      menüpont alatt indíthatod el. Foglalás módosítására értelemszűen csak akkor van lehetőség, ha az új időpontok még nincsenek lefoglalva. A módosítást és lemondást kérem próbáld meg mindenki magának intézni a felületen keresztül, ha hiba lépne fel vagy nem egyértelmű a felület használata akkor kérem keressen a ​kapcsolat​ menüpontban található elérhetőségek valamelyikén. ​
+      <b>FONTOS​</b>, hogy a foglalási előleget 72 órában van lehetőség a részleteket a “Lemondási feltételek” bekezdésben találod. Egylépéses módosításra nincs lehetőség, az első lépés a törlés a második pedig az új foglalás elküldése.
+    </p>
+    <p>A lemondás menete:</p>
+    <ol>
+      <li><b>Lemondási kérelem feladása</b>: Weboldalunkon a foglalási azonosító birtokában elindíthatod a foglalás törlése folyamatot. Mindössze csak a már előzőleg elküldésre került foglalás azonosítóra van szükséged. A kérelem beérkezéséről e-mailben értesítünk.</li>
+      <li><b>Visszaküldjük a befizetett előleget</b>: A befizetett előleget pár órán belül vissza utaljuk. Ez egy manuális művelet mivel meg kell keresni a foglalási azonosítódhoz tartozó utalási bejegyzést.</li>
+      <li><b>Töröljük a foglalását a rendszerből</b>: Az összeg visszautalása után töröljük a foglalásodat a rendszerből, így mások be tudják foglalni azt az időintervallumot.</li>
+    </ol>
+    <p>Próbáljuk a legegyszerűbb módon intézni ezeket a folyamatokat, hogy érthető és kényelmes legyen a foglalás lemondása is. Csak a meglévő foglalási azonosítóval tudjuk kezelni a foglalás lemondását és az összeg visszautalását. Miután megtaláltuk a foglalási azonosítóhoz tartozó banki utalás adatait, a bejegyzésben szereplő bankszámlaszámra áll módunkban visszautalni az összeget, a rosszindulatú visszaélések elkerülése végett.</p>
+    <h2>Lemondási feltételek</h2>
+    <p>
+      A foglalásodat érkezés előtt bármikor lemondhatod a ​weboldalon​ keresztül, viszont<b> az előleget az érkezés előtti 72 órában nem áll módunkban visszautalni.</b>Kérjük szíves megértésedet ezzel kapcsolatban mivel az az időszak egy kieső intervallum lesz számunkra. Más feltétele nincs a lemondásnak, de ha pár mondatban összefoglalnád, hogy miért döntöttél így, azt megköszönnénk.</p>
+    <h2>Vissza nem igazolt foglalások</h2>
+    <p>Miután elküldted a foglalási kérelmed, mi ideiglenesen lefoglaljuk azt az időintervallumot számodra, viszont mint már említettük ez az időpont 72 óra múlva törlődik, ha nem igazolod vissza a foglalásod az előleg átutalásával. Kérlek az utalás közleményébe mindig írd bele a foglalás azonosítódat amit előzetesen elküldtünk e-mailben. A foglalásod állapotváltozásairól mindíg e-mailban fogunk értesíteni.</p>
