@@ -1,0 +1,688 @@
+nav:
+  home: Kezdőlap
+  gallery: Apartmanok
+  events: Élmények
+  contacts: Kapcsolat
+  cancel: Lemondás
+  booking: Foglalás
+  documents: Dokumentumok
+footer:
+  menu: Menü
+  information: Információk
+  house_rule: Házirend
+  booking_information: Foglalással kapcsolatos információk
+  privacy_statement: Adatvédelmi nyilatkozat
+  delete_user_data: Felhasználói adatok törlése
+home:
+  free_periods: Szabad időpontok
+  introduction: Bemutatkozás
+  intro1: >-
+    A Levendula apartman egy régóta dédelgetett álmunk volt, mely 2017-ben vált
+    valósággá. Férjemmel mindketten a Balaton mellett nőttünk fel és szerettünk
+    volna abból a sok szépségből és élményből másoknak is átadni amennyit csak
+    lehet. Hosszú keresés után bukkantunk rá egy ideális helyen lévő házra,
+    melyet teljesen felújítottunk. A felújítás során igyekeztünk mindenre
+    gondolni, amely az itteni időtöltést megszépíti: az apró veranda helyett
+    két, nagyobb méretű, grillezésre is alkalmas teraszt építettünk, a házat
+    fűtő-hűtő klímával és remekül szigetelő ablakokkal láttuk el és a ház
+    elrendezését is átalakítottuk a maximális kényelem érdekében. A munka
+    nagyjából egy évig tartott, de nem álltunk meg: a szabad időpontokban
+    folyamatosan újítjuk, alakítjuk a házat és a kertet is.
+  intro2: >-
+    A 2018-as nyarat már vendégekkel kezdtük - Izgalommal vártuk az első lakókat
+    és a kulcsok átadása után nehéz szívvel hagytuk magára szeretett
+    nyaralónkat, mely immáron megérett a nyaralni vágyók fogadására. A ház
+    gondozása mellett ügyelünk arra is, hogy a foglalás és az ott töltött idő
+    alatt minden olajozottan menjen. Ebben nagy segítségünkre van fiúnk, akinek
+    többek között ezt a weboldalt is köszönhetjük.
+  intro3: >-
+    Bízunk benne, hogy leendő vendégeink, nemcsak a házban, de a környékbeli
+    élményekben is örömüket lelik, ezért itt, az oldalon mindig frissítjük a
+    közeli programok, élmények listáját. Családom nevében is köszönöm, hogy
+    ellátogatott az oldalunkra, és bízunk benne, hogy hamarosan vendégként
+    üdvözölhetjük Önt a balatonmáriafürdői Levendula apartmanban.
+events:
+  title: "Közelben lévő programok, élmények"
+  cat_all: Összes
+  cat_walk: Gyalog
+  cat_bike: Bicikli
+  cat_car: Autó
+  not_found: Jelenleg nincsenek közelgő élmények
+  distance: "Távolság:"
+  location: "Helyszín:"
+  web: "Weboldal:"
+  click_here: Kattints ide!
+contacts:
+  title: Levendula Apartman
+  show: Mutat
+  contact_person: Kapcsolattartó
+  phone: Telefon
+  email: E-mail
+  address: Cím
+delete_booking:
+  dialog_title: Figyelem!
+  dialog_text: "Az alábbiakban megadott azonosítóhoz rendelt foglalás törlését megkezdtük:"
+  dialog_infos: " A szükséges információkat a foglaláskor megadot e-mail címre elküldtük, valamint részleteket a foglalással kapcsolatos <a href='/booking-info'> dokumentumban találsz</a>."
+  farwell: Reméljük még találkozunk.
+  dialog_button: Bezárás
+  title: Foglalás lemondása
+  desc1: >-
+    A foglalásod lemondásához meg kell adnod a foglalás után kapott foglalási
+    azonosítódat. Minden lépésről e-mailben fogunk tájékoztatni.
+  desc2: >-
+    A <i>Lemondás</i> gomb lenyomásával elkezdődik a foglalás törlésének
+    folyamata.
+  desc3: >-
+    <b> Fontos: </b> Csak érvényes foglalás azonosítóval tudjuk törölni a
+    foglalásodat. Részleteket az <a href='/booking-info'>alábbi linken</a>
+    találsz!
+  data_caption: "Adatok:"
+  booking_id_placeholder: "*Azonosító"
+  cancelation_reason_placeholder: Lemondás oka (opcionális)
+  info_mandatory: A *-al jelölt mezők kitöltése kötelező
+  info_char_remaining: "Ennyi karakter maradt:"
+  checkbox: Le szeretném mondani a foglalásom!
+  button: Lemondás
+booking:
+  dialog:
+    dialog_header: Figyelem!
+    dialog_desc1: Foglalás a weboldalon keresztül jelenleg szünetel.
+    dialog_desc2: >-
+      A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a
+      weboldalon keresztül.
+    dialog_desc3: >-
+      Foglalási szándékodat kérlek <a target='_blank', rel='noopener
+      noreferrer',
+      href='https://www.facebook.com/levendulabalatonmaria'>Facebookon</a> vagy
+      az <a target='_blank', rel='noopener noreferrer',
+      href='https://levendulabalatonmaria.info/contact'>elérhetőségeink</a>
+      valamelyikén jelezd.
+    dialog_desc4: Megértésed köszönjük!
+    dialog_button: Bezárás
+  success_dialog:
+    dialog_header: Sikeres foglalás!
+    dialog_desc1: >-
+      Foglalásodat az általad megadott adatokkal az alábbi azonosítóval
+      ideiglenesen lefoglaltuk:
+    dialog_desc2: >-
+      Foglalásodat az előleg elküldésével tudod véglegesíteni. Amennyiben nem
+      érkezik meg a foglaló 48 órán belül, a foglalásod automatikusan törlésre
+      kerül.
+    dialog_desc3: >-
+      Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál
+      levelet tőlük akkor kérlek ellenőriz a levélszemétben is).
+    dialog_desc4: "További szép napot, Levendula Apartman"
+  failed_dialog:
+    dialog_header: Sikertelen foglalás!
+    dialog_desc1: "Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon."
+  house_chooser:
+    choose_caption: >-
+      Válassz apartmant, <a href='https://levendulabalatonmaria.info/gallery'>
+      további információk</a>.
+    lavender1_title: Levendula 1
+    lavender1_subtitle: Levendula Apartman (baloldal) - 5 fő részére
+    lavender2_title: Levendula 2
+    lavender2_subtitle: Levendula Apartman (jobboldal)- 5 fő részére
+    coming_soon: Érdeklődj facebookon
+  date_form:
+    title: Foglalás
+    choose_date: Válassz időpontot vagy csak nézd meg a szabad heteket.
+    arrival: Érkezés
+    departure: Távozás
+    summary: Összesen fizetendő
+    night_count: éjszaka)
+    before_money: Előleg (30%)
+    person_count: Személyek (felnőtt + gyermek) *
+    pet_count: Négylábú személyek *
+    next_button: Tovább
+  personal_data_form:
+    title: Személyes adatok
+    personal_data: Foglalási adatok
+    first_name: "*Vezetéknév (Kovács)"
+    last_name: "*Keresztnév (Pál)"
+    mobile: "*Telefonszám (+36301234567)"
+    email: "*E-mail (pelda@email.hu)"
+    hints: Megjegyzések
+    back_button: Vissza
+  overview_form:
+    title: Áttekintés
+    info: A foglalás elküldéséhez tekerj lejjebb.
+    person_count: "Személyek száma:"
+    pet_count: "Négylábúak száma:"
+    person: fő
+    pets: ""
+    full_name: "Teljes név:"
+    mobile: "Telefonszám:"
+    email: "E-mail:"
+    hint_placeholder: Nincsenek megjegyzések
+    privacy_notice_text: >-
+      Elolvastam és elfogadom az <a href='/privacy-statement'>adatvédelmi</a>
+      nyilatkozatot! *
+    newsletter_text: Szeretnék értesülni az újdonságokról e-mail-ben!
+    data_handling: Hozzájárulok a megadott adataim kezeléséhez! *
+    house_rules: >-
+      Elolvastam és elfogadom a <a href='/house-rules'>házirendet</a> és a <a
+      href='/booking-info'>foglalási feltételeket</a> ! *
+    booking_now: Foglalás most!
+  results:
+    title: Foglalási igény elküldve
+    description: >-
+      Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott
+      e-mail címre elküldtük.
+    reservation_info: "Foglalási azonosító:"
+    failed_text: Sikertelen foglalás
+    failed_description: Kérjük próbálja meg más időponttal.
+  booking_informations:
+    title: Információk a foglalással kapcsolatban
+    desc1: "- A szálláshely kistestű kutya és macskaféle befogadására alkalmas."
+    desc2: "- Az Idegenforgalmi Adó (IFA) nincs az árban."
+    desc3: "- A főszezon június 15-től augusztus 31-ig tart."
+    desc_otp: >-
+      - Akár <a href='https://www.otpportalok.hu/fooldal/'> OTP SZÉP kártyás</a>
+      fizetést is igénybe vehetsz.
+    desc4: >-
+      - <b>Főszezonban leginkább hét éjszakás (szombattól szombatig)</b>
+      foglalásokat várunk. Szezonon kívül minimum két éj foglalható.
+    desc5: >-
+      - A lefoglalt időintervallumot az előleg átutalása után tekintjük
+      hivatalosnak. A vissza nem igazolt foglalások 48 órán belül törlődnek!
+    desc6: >-
+      - Kérlek az utalás közleményébe írd bele a foglalási számod. Előleg
+      átutalásához szükséges adatokat a <a href='/contact'> kapcsolat menüpont
+      alatt</a> valamint az utalás menetéről e-mail-ben és <a target='_blank'
+      rel='noopener noreferrer', href='/booking-info'>az alábbi linken</a>
+      találsz.
+    desc7: >-
+      - Érkezés a foglalt napon 16:00 órától lehetséges, a távozás 10:00 órától
+      szükséges.
+    desc8: >-
+      - Lemondásról és egyéb információkról részleteket az <a
+      href='/booking-info'>az alábbi linken</a> vagy a visszaigazoló e-mail-ben
+      találsz.
+subscribe:
+  floating_text: Hírlevél
+  success:
+    title: Köszönjük!
+    description: >-
+      Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a
+      hírlevél lábrészében találsz.
+    button: Bezárás
+  title: Hírlevél feliratkozás
+  description1: >-
+    Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor
+    iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.
+  description2: Leiratkozásról információkat a hírlevél lábjegyzetében találsz.
+  description3: "Az alábbi pár témával találkozhatsz majd a hírleveleinkben:"
+  description4: >-
+    <b>Házzal kapcsolatos újdonságok és átalakítások</b>: Tájékoztatunk ha
+    valamilyen felújítást, átalakítást végeztünk el az apartmanon, valamint
+    akkor is írunk neked ha új szolgáltatást vezetünk be.
+  description5: >-
+    <b>Szezonális ajánlatok</b>: Értesítünk a szezonális árainkról, valamint az
+    ünnepi ajánlatainkról is küldünk információkat.
+  description6: >-
+    <b>Last minute alkalmak</b>: Azért is érdemes feliratkozni a hírlevél
+    rendszerre, mert előfordulhat, hogy visszamondás miatt újra elérhetővé
+    válnak számodra alkalmas időpontok.
+  description7: >-
+    <b>Kérdőívek</b>: A jövőben kikérhetjük véleményed egy átalakítással,
+    szolgáltatással kapcsolatosan, így úgy tudjuk kialakítani a nyaralót és
+    környezetét, ahogy Te szeretnéd.
+  data:
+    title: "Adatok:"
+    email: "*E-mail"
+    first_name: Keresztnév
+    last_name: Vezetéknév
+  hint: A *-al jelölt mezők kitöltése kötelező
+  button: Feliratkozás
+cookie-bar:
+  title: A jobb felhasználói élmény érdekében sütiket használunk
+  description: >-
+    Mik azok a sütik? Látogass el <a
+    href='https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti'>erre az oldalra</a>.
+    Hogy a Levendula Apartman mire használja a sütiket, <a
+    href='/privacy-statement'>ezen az oldalon</a> bővebb információkat találsz.
+  button: Rendben
+delete_user_data:
+  dialog:
+    dialog_title: Figyelem!
+    dialog_desc1: >-
+      e-mail címhez tartozó adatok törlését megkezdtük. Ha ez egy rögzített cím
+      akkor hamarosan e-mailben értesítünk.
+    dialog_desc2: A hírlevél leiratkozásról információkat a hírlevél lábjegyzetében találsz.
+  delete_button: Adatok törlése
+  title: Felhasználói adatok törlése
+  desc1: >-
+    Miután elküldted a foglalásod az általad megadott adatokat tároljuk
+    statisztikai és analitikai célból. Mivel személyes adatokról van szó,
+    bármikor kérheted az adatok eltávolítását a rendszerből.
+  desc2: Adataidat a <i>Adatok törlése</i> gomb lenyomásával törölheted.
+  desc3: >-
+    <b> Fontos: </b> Ezesetben csak a tárolt adataidat töröljük, a hírlevélről
+    való leiratkozáshoz a hírlevélben találsz több információt.
+  desc4: >-
+    Az adatfelhasználásról részleteket az <a href='/booking-info'>alábbi
+    linken</a> találsz!
+  data_caption: "Adatok:"
+  email_placeholder: "*E-mail"
+  cancelation_reason_placeholder: Törlés oka (opcionális)
+  info_mandatory: A *-al jelölt mezők kitöltése kötelező
+  info_char_remaining: "Ennyi karakter maradt:"
+  checkbox: Törölni szeretném az adataimat!
+apartments:
+  title: Az apartmanokról
+  common1: Mindkét nyaraló rendelkezik fedett első és hátsó terasszokkal. A parkolás a zárt udvarban, valamint a ház előtt is lehetséges.
+  common2: A nyaraló állapotának, valamint vendégeink és szűkebb kernyezetünk nyugalmának megőrzése érdekében a Levendula Apartmanok nem alkalmasak nagyobb rendezvények illetve leány-, vagy legénybúcsúk megredezésére.
+  common3: A nyaralók egyenként max. 5 férőhellyel rendelkeznek. Igény szerint, időben történő foglalással nagyobb család illetve két társaság részére a két nyaraló egyben is kivehető (külön-külön térítési díj ellenében). A hátsó teraszok ebben az esetben összenyithatók és közösen is használhatók. Így a nagyobb társaság akár együtt is eltöltheti a kellemes időt. (Együtt, de mégis külön.)
+
+  inside1: Mindkét házra jellemző
+  inside2: Két különálló szoba
+  inside3: Jól felszerelt konyha
+  inside4: Nappali-étkező
+  inside5: Zuhanykabinos fürdőszoba
+  inside6: Kutya és macska barát
+
+  inside7: Mindkét házban megtalálható (fontosabb dolgok)
+  inside8: Wi-Fi
+  inside9: Légkondícionáló
+  inside10: TV
+  inside11: Konyhai eszközök
+  inside12: Mikró
+  inside13: Törülközők
+  inside14: Ágynemű
+  inside15: Elektromos főzőlap
+
+  outside1: A kertben
+  outside2: Ping-Pong asztal
+  outside3: Csocsó asztal
+  outside4: Napozó ágyak
+  outside5: Gyereksarok
+  outside6: Gyerek hinta
+  outside7: Grill sütő
+  outside8: Bogrács
+
+  levendula_1:
+    desc1: Apartman maximum 5 fő részére.
+    desc2: A kertben található egy retro (de felújított) kerti tusoló ami jó szolgálatot tesz nyári meleg napokon.
+    desc_content: Pár szó a házról
+    content: >-
+      <p>A levendula apartman jelenlegi helyén lévő ház teljesen máshogy festett, mint napjainkban. Kicsit leharcolt kicsit talán a 70-es évek nyaralóját idéző látvány fogadott bennünket. Kintről megközelíthető mosdóval és linoleum padlóval. Az egésznek volt egy kis szocreál romantikája. Egyből megláttuk benne a lehetőséget. Nem is haboztunk sokáig, megvettük és neki is láttunk a felújításnak. Nem volt egyszerű dolgunk, de férjemmel karöltve kiforgattuk a sarkából a kis épületet és amit most láttok már csak nyomokban emlékeztet a régi vikkend házra.</p>
+      <p>Az utca jó adottságokkal rendelkezik révén közel van a központhoz és a balatonmáriai strandhoz is. Az utcában található éttermekbe, fagyizókba és az utcával szemben lévő Coop áruházba mi is szívesen járunk.</p>
+      <p>Balatonmáriafürdő egyike azon üdülőfalvaknak, ahol üzemel szabadstrand is, valamint a strandon mellékhelyiség is található.</p>
+      <p>Visszakanyarodva a házra, mikor a kertkapun belépünk az utca felőli teraszra érkezünk. A parkolás megengedett a kerítésen belül, mivel a ház mellett térkő fut egészen a hátsó teraszig. Az első teraszon kényelmesen elfogyaszthatjuk a reggeli kávénkat vagy az esti pohár borunkat. A hátsó terasz mellett helyezkedik el a grillsütő. Alkalmas családi vacsorákra, csocsózásra, őrült társasjáték partyk lebonyolítására, vagy egyszerűen csak egy délutáni szundira, mivel itt található a függőágy is.</p>
+      <p>A hátsó kertben kapott helyet a szabadtéri (mobil) ping-pong asztal, valamint a napozó ágyak is. A kert végében található a kerti retro tusoló, ami a nap melegétől felmelegszik (kőkorszaki nap collector) és az újtatöltéssel sem kell foglalkoznunk, mivel automatikusan töltődik.</p>
+      <p>Este pedig a környéken élő békák rákezdenek énekükre, amit a teraszról élvezhetünk. Az egésznek kölcsönöz egy kis vidéki balatoni érzést. Ha a kinti világítást felkapcsoljuk, akkor még egy kis esti beszélgetés is belefér.</p>
+      <p>A házból már nem hallani a békák társalgását. A TV-ben talán még elkaphatjuk a Barátok Közt 7452. epizódját, de ha nem is nézünk tévét, akkor nyugalomba helyezhetjük magunkat a kanapén, vagy elkezdhetjük a gyerekek éjszakai üzemmódba kapcsolását.</p>
+      <p>Reggel pedig nekiláthatunk elkészíteni a tojásrántottát az elektromos főzőlapon és futhatunk is le a Balatonra csobbanni.</p>
+
+  levendula_2:
+    desc1: Apartman maximum 5 fő részére.
+    desc2: Képek hamarosan, érdeklődj Facebookon
+    desc_content: Pár szó a házról
+    content: >-
+      <p>A Levendula 2 közvetlenül a Levendula 1 szomszédságában helyezkedik el. Ahogy a képeken is látszik a Levendula Apartman két különálló nyaraló. Az eredeti építtető a saját családjának építette, de az évek során külön kézbe került. Mikor a Levendula 1 nyaralót megvásároltuk szinte biztosak voltunk benne, hogy a nyaraló másik felét is meg szeretnénk vásárolni, ha úgy alakul. Ahogy látjátok sikerült a tervünk megvalósítása és 2019-ben a másik házat is megvásároltuk.</p>
+      <p>Minden ami a Levendula 1-re igaz igaz a Levendula 2-re is. A nyaralót a másik nyaraló tükörképére alakítottuk ki. Azonos elrendezés, azonos méretek. Az első évben a belső terek kialakításával kezdtünk. A másodikban pedig a teraszok elkészítését tűztük ki célul.</p>
+      <p>A két nyaralót próbáljuk két külön entitásnak tekinteni. Alapesetben a két nyaraló közt nincs átjárási lehetőség, viszont ha két baráti társaság foglalja le a két házat, akkor a hátsó teraszok igény szerint összenyithatók. Így megmarad a közös nyaralás élménye, de mégis két különálló apartmanban. Nem hallatszik át zaj, ha mindkét oldalon vannak vendégek. 2021-től már a Levendula 2 is foglalható a webes felületünkön keresztül.</p>
+house_rules:
+  title: Házirend
+  translated_by: " "
+  content: >-
+    <p>A Levendula Apartman szeretettel üdvözli Önt vendégei körében. Bízunk benne, hogy a kiválasztott szálláshellyel elégedett lesz.
+    <h2>Szállásfoglalás</h2>
+    <p>A szállásfoglalás e-mailben, levélben, telefonon, vagy a weboldalon keresztül történik, A szállásfoglalás
+        <b>30% foglaló befizetésével</b> történik.
+    </p>
+    <p>Meg nem érkezés esetén a foglalót nem áll módunkban visszafizetni.</p>
+    <p>A szállásdíj tartalmazza a közüzemi díjakat és egyéb rezsi költségeket, az ágyneműt huzattal, egy héten túli tartózkodás esetén heti ágyneműcserét, valamint a végső takarítást.</p>
+    <h3>Bejelentkezés / Kijelentkezés</h3>
+    <p>A szállást az érkezés napján 16:00 és 20:00 óra között lehet elfoglalni. Az elutazás napján legkésőbb 10:00 óráig kell elhagyni a házat.</p>
+    <p>A Levendula Apartman vendégek fogadására alkalmas, viszont a szálláshelyen az előre egyeztetett létszámú személyek nyaralhatnak.</p>
+    <h3>Fizetés</h3>
+    <p>A szállásdíj fennmaradó része és az idegenforgalmi adó fizetése a megérkezéskor a bejelentkező lap kitöltésével egyidejűleg történik.</p>
+    <p>Ha valami miatt az Ön által előre lefoglalt időszak vége előtt távozik a szállásról, nem áll módunkban a szállásdíjat csökkenteni, visszafizetni.</p>
+    <h2>Az udvar és az épület zárása</h2>
+    <p>Eltávozáskor és éjszakára kérjük a kaput és az épület bejáratait kulcsra zárni! Az átadott kulcsok esetleges elvesztése esetén a vendégek kötelesek azt haladéktalanul jelezni és annak árát, illetve a zárcserét a szállásadónak megtéríteni.</p>
+    <h2>Dohányzás</h2>
+    <p>Csak a kijelölt helyeken szabad a dohányzás. Tisztelettel megkérjük dohányzó Vendégeinket, hogy a tisztaság fenntartása érdekében az udvaron, és a vendégház teljes területén a csikkeket ne szórják el, hanem azokat összegyűjtve a szemetesekbe helyezzék.
+        <b>Az épületben a dohányzás TILOS!</b></p>
+    <h2>Berendezési tárgyak használata</h2>
+    <p>Kérjük a berendezési tárgyak rendeltetésszerű használatát! A szobák berendezését és felszerelését, beleértve a törölközőket, plédeket, ágyneműt a házból kivinni tilos!</p>
+    <p>A bútorokat átrendezni kizárólag a tulajdonos beleegyezésével lehet. Az érkezéskor és induláskor a szobákat megvizsgáljuk és az esetleges károk okozása esetén, az ebből fakadó költségeket a vendéggel a helyszínen megtéríttetjük. Tisztelettel megkérjük
+        Önöket, hogy a falfelületre ne kenjék fel a rovarokat.</p>
+    <h2>Takarítás</h2>
+    <p>A szobákat a vendégek tisztán, kitakarítva veszik át. 8 napnál hosszabb elszállásolás során heti egy alkalommal ágyhuzat-csere. Az ettől eltérő igényeknek természetesen eleget teszünk, felár ellenében.</p>
+    <h2>Szemételhelyezés, kezelés</h2>
+    <p>A háztartási szemét gyűjtése a konyhában található szemetesben lehetséges (konyhai szemetesbe való zsák a fiókban található). Ha ez megtelne az Önök itt tartózkodása alatt, kérjük, ürítsék ki azt a ház mellett található szemeteskukába.</p>
+    <h2>Étkezés</h2>
+    <p>A vendégház jól felszerelt konyhával rendelkezik. A vendégek saját magukról gondoskodnak. Főzésre főzőlap, mikro áll a vendégek rendelkezésére. A mikrohullámú sütőbe ne tegyenek be fémet tartalmazó tárgyat. Kérjük, a szobákban ne étkezzenek!</p>
+    <h2>Egyéb</h2>
+    <p>Felhívjuk figyelmét, hogy a tulajdonosnak nem áll módjában felelősséget vállalni és kártérítést fizetni az önhibáján kívül történt eseményekből eredő károkért, balesetekért.(pl. természeti csapás, jégeső, tűz, áramszünet, stb.).</p>
+    <p>Amennyiben a tartózkodás alatt az apartmannal, szobával kapcsolatban bármilyen probléma felmerül, kérjük, haladéktalanul értesítse arról a szállásadót. Utólagos reklamációt nem áll módunkban elfogadni!</p>
+    <p>Tűz esetén azonnal kezdje a mentést és hívja a tűzoltókat 112-es számon majd azt követően a szállásadót!</p>
+    <p>A szálláshely végleges elhagyásakor a kulcsot le kell adnia szállásadó részére. Háziállatot tilos engedély nélkül az apartmanba, illetve a vendégszobába bevinni. Szobákban hagyott személyes tárgyakért felelősséget nem vállalunk. Ágyneműt, mosogatószert-szivacsot,
+        papírtörlőt, szappant, wc-papírt biztosítunk!</p>
+    <p>A tulajdonosoknak jogukban áll lemondani a szállást, ha a vendég nem tartja be a házirendet, ha megbontja a békét. Minden vita, amit nem lehet megbeszélni egymás között Polgári Peres úton kerül rendezésre.</p>
+    </p>
+booking_info:
+  title: Foglalással kapcsolatos információk
+  translated_by: " "
+  content: >-
+    <p>
+      Az alábbi oldalon a foglalással és a foglalás lemondásával kapcsolatos információkat találod. Az előleg utalásával kapcsolatos információkat (e-mail, telefonszám, stb…) a
+      <a routerLink="/contact">kapcsolatok</a> menüpont alatt.
+    </p>
+    <h2>Foglalás küldése</h2>
+    <p>
+      A weboldalon a ​
+      <a routerLink="/contact">foglalás​</a>
+      menüpont alatt a naptár nézetben hagyományos fekete betű színnel láthatod a szabad (nem foglalt) napokat, szürkén szedett betűvel a foglalt napokat és sárga betűvel a még nem véglegesített foglalásokat látod.
+    </p>
+    <p>A vissza nem igazolt foglalások<b> 48 óra után lejárnak</b>, így az az időszak felszabadul és más felhasználók lefoglalhatják azt.</p>
+    <p>Foglalásod könnyedén elküldheted a ​foglalás​ menüpont alatt. A sikeres foglaláshoz az összes mező kitöltése kötelező kivéve a megjegyzés részt, ami opcionális.</p>
+    <p>A mezők:</p>
+    <ul>
+      <li><b>Érkezés és távozás</b>: Itt választhatsz a szabad időpontok közül.</li>
+      <li><b>Név</b>: Kérlek úgy add meg a neved ahogy szeretnéd hogy szólítsunk (az etikai szabályokat betartva )</li>
+      <li><b>Telefonszám</b>: Kérlek valós telefonszámot adj meg.</li>
+      <li><b>E-mail</b>: A helyes e-mail cím megadása a legfontosabb mivel ide küldjük a foglalás azonosítódat és a további információkat.</li>
+      <li><b>Megjegyzés</b>: Ha van valami üzeneted számunkra a foglalással kapcsolatban akkor azt itt írhatod meg.</li>
+    </ul>
+    <p>Ha az adatok kitöltésével megvagyunk akkor az áttekintő lapon még utoljára ellenőrizhetjük a megadott adatainkat, majd el kell fogadni az alábbi jelölő négyzetek közül pár kötelezőt.</p>
+    <p>Amíg a kötelező mezőket nem fogadjuk el addig nem tudjuk leadni az online foglalásunkat.</p>
+    <ul>
+      <li><b>Adatvédelmi​ nyilatkozat (kötelező)</b>: Az online adatkezeléshez és online foglalás elküldése miatt van rá szükség. Részletek a
+        <a routerLink="/privacy-statement">dokumentumban.</a>
+      </li>
+      <li><b>Hírlevél feliratkozási nyilatkozat (nem kötelező)</b>: Ha szeretnél értesülni az
+        <a routerLink="/subscribe">újdonságokról és promóciókról</a>
+        , akkor kérlek pipáld be ezt a jelölő négyzetet is. Leiratkozásról és az adatok kezeléséről információkat az adatvédelmi nyilatkozatban találsz, valamint e-mailben is megkapod a rövidített verziót a feliratkozás után.
+      </li>
+      <li><b>Adatkezelési nyilatkozat (kötelező)</b>: A foglalással kapcsolatos adataidat elolvassuk és tároljuk a rendszerünkben majd egy idő után töröljük, vagyis kezeljük azokat. Az online foglalás elküldéséhez szükséges
+        <a routerLink="/privacy-statement">adatkezelési nyilatkozat</a>
+        elfogadása is.
+      </li>
+      <li><b>Házirend​ elfogadása (kötelező)</b>: Szeretnénk az apartmant a lehető legjobb  állapotban tartani, de ez rajtad is múlik. A
+        <a routerLink="/house-rules">házirend</a>
+        betartása elvárt. Kérlek fogadd el a házirendet, ez szükséges az online foglalás leadásához.
+      </li>
+    </ul>
+    <p>A miután a kötelező jelölő négyzeteket elfogadtad elküldheted a foglalást és ha a foglalás sikeres volt kapsz egy foglalás azonosítót, amit e-mailben is elküldünk. A foglalásodat a továbbiakban ezzel az azonosítóval tudod kezelni. A megadott időintervallum ideiglenes foglalásba kerül, vagyis mások nem tudják lefoglalni azt az időpontot, de véglegesítened kell a foglalásod különben 48 órán belül automatikusan törlődik.</p>
+    <h2>Foglalás véglegesítése</h2>
+    <p>Sikeres foglalást követően véglegesítened kell a foglalásodat az előleg elküldésével amit a foglalást követő 48 órában tudsz megtenni.<b>​ FONTOS</b>,​ hogy a vissza nem igazolt foglalások automatikus törlésre kerülnek 48 óra múlva így nem tudjuk garantálni, hogy más felhasználók nem foglalják be azt az időpontot. Célszerű nem az utolsó pillanatra hagyni az előleg elküldését, hanem közvetlenül a foglalást követően, így azonnal véglegesíthetjük azt.</p>
+    <p><b>FONTOS​</b>, hogy az utalás közleményébe írd bele a foglalási azonosítódat, mivel az alapján tudjuk beazonosítani a foglalásodat. Ha ezt véletlenül elfelejtenéd, fel tudunk hívni vagy meg tudunk keresni e-mailben, de a gyors és zökkenőmentes foglalás érdekében kérlek ne felejtsd el.</p>
+    <p><b>FONTOS​</b> továbbá, hogy az Idegenforgalmi Adó (IFA) nincs az árban, ennek a fizetése a helyszínen történik.</p>
+    <p>A véglegesítés után pár órán belül e-mailben értesítünk, légy türelemmel mivel ez egy manuális lépés részünkről. Meg kell keresnünk a foglalási azonosítóval elküldött utalási adataidat a banki rendszerben (az utalással kapcsolatos adataidat nem tároljuk és nem használjuk fel semmilyen formában, a banki által nyújtott rendszerben maradnak).</p>
+    <p>Ha minden sikeres volt várunk sok szeretettel a megadott napon.</p>
+    <h2>Foglalás lemondása</h2>
+    <p>
+      A foglalásod lemondásának folyamatát a weboldalon található <a routerLink="/delete-booking">​foglalás lemondása</a>
+      menüpont alatt indíthatod el. Foglalás módosítására értelemszűen csak akkor van lehetőség, ha az új időpontok még nincsenek lefoglalva. A módosítást és lemondást kérjük próbálja meg mindenki magának intézni a felületen keresztül, ha hiba lépne fel vagy nem egyértelmű a felület használata akkor kérem lépjen a ​kapcsolat​ velünk. ​
+      <b>FONTOS​</b>, hogy a foglalási előleget 48 órában van lehetőség a részleteket a “Lemondási feltételek” bekezdésben találod. Egylépéses módosításra nincs lehetőség, az első lépés a törlés a második pedig az új foglalás elküldése.
+    </p>
+    <p>A lemondás menete:</p>
+    <ol>
+      <li><b>Lemondási kérelem feladása</b>: Weboldalunkon a foglalási azonosító birtokában elindíthatod a foglalás törlése folyamatot. Mindössze csak a már előzőleg elküldésre került foglalás azonosítóra van szükséged. A kérelem beérkezéséről e-mailben értesítünk.</li>
+      <li><b>Visszaküldjük a befizetett előleget</b>: A befizetett előleget pár órán belül vissza utaljuk. Ez egy manuális művelet mivel meg kell keresni a foglalási azonosítódhoz tartozó utalási bejegyzést.</li>
+      <li><b>Töröljük a foglalását a rendszerből</b>: Az összeg visszautalása után töröljük a foglalásodat a rendszerből, így mások be tudják foglalni azt az időintervallumot.</li>
+    </ol>
+    <p>Próbáljuk a legegyszerűbb módon intézni ezeket a folyamatokat, hogy érthető és kényelmes legyen a foglalás lemondása is. Csak a meglévő foglalási azonosítóval tudjuk kezelni a foglalás lemondását és az összeg visszautalását. Miután megtaláltuk a foglalási azonosítóhoz tartozó banki utalás adatait, a bejegyzésben szereplő bankszámlaszámra áll módunkban visszautalni az összeget, a rosszindulatú visszaélések elkerülése végett.</p>
+    <h2>Lemondási feltételek</h2>
+    <p>
+      A foglalásodat érkezés előtt bármikor lemondhatod a ​weboldalon​ keresztül, viszont<b> az előleget az érkezés előtti 60 napban nem áll módunkban visszautalni.</b>Kérjük szíves megértésedet ezzel kapcsolatban mivel az az időszak egy kieső intervallum lesz számunkra. Más feltétele nincs a lemondásnak, de ha pár mondatban összefoglalnád, hogy miért döntöttél így, azt megköszönnénk.</p>
+    <h2>Vissza nem igazolt foglalások</h2>
+    <p>Miután elküldted a foglalási kérelmed, mi ideiglenesen lefoglaljuk azt az időintervallumot számodra, viszont mint már említettük ez az időpont 48 óra múlva törlődik, ha nem igazolod vissza a foglalásod az előleg átutalásával. Kérlek az utalás közleményébe mindig írd bele a foglalás azonosítódat amit előzetesen elküldtünk e-mailben. A foglalásod állapotváltozásairól mindíg e-mailban fogunk értesíteni.</p>
+privacy_statement:
+  title: Adatvédelmi és adatkezelési nyilatkozat
+  translated_by: " "
+  content: >-
+    <h2>Adatkezelő</h2>
+    <p>Név: LEVENDULA APARTMAN</p>
+    <p>Cím: ​Magyarország, 8647 Balatonmáriafürdő, Vilma u. 62</p>
+    <p>Üzemeltető neve: Faházi Csaba</p>
+    <p>Székhely:​8648 Balatonkeresztúr, Rákóczi Ferenc u. 57</p>
+    <p>Adószám: 66997949-1-34</p>
+    <p>Telefonszám: +36304824651</p>
+    <p>E-mail cím: l​evendula.balatonmaria@gmail.com</p>
+    <p>Adatvédelmi ügyekben felelős személy: Serleg Dániel József (+36307821017) (a továbbiakban: a „Szolgáltató”)</p>
+    <p>A Szolgáltató tiszteletben tartja a Vendégei személyhez fűződő információs önrendelkezési jogait, elkötelezett ügyfelei és partnerei személyes adatainak védelmében; ezért az alábbi, hatályos Adatkezelési Tájékoztatója (a továbbiakban: Tájékoztató) a hivatalos weboldalon elektronikusan, illetve telephelyén (szálláshelyen) papíralapon is elérhető.</p>
+    <p>A Szolgáltató, mint adatkezelő kijelenti, hogy az adatkezelése összhangban van</p>
+    <p>Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (2016. április 27.) – a természetes személyeknek a személyes adatok kezelése tekintetében történő védelméről és az ilyen adatok szabad áramlásáról, valamint a 95/46/EK rendelet hatályon kívül helyezéséről (általános adatvédelmi rendelet, GDPR); az információs önrendelkezési jogról, és az információszabadságról szóló 2011. évi CXII. törvény (Info.tv.)</p>
+    <ul>
+      <li>a Polgári Törvénykönyvről szóló 2013. évi V. törvény (Ptk.)</li>
+      <li>a Fogyasztóvédelemről szóló 1997. évi CLV. törvény (Fgytv.)</li>
+      <li>a büntetőeljárásról szóló 1998. évi XIX. törvény (Be.)</li>
+      <li>a számvitelről szóló 2000. évi C. törvény (Számv.tv.)</li>
+      <li>az elektronikus kereskedelmi szolgáltatások, valamint az információs társadalommal összefüggő szolgáltatások egyes kérdéseiről szóló 2001. évi CVIII. törvény (Eker.tv.)</li>
+      <li>az elektronikus hírközlésről szóló 2003. évi C. törvény (Ehtv.)</li>
+      <li>a gazdasági reklámtevékenység egyes korlátairól szóló 2008. évi XLVIII. törvény(Grtv.)</li>
+      <li>a személy- és vagyonvédelmi, valamint a magán-nyomozói tevékenység szabályairól szóló 2005. évi CXXXIII. törvény (SZVV. tv.) rendelkezéseivel.</li>
+    </ul>
+    <p>Jelen Tájékoztató bemutatja a Szolgáltató által végzett tevékenység során történő adatkezelést. A Vendégek igényeinek változatosságából adódóan az adatkezelés módja esetenként eltérhet a jelen Tájékoztatóban foglaltaktól, az ilyen eltérésekre a Vendég kérésére kerülhet sor, és annak pontos módjáról a Szolgáltató a Vendéget előzetesen tájékoztatja. Minden, a jelen Tájékoztatóban esetlegesen nem szereplő adatkezelésről, a Szolgáltató az adott adatkezelést megelőzően ad tájékoztatást.</p>
+    <p>Személyes adatot a Szolgáltató kizárólag előre meghatározott célból az ahhoz szükséges ideig, a jogok gyakorlása és kötelezettségek teljesítése érdekében kezel és olyan személyes adatot kezel, amely az adatkezelés céljának megvalósulásához elengedhetetlen, és a cél elérésére alkalmas.</p>
+    <p>Felhívjuk a Szolgáltató részére adatközlő figyelmét, hogy amennyiben nem saját személyes adatait adja meg, az adatközlő kötelessége az érintett hozzájárulásának beszerzése!</p>
+    <p>A tizenhat éven aluli kiskorú érintett hozzájárulását tartalmazó jognyilatkozatának érvényességéhez a törvényes képviselőjének beleegyezése, vagy utólagos jóváhagyása szükséges.</p>
+    <p>Minden olyan esetben, ha a közölt adatokat a Szolgáltató az eredeti adatfelvétel céljától eltérő célra használja fel, erről az érintettet tájékoztatja, és ehhez előzetes, kifejezett hozzájárulását kéri, továbbá lehetőséget biztosít számára, hogy a felhasználást megtiltsa.</p>
+    <p>Az adatkezelés során a Szolgáltató tudomására jutott személyes adatokat kizárólag azok, a Szolgáltató megbízásában vagy a Szolgáltatóval munkaviszonyban álló személyek ismerhetik meg, akiknek az adott adatkezeléssel kapcsolatban feladatuk van.</p>
+    <h2>Adatkezelések</h2>
+    <h3>1. Szálláshely szolgáltatások igénybevétele</h3>
+    <p>Az adatkezelés célja: a Szolgáltatónál szálláshely szolgáltatás vásárlása, számla kiállítása, a vendégek nyilvántartása, egymástól való megkülönböztetése, a vásárlás és fizetés dokumentálása, számviteli kötelezettség teljesítése, vásárlói kapcsolattartás, a vásárlói szokások elemzése, célzottabb kiszolgálás.</p>
+    <p>Az adatkezelés jogalapja: az adatkezelés a szerződés teljesítéséhez szükséges (GDPR 6. cikk (1) bek. b) pontja, a Számv.tv. 169. § (2) bekezdése.</p>
+    <ul>A kezelt személyes adatok köre:
+      <li>azonosító szám</li>
+      <li>név (vezetéknév, keresztnév)</li>
+      <li>e-mail cím</li>
+      <li>telefonszám (vezetékes vagy mobil)</li>
+      <li>vendégek száma</li>
+      <li>érkezés és távozás dátuma</li>
+    </ul>
+    <p>Az egyes szolgáltatásoknál lehetőség van további adatok megadására a „jegyzet” vagy „megjegyzések” rovatban, ami segíti a Vendég igényeinek teljes körű megismerését, ez azonban nem feltétele a foglalásnak és az egyéb szolgáltatások igénybevételének.</p>
+    <p>Az adatkezelés időtartama:a Számv.tv. 169. § (2) bekezdésének megfelelően 8 (nyolc) év.</p>
+    <p>Kártyás fizetés esetén a bankkártya és a kártyás fizetési tranzakció adatait az OTP Bank Nyrt. (1051 Budapest, Nádor u. 16.) kezeli.</p>
+    <h4>Adattovábbítás:</h4>
+    <p>Előleg és Végszámla banki átutalása továbbá a Bankkártyás fizetés esetén a fizető azonosítója, a tranzakció összege, dátuma, időpontja.</p>
+    <p>Adattovábbítás jogalapja: az adatkezelés a szerződés teljesítéséhez szükséges (GDPR 6. cikk (1) bek. b) pontja.</p>
+    <h4>Adatfeldolgozók:</h4>
+    <ul>
+      <li>Foglalást kezelő személyek: Az a személy aki a foglalást visszaigazolja valamint törli a foglalást.</li>
+    </ul>
+    <h3>2. Szállás bejelentőlap</h3>
+    <p>Az adatkezelés célja: a Szolgáltatónál szálláshely szolgáltatás vásárlás teljesítésének igazolása, számla kiállítása, a vendégek nyilvántartása, egymástól való megkülönböztetése.</p>
+    <p>Az adatkezelés jogalapja: az adatkezelés a szerződés teljesítéséhez szükséges (GDPR 6. cikk (1) bek. b) pontja, a Számv.tv. 169. § (2) bekezdése; idegenforgalmi adóval kapcsolatos kötelezettségek, statisztikai adatszolgáltatási kötelezettségek teljesítése, idegenrendészettel kapcsolatos kötelezettségek teljesítése.</p>
+    <ul>A kezelt személyes adatok köre:
+      <li>azonosító szám</li>
+      <li>név (vezetéknév, keresztnév)</li>
+      <li>e-mail cím</li>
+      <li>telefonszám (vezetékes vagy mobil)</li>
+      <li>vendégek száma</li>
+      <li>érkezés és távozás dátuma</li>
+    </ul>
+    <p>A kötelezően megadandó adatok Vendég általi megadása a szállodai szolgáltatás igénybevételének feltétele.</p>
+    <p>A bejelentőlap aláírásával a vendég hozzájárul ahhoz, hogy a bejelentőlap kitöltésével átadott személyes adatait a Szolgáltató a szerződés létrejötte, illetve teljesülésének, teljesítésének bizonyítása, illetve az esetleges igényérvényesítés céljára kezelje, elektronikus rendszerében feldolgozza, illetve archiválja a II/1.pontban foglaltaknak megfelelően kezelje.</p>
+    <p>A bejelentő lapon az email cím megadásával a vendégnek lehetősége van feliratkozni a Szolgáltató hírlevelére. A hírlevélre vonatkozóan egyebekben a III. 1. pontban foglaltak az irányadóak.</p>
+    <h4>Az adatkezelés időtartama:</h4>
+    <p>Az elektronikus nyilvántartásban kezelt adatok adatkezelésének időtartama a Számv.tv. 169. § (2) bekezdésének megfelelően 8 (nyolc) év (lsd. II/1.pont).</p>
+    <p>Az adatkezelés elmaradásának lehetséges következményei: Szerződés nem tud teljesülni; Számv. tv., helyi adórendelet, Idegenrendészeti tv. megsértése.</p>
+    <h4>Adattovábbítás:</h4>
+    <p>Statisztikai célú adattovábbítás történik, személyes adatok átadására nem kerül sor. Bizonylatok helyben történő tárolása a megsemmisítésig a telephelyen zárt iratszekrényben történik. Papír alapú bejelentőről adatfeldolgozós történik az elektronikus nyilvántartási rendszerbe, ahonnét lsd. II/1. pont szerint történik az adattovábbítás</p>
+    <h4>Adatfeldolgozók:</h4>
+    <ul>
+      <li>Foglalást kezelő személyek: Az a személy aki a foglalást visszaigazolja valamint törli a foglalást.</li>
+    </ul>
+    <h3>3. Talált tárgyak kezelése</h3>
+    <p>Az adatkezelés célja: a telephelyeken talált tárgyak nyilvántartása, a tulajdonos vagy a tároló értesítése. Az adatkezelés jogalapja: a Ptk. 5:54. §-a.</p>
+    <p>A kezelt személyes adatok köre: a találás dátuma, időpontja, a találó személye, a talált tárgy megnevezése, annak ténye, hogy sikerült-e értesíteni a tulajdonost, a raktározás helye, a találó és átadás esetén az átvevő aláírása, címre történő továbbítás esetén a postázás időpontja, postai szolgáltató megjelölése.</p>
+    <p>Az adatkezelés időtartama: Az adatok törlésre, megsemmisítésre kerülnek a talált tárgy tulajdonos általi átvétele vagy a települési jegyzőnek átadás esetén az átadást követően, de legkésőbb a találástól számított egy év elteltével.</p>
+    <p>Az adatkezelés elmaradásának lehetséges következményei: az adatkezelő nem tud eleget tenni jogszabályi kötelezettségének.</p>
+    <h4>Adattovábbítás:</h4>
+    <p>Talált tárgy hatóság részére történő átadás esetén, illetékes hatóságnak (települési jegyzőnek)</p>
+    <h4>Adattovábbítás jogalapja:</h4>
+    <p>Jogszabályi kötelezettség teljesítése</p>
+    <h4>Adatfeldolgozók:</h4>
+    <ul>
+      <li>Szálláshely tulajdonosa: adatfeldolgozás, nyilvántartások vezetése, számlázás, bizonylatok őrzése,</li>
+      <li>Postai szolgáltató: Talált tárgy megküldése esetén címre kézbesítés.</li>
+    </ul>
+    <h3>4. WIFI szolgáltatás kezelése</h3>
+    <p>Az adatkezelés célja: a vendégek részére wifi kapcsolaton keresztül internet elérés biztosítása</p>
+    <p>Az adatkezelés jogalapja: az érintett hozzájárulása, a hozzájárulás megadása tevőleges magatartással a wifi hálózatához történő csatlakozással történik, wifi szolgáltatás díjtalan.</p>
+    <p>A kezelt személyes adatok köre: a csatlakoztatott készülék egyedi azonosítója (MAC címe)</p>
+    <p>Az adatkezelés időtartama: a csatlakozás időtartama alatt, a csatlakozás megszűnésével az adatok nem tárolódnak tovább.</p>
+    <p>Az adatkezelés elmaradásának lehetséges következményei: vendég a szolgáltatást nem tudja igénybe venni.</p>
+    <h4>Adattovábbítás:</h4>
+    <p>Nem történik Adattovábbítás jogalapja: ----</p>
+    <h4>Adatfeldolgozók:</h4>
+    <p>Internet elérést biztosító szerződött szolgáltató</p>
+    <h3>5. Rendkívüli események kezelése</h3>
+    <p>Az adatkezelés célja: a bekövetkezett rendkívüli esemény kezelése,</p>
+    <p>Az adatkezelés jogalapja: az adatkezelő vagy más személyek jogos érdeke (GDPR 6. cikk (1) bek. f) pontja),</p>
+    <p>A kezelt személyes adatok köre: név, cím, telefonszám, esemény dátuma, időpontja, esemény leírása, intézkedés leírása, tanúk, közreműködők neve, címe, telefonszáma, elérhetősége;</p>
+    <p>Az adatkezelés időtartama: vendégbaleseti jegyzőkönyvek tekintetében 5 év</p>
+    <p>Az adatkezelés elmaradásának lehetséges következményei: ellehetetlenül a rendkívüli eseményből eredő jogok érvényesítése.</p>
+    <h4>Adattovábbítás:</h4>
+    <p>Érintett kérésére</p>
+    <h4>Adattovábbítás jogalapja:</h4>
+    <p>érintett jogos érdeke</p>
+    <h2>Marketing és piackutatási adatbázis</h2>
+    <h3>1. Hírlevél</h3>
+    <p>Az adatkezelés célja: A Szolgáltató hírlevelet természetes személy címzett esetén kizárólag a direkt marketing megkereséshez hozzájárulásukat adók részére küld az üzleti célú adatbázis építése, az érintettek részére gazdasági reklámokat is tartalmazó tájékoztatók, ajánlatok küldése céljából; online vagy papíralapú formában. Direkt marketing célú megkereséshez csak 16. életévüket betöltött személyek járulhatnak hozzá!</p>
+    <p>Az adatkezelés jogalapja: az érintett önkéntes hozzájárulása (Grt. 6. § (5) bekezdése).</p>
+    <p>A kezelt személyes adatok köre: azonosító szám, név, email-cím. A rendszer tárolja a fel- és leiratkozással, az üzenetek küldésével, kézbesítésével, megnyitásával, az érintett online aktivitásával kapcsolatos analitikai adatokat, számítógép IP címét.</p>
+    <p>Az adatkezelés időtartama: az érintett hozzájáruló nyilatkozatának visszavonásáig. Az érintett a hírlevélről bármikor leiratkozhat, az emailben megtalálható „hírlevélre feliratkozás” link segítségével, valamint igényelheti a leiratkozást emailben is a levendula.balatonmaria@gmail.com​címen.</p>
+    <p>A Szolgáltató a hírlevél listát ötévente felülvizsgálja, és azon felhasználók akik nem vették igénybe a szolgáltatást több mint 5 éve azoknak az adatait törli a rendszerből.</p>
+    <p>Az adatkezelés elmaradásának lehetséges következményei: érintett nem értesül a szolgáltató ajánlatairól, akcióiról.</p>
+    <h4>Adattovábbítás</h4>
+    <p>tevékenységgel kapcsolatban adattovábbítás a marketing célra használt hírlevél küldő rendszernek történik.</p>
+    <h4>Adattovábbítás jogalapja</h4>
+    <p>---</p>
+    <h4>Adatfeldolgozók:</h4>
+    <ul>
+      <li>Szolgáltató szerződött rendszergazdai feladatainak ellátója: Szolgáltatás admin.felület rendszergazdai feladatainak ellátása</li>
+      <li>Szolgáltatóval szerződött Web-tárhelyet nyújtó vállalkozás: Online szobafoglalási rendszer tárhely szolgáltatása</li>
+      <li>Szolgáltató kiszervezett marketing feladatait ellátó: Hírlevelek, tájékoztatók küldése, Facebook rendszereken kommunikáció, célcsoport meghatározások</li>
+      <li>Szolgáltató alkalmazottja, adminisztrátor munkatársai: adminisztráció, nyilvántartások vezetése, hírlevelek kiküldése</li>
+    </ul>
+    <h2>Weboldal adatkezelései</h2>
+    <p>A ​www.levendulabalatonmaria.info​ weblap meglátogatásakor a webszerver felhasználói adatokat nem rögzít.</p>
+    <h3>1. Külső szolgáltatók naplózással kapcsolatos adatkezelése:</h3>
+    <p>A portál html kódja a Szolgáltatótól független, külső szerverről érkező és külső szerverre mutató hivatkozásokat tartalmaz. A külső szolgáltató szervere közvetlenül a felhasználó számítógépével áll kapcsolatban. Felhívjuk látogatóink figyelmét, hogy e hivatkozások szolgáltatói az Ő szerverükre történő közvetlen kapcsolódás, a felhasználó böngészőjével való közvetlen kommunikáció miatt felhasználói adatokat (IP cím, böngésző, operációs rendszer adatai, egérmutató mozgása, meglátogatott oldal címe és a látogatás időpontja) képesek gyűjteni.</p>
+    <p>A felhasználó számára esetlegesen személyre szabott tartalmakat a külső szolgáltató szervere szolgálja ki. Az adatok külső szolgáltatók szervere általi kezeléséről az alább felsorolt adatkezelők tudnak részletes felvilágosítást nyújtani.</p>
+    <p>A ​www.levendulabalatonmaria.info​ weboldal látogatottsági és egyéb webanalitikai adatainak független mérését és auditálását külső szolgáltatóként a Google Analytics szervere segíti. A honlapon külső szolgáltatóként térkép-információkat jelenít meg a ​www.maps.google.com címen elérhető szolgáltató.</p>
+    <p>A mérési adatok kezeléséről az adatkezelő a ​http://www.google.com/intl/hu/policies/​címen ad részletes felvilágosítást.</p>
+    <h3>2. A Szolgáltató elérhető a Facebook és Instaram közösségi portálon.</h3>
+    <p>Az adatkezelés célja: a ​www.levendulabalatonmaria.info​ weboldalán található tartalmak megosztása. A Facebook oldal segítségével a Vendég időpontot foglalhat, részt vehet a nyereményjátékokban és tájékozódhat a legújabb akciókról. A Szolgáltató Facebook/Instagram oldalán a „tetszik”/”like”- linkre kattintással az érintett hozzájárul a Társaság híreinek és ajánlatainak közzétételéhez a saját üzenőfalán.</p>
+    <p>A hírlevélre a III.1.pontban foglaltak érvényesek. Szobafoglalás esetén a Vendéget a rendszer automatikusan átirányítja a ​www.levendulabalatonmaria.info​honlapjára. Az adatkezelés a II.1. pontban foglaltak szerint folyik.</p>
+    <p>A Facebook alkalmazásokban található üzenőfalon közzétett hírfolyamra a Vendég az oldalon található „like”/ „tetszik” linkre kattintva iratkozhat fel, és az ugyanitt található „dislike”/”nem tetszik” linkre kattintva iratkozhat le, illetve az üzenő fal beállításai segítségével törölheti a nem kívánt, üzenő falon megjelenő hírfolyamokat. Továbbiakról bővebben a Facebook alkalmazások adatvédelmi tájékoztatóiban: https://www.facebook.com/privacy/explanation​.</p>
+    <p>A Szolgáltató honlapján, Facebook/Instagram oldalán képeket/filmeket is közzétesz a különböző eseményekről/szolgáltatásokról stb.. Amennyiben nem tömegfelvételről van szó, a Szolgáltató kikéri az érintett írásbeli hozzájárulását a képek közzététele előtt.</p>
+    <h2>Adatbiztonság</h2>
+    <h3>1. SSL rendszer</h3>
+    <p>A Szolgáltató weboldala SSL adatvédelmi kódoló szoftvert alkalmaz online foglalások esetében. Bármely információ, amelyet az érintett megoszt a Szolgáltatóval, automatikusan adatvédelmi kódolásra kerül, és a hálózaton történő továbbítás során védelem alatt áll. Amint az információ beérkezik szerverünkre, dekódolásra kerül egy egyedi magánkulcs használatával. Az SSL lehetővé teszi a böngésző részére a weboldalra történő kapcsolódást és egy biztonságos kommunikációs csatornában történő megállapodást áttekinthető módon. Az SSL a legszélesebb körben alkalmazott és legsikeresebb biztonságos ügyleti rendszer. E rendszer használatához az érintettnek egyszerűen ellenőriznie kell böngészője összeférhetőségét.</p>
+    <h3>2. Egyéb biztonsági tevékenységek</h3>
+    <p>A Szolgáltató biztosítja annak ellenőrizhetőségét és megállapíthatóságát, hogy a személyes adatokat adatátviteli berendezés alkalmazásával mely szerveknek továbbították vagy továbbíthatják, mely személyes adatokat, mely adatot mikor és ki vitte be a rendszerbe, és a rendszer üzemzavar esetén történő helyreállíthatóságát. Az automatizált feldolgozás során fellépő hibákról jelentés készül.</p>
+    <p>A Szolgáltató a személyes adatokat bizalmasan kezeli, azokat illetékteleneknek nem szolgáltatja ki. A személyes adatokat védi különösen a jogosulatlan hozzáférés, megváltoztatás, továbbítás, nyilvánosságra hozatal, törlés vagy megsemmisítés, valamint a véletlen megsemmisülés, sérülés továbbá az alkalmazott technika megváltozásából fakadó hozzáférhetetlenné válás ellen. A személyes adatok technikai védelmének biztosítása érdekében minden biztonsági intézkedést megtesz.</p>
+    <h3>3. Adattovábbítás</h3>
+    <p>A Szolgáltató részére átadott személyes adatok adattovábbításra kizárólag akkor van lehetőség, ha arról az érintettet, az adott szolgáltatás igénybevételénél előzőleg tájékoztatták.</p>
+    <p>A Szolgáltató az adattovábbítás jogszerűségének ellenőrzése, valamint az érintett tájékoztatása céljából adattovábbítási nyilvántartást vezet, amely tartalmazza az általa kezelt személyes adatok továbbításának időpontját, az adattovábbítás jogalapját és címzettjét, a továbbított személyes adatok körének meghatározását, valamint az adatkezelést előíró jogszabályban meghatározott egyéb adatokat.</p>
+    <p>A Szolgáltató a jogszabályban meghatározott esetekben az érintett külön hozzájárulása nélkül is, az általa kezelt személyes adatokat az illetékes hatóságok, bíróságok részére azok megkeresésének megfelelően átadhatja.</p>
+    <h3>4. Adatok tárolása, biztonsága, adatvédelmi incidens kezelése</h3>
+    <p>A Szolgáltató a kockázat mérlegelésen alapuló, megfelelő mértékű adatbiztonságot garantálja, melyet az adatfeldolgozói technológia állása, a megvalósítás költségei, adatkezelés jellege, hatóköre, a természetes személyek jogaira és szabadságaira jelentett, változó valószínűségű és súlyú kockázatok figyelembevételével megfelelő technikai és szervezési intézkedésekkel hajt végre.</p>
+    <ul>A személyes adatok kezeléséhez az alkalmazott informatikai eszközöket úgy választja meg és üzemelteti, hogy a kezelt adat legyen:
+      <li>az arra feljogosított számára hozzáférhető (rendelkezésre állás),</li>
+      <li>hitelessége és hitelesítése biztosított (adatkezelés hitelessége),</li>
+      <li>változatlansága igazolható (adatintegritás),</li>
+      <li>jogosulatlan hozzáférés ellen védett (adat bizalmassága).</li>
+      <li>Az adatokat megfelelő műszaki, szervezési és szervezeti intézkedésekkel védi a jogosulatlan hozzáférés, megváltoztatás, továbbítás, nyilvánosságra hozatal, törlés vagy megsemmisítés, véletlen megsemmisülés, hozzáférhetetlenné válás ellen.</li>
+    </ul>
+    <p>Adatkezelései során biztosítja a titkosságot, sértetlenséget és a jogosult részére való rendelkezésre állást.</p>
+    <p>Szolgáltató, mint adatkezelő nyilvántartja az esetleges adatvédelmi incidenseket, feltüntetve az ahhoz kapcsolódó tényeket, annak hatásait és orvoslására tett intézkedéseket. Késedelem nélkül – legkésőbb az adatvédelmi incidens tudomásra jutásától számított 72 órán belül – bejelenti a Nemzeti Adatvédelmi és Információszabadság Hatóságnak, kivéve, ha az adatvédelmi incidens valószínűsíthetően nem jár kockázattal a természetes személyek jogaira és szabadságaira nézve. Egyúttal az incidensről az érintetteket tájékoztatja.</p>
+    <h2>Érintetti jogok, jogorvoslati lehetőségek</h2>
+    <p>Az érintett tájékoztatást kérhet személyes adatai kezeléséről, kérheti személyes adatainak helyesbítését, - a kötelező adatkezeléseket kivéve – törlését, visszavonását, korlátozhatja az adatkezelést, élhet adathordozási- , és tiltakozási jogával az adat felvételénél jelzett módon, az adatkezelő ügyfélszolgálata útján.</p>
+    <h3>1. Tájékoztatáshoz való jog</h3>
+    <p>Szolgáltató megfelelő intézkedéseket hoz annak érdekében, hogy az érintett részére a személyes adatok kezelésére vonatkozó, a GDPR 13. és 14. cikke szerinti valamennyi információt, a 15-22. és a 34. cikk szerinti formában minden egyes tájékoztatást tömör, átlátható, érhető és könnyen hozzáférhető formában, világosan és közérthetően megfogalmazva nyújtja.</p>
+    <h3>2. Hozzáféréshez való jog</h3>
+    <p>Az érintett jogosult arra, hogy az adatkezelőtől tájékoztatást kapjon arra vonatkozóan, hogy személyes adatainak kezelése folyamatban van-e, ha ilyen adatkezelés folyamatban van, jogosult arra, hogy a személyes adatokhoz és a következő információkról tájékoztatást kapjon:</p>
+    <ul>
+      <li>az adatkezelés célja,</li>
+      <li>az érintett személyes adatok kategóriái,</li>
+      <li>azon címzettek vagy címzettek kategóriái, akikkel/amelyekkel a személyes adatokat közölték vagy közölni fogják (ideértve különösen a harmadik országbeli címzetteket, a nemzetközi szervezeteket), megfelelő garanciákról,</li>
+      <li>a személyes adatok tárolásának időtartamáról,</li>
+      <li>a helyesbítés, törlés, adatkezelés korlátozásáról, tiltakozás jogáról,</li>
+      <li>felügyeleti hatósághoz címzett panasz benyújtásának jogáról,</li>
+      <li>az adatforrásokra vonatkozó információkról,</li>
+      <li>az automatizált döntéshozatal rényéről, profilalkotásról, az alkalmazott logikára vonatkozó érthető információról, hogy milyen várható következményekkel és jelentőséggel bír az adatkezelés, Szolgáltató az érintett kérésére az adatkezelés tárgyát képező személyes adatok másolatát az érintett rendelkezésére bocsátja papír alapon vagy elektronikus formában.</li>
+    </ul>
+    <p>A tájékoztatáshoz való jog írásban a Szolgáltató (Adatkezelő) megjelölt elérhetőségein keresztül gyakorolható: Lsd 2. oldal. Az érintett részére kérésére – személyazonosságának hitelt érdemlő igazolása és beazonosítását követően – szóban is adható tájékoztatás.</p>
+    <h3>3. Helyesbítéshez való jog</h3>
+    <p>Az érintett kérheti a Szolgáltatótól az általa kezelt, rá vonatkozó pontatlan személyes adatok helyesbítését és a hiányos adatok kiegészítését a Szolgáltató (Adatkezelő) megjelölt elérhetőségein keresztül: Lsd 2. oldal.</p>
+    <h3>4. Törléshez való jog</h3>
+    <p>Az érintett az alábbi indokok valamelyikének fennállása esetén jogosult arra, hogy kérésére a Szolgáltató indokolt késedelem nélkül törölje a rá vonatkozó személyes adatokat:</p>
+    <ul>
+      <li>személyes adatokra már nincs szükség abból a célból, amelyből azokat gyűjtötték vagy más módon kezelték</li>
+      <li>az érintett visszavonja az adatkezelés alapját képező hozzájárulását és az adatkezelésnek nincs más jogalapja;</li>
+      <li>az érintett tiltakozik az adatkezelés ellen és nincs elsőbbséget élvező jogszerű ok az adatkezelésre;</li>
+      <li>a személyes adatokat jogellenesen kezelték; a személyes adatokat az adatkezelőre alkalmazandó uniós vagy tagállami jogban előírt jogi kötelezettség teljesítéséhez törölni kell.</li>
+    </ul>
+    <p>Az adatok törlése adatkezelő részéről megtagadható, ha az adatkezelés szükséges:</p>
+    <ul>
+      <li>a véleménynyilvánítás szabadságához és a tájékozódáshoz való jog gyakorlása céljából,</li>
+      <li>a személyes adatok kezelését előíró, az adatkezelőre alkalmazandó uniós vagy tagállami jog szerinti kötelezettség teljesítése céljából vagy közérdekből;</li>
+      <li>az adatkezelőre ruházott közhatalmi jogosítvány gyakorlása keretében végzett feladat végrehajtása céljából, közérdek alapján;</li>
+      <li>jogi igények előterjesztéséhez, érvényesítéséhez és védelméhez.</li>
+    </ul>
+    <h3>5. Adatkezelés korlátozásához való jog</h3>
+    <p>Az érintett kérésére a Szolgáltató korlátozza az adatkezelést, ha az alábbi feltételek valamelyike teljesül:</p>
+    <ul>
+      <li>az érintett vitatja a személyes adatok pontosságát, ez esetben a korlátozás arra az időszakra vonatkozik, amely lehetővé teszi a személyes adatok pontosságának ellenőrzését;</li>
+      <li>az adatkezelés jogellenes és az érintett ellenzi az adatok törlését, helyette kéri azok felhasználásának korlátozását;</li>
+      <li>az adatkezelőnek már nincs szüksége a személyes adatokra adatkezelés céljából, de az érintett igényli azokat jogi igénye előterjesztéséhez, érvényesítéséhez vagy védelméhez;</li>
+      <li>az érintett tiltakozott az adatkezelés ellen, de szükséges annak megállapítása, hogy az adatkezelő jogos indokai elsőbbséget érveznek-e az érintett indokaival szemben. Ez esetben a korlátozás a megállapítás időtartamára terjed ki.</li>
+    </ul>
+    <p>Ha az adatkezelés korlátozás alá esik, a személyes adatokat a tárolás kivételével csak az érintett hozzájárulásával vagy jogi igény előterjesztéséhez, érvényesítéséhez vagy védelméhez; vagy más természetes vagy jogi személy jogainak védelme érdekében, vagy az Uniós /valamely tagállami fontos közérdekből lehet kezelni.</p>
+    <p>Szolgáltató az érintettet tájékoztatja az adatkezelés korlátozásának feloldásáról.</p>
+    <h3>6. Adathordozáshoz való jog</h3>
+    <p>Az érintett jogosult arra, hogy a rá vonatkozó, általa az adatkezelő rendelkezésére bocsátott személyes adatokat tagolt, széles körben használt, géppel olvasható formátumban megkapja, és ezeket az adatokat egy másik adatkezelőnek továbbítsa.</p>
+    <h3>7. Tiltakozás joga</h3>
+    <p>Az érintett jogosult arra, hogy a saját helyzetével kapcsolatos okokból bármikor tiltakozzon személyes adatainak közérdekű vagy az adatkezelőre ruházott közhatalmi jogosítvány gyakorlásának keretében végzett feladat végrehajtásához szükséges adatkezelés, vagy az adatkezelő vagy egy harmadik fél jogos érdekeinek érvényesítéséhez szükséges kezelése ellen, ideértve az említett rendelkezéseken alapuló profilalkotást is.</p>
+    <p>Tiltakozás esetén az adatkezelő a személyes adatokat nem kezelheti tovább, kivéve, ha azt olyan kényszerítő erejű jogos okok indokolják, amelyek elsőbbséget élveznek az érintett érdekeivel, jogaival és szabadságaival szemben, vagy amelyek jogi igények előterjesztéséhez, érvényesítéséhez vagy védelméhez kapcsolódnak.</p>
+    <p>Ha a személyes adatok kezelése közvetlen üzletszerzés érdekében történik, az érintett jogosult arra, hogy bármikor tiltakozzon a rá vonatkozó személyes adatok e célból történő kezelése ellen, ideértve a profilalkotást is, amennyiben az a közvetlen üzletszerzéshez kapcsolódik.</p>
+    <h3>8. Automatizált döntéshozatal, profilalkotás</h3>
+    <p>Az érintett jogosult arra, hogy ne terjedjen ki rá az olyan, kizárólag automatizált adatkezelésen – ideértve a profilalkotást is – alapuló döntés hatálya, amely rá nézve joghatással járna vagy őt hasonlóképpen jelentős mértékben érintené.</p>
+    <p>Nem alkalmazható ezen jogosultság, ha az adatkezelés az érintett és az adatkezelő közötti szerződés megkötése vagy teljesítése érdekében szükséges; meghozatalát az adatkezelőre alkalmazandó olyan uniós vagy tagállami jog teszi lehetővé, amely az érintett jogainak és szabadságainak, valamint jogos érdekeinek védelmét szolgáló megfelelő intézkedéseket is megállapít; vagy az érintett kifejezett hozzájárulásán alapul.</p>
+    <h3>9. Visszavonás joga</h3>
+    <p>Az érinett jogosult arra, hogy hozzájárulását bármikor visszavonja. A hozzájárulás visszavonása nem érinti a hozzájáruláson alapuló, a visszavonás előtti adatkezelés jogszerűségét.</p>
+    <h3>10. Eljárási szabályok</h3>
+    <p>Az adatkezelő indokolatlan késedelem nélkül, a kérelem beérkezésétől számított egy hónapon belül tájékoztatja az érintett a GDPR 15-22. cikk szerinti kérelem alapján hozott intézkedésekről. Szükség esetén – figyelembe véve a kérelem összetettségét és a kérelmek számát – a határidő további két hónappal meghosszabbítható. A határidő meghosszabbításáról az adatkezelő a késedelem okainak megjelölésével a kérelem kézhezvételétől számított egy hónapon belül tájékoztatja az érintettet. Ha az érintett elektronikus úton nyújtotta be a kérelmet, a tájékoztatás megadására elektronikus úton kerül sor, kivéve, ha az érintett azt kifejezetten másként kéri.</p>
+    <p>Amennyiben az adatkezelő nem tesz intézkedéseket az érintett kérelme alapján, késedelem nélkül, de legkésőbb a kérelem beérkezésétől számított egy hónapon belül, illetve nem tájékoztatja az érintettet az intézkedés elmaradásának okairól, érintett panasz nyújtható be valamely felügyeleti hatósághoz és élhet bírósági jogorvoslati jogával.</p>
+    <p>Szolgáltató a kért információkat és tájékoztatást díjmentesen biztosítja.</p>
+    <p>Adatkezelő az adatkezelés tárgyát képező személyes adatok másolatát az érintett rendelkezésére bocsátja.</p>
+    <h3>11. Kártérítés és sérelemdíj</h3>
+    <p>Minden olyan személy, aki az adatvédelmi rendelet megsértésének eredményeként vagyoni vagy nem vagyoni kárt szenvedett, az elszenvedett kárért az adatkezelőtől vagy az adatfeldolgozótól kártérítésre jogosult. Az adatfeldolgozó abban az esetben tartozik felelősséggel az adatkezelés által okozott károkért, ha nem tartotta be a jogszabályban meghatározott, kifejezetten az adatfeldolgozókat terhelő kötelezettségeket, vagy ha az adatkezelő jogszerű utasításait figyelmen kívül hagyta vagy azokkal ellentétesen járt el.</p>
+    <p>Ha több adatkezelő vagy több adatfeldolgozó; vagy mind az adatkezelő, mind az adatfeldolgozó érintett ugyanabban az adatkezelésben és felelősséggel tartozik az adatkezelés által okozott károkért, minden egyes adatkezelő vagy adatfeldolgozó egyetemleges felelősséggel tartozik a teljes kárért.</p>
+    <p>Az adatkezelő vagy az adatfeldolgozó mentesül a felelősség alól, ha bizonyítja, hogy a kárt előidéző eseményért őt semmilyen módon felelősség nem terheli.</p>
+    <h3>12. Panasz és bírósághoz fordulás joga</h3>
+    <p>Amennyiben a Szolgáltató adatkezelésével kapcsolatban kérdése, problémája van, kérjük jelezze elérhetőségeinken (Lsd: Adatkezelő 2. oldal).</p>
+    <p>Panasszal fordulhat a Nemzeti Adatvédelmi és Információszabadság Hatóság-hoz</p>
+    <p>Székhely: 1125 Budapest, Szilágyi Erzsébet fasor 22/C. Levelezési cím: 1534 Budapest, Pf.: 834;</p>
+    <p>Telefon: +36 (1) 391-1400</p>
+    <p>Fax: +36 (1) 391-1410</p>
+    <p>www: ​http://www.naih.hu; e-mail: ​ugyfelszolgalat@naih.hu​)</p>
+    <p>Érintett a jogainak megsértése esetén az adatkezelő ellen (az érintett választása szerint az alperes székhelye vagy az érintett lakóhelye szerinti illetékes) bírósághoz fordulhat. A bíróság az ügyben soron kívül jár el. A személyes adatok védelmével összefüggésben indított per illetékmentes.</p>
+    <p>Az Adatvédelmi Tájékoztató hatályos: 2019. május 1. napjától.</p>
+    <p>Szolgáltató fenntartja a jogot a jelen Tájékoztató módosítására, mely módosításról a érintetteket értesíti.</p>
+    <h2>Fogalommagyarázat</h2>
+    <p>Érintett: bármely meghatározott, személyes adat alapján azonosított vagy - közvetlenül vagy közvetve - azonosítható természetes személy;</p>
+    <p>Személyes adat: az érintettel kapcsolatba hozható adat - különösen az érintett neve, azonosító jele, valamint egy vagy több fizikai, fiziológiai, mentális, gazdasági, kulturális vagy szociális azonosságára jellemző ismeret -, valamint az adatból levonható, az érintettre vonatkozó következtetés;</p>
+    <p>Különleges adat: faji eredetre, a nemzetiséghez tartozásra, a politikai véleményre vagy pártállásra, a vallásos vagy más világnézeti meggyőződésre, az érdek-képviseleti szervezeti tagságra, a szexuális életre vonatkozó személyes adat, valamint az egészségi állapotra, a kóros szenvedélyre vonatkozó személyes adat, és a bűnügyi személyes adat;</p>
+    <p>Hozzájárulás: az érintett akaratának önkéntes és határozott kinyilvánítása, amely megfelelő tájékoztatáson alapul, és amellyel félreérthetetlen beleegyezését adja a rá vonatkozó személyes adatok - teljes körű vagy egyes műveletekre kiterjedő - kezeléséhez;</p>
+    <p>Tiltakozás: az érintett nyilatkozata, amellyel személyes adatainak kezelését kifogásolja, és az adatkezelés megszüntetését, illetve a kezelt adatok törlését kéri;</p>
+    <p>Adatkezelő: az a természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki, vagy amely önállóan vagy másokkal együtt az adatok kezelésének célját meghatározza, az adatkezelésre (beleértve a felhasznált eszközt) vonatkozó döntéseket meghozza és végrehajtja, vagy az általa megbízott adatfeldolgozóval végrehajttatja;</p>
+    <p>Adatkezelés: az alkalmazott eljárástól függetlenül az adatokon végzett bármely művelet vagy a műveletek összessége, így különösen gyűjtése, felvétele, rögzítése, rendszerezése, tárolása, megváltoztatása, felhasználása, lekérdezése, továbbítása, nyilvánosságra hozatala, összehangolása vagy összekapcsolása, zárolása, törlése és megsemmisítése, valamint az adatok további felhasználásának megakadályozása, fénykép-, hang- vagy képfelvétel készítése, valamint a személy azonosítására alkalmas fizikai jellemzők (pl. ujj- vagy tenyérnyomat, DNS-minta, íriszkép) rögzítése;</p>
+    <p>Adattovábbítás: az adat meghatározott harmadik személy számára történő hozzáférhetővé tétele;</p>
+    <p>Nyilvánosságra hozatal: az adat bárki számára történő hozzáférhetővé tétele;</p>
+    <p>Adattörlés: az adatok felismerhetetlenné tétele oly módon, hogy a helyreállításuk többé nem lehetséges;</p>
+    <p>Adatmegjelölés: az adat azonosító jelzéssel ellátása annak megkülönböztetése céljából;</p>
+    <p>Adatkorlátozás/Adatzárolás: az adat azonosító jelzéssel ellátása további kezelésének végleges vagy meghatározott időre történő korlátozása céljából;</p>
+    <p>Adatfeldolgozás: az adatkezelési műveletekhez kapcsolódó technikai feladatok elvégzése, függetlenül a műveletek végrehajtásához alkalmazott módszertől és eszköztől, valamint az alkalmazás helyétől, feltéve hogy a technikai feladatot az adatokon végzik;</p>
+    <p>Adatfeldolgozó:az a természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki, vagy amely az adatkezelővel kötött szerződése alapján - beleértve a jogszabály rendelkezése alapján történő szerződéskötést is - adatok feldolgozását végzi;</p>
+    <p>Harmadik személy: olyan természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki, vagy amely nem azonos az érintettel, az adatkezelővel vagy az adatfeldolgozóval.</p>
+    <p>Adatvédelmi incidens: személyes adat jogellenes kezelése vagy feldolgozása, így különösen a jogosulatlan hozzáférés, megváltoztatás, továbbítás, nyilvánosságra hozatal, törlés vagy megsemmisítés, valamint a véletlen megsemmisülés és sérülés.</p>
+    <p>[1] Harmadik ország állampolgára: Magyar állampolgár kivételével minden olyan személy, aki nem Európai Gazdasági Térség tagállam állampolgára, ideértve a hontalant is. Az EGT tagállamai: az Európai Unió tagállamai, Izland, Liechtenstein, és Norvégia, mint részes tagállam, valamint Svájc, mint azonos jogállású állam.</p>

@@ -2,21 +2,20 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of, BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";
+import { parse } from "yamljs";
 
 @Injectable({
   providedIn: "root",
 })
 export class LanguageService {
   private languageFiles = {
-    hu: "../../assets/lng/hu.json",
-    en: "../../assets/lng/en.json",
-    de: "../../assets/lng/de.json",
+    hu: "../../assets/lng/hu.yaml",
+    en: "../../assets/lng/en.yaml",
   };
 
   private translations = {
     hu: {},
     en: {},
-    de: {},
   };
 
   private selectedLanguage: string;
@@ -36,11 +35,15 @@ export class LanguageService {
 
     if (Object.keys(obj).length === 0 && obj.constructor === Object) {
       this.observable = this.http
-        .get(this.languageFiles[this.selectedLanguage])
+        .get(this.languageFiles[this.selectedLanguage], {
+          observe: "body",
+          responseType: "text", // This one here tells HttpClient to parse it as text, not as JSON
+        })
         .pipe(
           map((response) => {
             this.observable = null;
-            this.translations[this.selectedLanguage] = response;
+            const jsonObject = parse(response);
+            this.translations[this.selectedLanguage] = jsonObject;
 
             return this.translations[this.selectedLanguage];
           })

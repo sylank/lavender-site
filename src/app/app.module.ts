@@ -40,6 +40,10 @@ import { CardContainerComponent } from "./shared/card-container/card-container.c
 import { HeroContainerComponent } from "./shared/hero-container/hero-container.component";
 import { NotificationDialogComponent } from './shared/notification-dialog/notification-dialog.component';
 import { SubmitButtonComponent } from './shared/submit-button/submit-button.component';
+import { DropdownButtonComponent } from './shared/dropdown-button/dropdown-button.component';
+import { HouseRulesComponent } from './house-rules/house-rules.component';
+import { BookingInformationsComponent } from './booking-informations/booking-informations.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,10 @@ import { SubmitButtonComponent } from './shared/submit-button/submit-button.comp
     HeroContainerComponent,
     NotificationDialogComponent,
     SubmitButtonComponent,
+    DropdownButtonComponent,
+    HouseRulesComponent,
+    BookingInformationsComponent,
+    PrivacyStatementComponent,
   ],
   imports: [
     BrowserModule,
