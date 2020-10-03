@@ -1,6 +1,6 @@
 .dropdown-container((click)="showMenu=!showMenu")
   a(translate [key]="translateKey", (click)="buttonClick($event)") {{title}}
-    i.fas.fa-angle-down([ngClass]='{rotatedArrow: showMenu}',)
+  i.fas.fa-angle-down([ngClass]='{rotatedArrow: showMenu}',)
 
 .dropdown-menu-list(*ngIf="showMenu")
   ng-content
