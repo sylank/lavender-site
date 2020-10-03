@@ -269,6 +269,60 @@ delete_user_data:
   info_mandatory: A *-al jelölt mezők kitöltése kötelező
   info_char_remaining: "Ennyi karakter maradt:"
   checkbox: Törölni szeretném az adataimat!
+apartments:
+  title: Az apartmanokról
+  common1: Mindkét nyaraló rendelkezik fedett első és hátsó terasszokkal. A parkolás a zárt udvarban, valamint a ház előtt is lehetséges.
+  common2: A nyaraló állapotának, valamint vendégeink és szűkebb kernyezetünk nyugalmának megőrzése érdekében a Levendula Apartmanok nem alkalmasak nagyobb rendezvények illetve leány-, vagy legénybúcsúk megredezésére.
+  common3: A nyaralók egyenként max. 5 férőhellyel rendelkeznek. Igény szerint, időben történő foglalással nagyobb család illetve két társaság részére a két nyaraló egyben is kivehető (külön-külön térítési díj ellenében). A hátsó teraszok ebben az esetben összenyithatók és közösen is használhatók. Így a nagyobb társaság akár együtt is eltöltheti a kellemes időt. (Együtt, de mégis külön.)
+
+  inside1: Mindkét házra jellemző
+  inside2: Két különálló szoba
+  inside3: Jól felszerelt konyha
+  inside4: Nappali-étkező
+  inside5: Zuhanykabinos fürdőszoba
+  inside6: Kutya és macska barát
+
+  inside7: Mindkét házban megtalálható (fontosabb dolgok)
+  inside8: Wi-Fi
+  inside9: Légkondícionáló
+  inside10: TV
+  inside11: Konyhai eszközök
+  inside12: Mikró
+  inside13: Törülközők
+  inside14: Ágynemű
+  inside15: Elektromos főzőlap
+
+  outside1: A kertben
+  outside2: Ping-Pong asztal
+  outside3: Csocsó asztal
+  outside4: Napozó ágyak
+  outside5: Gyereksarok
+  outside6: Gyerek hinta
+  outside7: Grill sütő
+  outside8: Bogrács
+
+  levendula_1:
+    desc1: Apartman maximum 5 fő részére.
+    desc2: A kertben található egy retro (de felújított) kerti tusoló ami jó szolgálatot tesz nyári meleg napokon.
+    desc_content: Pár szó a házról
+    content: >-
+      <p>A levendula apartman jelenlegi helyén lévő ház teljesen máshogy festett, mint napjainkban. Kicsit leharcolt kicsit talán a 70-es évek nyaralóját idéző látvány fogadott bennünket. Kintről megközelíthető mosdóval és linoleum padlóval. Az egésznek volt egy kis szocreál romantikája. Egyből megláttuk benne a lehetőséget. Nem is haboztunk sokáig, megvettük és neki is láttunk a felújításnak. Nem volt egyszerű dolgunk, de férjemmel karöltve kiforgattuk a sarkából a kis épületet és amit most láttok már csak nyomokban emlékeztet a régi vikkend házra.</p>
+      <p>Az utca jó adottságokkal rendelkezik révén közel van a központhoz és a balatonmáriai strandhoz is. Az utcában található éttermekbe, fagyizókba és az utcával szemben lévő Coop áruházba mi is szívesen járunk.</p>
+      <p>Balatonmáriafürdő egyike azon üdülőfalvaknak, ahol üzemel szabadstrand is, valamint a strandon mellékhelyiség is található.</p>
+      <p>Visszakanyarodva a házra, mikor a kertkapun belépünk az utca felőli teraszra érkezünk. A parkolás megengedett a kerítésen belül, mivel a ház mellett térkő fut egészen a hátsó teraszig. Az első teraszon kényelmesen elfogyaszthatjuk a reggeli kávénkat vagy az esti pohár borunkat. A hátsó terasz mellett helyezkedik el a grillsütő. Alkalmas családi vacsorákra, csocsózásra, őrült társasjáték partyk lebonyolítására, vagy egyszerűen csak egy délutáni szundira, mivel itt található a függőágy is.</p>
+      <p>A hátsó kertben kapott helyet a szabadtéri (mobil) ping-pong asztal, valamint a napozó ágyak is. A kert végében található a kerti retro tusoló, ami a nap melegétől felmelegszik (kőkorszaki nap collector) és az újtatöltéssel sem kell foglalkoznunk, mivel automatikusan töltődik.</p>
+      <p>Este pedig a környéken élő békák rákezdenek énekükre, amit a teraszról élvezhetünk. Az egésznek kölcsönöz egy kis vidéki balatoni érzést. Ha a kinti világítást felkapcsoljuk, akkor még egy kis esti beszélgetés is belefér.</p>
+      <p>A házból már nem hallani a békák társalgását. A TV-ben talán még elkaphatjuk a Barátok Közt 7452. epizódját, de ha nem is nézünk tévét, akkor nyugalomba helyezhetjük magunkat a kanapén, vagy elkezdhetjük a gyerekek éjszakai üzemmódba kapcsolását.</p>
+      <p>Reggel pedig nekiláthatunk elkészíteni a tojásrántottát az elektromos főzőlapon és futhatunk is le a Balatonra csobbanni.</p>
+
+  levendula_2:
+    desc1: Apartman maximum 5 fő részére.
+    desc2: Képek hamarosan, érdeklődj Facebookon
+    desc_content: Pár szó a házról
+    content: >-
+      <p>A Levendula 2 közvetlenül a Levendula 1 szomszédságában helyezkedik el. Ahogy a képeken is látszik a Levendula Apartman két különálló nyaraló. Az eredeti építtető a saját családjának építette, de az évek során külön kézbe került. Mikor a Levendula 1 nyaralót megvásároltuk szinte biztosak voltunk benne, hogy a nyaraló másik felét is meg szeretnénk vásárolni, ha úgy alakul. Ahogy látjátok sikerült a tervünk megvalósítása és 2019-ben a másik házat is megvásároltuk.</p>
+      <p>Minden ami a Levendula 1-re igaz igaz a Levendula 2-re is. A nyaralót a másik nyaraló tükörképére alakítottuk ki. Azonos elrendezés, azonos méretek. Az első évben a belső terek kialakításával kezdtünk. A másodikban pedig a teraszok elkészítését tűztük ki célul.</p>
+      <p>A két nyaralót próbáljuk két külön entitásnak tekinteni. Alapesetben a két nyaraló közt nincs átjárási lehetőség, viszont ha két baráti társaság foglalja le a két házat, akkor a hátsó teraszok igény szerint összenyithatók. Így megmarad a közös nyaralás élménye, de mégis két különálló apartmanban. Nem hallatszik át zaj, ha mindkét oldalon vannak vendégek. 2021-től már a Levendula 2 is foglalható a webes felületünkön keresztül.</p>
 house_rules:
   title: Házirend
   translated_by: " "

@@ -270,6 +270,59 @@ delete_user_data:
   info_mandatory: Fields marked with * are required
   info_char_remaining: "Remaining characters:"
   checkbox: I would like to delete my personal data!
+apartments:
+  title: About the apartments
+  common1: Both cottages have covered front and back terraces. Parking is possible in the closed yard as well as in front of the house.
+  common2: In order to preserve the condition of the holiday home and the tranquility of our guests and our surroundings, the Lavender Apartments are not suitable for larger events or bachelorette parties.
+  common3: The cottages are max. They have 5 seats. Upon request, by booking in time for a larger family or two companies, the two holiday homes can be rented together (for a separate fee). In this case, the back terraces can be connected and shared. This way, the larger company can even spend a pleasant time together. (Together, but still separately.)
+
+  inside1: Characteristic of both housings
+  inside2: Two separate rooms
+  inside3: Well equipped kitchen
+  inside4: Living-dining room
+  inside5: Bathroom with shower cabin
+  inside6: Dog and cat friendly
+
+  inside7: Found in both houses (important things)
+  inside8: Wi-Fi
+  inside9: Air conditioning
+  inside10: TV
+  inside11: Kitchen utensils
+  inside12: Micro
+  inside13: Towels
+  inside14: Bed linen
+  inside15: Electric hob
+
+  outside1: In the garden
+  outside2: Ping-Pong table
+  outside3: Soccer table
+  outside4: Sunbeds
+  outside5: Children's corner
+  outside6: Children's swing
+  outside7: Grill oven
+  outside8: Cauldron
+
+  levendula_1:
+    desc1: Apartment for up to 5 people.
+    desc2: The garden has a retro (but renovated) garden shower which is good for hot summer days.
+    desc_content: A few words about the house
+    content: >-
+      <p> The house in the current location of the lavender apartment is painted completely differently than it is today. We were greeted by a little reminiscent of a 70s holiday home. Accessible from the outside with sink and linoleum floor. It all had a bit of social surreal romance. We immediately saw the opportunity in it. We didn’t even hesitate for a long time, we bought it and saw it for him to renovate. It wasn't an easy thing for me, and my husband and I wrapped the small building out of the corner and what you see now is only a reminder of the old Vikkend house. </p>
+      <p> The street has good facilities and is close to the center and the beach in Balatonmária. We also welcome the restaurants, ice cream parlors on the street and the Coop department store across the street. </p>
+      <p> Balatonmáriafürdő is one of the holiday villages with a free beach and a toilet on the beach. </p>
+      <p> Turning back to the house, when we enter the garden gate, we arrive at the terrace facing the street. Parking is allowed inside the fence, as paving stones run all the way to the back terrace next to the house. On the first terrace we can comfortably have our morning coffee or our evening glass of wine. The barbecue is located next to the back terrace. Suitable for family dinners, table football, crazy board game parties, or simply an afternoon nap as there is also a hammock. </p>
+      <p> The back garden has an outdoor (mobile) ping pong table and sun loungers. At the end of the garden is the garden retro shower, which warms up from the heat of the sun (Stone Age sun collector) and we don’t have to worry about recharging either, as it charges automatically. </p>
+      <p> In the evening, the frogs in the area start singing, which we can enjoy from the terrace. It gives the whole thing a little rural Balaton feel. Turning on the outdoor lights will fit even a little evening conversation. </p>
+      <p> You can no longer hear the frogs talking from the house. We may still be able to catch episode 7452 Among Friends on TV, but even if we don’t watch TV, we can rest ourselves on the couch or start switching kids to night mode. </p>
+      <p> In the morning we can start making scrambled eggs on the electric hob and we can run down to Lake Balaton to splash. </p>
+  levendula_2:
+    desc1: Apartment for up to 5 people.
+    desc2: Pictures coming soon, inquire on Facebook
+    desc_content: A few words about the house
+    content: >-
+      <p> Lavender 2 is located right next to Lavender 1. As you can see in the pictures, the Lavender Apartment is two separate holiday homes. The original builder built it for his own family, but has fallen into separate hands over the years. When we bought the Lavender 1 holiday home we were almost certain that we would like to buy the other half of the holiday home if it turned out that way. As you can see, our plan was implemented and we bought the other house in 2019. </p>
+      <p> Everything that is true of Lavender 1 is true of Lavender 2 as well. The cottage is designed to reflect the mirror of the other cottage. Same layout, same dimensions. In the first year, we started with the design of the interiors. In the second, we aimed to create terraces. </p>
+      <p> We try to consider the two cottages as two separate entities. By default, there is no passage between the two cottages, but if two friends occupy the two houses, the back terraces can be connected as required. This preserves the experience of a holiday together, but in two separate apartments. No noise is heard when there are guests on both sides. As of 2021, Lavender 2 can be booked through our web interface. </p>
 house_rules:
   title: House rules
   translated_by: Translated by Google Translate
