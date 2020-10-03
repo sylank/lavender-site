@@ -1,14 +1,32 @@
-.hero
-  .notification-panel(*ngIf="showNotification")
-    .hero-content
-      h1(translate key="subscribe.success.title") Köszönjük!
-      p(translate key="subscribe.success.description")
-        | Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.
-      button.submit(translate key="subscribe.success.button", (click)="showNotification=!showNotification") Bezárás
-  .hero-content
+hero-container
+  notification-dialog(*ngIf="showNotification", title="Köszönjük!", (closeButtonClicked)="showNotification=!showNotification")
+    p(translate key="subscribe.success.description")
+      | Sikeresen feliratkoztál a hírlevelünkre. Leiratkozásról részleteket a hírlevél lábrészében találsz.
+  card-container(title="Hírlevél feliratkozás", translateKey="subscribe.title")
     form((ngSubmit)="onSubmit()", [formGroup]="formName")
-      h1(translate key="subscribe.title") Hírlevél feliratkozás
       p(translate key="subscribe.description1") Ha szeretnél értesülni az újdonságokról és a szezonális ajánlatainkról akkor iratkozz fel hírlevelünkre és tájékoztatunk a legfrissebb információkról.
+      p(translate key="subscribe.description3") Az alábbi pár témával találkozhatsz majd a hírleveleinkben:
+
+      p(translate key="subscribe.description4")
+        b Házzal kapcsolatos újdonságok és átalakítások:
+        |
+        | Tájékoztatunk ha valamilyen felújítást, átalakítást végeztünk el az apartmanon, valamint akkor is írunk neked ha új szolgáltatást vezetünk be.
+
+      p(translate key="subscribe.description5")
+        b Szezonális ajánlatok:
+        |
+        | Értesítünk a szezonális árainkról, valamint az ünnepi ajánlatainkról is küldünk információkat.
+
+      p(translate key="subscribe.description6")
+        b Last minute alkalmak:
+        |
+        | Azért is érdemes feliratkozni a hírlevél rendszerre, mert előfordulhat, hogy visszamondás miatt újra elérhetővé válnak számodra alkalmas időpontok.
+
+      p(translate key="subscribe.description7")
+        b Kérdőívek:
+        |
+        | A jövőben kikérhetjük véleményed egy átalakítással, szolgáltatással kapcsolatosan, így úgy tudjuk kialakítani a nyaralót és környezetét, ahogy Te szeretnéd.
+
       p(translate key="subscribe.description2") Leiratkozásról információkat a hírlevél lábjegyzetében találsz.
       .divider
       p(translate key="subscribe.data.title") Adatok:
@@ -26,4 +44,4 @@
           i.fas.fa-user
       .info-wrapper
         p.char-count(translate key="subscribe.hint") A *-al jelölt mezők kitöltése kötelező
-      button.submit(translate key="subscribe.button", [disabled]="formName.invalid") Feliratkozás
+      submit-button(translateKey="subscribe.button", [submitDisabled]="formName.invalid") Feliratkozás

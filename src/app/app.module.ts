@@ -6,7 +6,7 @@ import { CookieService } from "ngx-cookie-service";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { HomeComponent } from "./home/home.component";
-import { GalleryComponent } from "./gallery/gallery.component";
+import { ApartmentsComponent } from "./apartments/apartments.component";
 import { EventsComponent } from "./events/events.component";
 import { ContactComponent } from "./contact/contact.component";
 import { BookingComponent } from "./booking/booking.component";
@@ -36,13 +36,21 @@ import { TranslateDirective } from "./shared/translate.directive";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CookieBarComponent } from "./cookie-bar/cookie-bar.component";
 import { HouseChooserButtonComponent } from "./shared/house-chooser-button/house-chooser-button.component";
+import { CardContainerComponent } from "./shared/card-container/card-container.component";
+import { HeroContainerComponent } from "./shared/hero-container/hero-container.component";
+import { NotificationDialogComponent } from './shared/notification-dialog/notification-dialog.component';
+import { SubmitButtonComponent } from './shared/submit-button/submit-button.component';
+import { DropdownButtonComponent } from './shared/dropdown-button/dropdown-button.component';
+import { HouseRulesComponent } from './house-rules/house-rules.component';
+import { BookingInformationsComponent } from './booking-informations/booking-informations.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    GalleryComponent,
+    ApartmentsComponent,
     EventsComponent,
     ContactComponent,
     BookingComponent,
@@ -62,6 +70,14 @@ import { HouseChooserButtonComponent } from "./shared/house-chooser-button/house
     TranslateDirective,
     CookieBarComponent,
     HouseChooserButtonComponent,
+    CardContainerComponent,
+    HeroContainerComponent,
+    NotificationDialogComponent,
+    SubmitButtonComponent,
+    DropdownButtonComponent,
+    HouseRulesComponent,
+    BookingInformationsComponent,
+    PrivacyStatementComponent,
   ],
   imports: [
     BrowserModule,

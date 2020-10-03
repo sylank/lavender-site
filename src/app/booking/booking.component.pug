@@ -1,23 +1,30 @@
-.hero((window:click)="closeCalendar()")
-  .notification-panel(*ngIf="!bookingEnabled && showNotification")
-    .hero-content
-      h1(translate key="booking.dialog.dialog_header") Figyelem!
-      p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
-      p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
-      p(translate key="booking.dialog.dialog_desc3")
-        | Foglalási szándékodat kérlek
-        |
-        a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
-        |
-        | vagy az
-        |
-        a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
-        |
-        | valamelyikén jelezd.
-      p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
-      button.submit(translate key="booking.dialog.dialog_button", (click)="showNotification=!showNotification") Bezárás
-  .hero-content.info
-    h2(translate key="booking.booking_informations.title") Információk
+notification-dialog(titleTranslateKey="booking.dialog.dialog_header", *ngIf="!bookingEnabled && showNotification", title="Figyelem!", (closeButtonClicked)="showNotification=!showNotification")
+  p(translate key="booking.dialog.dialog_desc1") Foglalás a weboldalon keresztül jelenleg szünetel.
+  p(translate key="booking.dialog.dialog_desc2") A szabad időpontokat megtekintheted, de új foglalást nem tudsz beküldeni a weboldalon keresztül.
+  p(translate key="booking.dialog.dialog_desc3")
+    | Foglalási szándékodat kérlek
+    |
+    a(target="_blank", rel="noopener noreferrer", href='https://www.facebook.com/levendulabalatonmaria') Facebookon
+    |
+    | vagy az
+    |
+    a(routerLink='/contact', routerLinkActive='active') elérhetőségeink
+    |
+    | valamelyikén jelezd.
+  p(translate key="booking.dialog.dialog_desc4") Megértésedet köszönjük!
+
+notification-dialog(titleTranslateKey="booking.success_dialog.dialog_header", *ngIf="showSuccessfulBookingDialog", title="Sikeres foglalás!", (closeButtonClicked)="showSuccessfulBookingDialog=!showSuccessfulBookingDialog")
+  p(translate key="booking.success_dialog.dialog_desc1") Foglalásodat az általad megadott adatokkal az alábbi azonosítóval ideiglenesen lefoglaltuk:
+  b.booking-id {{ booking.reservationId }}
+  p(translate key="booking.success_dialog.dialog_desc2") Foglalásodat az előleg elküldédsével tudod véglegesíteni. Amennyiben nem érkezik meg a foglaló 72 órán belül, a foglalásod autómatikusan törlésre kerül.
+  p(translate key="booking.success_dialog.dialog_desc3") Az utalás további részleteiről e-mailben tájékoztatunk (ha nem kaptál levelet tőlük akkor kérlek ellenőriz a levélszemetek között is).
+  p(translate key="booking.success_dialog.dialog_desc4") További szép napot, Levendula Apartman
+
+notification-dialog(titleTranslateKey="booking.failed_dialog.dialog_header", *ngIf="showFailedBookingDialog", title="Sikertelen foglalás!", (closeButtonClicked)="showFailedBookingDialog=!showFailedBookingDialog")
+  p(translate key="booking.failed_dialog.dialog_desc1") Kérjük próbálja meg más időponttal, vagy keress meg minket Facebookon.
+
+hero-container((window:click)="closeCalendar()")
+  card-container(title="Információk a foglalással kapcsolatban", titleStyle="x2", translateKey="booking.booking_informations.title").info
     p(translate key="booking.booking_informations.desc1") - A szálláshely kistestű kutya és macskaféle befogadására alkalmas.
     p(translate key="booking.booking_informations.desc2") - Az Idegenforgalmi Adó (IFA) nincs az árban.
     p(translate key="booking.booking_informations.desc_otp")
@@ -39,188 +46,166 @@
       |
       | valamint az utalás menetéről e-mail-ben és
       |
-      a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      a(routerLink='/booking-info') az alábbi linken
       |
       | találsz.
     p(translate key="booking.booking_informations.desc7") - Érkezés a foglalt napon 14:00 órától lehetséges, a távozás 10:00 órától szükséges.
     p(translate key="booking.booking_informations.desc8")
       | - Lemondásról és egyéb információkról részleteket az
       |
-      a(target="_blank", rel="noopener noreferrer", href="https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf") az alábbi linken
+      a(routerLink='/booking-info') az alábbi linken
       |
       | vagy a visszaigazoló e-mail-ben találsz.
 
-  .hero-content
-
+  card-container(*ngIf="bookingStage === 'person'", title="Foglalás", translateKey="booking.date_form.title", [showLoading]="showDateLoading")
     // Date form
-    .booking-form(*ngIf="bookingStage === 'person'")
-      h1(translate key="booking.date_form.title") Foglalás
-      p(translate key="booking.house_chooser.choose_caption")
-        | Válassz apartmant,
-        |
-        a(translate key="booking.house_chooser.more_info", target="_blank", rel="noopener noreferrer", href="") további információk.
-      .house-chooser
-        .house
-          house-chooser-button([name]="lavender1Title", [description]="lavender1Subtitle", (buttonSelected)="houseChooserSelected($event)" selected="true")
-        .house
-          house-chooser-button(disabled="true", [name]="lavender2Title", [description]="lavender2Subtitle", [infoText]="comingSoon", (buttonSelected)="houseChooserSelected($event)")
-      p(translate key="booking.date_form.choose_date") Válassz időpontot vagy csak nézd meg a szabad heteket.
-      .date-picker
-        .arrival
-          p.title(translate key="booking.date_form.arrival") Érkezés
-          .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
-            i.fas.fa-calendar-alt
-            | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
-        .departure
-          p.title(translate key="booking.date_form.departure") Távozás
-          .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
-            i.fas.fa-calendar-alt
-            | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
-        app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
-      .price-wrapper
-        p(translate key="booking.date_form.summary") Összesen fizetendő
-        p.price {{ formatCurrency(booking.price) }} Ft
-        .nights-wrapper
-          p ({{ booking.nights }}
-          p.nights(translate key="booking.date_form.night_count") éjszaka)
-        p.small(translate key="booking.date_form.before_money") Előleg (30%)
-        p.price.small {{ formatCurrency(booking.price * 0.3) }} Ft
-      .divider
-      form((ngSubmit)="onPersonSubmit(form)", [formGroup]="formName")
-        p.title(translate key="booking.date_form.person_count") Személyek (felnőtt + gyermek) *
-        app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
-        p.title(translate key="booking.date_form.pet_count") Négylábú személyek *
-        app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
-        button.submit(translate key="booking.date_form.next_button", type='submit', [attr.disabled]="bookingEnabled? null : '' ") Tovább
-
-    // Personal data form
-    .booking-form(*ngIf="bookingStage === 'data'")
-      h1(translate key="booking.personal_data_form.title") Foglalás
-      form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
-        p.title(translate key="booking.personal_data_form.personal_data") Foglalási adatok
-        .input-wrapper
-          input(translate key="booking.personal_data_form.first_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
-          .input-icon
-            i.fas.fa-user
-        .input-wrapper
-          input(translate key="booking.personal_data_form.last_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
-          .input-icon
-            i.fas.fa-user
-        .input-wrapper
-          input(translate key="booking.personal_data_form.mobile" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='*Telefonszám (+36301234567)', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
-          .input-icon
-            i.fas.fa-mobile
-        .input-wrapper
-          input(translate key="booking.personal_data_form.email" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='*E-mail (pelda@email.hu)', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
-          .input-icon
-            i.fas.fa-envelope
-        textarea.message(translate key="booking.personal_data_form.hints" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message", (input)='onMessageInput()')
-        .info-wrapper
-          p.char-count(translate key="delete_booking.info_mandatory") A *-al jelölt mezők kitöltése kötelező
-          .remaining-chars-wrapper
-            p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
-            p.char-count {{ messageLength }}
-        button.submit(translate key="booking.date_form.next_button", type='submit', [disabled]="formName.invalid") Tovább
-        p.back
-          span(translate key="booking.personal_data_form.back_button", (click)='onBack(0)') Vissza
-
-    // Overview
-    .booking-form.scroll-form(*ngIf="bookingStage === 'overview'")
-      h1(translate key="booking.overview_form.title") Áttekintés
-      .info-wrapper
-        p.char-info(translate key="booking.overview_form.info") A foglalás elküldéséhez tekerj lejjebb.
-      .data
-        p(translate key="booking.date_form.arrival") Érkezés:
-        .icon-wrapper
+    p(translate key="booking.house_chooser.choose_caption")
+      | Válassz apartmant,
+      |
+      a(translate key="booking.house_chooser.more_info", target="_blank", rel="noopener noreferrer", href="") további információk.
+    .house-chooser
+      .house
+        house-chooser-button([name]="lavender1Title", [description]="lavender1Subtitle", (buttonSelected)="houseChooserSelected($event)" selected="true")
+      .house
+        house-chooser-button(disabled="true", [name]="lavender2Title", [description]="lavender2Subtitle", [infoText]="comingSoon", (buttonSelected)="houseChooserSelected($event)")
+    p(translate key="booking.date_form.choose_date") Válassz időpontot vagy csak nézd meg a szabad heteket.
+    .date-picker
+      .arrival
+        p.title(translate key="booking.date_form.arrival") Érkezés
+        .date-field([ngClass]='{activeCalendar: arrivalCalendarActive}', (click)='toggleArrivalCalendar($event)')
           i.fas.fa-calendar-alt
-        p
           | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
-      .data
-        p(translate key="booking.date_form.departure") Távozás:
-        .icon-wrapper
+      .departure
+        p.title(translate key="booking.date_form.departure") Távozás
+        .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
           i.fas.fa-calendar-alt
-        p
           | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
-      .data
-        p(translate key="booking.overview_form.person_count") Személyek száma:
-        .icon-wrapper
-          i.fas.fa-users
-        .person-wrapper
-          p {{ booking.personCount+1 }}
-          p.person(translate key="booking.overview_form.person") fő
-      .data
-        p(translate key="booking.overview_form.pet_count") Négylábúak száma:
-        .icon-wrapper
-          i.fas.fa-paw
-        .person-wrapper
-          p {{ booking.petCount }}
-          p.person(translate key="booking.overview_form.pets") fő
-      .data
-        p(translate key="booking.overview_form.full_name") Teljes név:
-        .icon-wrapper
+      app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
+    .price-wrapper
+      p(translate key="booking.date_form.summary") Összesen fizetendő
+      p.price {{ formatCurrency(booking.price) }} Ft
+      .nights-wrapper
+        p ({{ booking.nights }}
+        p.nights(translate key="booking.date_form.night_count") éjszaka)
+      p.small(translate key="booking.date_form.before_money") Előleg (30%)
+      p.price.small {{ formatCurrency(booking.price * 0.3) }} Ft
+    .divider
+    form((ngSubmit)="onPersonSubmit(form)", [formGroup]="formName")
+      p.title(translate key="booking.date_form.person_count") Személyek (felnőtt + gyermek) *
+      app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
+      p.title(translate key="booking.date_form.pet_count") Négylábú személyek *
+      app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
+      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="bookingEnabled? null : '' ") Tovább
+
+  card-container(*ngIf="bookingStage === 'data'", title="Személyes adatok", translateKey="booking.personal_data_form.title")
+    // Personal data form
+    form((ngSubmit)="onSubmit(form)", [formGroup]="formName")
+      .input-wrapper
+        input(translate key="booking.personal_data_form.first_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="lname", placeholder='*Vezetéknév (Kovács)', [(ngModel)]="booking.lname", [ngClass]="{'invalid-input': formName.get('lname').touched && formName.get('lname').hasError('required')}")
+        .input-icon
           i.fas.fa-user
-        p {{ booking.lname + ' ' + booking.fname }}
-      .data
-        p(translate key="booking.overview_form.mobile") Telefonszám:
-        .icon-wrapper
+      .input-wrapper
+        input(translate key="booking.personal_data_form.last_name" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="fname", placeholder='*Keresztnév (Pál)', [(ngModel)]="booking.fname", [ngClass]="{'invalid-input': formName.get('fname').touched && formName.get('fname').hasError('required')}")
+        .input-icon
+          i.fas.fa-user
+      .input-wrapper
+        input(translate key="booking.personal_data_form.mobile" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='text', formControlName="phone", placeholder='*Telefonszám (+36301234567)', [(ngModel)]="booking.phone", [ngClass]="{'invalid-input': formName.get('phone').touched && formName.get('phone').hasError('required')}")
+        .input-icon
           i.fas.fa-mobile
-        p {{ booking.phone }}
-      .data
-        p(translate key="booking.overview_form.email") E-mail:
-        .icon-wrapper
+      .input-wrapper
+        input(translate key="booking.personal_data_form.email" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", type='email', formControlName="email", placeholder='*E-mail (pelda@email.hu)', [(ngModel)]="booking.email", [ngClass]="{'invalid-input': formName.get('email').touched && (formName.get('email').hasError('required') || formName.get('email').hasError('invalidEmail'))}")
+        .input-icon
           i.fas.fa-envelope
-        p {{ booking.email }}
-      .data(*ngIf="booking.message.length>0")
-        p(translate key="booking.personal_data_form.hints") Megjegyzések
-      textarea.message.disabled(translate key="booking.overview_form.hint_placeholder" destination="placeholder", disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
-      .divider
-      .price-wrapper
-        p(translate key="booking.date_form.summary") Összesen fizetendő
-        p.price {{ formatCurrency(booking.price) }} Ft
-        .nights-wrapper
-          p ({{ booking.nights }}
-          p.nights(translate key="booking.date_form.night_count") éjszaka)
-        p.small(translate key="booking.date_form.before_money") Előleg (30%)
-        p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
-      ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
-      .divider
-      .checkbox-wrapper
-        .checker
+      textarea.message(translate key="booking.personal_data_form.hints" destination='placeholder', [attr.disabled]="bookingEnabled? null : '' ", formControlName="message", maxlength='300', placeholder='Megjegyzések', [(ngModel)]="booking.message")
+      .info-wrapper
+        p.char-count(translate key="delete_booking.info_mandatory") A *-al jelölt mezők kitöltése kötelező
+        .remaining-chars-wrapper
+          p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
+          p.char-count {{ getMessageLength() }}
+      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="formName.invalid") Tovább
+      p.back
+        span(translate key="booking.personal_data_form.back_button", (click)='onBack("person")') Vissza
+
+  card-container(*ngIf="bookingStage === 'overview'", title="Áttekintés", translateKey="booking.overview_form.title", [showLoading]="showBookingLoading")
+    // Overview
+    .info-wrapper
+      p.char-info(translate key="booking.overview_form.info") A foglalás elküldéséhez tekerj lejjebb.
+    .data
+      p(translate key="booking.date_form.arrival") Érkezés:
+      .icon-wrapper
+        i.fas.fa-calendar-alt
+      p
+        | {{ booking.arrival.getFullYear() }}. {{ getMonthNameById(booking.arrival.getMonth()) }} {{ booking.arrival.getDate() }}.
+    .data
+      p(translate key="booking.date_form.departure") Távozás:
+      .icon-wrapper
+        i.fas.fa-calendar-alt
+      p
+        | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
+    .data
+      p(translate key="booking.overview_form.person_count") Személyek száma:
+      .icon-wrapper
+        i.fas.fa-users
+      .person-wrapper
+        p {{ booking.personCount+1 }}
+        p.person(translate key="booking.overview_form.person") fő
+    .data
+      p(translate key="booking.overview_form.pet_count") Négylábúak száma:
+      .icon-wrapper
+        i.fas.fa-paw
+      .person-wrapper
+        p {{ booking.petCount }}
+        p.person(translate key="booking.overview_form.pets") fő
+    .data
+      p(translate key="booking.overview_form.full_name") Teljes név:
+      .icon-wrapper
+        i.fas.fa-user
+      p {{ booking.lname + ' ' + booking.fname }}
+    .data
+      p(translate key="booking.overview_form.mobile") Telefonszám:
+      .icon-wrapper
+        i.fas.fa-mobile
+      p {{ booking.phone }}
+    .data
+      p(translate key="booking.overview_form.email") E-mail:
+      .icon-wrapper
+        i.fas.fa-envelope
+      p {{ booking.email }}
+    .data(*ngIf="booking.message.length>0")
+      p(translate key="booking.personal_data_form.hints") Megjegyzések
+    textarea.message.disabled(translate key="booking.overview_form.hint_placeholder" destination="placeholder", disabled, name='message', maxlength='300', placeholder='Nincsenek megjegyzések', [(ngModel)]="booking.message", #message, (input)='onMessageInput(message)')
+    .divider
+    .price-wrapper
+      p(translate key="booking.date_form.summary") Összesen fizetendő
+      p.price {{ formatCurrency(booking.price) }} Ft
+      .nights-wrapper
+        p ({{ booking.nights }}
+        p.nights(translate key="booking.date_form.night_count") éjszaka)
+      p.small(translate key="booking.date_form.before_money") Előleg (30%)
+      p.price.small {{ formatCurrency(booking.price*0.3) }} Ft
+    ngx-invisible-recaptcha(#captchaElem='', [siteKey]="siteKey", (reset)='handleReset()', (ready)='handleReady()', (load)='handleLoad()', (success)='handleSuccess($event)', [useGlobalDomain]='false', [type]='type', [ngModel]='recaptcha', [ngModelOptions]='{ standalone: true }')
+    .divider
+    .checkbox-wrapper
+      .checker
+        label
           p
             input(type='checkbox', [checked]="dataProtection", (change)="dataProtection=!dataProtection")
           p(translate key="booking.overview_form.privacy_notice_text")
-        .checker
+      .checker
+        label
           p
             input(translate key="booking.overview_form.newsletter_text", type='checkbox', [checked]="booking.subscribe", (change)="booking.subscribe=!booking.subscribe")
           p(translate key="booking.overview_form.newsletter_text",)
-        .checker
+      .checker
+        label
           p
             input(translate key="booking.overview_form.data_handling", type='checkbox', [checked]="dataHandling", (change)="dataHandling=!dataHandling")
           p(translate key="booking.overview_form.data_handling")
-        .checker
+      .checker
+        label
           p
             input(translate key="booking.overview_form.house_rules", type='checkbox', [checked]="houseRules", (change)="houseRules=!houseRules")
           p(translate key="booking.overview_form.house_rules")
-      button.submit(translate key="booking.overview_form.booking_now", type='submit', (click)="sendBooking()", [disabled]="isSendingDisabled()") Foglalás most!
-      p.back
-        span(translate key="booking.personal_data_form.back_button", (click)='onBack(1)') Vissza
-
-    // Result
-    .booking-form(*ngIf="bookingStage === 'result'")
-      .result-wrapper
-        .result.success(*ngIf="bookingResult === 'success'")
-          i.fas.fa-info-circle.result
-          p.status(translate key="booking.results.title") Foglalási igény elküldve
-          p.description(translate key="booking.results.description") Foglalási igényed elbírálásra elküldtük. A további lépéseket a megadott e-mail címre elküldtük.
-          .reservation-info
-            p(translate key="booking.results.reservation_info") Foglalási azonosító:
-            b {{booking.reservationId}}
-        .result.failed(*ngIf="bookingResult === 'failed'")
-          i.fas.fa-times.result
-          p(translate key="booking.results.failed_text") Sikertelen foglalás
-          p.description(translate key="booking.results.failed_description") Kérjük próbálja meg más időponttal.
-      p.back
-        span(translate key="booking.personal_data_form.back_button", (click)="onBack(0)") Vissza
-    .loading(*ngIf="showLoading")
-      app-loading-circle(show="false")
-
+    submit-button(translateKey="booking.overview_form.booking_now", type='submit', (click)="sendBooking()", [submitDisabled]="isSendingDisabled()") Foglalás most!
+    p.back
+      span(translate key="booking.personal_data_form.back_button", (click)='onBack("data")') Vissza

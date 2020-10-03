@@ -1,0 +1,78 @@
+hero-container
+  card-container(translateKey="apartments.title", title="Az apartmanokról")
+    p(translate key="apartments.common1") Mindkét nyaraló rendelkezik fedett első és hátsó terasszokkal. A parkolás a zárt udvarban, valamint a ház előtt is lehetséges.
+    p(translate key="apartments.common2") A nyaraló állapotának, valamint vendégeink és szűkebb kernyezetünk nyugalmának megőrzése érdekében a Levendula Apartmanok nem alkalmasak nagyobb rendezvények illetve leány-, vagy legénybúcsúk megredezésére.
+    p(translate key="apartments.common3") A nyaralók egyenként max. 5 férőhellyel rendelkeznek. Igény szerint, időben történő foglalással nagyobb család illetve két társaság részére a két nyaraló egyben is kivehető (külön-külön térítési díj ellenében). A hátsó teraszok ebben az esetben összenyithatók és közösen is használhatók. Így a nagyobb társaság akár együtt is eltöltheti a kellemes időt. (Együtt, de mégis külön.)
+
+    .equipments
+      .inside.listing
+        h3(translate key="apartments.inside1") Mindkét házra jellemző
+        ul.float
+          li.float-item(translate key="apartments.inside2") Két különálló szoba
+          li.float-item(translate key="apartments.inside3") Jól felszerelt konyha
+          li.float-item(translate key="apartments.inside4") Nappali-étkező
+          li.float-item(translate key="apartments.inside5") Zuhanykabinos fürdőszoba
+          li.float-item(translate key="apartments.inside6") Kutya és macska barát
+
+      .inside.listing
+        h3(translate key="apartments.inside7") Mindkét házban megtalálható (fontosabb dolgok)
+        ul.float
+          li.float-item(translate key="apartments.inside8") Wi-Fi
+          li.float-item(translate key="apartments.inside9") Légkondícionáló
+          li.float-item(translate key="apartments.inside10") TV
+          li.float-item(translate key="apartments.inside11") Konyhai eszközök
+          li.float-item(translate key="apartments.inside12") Mikró
+          li.float-item(translate key="apartments.inside13") Törülközők
+          li.float-item(translate key="apartments.inside14") Ágynemű
+          li.float-item(translate key="apartments.inside15") Elektromos főzőlap
+
+      .outside.listing
+        h3(translate key="apartments.outside1") A kertben
+        ul.float
+          li.float-item(translate key="apartments.outside2") Ping-Pong asztal
+          li.float-item(translate key="apartments.outside3") Csocsó asztal
+          li.float-item(translate key="apartments.outside4") Napozó ágyak
+          li.float-item(translate key="apartments.outside5") Gyereksarok
+          li.float-item(translate key="apartments.outside6") Gyerek hinta
+          li.float-item(translate key="apartments.outside7") Grill sütő
+          li.float-item(translate key="apartments.outside8") Bogrács
+
+  card-container(title="Levendula 1")
+    .properties
+      .unique
+        p(translate key="apartments.levendula_1.desc1") Apartman maximum 5 fő részére.
+        p(translate key="apartments.levendula_1.desc2") A kertben található egy retro (de felújított) kerti tusoló ami jó szolgálatot tesz nyári meleg napokon.
+      .picture
+        img.lavender1.img(src="../../assets/gallery/lavender1/img/1.jpg", alt='')
+        .indicator((click)='openCarousel("lavender1")')
+          i.far.fa-images
+    .apartment-description
+      h3(translate key="apartments.levendula_1.desc_content") Pár szó a házról
+      .content(translate key="apartments.levendula_1.content")
+
+  card-container(title="Levendula 2")
+    .properties
+      .unique
+        p(translate key="apartments.levendula_2.desc1")  Apartman maximum 5 fő részére.
+      .picture
+        img.lavender1.img(src="", alt='')
+        .indicator.disabled((click)='openCarousel("lavender2")')
+          p(translate key="apartments.levendula_2.desc2") Képek hamarosan, érdeklődj Facebookon
+    .apartment-description
+      h3(translate key="apartments.levendula_2.desc_content") Pár szó a házról
+      .content(translate key="apartments.levendula_2.content")
+
+.carousel([ngStyle]='{ visibility: displayCarousel }')
+  .current-image((click)="imageClick($event)", id="image", appImageLoader)
+    .button-container
+      .close
+      .button.prev((click)="loadPrevImage($event)")
+        i.fas.fa-arrow-left
+    .button-container
+      .button.close((click)='closeCarousel($event)')
+        i.fas.fa-times
+      .button.close-back.next((click)="loadNextImage($event)")
+        i.fas.fa-arrow-right
+  .description(*ngIf='activeCaption.length > 0')
+    h1 {{activeCaption}}
+    a {{activeText}}

@@ -9,20 +9,20 @@
           p(translate key="footer.menu") Menü
           .items
             li.menu-item(routerLink='/home', translate key="nav.home") Kezdőlap
-            li.menu-item(routerLink='/gallery', translate key="nav.gallery") Galéria
+            li.menu-item(routerLink='/apartments', translate key="nav.gallery") Apartman
             li.menu-item(routerLink='/events', translate key="nav.events") Programok
         .menu.booking-column
           p(translate key="nav.booking") Foglalás
           .items
             li.menu-item(routerLink='/booking', translate key="nav.booking") Foglalás
             li.menu-item(routerLink='/delete-booking', translate key="nav.cancel") Lemondás
-            li.menu-item(translate key="footer.house_rule", target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Hazirend.pdf') Házirend
+            li.menu-item(routerLink='/house-rules', translate key="footer.house_rule") Házirend
         .menu.info-cloumn
           p(translate key="footer.information") Információk, Dokumentumok
           .items
-            li.menu-item(translate key="footer.booking_information", target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Foglalassal_kapcsolatos_informaciok.pdf') Foglalással kapcsolatos információk
-            li.menu-item(translate key="footer.privacy_statement", target="_blank", rel="noopener noreferrer", href='https://s3.eu-central-1.amazonaws.com/documents.levendulabalatonmaria.info/Adatvedelmi_nyilatkozat.pdf') Adatvédelmi nyilatkozat
-            li.menu-item(translate key="footer.delete_user_data", routerLink='/delete-user-data') Felhasználói adatok törlése
+            li.menu-item(routerLink='/booking-info', translate key="footer.booking_information") Foglalással kapcsolatos információk
+            li.menu-item(routerLink='/privacy-statement', translate key="footer.privacy_statement") Adatvédelmi nyilatkozat
+            li.menu-item(routerLink='/delete-user-data', translate key="footer.delete_user_data") Felhasználói adatok törlése
         .menu.about-us-column
           p(translate key="nav.contacts") Rólunk
           .items
@@ -33,4 +33,4 @@
         .hidden.social
           iframe(src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Flevendulabalatonmaria%2F&width=61&layout=box_count&action=like&size=small&share=true&height=65&appId=1066614486739525' width='80' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowtransparency='true' allow='encrypted-media')
       .info-row
-        p {{ date.getFullYear() }} Levendula Apartman - Website Design by Dániel Serleg
+        p {{ date.getFullYear() }} Levendula Apartman - Designed by Dániel Serleg

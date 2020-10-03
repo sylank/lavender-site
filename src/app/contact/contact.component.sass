@@ -3,32 +3,8 @@
   padding: 0
   box-sizing: border-box
 
-.hero
-  display: flex
-  justify-content: center
-  align-items: center
-  width: 100%
-  height: 100vh
-  background-image: url("../../assets/img/contact-bg.jpg")
-  background-size: cover
-
 .background
   width: 100%
-
-.hero-content
-  position: relative
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  padding: 30px 60px
-  background-color: #fff
-  border-radius: 10px
-  box-shadow: 7px 7px 27px rgba(0, 0, 0, 0.33)
-  width: 480px
-  transition: height 500ms
-  > p
-    font-size: 14px
-    font-weight: 500
 
 .map
   height: 400px
@@ -46,20 +22,14 @@ h1
   font-size: 14px
   font-weight: 500
 
-.loading
-  width: 100%
-  height: 100%
-  z-index: 10
-  position: absolute
-  top: 0px
-  left: 0px
+.elements
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-content: center
+  align-items: center
 
 @media screen and (max-width: 1170px)
-  .hero
-    flex-direction: column
-    justify-content: flex-start
-    height: 180vh
-
   .map
     margin-top: 75px
     height: 400px
@@ -68,29 +38,7 @@ h1
     margin-top: 100px
     margin-bottom: 30px
 
-  .hero-content
-    display: flex
-    justify-content: center
-    flex-direction: column
-    align-items: center
-    width: 50%
-
-  .elements
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-content: center
-    align-items: center
-
-@media screen and (max-width: 858px)
-  .hero-content
-    width: 80%
-
 @media screen and (max-width: 550px)
-  .hero-content
-    width: 100%
-    border-radius: 0
-
   .map
     margin-top: 75px
     width: 100%
