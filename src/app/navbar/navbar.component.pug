@@ -7,7 +7,7 @@ nav([ngClass]='{scrollnav: background, opacity: opacity}', (window:scroll)='chan
       a(routerLink='/events', routerLinkActive='active', (click)='clearHeader()', translate key="nav.events") Élmények
       a(routerLink='/contact', routerLinkActive='active', (click)='clearHeader()', translate key="nav.contacts") Kapcsolat
 
-      dropdown-button(title="Dokumentumok")
+      dropdown-button(title="Dokumentumok", translateKey="nav.documents")
         a(routerLink='/house-rules', routerLinkActive='active', (click)='clearHeader()', translate key="footer.house_rule") Házirend
         a(routerLink='/booking-info', routerLinkActive='active', (click)='clearHeader()', translate key="footer.booking_information") Foglalással kapcsolatos információk
         a(routerLink='/privacy-statement', routerLinkActive='active', (click)='clearHeader()', translate key="footer.privacy_statement") Adatvédelmi nyilatkozat

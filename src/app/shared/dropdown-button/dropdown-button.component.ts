@@ -9,6 +9,9 @@ export class DropdownButtonComponent implements OnInit {
   @Input()
   public title: string;
 
+  @Input()
+  public translateKey: string;
+
   public showMenu: boolean = false;
 
   constructor() {}

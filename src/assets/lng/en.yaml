@@ -5,6 +5,7 @@ nav:
   contacts: Contacts
   cancel: Cancellation
   booking: Booking
+  documents: Documents
 footer:
   menu: Menu
   information: Information
@@ -106,7 +107,7 @@ booking:
     dialog_desc1: "We have temporarily booked with your provided data on this ID:"
     dialog_desc2: >-
       You can finalize your reservation by sending a deposit money. If the
-      deposit money is not received within 72 hours, your booking will be
+      deposit money is not received within 48 hours, your booking will be
       automatically canceled.
     dialog_desc3: >-
       We will inform you about the further details of the reference by e-mail
@@ -187,13 +188,13 @@ booking:
       season.
     desc5: >-
       - The booked time period is considered official after the deposit has been
-      transferred. Unconfirmed bookings will be canceled within 72 hours!
+      transferred. Unconfirmed bookings will be canceled within 48 hours!
     desc6: >-
       - Please enter your booking number in the bank transfer notice. Details
       for making a deposit via the <a href='/contact'>contact menu</a> as well
       as the progress of the transfer via email and <a target='_blank'
       rel='noopener noreferrer', href='/booking-info'>you can find here</a>.
-    desc7: "- Arrival on the booked day is from 14:00, departure is from 10:00."
+    desc7: "- Arrival on the booked day is from 16:00, departure is from 10:00."
     desc8: >-
       - For details about cancellation and other information, please see the  <a
       href='/booking-info'>at the link below</a> or in the confirmation email.
@@ -281,7 +282,7 @@ house_rules:
     <p> In case of no-show, we will not be able to refund the deposit. </p>
     <p> The accommodation fee includes utilities and other overheads, bed linen with a cover, weekly linen change for stays of more than a week, and final cleaning. </p>
     <h3> Login / Logout </h3>
-    <p> Accommodation can be booked between 14:00 and 20:00 on the day of arrival. You must leave the house no later than 10:00 on the day of departure. </p>
+    <p> Accommodation can be booked between 16:00 and 20:00 on the day of arrival. You must leave the house no later than 10:00 on the day of departure. </p>
     <p> Levendula Apartman is suitable for guests, but can accommodate a pre-arranged number of people. </p>
     <h3> Payment </h3>
     <p> The balance of the accommodation fee and the tourist tax will be paid upon arrival at the same time as the check-in form. </p>
@@ -304,7 +305,7 @@ house_rules:
     <h2> Other </h2>
     <p> Please note that the owner is not in a position to accept liability and compensation for damages or accidents resulting from events beyond his / her own fault (eg natural disaster, hail, fire, power failure, etc.). </p>
     <p> If you have any problems with the apartment or room during your stay, please inform the hotel immediately. We are unable to accept subsequent complaints! </p>
-    <p> In the event of a fire, start the rescue immediately and call the firefighters at 105 and then the landlord! </p>
+    <p> In the event of a fire, start the rescue immediately and call the firefighters at 112 and then the landlord! </p>
     <p> When you leave the property permanently, you must hand over the key to the hotel. Pets are not allowed in the apartment or guest room without permission. We are not responsible for personal items left in the rooms. Bed linen, dishwashing sponge,
         we provide paper towels, soap, toilet paper! </p>
     <p> The owners have the right to cancel the accommodation if the guest does not follow the policy if he breaks the peace. All disputes that cannot be discussed with each other will be settled through Civil Litigation. </p>
@@ -323,7 +324,7 @@ booking_info:
         <a routerLink="/contact"> Booking </a>
         In the calendar view, you can see the free (unoccupied) days in the traditional black font color, the busy letters in gray letters and the unconfirmed reservations in yellow letters.
       </p>
-      <p> Unconfirmed bookings will expire after <b> 72 hours </b>, so that period will be freed up and can be booked by other users. </p>
+      <p> Unconfirmed bookings will expire after <b> 48 hours </b>, so that period will be freed up and can be booked by other users. </p>
       <p> You can easily submit your reservation under the reservation menu. All fields are required for a successful booking, except for the comments section, which is optional. </p>
       <p> The fields are: </p>
       <ul>
@@ -352,16 +353,294 @@ booking_info:
           compliance is expected. Please accept the policy, this is required to make an online booking.
         </li>
       </ul>
-      <p> Once you have accepted the required checkboxes, you can submit your booking and if the booking was successful you will receive a booking ID which will also be emailed to you. You can further manage your reservation with this ID. The time interval you entered will be temporarily booked, meaning that others will not be able to book that time, but you will need to finalize your reservation or it will be canceled automatically within 72 hours. </p>
+      <p> Once you have accepted the required checkboxes, you can submit your booking and if the booking was successful you will receive a booking ID which will also be emailed to you. You can further manage your reservation with this ID. The time interval you entered will be temporarily booked, meaning that others will not be able to book that time, but you will need to finalize your reservation or it will be canceled automatically within 48 hours. </p>
       <h2> Finalize booking </h2>
-      <p> After a successful booking, you must finalize your booking by sending a deposit, which you can do within 72 hours of booking. <b> IMPORTANT </b> that non-confirmed bookings will be automatically canceled after 72 hours so we cannot guarantee that other users do not include that date. It is a good idea not to leave the deposit to be sent at the last minute, but to finalize it after booking. </p>
+      <p> After a successful booking, you must finalize your booking by sending a deposit, which you can do within 48 hours of booking. <b> IMPORTANT </b> that non-confirmed bookings will be automatically canceled after 48 hours so we cannot guarantee that other users do not include that date. It is a good idea not to leave the deposit to be sent at the last minute, but to finalize it after booking. </p>
       <p> <b> IMPORTANT </b>, please include your booking ID in the referral message, as we can identify the basis of your booking. If you accidentally forget this, we can call or email you, but please don't forget to book quickly and smoothly. </p>
       <p> <b> IMPORTANT </b> also that the Tourist Tax (IFA) is not included in the price, it is paid on the spot. </p>
       <p> We'll notify you via email within a few hours of finalizing, please be patient as this is a manual step on our part, as we will need to retrieve your transfer details with your booking ID in the banking system (your transfer details will not be stored or used in any form, remain in the system provided by the bank). </p>
       <p> Everything was successful, we look forward to seeing you on that day. </p>
       <h2> Cancel a reservation </h2>
       <p>
-        The cancellation process for your booking can be found on the website
-
-        <a routerLink="/delete-booking"> Cancel a reservation </a>
-        menu item
+        The cancellation process for your booking can be found on the <a routerLink="/delete-booking"> cancellation </a> website.
+        you can start it under menu item. It is only possible to change a reservation if the new dates have not been booked yet. Please try to make the change and cancellation yourself through the interface, if an error occurs or the use of the interface is not clear then please contact us. The
+        <b> IMPORTANT </b> that the booking deposit is available within 48 hours, details can be found in the “Cancellation Policy” section. There is no one-step modification, the first step is to cancel and the second is to submit a new booking.
+      </p>
+      <p> Cancellation process: </p>
+      <ol>
+        <li> <b> Submit a Cancellation Request </b>: You can initiate a cancellation process on our website with a booking ID. All you need is a previously submitted booking ID. We will notify you by email when your request is received. </li>
+        <li> <b> Refund of prepaid deposit </b>: The prepaid deposit will be refunded within a few hours. This is a manual action as you will need to find the referral entry for your booking ID. </li>
+        <li> <b> Cancel your reservation from the system </b>: Once the amount has been refunded, we will cancel your reservation from the system so that others can book that time interval. </li>
+      </ol>
+      <p> We will try to arrange these processes in the simplest way so that cancellation is easy and convenient. We can only handle cancellations and refunds with your existing booking ID. Once we've found the details of the bank transfer associated with your booking ID, we'll be able to refund the bank account number listed in the listing to prevent malicious abuse. </p>
+      <h2> Cancellation Policy </h2>
+      <p>
+        You can cancel your reservation at any time prior to arrival via the website, but <b> we are unable to refund the deposit 60 days prior to arrival. </b> Please understand this as this period will be a missed interval for us. There is no other condition for resignation, but if you would like to summarize in a few sentences why you chose to do so, we would appreciate it. </p>
+      <h2> Unconfirmed bookings </h2>
+      <p> Once you submit your booking request, we will temporarily reserve that time interval for you, but as mentioned above, this time will be canceled in 48 hours if you do not confirm your booking by transferring the deposit. Please always include your booking ID in the referral notice, which we have sent in advance by email. We will always notify you by email of any changes to your booking status. </p>bsite <a routerLink="/delete-booking"> Cancel a reservation </a> menu item
+privacy_statement:
+  title: Privacy notice
+  translated_by: "Translated by Google Translate"
+  content: >-
+    <h2> Data Manager </h2>
+    <p> Name: LAVENDER APARTMENT </p>
+    <p> Address: Hungary, 8647 Balatonmáriafürdő, Vilma u. 62 </p>
+    <p> Name of the operator: Csaba Faházi </p>
+    <p> Headquarters: 8648 Balatonkeresztúr, Rákóczi Ferenc u. 57 </p>
+    <p> Tax number: 66997949-1-34 </p>
+    <p> Phone number: +36304824651 </p>
+    <p> Email: l evendula.balatonmaria@gmail.com </p>
+    <p> Person responsible for data protection matters: Serleg Dániel József (+36307821017) (hereinafter: the "Service Provider") </p>
+    <p> The Service Provider respects the personal information self-determination rights of its Guests, is committed to the protection of the personal data of its customers and partners; therefore, the following valid Data Management Information (hereinafter: the Information) is available on the official website electronically or on paper at its premises (accommodation). </p>
+    <p> The Service Provider, as the data controller, declares that its data management is in accordance </p>
+    <p> Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data, and repealing Regulation (EC) No 95/46 (General Data Protection Regulation, GDPR); CXII of 2011 on the right to information self-determination and freedom of information. Act (Info.tv.) </p>
+    <ul>
+      <li> Act V of 2013 on the Civil Code (Civil Code) </li>
+      <li> CLV 1997 on Consumer Protection. Act (Fgytv.) </li>
+      <li> Act XIX of 1998 on Criminal Procedure Act (On.) </li>
+      <li> Act C of 2000 on Accounting (Accounting Act) </li>
+      <li> Act CVIII of 2001 on certain aspects of electronic commerce services and information society services. Act (Eker.tv.) </li>
+      <li> Act C of 2003 on Electronic Communications (Ehtv.) </li>
+      <li> Act XLVIII of 2008 on Certain Restrictions on Commercial Advertising Act (Grtv.) </li>
+      <li> Act CXXXIII of 2005 on the Protection of Persons and Property and the Rules of Private Investigation. (SZVV. Act.) </li>
+    </ul>
+    <p> This Prospectus describes the data management during the activities performed by the Service Provider. Due to the diversity of the needs of the Guests, the method of data management may differ from the contents of this Prospectus from time to time, such differences may occur at the request of the Guest, and the Service Provider shall inform the Guest in advance about the exact method. The Service Provider shall provide information on all data management that may not be included in this Prospectus prior to that data processing. </p>
+    <p> The Service Provider handles personal data only for a predetermined purpose for the time necessary for the exercise of rights and obligations, and handles personal data that is essential for the realization of the purpose of data management and suitable for achieving the purpose. </p>
+    <p> We draw the attention of the informant to the Service Provider that if you do not provide your own personal data, the informant is obliged to obtain the consent of the data subject! </p>
+    <p> The validity of the legal statement of the minor under the age of 16 containing the consent of the data subject requires the consent or subsequent approval of his or her legal representative. </p>
+    <p> In all cases where the Service Provider uses the provided data for a purpose other than the purpose of the original data collection, it shall inform the data subject thereof and request his / her prior express consent, as well as provide him / her with an opportunity to prohibit the use. </p>
+    <p> The personal data obtained by the Service Provider during the data management may be disclosed only to those persons, on behalf of the Service Provider or employed by the Service Provider, who have a duty in connection with the given data management. </p>
+    <h2> Data Management </h2>
+    <h3> 1. Use of accommodation services </h3>
+    <p> The purpose of data management: to purchase accommodation services at the Service Provider, to issue an invoice, to register guests, to differentiate between them, to document purchases and payments, to fulfill accounting obligations, to maintain customer relations, to analyze customer habits and to provide more targeted service. </p>
+    <p> Legal basis for data processing: data processing is necessary for the performance of the contract (Article 6 (1) (b) of the GDPR, Art. Section 169 (2). </p>
+    <ul> Scope of personal data processed:
+      <li> ID number </li>
+      <li> name (last name, first name) </li>
+      <li> email address </li>
+      <li> Phone number (landline or mobile) </li>
+      <li> number of guests </li>
+      <li> Arrival and departure dates </li>
+    </ul>
+    <p> For each service, it is possible to enter additional information in the "note" or "comments" section, which will help to fully understand the needs of the Guest, but this is not a condition for booking and using other services. </p>
+    <p> Duration of data management: 8 (eight) years in accordance with Section 169 (2). </p>
+    <p> In case of card payment, the data of the bank card and the card payment transaction are managed by OTP Bank Plc. (1051 Budapest, Nádor u. 16.). </p>
+    <h4> Data transfer: </h4>
+    <p> Bank transfer of the Advance and Final Account and, in the case of a Bank Card payment, the payer's ID, the amount, date and time of the transaction. </p>
+    <p> Legal basis for data transfer: processing is necessary for the performance of the contract (Article 6 (1) (b) GDPR. </p>
+    <h4> Data Processors: </h4>
+    <ul>
+      <li> People handling the booking: The person who confirms the booking and cancels the booking. </li>
+    </ul>
+    <h3> 2. Accommodation report form </h3>
+    <p> The purpose of data management: to verify the fulfillment of the purchase of accommodation services at the Service Provider, to issue an invoice, to register the guests, to differentiate between them. </p>
+    <p> Legal basis for data processing: data processing is necessary for the performance of the contract (Article 6 (1) (b) of the GDPR, Art. Section 169 (2); obligations related to tourist tax, fulfillment of statistical reporting obligations, fulfillment of obligations related to tourism policing. </p>
+    <ul> Scope of personal data processed:
+      <li> ID number </li>
+      <li> name (last name, first name) </li>
+      <li> email address </li>
+      <li> Phone number (landline or mobile) </li>
+      <li> number of guests </li>
+      <li> Arrival and departure dates </li>
+    </ul>
+    <p> The provision of mandatory information by the guest is a condition for using the hotel service. </p>
+    <p> By signing the application form, the guest agrees that the Service Provider handles, processes and archives the personal data provided by filling in the application form for the purpose of concluding the contract, proving its fulfillment or possible enforcement, processing it in its electronic system and archiving it in accordance with point II / 1. handle it properly. </p>
+    <p> By entering the email address on the registration form, the guest has the opportunity to subscribe to the Service Provider's newsletter. Regarding the newsletter, the III. Section 1 applies. </p>
+    <h4> Duration of data management: </h4>
+    <p> The duration of data management of the data managed in the electronic register is regulated by the Accounting Act. 8 (eight) years in accordance with Section 169 (2) (see point II / 1). </p>
+    <p> Possible consequences of non-compliance: Contract cannot be fulfilled; No. tv., local tax decree, Aliens Police tv. violation. </p>
+    <h4> Data transfer: </h4>
+    <p> There is a transfer of data for statistical purposes, no personal data is transferred. Documents are stored on site in a closed filing cabinet on site until they are destroyed. From a paper-based notifier to a data processor into the electronic registration system, from where lsd. II / 1. The data is transferred according to point </p>
+    <h4> Data Processors: </h4>
+    <ul>
+      <li> People handling the booking: The person who confirms the booking and cancels the booking. </li>
+    </ul>
+    <h3> 3. Manage found items </h3>
+    <p> The purpose of data management is to keep records of objects found at sites, to notify the owner or the repository. Legal basis of data management: the Civil Code. 5:54. §. A. </p>
+    <p> The scope of personal data processed: date and time of the finding, the person of the finder, the name of the object found, the fact that the owner was notified, the place of storage, the signature of the recipient and, in case of transfer and in the case of forwarding, the date of posting, indicating the postal service provider. </p>
+    <p> Duration of data management: The data will be deleted, destroyed upon receipt of the found object by the owner or, in the case of handover to the municipal notary, after the handover, but no later than one year after the find. </p>
+    <p> Possible consequences of non-compliance: the controller is unable to comply with its legal obligations. </p>
+    <h4> Data transfer: </h4>
+    <p> In case of handing over the object to an authority, to a competent authority (town clerk) </p>
+    <h4> Legal basis for the transfer: </h4>
+    <p> Fulfill a legal obligation </p>
+    <h4> Data Processors: </h4>
+    <ul>
+      <li> Property owner: data processing, record keeping, invoicing, document storage, </li>
+      <li> Postal Service Provider: Delivery to an address when a found item is sent. </li>
+    </ul>
+    <h3> 4. Manage WIFI service </h3>
+    <p> The purpose of data management is to provide guests with internet access via a Wi-Fi connection </p>
+    <p> Legal basis of data management: the consent of the data subject, the consent is given by actively connecting to the wifi network, the wifi service is free of charge. </p>
+    <p> Scope of personal data managed: the unique identifier (MAC address) of the connected device </p>
+    <p> Duration of data management: data will no longer be stored during the connection period, when the connection is terminated. </p>
+    <p> Possible consequences of non-compliance: Guest cannot use the service. </p>
+    <h4> Data transfer: </h4>
+    <p> No legal basis for data transfer: ---- </p>
+    <h4> Data Processors: </h4>
+    <p> Contracted Internet Service Provider </p>
+    <h3> 5. Emergency Management </h3>
+    <p> The purpose of data management is to manage the extraordinary event that has occurred, </p>
+    <p> Legal basis for data processing: legitimate interest of the controller or other persons (Article 6 (1) (f) GDPR), </p>
+    <p> Scope of personal data processed: name, address, telephone number, date and time of the event, description of the event, description of the measure, name, address, telephone number, contact details of witnesses, contributors; </p>
+    <p> Duration of data processing: 5 years for guest accident reports </p>
+    <p> Possible consequences of non-processing: it is impossible to enforce the rights arising from the extraordinary event. </p>
+    <h4> Data transfer: </h4>
+    <p> At the request of the data subject </p>
+    <h4> Legal basis for the transfer: </h4>
+    <p> legitimate interest of the data subject </p>
+    <h2> Marketing and market research database </h2>
+    <h3> 1. Newsletter </h3>
+    <p> Purpose of data management: In the case of a natural person recipient, the Service Provider sends the newsletter only to those who give their consent to the direct marketing request in order to build a business database, to send information and offers to those concerned, including commercial advertisements; online or in paper form. Only people over the age of 16 can submit direct marketing inquiries! </p>
+    <p> Legal basis for data processing: voluntary consent of the data subject (Section 6 (5) of the Grt.). </p>
+    <p> The scope of personal data processed: identification number, name, email address. The system stores analytical data related to subscribing and unsubscribing, sending, delivering and opening messages, the online activity of the person concerned, and the IP address of the computer. </p>
+    <p> Duration of data processing: until the withdrawal of the consent of the data subject concerned. The person concerned can unsubscribe from the newsletter at any time by using the "subscribe to the newsletter" link in the email, and can also unsubscribe by email at levendula.balatonmaria@gmail.com. </p>
+    <p> The Service Provider reviews the newsletter list every five years, and users who have not used the service for more than 5 years will delete their data from the system. </p>
+    <p> Possible consequences of non-processing of data: the data subject is not informed about the service provider's offers and promotions. </p>
+    <h4> Data Transfer </h4>
+    <p> In connection with an activity, data is transmitted to the newsletter sending system used for marketing purposes. </p>
+    <h4> Legal basis for data transfer </h4>
+    <p> --- </p>
+    <h3> 1. Newsletter </h3>
+    <p> Purpose of data management: In the case of a natural person recipient, the Service Provider sends the newsletter only to those who give their consent to the direct marketing request in order to build a business database, to send information and offers to those concerned, including commercial advertisements; online or in paper form. Only people over the age of 16 can submit direct marketing inquiries! </p>
+    <p> Legal basis for data processing: voluntary consent of the data subject (Section 6 (5) of the Grt.). </p>
+    <p> The scope of personal data processed: identification number, name, email address. The system stores analytical data related to subscribing and unsubscribing, sending, delivering and opening messages, the online activity of the person concerned, and the IP address of the computer. </p>
+    <p> Duration of data processing: until the withdrawal of the consent of the data subject concerned. The person concerned can unsubscribe from the newsletter at any time by using the "subscribe to the newsletter" link in the email, and can also unsubscribe by email at levendula.balatonmaria@gmail.com. </p>
+    <p> The Service Provider reviews the newsletter list every five years, and users who have not used the service for more than 5 years will delete their data from the system. </p>
+    <p> Possible consequences of non-processing of data: the data subject is not informed about the service provider's offers and promotions. </p>
+    <h4> Data Transfer </h4>
+    <p> In connection with an activity, data is transmitted to the newsletter sending system used for marketing purposes. </p>
+    <h4> Legal basis for data transfer </h4>
+    <p> --- </p>
+    <h4> Data Processors: </h4>
+    <ul>
+      <li> Provider of contracted administrative tasks for a service provider: Performing administrative tasks for a service admin interface </li>
+      <li> Provider Web Hosting Company: Online Reservation System Hosting Service </li>
+      <li> Service provider outsourced marketing tasks: Newsletters, sending information, communication on Facebook systems, target group definitions </li>
+      <li> Service Provider Employee, Administrator Staff: Administration, Record Keeping, Newsletters </li>
+    </ul>
+    <h2> Website data management </h2>
+    <p> When you visit www.levendulabalatonmaria.info, the web server does not record user data. </p>
+    <h3> 1. Third-party logging data management: </h3>
+    <p> The html code of the portal contains links to and from an external server independent of the Service Provider. The external service provider's server is directly connected to the user's computer. We draw the attention of our visitors to the fact that the providers of these links are able to collect user data (IP address, browser, operating system data, mouse pointer movement, page address visited and time of visit) due to direct connection to their server, direct communication with the user's browser. p>
+    <p> Any personalized content may be served by the third-party server. The data controllers listed below can provide detailed information on how data is handled by third-party servers. </p>
+    <p> As an external service provider, the Google Analytics server assists in the independent measurement and auditing of traffic and other web analytics data from www.levendulabalatonmaria.info. The service provider at www.maps.google.com will display map information on the website as an external service provider. </p>
+    <p> For more information on how to manage your measurement data, visit http://www.google.com/intl/en/policies/. </p>
+    <h3> 2. The Service Provider is available on the Facebook and Instaram community portal. </h3>
+    <p> The purpose of data management is to share the content on the website www.levendulabalatonmaria.info. With the help of the Facebook page, the Guest can book an appointment, participate in the sweepstakes and stay informed about the latest promotions. By clicking on the “like” link on the Service Provider's Facebook / Instagram page, the person concerned consents to the publication of the Company's news and offers on his / her own message board. </p>
+    <p> The provisions of point III.1 apply to the newsletter. In case of room reservation, the Guest is automatically redirected to the website www.levendulabalatonmaria.info. The data management is described in II.1. proceeds as described in. </p>
+    <p> A guest can subscribe to a feed posted on a message board in Facebook applications by clicking on the "like" link on the page and by clicking on the "dislike" link on the page, or by using the message board's settings. you can delete unwanted feeds that appear on the message board. For more information, see the privacy statements for Facebook applications: https://www.facebook.com/privacy/explanation. </p>
+    <p> The Service Provider also publishes pictures / films about various events / services on its website, Facebook / Instagram page, etc. If it is not a mass recording, the Service Provider will ask for the written consent of the data subject before publishing the pictures. </p>
+    <h2> Data security </h2>
+    <h3> 1. SSL system </h3>
+    <p> The Service Provider's website uses SSL privacy encryption software for online bookings. Any information that the data subject shares with the Service Provider is automatically encrypted and protected during transmission over the network. As soon as the information arrives at our server, it is decrypted using a unique private key. SSL allows the browser to connect to the website and agree on a secure communication channel in a transparent manner. SSL is the most widely used and most successful secure transaction system. To use this system, the person concerned simply needs to check the compatibility of their browser. </p>
+    <h3> 2. Other security activities </h3>
+    <p> The Service Provider ensures the verifiability and traceability of which personal data have been or may be transmitted using data transmission equipment, which personal data, when and who entered the data into the system, and the recoverability of the system in the event of a breakdown. Errors in automated processing are reported. </p>
+    <p> The Service Provider treats personal data confidentially and does not disclose them to unauthorized persons. It protects personal data in particular against unauthorized access, alteration, transmission, disclosure, deletion or destruction, as well as against accidental destruction, damage and inaccessibility due to changes in the technology used. You will take all security measures to ensure the technical protection of your personal information. </p>
+    <h3> 3. Data transfer </h3>
+    <p> The transfer of personal data provided to the Service Provider is only possible if the data subject has been informed about it in advance when using the given service. </p>
+    <p> In order to check the lawfulness of the data transfer and to inform the data subject, the Service Provider keeps a data transfer register, which contains the date of transfer of personal data managed by him, the legal basis and recipient of the transfer, determination of the scope of transferred personal data and other data specified in legislation . </p>
+    <p> In the cases specified by law, the Service Provider may transfer the personal data processed by it to the competent authorities and courts in accordance with their request, even without the special consent of the data subject. </p>
+    <h3> 4. Data storage, security, privacy incident management </h3>
+    <p> The Service Provider guarantees an adequate level of data security based on risk assessment, which is implemented by appropriate technical and organizational measures, taking into account the state of the data processing technology, implementation costs, nature of data management, scope, varying probability and weight finally. </p>
+    <ul> The IT tools used to manage personal data are selected and operated in such a way that the data managed is:
+      <li> accessible to the authorized person (availability), </li>
+      <li> Authenticity and authentication are guaranteed (data management authenticity), </li>
+      <li> Unchanged (data integrity), </li>
+      <li> Protected against unauthorized access (data confidentiality). </li>
+      <li> Protect data against unauthorized access, alteration, transmission, disclosure, deletion or destruction, accidental destruction, inaccessibility by appropriate technical, organizational and organizational measures. </li>
+    </ul>
+    <p> Ensures confidentiality, integrity and availability to the rightholder in the course of your data management. </p>
+    <p> As a data controller, the Service Provider keeps a record of possible data protection incidents, indicating the related facts, their effects and the measures taken to remedy them. It shall notify the National Data Protection and Freedom of Information Authority without delay, at the latest within 72 hours of becoming aware of the data protection incident, unless the data protection incident is not likely to pose a risk to the rights and freedoms of natural persons. It will also inform those affected of the incident. </p>
+    <h2> Affected Rights, Remedies </h2>
+    <p> The data subject may request information on the processing of his / her personal data, request the correction of his / her personal data, delete or revoke data, except for mandatory data processing, restrict data processing, exercise data protection and protest rights as indicated when collecting data, p>
+    <h3> 1. Right to information </h3>
+    <p> The Service Provider shall take appropriate measures to provide the data subject with all information concerning the processing of personal data pursuant to Articles 13 and 14 of the GDPR, Articles 15 to 22. and provide each information in a concise, transparent, accessible and easily accessible form, in a clear and comprehensible manner, in the format set out in Article 34. </p>
+    <h3> 2. Right of access </h3>
+    <p> The data subject shall have the right to be informed by the controller as to whether the processing of his or her personal data is in progress, if such processing is in progress, shall be entitled to be informed of the personal data and the following information: </p>
+    <ul>
+      <li> the purpose of data management, </li>
+      <li> the categories of personal data involved, </li>
+      <li> the recipients or categories of recipients to whom the personal data have been or will be communicated (including in particular third country recipients, international organizations), appropriate guarantees, </li>
+      <li> how long personal data will be stored, </li>
+      <li> on restrictions on rectification, erasure, data processing, the right to protest, </li>
+      <li> the right to lodge a complaint with a supervisory authority, </li>
+      <li> information about data sources, </li>
+      <li> On the need for automated decision-making, profiling, and understandable information about the applied logic, the expected consequences and significance of data management, the Service Provider shall provide the data subject with a copy of the personal data subject to data processing on paper or in electronic form. li>
+    </ul>
+    <p> The right to information can be exercised in writing through the designated contact details of the Service Provider (Data Controller): Lsd Page 2. Upon request, the data subject may be provided orally upon verification and identification of his identity. </p>
+    <h3> 3. Right to rectification </h3>
+    <p> The data subject may request the Service Provider to correct the inaccurate personal data processed by him / her and to supplement the incomplete data via the contact details indicated by the Service Provider (Data Controller): Lsd page 2. </p>
+    <h3> 4. Right of cancellation </h3>
+    <p> If the data subject has one of the following reasons, the Service Provider has the right to delete the personal data concerning him / her without undue delay upon his / her request: </p>
+    <ul>
+      <li> Personal data is no longer needed for the purpose for which it was collected or otherwise processed </li>
+      <li> the data subject withdraws his or her consent on which the processing is based and there is no other legal basis for the processing; </li>
+      <li> the data subject objects to the processing and there is no overriding legitimate reason for the processing; </li>
+      <li> personal data has been processed unlawfully; personal data must be deleted in order to comply with a legal obligation under EU or Member State law applicable to the controller. </li>
+    </ul>
+    <p> Deletion of data by the data controller may be refused if data processing is required: </p>
+    <ul>
+      <li> for the purpose of exercising the right to freedom of expression and information, </li>
+      <li> for the purpose of fulfilling an obligation under Union or Member State law applicable to the controller to process personal data or in the public interest; </li>
+      <li> in the public interest, in order to carry out a task carried out in the exercise of a public authority conferred on the controller; </li>
+      <li> to file, enforce and defend legal claims. </li>
+    </ul>
+    <h3> 5. Right to Restrict Privacy </h3>
+    <p> At the request of the data subject, the Service Provider restricts data processing if one of the following conditions is met: </p>
+    <ul>
+      <li> the data subject disputes the accuracy of the personal data, in which case the restriction shall apply for a period which allows the accuracy of the personal data to be verified; </li>
+      <li> the processing is unlawful and the data subject opposes the deletion of the data, instead requesting a restriction on their use; </li>
+      <li> the controller no longer needs the personal data for the purpose of processing the data, but the data subject requests it in order to present, enforce or defend his or her legal claim; </li>
+      <li> the data subject has objected to the processing, but it is necessary to determine whether the data subject's legitimate reasons take precedence over the data subject's reasons. In this case, the restriction covers the duration of the finding. </li>
+    </ul>
+    <p> If the processing is subject to a restriction, the personal data, with the exception of storage, may only be used with the consent of the data subject or for the purpose of making, enforcing or protecting a legal claim; or to protect the rights of another natural or legal person, or in the important public interest of the Union / Member States. </p>
+    <p> The service provider informs the data subject about the lifting of the data management restriction. </p>
+    <h3> 6. Right to media </h3>
+    <p> The data subject shall have the right to receive the personal data concerning him or her made available to the controller in a structured, widely used machine-readable format and to transmit this data to another controller. </p>
+    <h3> 7. Right to protest </h3>
+    <p> The data subject shall have the right to object at any time, for reasons related to his or her situation, to the processing of personal data in the public interest or in the exercise of public authority conferred on the controller or to the processing of the controller or a third party, including provisions-based profiling. </p>
+    <p> In the event of an objection, the controller may no longer process personal data unless justified by compelling legitimate reasons which take precedence over the interests, rights and freedoms of the data subject or which relate to the submission, enforcement or protection of legal claims. </b> p>
+    <p> If personal data are processed for the purpose of direct business acquisition, the data subject has the right to object at any time to the processing of personal data concerning him or her for this purpose, including profiling, insofar as it relates to direct business acquisition. </p>
+    <h3> 8. Automated decision making, profiling </h3>
+    <p> The data subject has the right not to be covered by a decision based solely on automated data processing, including profiling, which would have legal effect on him or her or be similarly significantly affected. </p>
+    <p> This right shall not apply if the processing is necessary for the conclusion or performance of a contract between the data subject and the controller; it is made possible by Union or Member State law applicable to the controller, which also lays down appropriate measures to protect the rights and freedoms and legitimate interests of the data subject; or with the express consent of the data subject. </p>
+    <h3> 9. Right of withdrawal </h3>
+    <p> The data subject has the right to withdraw his or her consent at any time. Withdrawal of consent shall not affect the lawfulness of consent-based data processing prior to withdrawal. </p>
+    <h3> 10. Rules of Procedure </h3>
+    <p> The controller shall, without undue delay and within one month of receipt of the request, inform the data subject in accordance with Articles 15-22 of the GDPR. on the action taken on a request under Article. If necessary, taking into account the complexity of the application and the number of applications, the time limit may be extended by a further two months. The controller shall inform the data subject of the extension of the time limit, indicating the reasons for the delay, within one month of receiving the request. If the data subject has submitted the request electronically, the information shall be provided electronically, unless the data subject expressly requests otherwise. </p>
+    <p> If the controller does not take action on the data subject's request, without delay, but no later than one month after receipt of the request, or does not inform the data subject of the reasons for non-action, the data subject may lodge a complaint with a supervisory authority. </p>
+    <p> The Service Provider shall provide the requested information and information free of charge. </p>
+    <p> The data controller shall provide the data subject with a copy of the personal data which are the subject of the data processing. </p>
+    <h3> 11. Compensation and damages </h3>
+    <p> Any person who has suffered pecuniary or non-pecuniary damage as a result of a breach of the Data Protection Regulation is entitled to compensation from the controller or processor for the damage suffered. The data controller shall be liable for damages caused by the data processing if he / she has not complied with the legal obligations specifically imposed on the data processors, or if he / she has disregarded or acted contrary to the data controller's lawful instructions. </p>
+    <p> If there are several data controllers or several data processors; or both the controller and the processor are involved in the same data management and are liable for damages caused by the data processing, each controller or processor is jointly and severally liable for all damages. </p>
+    <p> The controller or processor shall be released from liability if it proves that it is not liable in any way for the event giving rise to the damage. </p>
+    <h3> 12. Right to complain and go to court </h3>
+    <p> If you have any questions or problems with the Service Provider's data management, please let us know at our contact details (Lsd: Data Controller page 2). </p>
+    <p> You can file a complaint with the National Data Protection and Freedom of Information Authority </p>
+    <p> Headquarters: 1125 Budapest, Szilágyi Erzsébet avenue 22 / C. Mailing address: 1534 Budapest, Pf .: 834; </p>
+    <p> Phone: +36 (1) 391-1400 </p>
+    <p> Fax: +36 (1) 391-1410 </p>
+    <p> www: http://www.naih.hu; e-mail: ugyfelszolgalat@naih.hu) </p>
+    <p> In the event of a breach of the data subject's rights, the data subject may bring an action against the data controller (the data subject's choice according to the defendant's domicile or the data subject's place of residence). The court is acting out of turn in the case. Personal data protection lawsuits are free of charge. </p>
+    <p> This Privacy Statement is effective May 1, 2019. </p>
+    <p> The Service Provider reserves the right to amend this Prospectus, which will notify the parties concerned. </p>
+    <h2> Glossary </h2>
+    <p> Data subject: any natural person identified or identifiable, directly or indirectly, on the basis of personal data; </p>
+    <p> Personal data: data which may be contacted by the data subject, in particular the name, identification mark and knowledge of one or more physical, physiological, mental, economic, cultural or social identities of the data subject, and the conclusion which may be drawn from the data; </p>
+    <p> Specific data: personal data relating to racial origin, nationality, political opinion or party affiliation, religious or other worldview, membership of an advocacy organization, sex life, and personal data relating to health status, pathological passion. data and criminal personal data; </p>
+    <p> Consent: the voluntary and firm expression of the data subject's will, based on adequate information and giving his or her unambiguous consent to the processing of personal data concerning him or her, in whole or in part; </p>
+    <p> Objection: a statement by the data subject objecting to the processing of his or her personal data and requesting the termination of the processing or the deletion of the processed data; </p>
+    <p> Data controller: a natural or legal person, or an organization without legal personality, who, alone or together with others, determines the purpose of data processing, makes and implements decisions on data processing (including the means used), or with an authorized data processor; </p>
+    <p> Data management: any operation or set of operations on data, regardless of the procedure used, in particular the collection, recording, recording, systematisation, storage, alteration, use, interrogation, transmission, disclosure, coordination or linking, blocking, deletion and destruction and further use of the data, the taking of photographs, sound or images and the recording of physical identifiers (eg fingerprints or palm prints, DNA samples, irises); </p>
+    <p> Data transfer: making the data available to a specific third party; </p>
+    <p> Disclosure: making the data available to anyone; </p>
+    <p> Data erasure: making data unrecognizable in such a way that it is no longer possible to recover it; </p>
+    <p> Data marking: the identification of the data in order to distinguish it; </p>
+    <p> Data Restriction / Data Blocking: the identification of data to limit their further processing permanently or for a specified period of time; </p>
+    <p> Data processing: the performance of technical tasks related to data management operations, regardless of the method and means used to perform the operations and the place of application, provided that the technical task is performed on the data; </p>
+    <p> Data processor: a natural or legal person or an organization without legal personality who, on the basis of a contract concluded with the data controller, including the conclusion of a contract pursuant to a legal provision, processes data; </p>
+    <p> Third party: a natural or legal person or entity without legal personality who is not the data subject, the controller or the processor. </p>
+    <p> Privacy incident: the unlawful handling or processing of personal data, in particular unauthorized access, alteration, transmission, disclosure, deletion or destruction, and accidental destruction and damage. </p>
+    <p> [1] Third-country national: Any person other than a Hungarian national who is not a national of a Member State of the European Economic Area, including stateless persons. EEA Member States: Member States of the European Union, Iceland, Liechtenstein and Norway as participating Member States and Switzerland as States with equivalent status. </p>
