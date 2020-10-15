@@ -27,6 +27,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   @Input() public currentYear = this.today.getFullYear();
   @Input() public currentMonth = this.today.getMonth();
+  @Input() public selectedApartmemntCode: "lavender1" | "lavender2";
 
   @Output() destroy = new EventEmitter<boolean>();
   @Output() submit = new EventEmitter<Date>();
@@ -194,7 +195,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.showLoading = true;
 
     this.reserved = this.http
-      .checkAvailabilityInMonth(year, month)
+      .checkAvailabilityInMonth(year, month, this.selectedApartmemntCode)
       .subscribe((reservedDates: any) => {
         this.reservedRanges = [];
         this.generateBookedDaysList(this.reservedRanges);

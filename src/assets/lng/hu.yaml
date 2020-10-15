@@ -123,7 +123,7 @@ booking:
     lavender1_subtitle: Levendula Apartman (baloldal) - 5 fő részére
     lavender2_title: Levendula 2
     lavender2_subtitle: Levendula Apartman (jobboldal)- 5 fő részére
-    coming_soon: Érdeklődj facebookon
+    coming_soon: Új!
   date_form:
     title: Foglalás
     choose_date: Válassz időpontot vagy csak nézd meg a szabad heteket.
@@ -134,7 +134,7 @@ booking:
     before_money: Előleg (30%)
     person_count: Személyek (felnőtt + gyermek) *
     pet_count: Négylábú személyek *
-    next_button: Tovább
+    next_button: Adatok megadása
   personal_data_form:
     title: Személyes adatok
     personal_data: Foglalási adatok
@@ -143,6 +143,7 @@ booking:
     mobile: "*Telefonszám (+36301234567)"
     email: "*E-mail (pelda@email.hu)"
     hints: Megjegyzések
+    next_button: Foglalás áttekintése
     back_button: Vissza
   overview_form:
     title: Áttekintés

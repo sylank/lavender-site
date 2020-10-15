@@ -11,18 +11,10 @@ import { BookingData } from "../booking/booking.data";
 export class CalendarHttpService {
   constructor(private http: HttpClient) {}
 
-  public checkAvailability(
-    arrival: string,
-    departure: string
-  ): Observable<Object> {
-    return this.http.get(
-      `${HttpConstants.rootUrl}${HttpConstants.calendarEnabledEndpoint}?fromDate=${arrival}&toDate=${departure}`
-    );
-  }
-
   public checkAvailabilityInMonth(
     year: number,
-    month: number
+    month: number,
+    apartmentPrefix: "lavender1" | "lavender2"
   ): Observable<Object> {
     const daysInMonth: number = 32 - new Date(year, month, 32).getDate();
     const fromDate = HttpUtils.convertArrivalDate(new Date(year, month, 1));
@@ -30,16 +22,30 @@ export class CalendarHttpService {
       new Date(year, month, daysInMonth)
     );
 
+    const apiEndpoint =
+      apartmentPrefix == "lavender1"
+        ? HttpConstants.lavender1CalendarQueryEndpoint
+        : HttpConstants.lavender2CalendarQueryEndpoint;
+
     return this.http.get(
-      `${HttpConstants.rootUrl}${HttpConstants.calendarQueryEndpoint}?fromDate=${fromDate}&toDate=${toDate}`
+      `${HttpConstants.rootUrl}${apiEndpoint}?fromDate=${fromDate}&toDate=${toDate}`
     );
   }
 
-  public getReservedDates(arrival: Date, departure: Date): Observable<Object> {
+  public getReservedDates(
+    arrival: Date,
+    departure: Date,
+    apartmentPrefix: "lavender1" | "lavender2"
+  ): Observable<Object> {
+    const apiEndpoint =
+      apartmentPrefix == "lavender1"
+        ? HttpConstants.lavender1CalendarQueryEndpoint
+        : HttpConstants.lavender2CalendarQueryEndpoint;
+
     return this.http.get(
-      `${HttpConstants.rootUrl}${
-        HttpConstants.calendarQueryEndpoint
-      }?fromDate=${HttpUtils.convertArrivalDate(
+      `${
+        HttpConstants.rootUrl
+      }${apiEndpoint}?fromDate=${HttpUtils.convertArrivalDate(
         arrival
       )}&toDate=${HttpUtils.convertDepartureDate(departure)}`
     );
@@ -47,9 +53,9 @@ export class CalendarHttpService {
 
   public submitBooking(
     bookingData: BookingData,
-    reCaptchaToken: string
+    reCaptchaToken: string,
+    apartmentPrefix: "lavender1" | "lavender2"
   ): Observable<Object> {
-    // transform
     const postData = {
       "g-recaptcha-response": reCaptchaToken,
       email: bookingData.email,
@@ -62,10 +68,13 @@ export class CalendarHttpService {
       personCount: bookingData.personCount + 1,
       petCount: bookingData.petCount,
     };
-    return this.http.post(
-      `${HttpConstants.rootUrl}${HttpConstants.calendarCreateReservationEndpoint}`,
-      postData
-    );
+
+    const apiEndpoint =
+      apartmentPrefix == "lavender1"
+        ? HttpConstants.lavender1CalendarCreateReservationEndpoint
+        : HttpConstants.lavender2CalendarCreateReservationEndpoint;
+
+    return this.http.post(`${HttpConstants.rootUrl}${apiEndpoint}`, postData);
   }
 
   public deleteBooking(

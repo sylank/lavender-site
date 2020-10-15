@@ -1,4 +1,4 @@
-.info-container(*ngIf="infoText && disabled")
+.info-container(*ngIf="infoText")
   p.info-text {{infoText}}
 .container([ngClass]='{disabledContainer: disabled, containerSelected: selected}', (click)="click()")
   .icon-container

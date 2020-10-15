@@ -65,9 +65,9 @@ hero-container((window:click)="closeCalendar()")
       a(translate key="booking.house_chooser.more_info", target="_blank", rel="noopener noreferrer", href="") további információk.
     .house-chooser
       .house
-        house-chooser-button([name]="lavender1Title", [description]="lavender1Subtitle", (buttonSelected)="houseChooserSelected($event)" selected="true")
+        house-chooser-button([name]="lavender1Title", [description]="lavender1Subtitle", (buttonSelected)='houseChooserSelected("Lavender1")', [selected]="lavender1Selected")
       .house
-        house-chooser-button(disabled="true", [name]="lavender2Title", [description]="lavender2Subtitle", [infoText]="comingSoon", (buttonSelected)="houseChooserSelected($event)")
+        house-chooser-button([name]="lavender2Title", [description]="lavender2Subtitle", [infoText]="comingSoon", (buttonSelected)='houseChooserSelected("Lavender2")', [selected]="lavender2Selected")
     p(translate key="booking.date_form.choose_date") Válassz időpontot vagy csak nézd meg a szabad heteket.
     .date-picker
       .arrival
@@ -80,7 +80,7 @@ hero-container((window:click)="closeCalendar()")
         .date-field([ngClass]='{activeCalendar: departureCalendarActive}', (click)='toggleDepartureCalendar($event)')
           i.fas.fa-calendar-alt
           | {{ booking.departure.getFullYear() }}. {{ getMonthNameById(booking.departure.getMonth()) }} {{ booking.departure.getDate() }}.
-      app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()")
+      app-calendar(*ngIf='showCalendar', [ngClass]="{arrivalPos: calendarMode === 'arrival', departurePos: calendarMode === 'departure'}", (destroy)='onCalendarDestroy()', (submit)='setDate($event)', [currentYear]="calendarInitDate.getFullYear()", [currentMonth]="calendarInitDate.getMonth()", [selectedApartmemntCode]="getApartmentCodeBySelectedComponent()")
     .price-wrapper
       p(translate key="booking.date_form.summary") Összesen fizetendő
       p.price {{ formatCurrency(booking.price) }} Ft
@@ -95,7 +95,7 @@ hero-container((window:click)="closeCalendar()")
       app-number-chooser(minimumNumber=1, maximumNumber=6, [selectedIdx]="booking.personCount" ,(selectedIndexChange)="booking.personCount = $event")
       p.title(translate key="booking.date_form.pet_count") Négylábú személyek *
       app-number-chooser(minimumNumber= 0, maximumNumber=2, [selectedIdx]="booking.petCount", (selectedIndexChange)="booking.petCount = $event")
-      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="bookingEnabled? null : '' ") Tovább
+      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="bookingEnabled? null : '' ") Adatok megadása
 
   card-container(*ngIf="bookingStage === 'data'", title="Személyes adatok", translateKey="booking.personal_data_form.title")
     // Personal data form
@@ -122,7 +122,7 @@ hero-container((window:click)="closeCalendar()")
         .remaining-chars-wrapper
           p.char-count(translate key="delete_booking.info_char_remaining") Ennyi karakter maradt:
           p.char-count {{ getMessageLength() }}
-      submit-button(translateKey="booking.date_form.next_button", type='submit', [submitDisabled]="formName.invalid") Tovább
+      submit-button(translateKey="booking.personal_data_form.next_button", type='submit', [submitDisabled]="formName.invalid") Foglalás áttekintése
       p.back
         span(translate key="booking.personal_data_form.back_button", (click)='onBack("person")') Vissza
 
