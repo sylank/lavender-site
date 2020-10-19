@@ -25,15 +25,15 @@ import { LanguageService } from "../shared/language.service";
 export class BookingComponent implements OnInit {
   navigationSubscription: any;
 
-  public lavender1Selected: boolean;
-  public lavender2Selected: boolean;
+  public lavender1Selected: boolean = true;
+  public lavender2Selected: boolean = false;
   public lavender1Title: string = "Levendula 1";
   public lavender2Title: string = "Levendula 2";
   public lavender1Subtitle: string =
     "Levendula Apartman (baloldal) - 5 fő részére";
   public lavender2Subtitle: string =
     "Levendula Apartman (jobboldal)- 5 fő részére";
-  public comingSoon: string = "Érdeklődj facebookon";
+  public comingSoon: string = "Új!";
 
   public dataProtection = false;
   public dataHandling = false;
@@ -98,15 +98,25 @@ export class BookingComponent implements OnInit {
       .subscribe((event: string) => this.refreshHouseChooserText());
   }
 
-  houseChooserSelected(event) {
-    if (event === "Lavender1") {
+  houseChooserSelected(apartment: string) {
+    if (apartment === "Lavender1") {
       this.lavender1Selected = true;
       this.lavender2Selected = false;
     }
 
-    if (event === "Lavender2") {
+    if (apartment === "Lavender2") {
       this.lavender1Selected = false;
       this.lavender2Selected = true;
+    }
+  }
+
+  getApartmentCodeBySelectedComponent(): "lavender1" | "lavender2" {
+    if (this.lavender1Selected) {
+      return "lavender1";
+    }
+
+    if (this.lavender2Selected) {
+      return "lavender2";
     }
   }
 
@@ -192,7 +202,11 @@ export class BookingComponent implements OnInit {
     }
     this.setPrice();
     this.calendarHttpService
-      .getReservedDates(this.booking.arrival, this.booking.departure)
+      .getReservedDates(
+        this.booking.arrival,
+        this.booking.departure,
+        this.getApartmentCodeBySelectedComponent()
+      )
       .subscribe((reservedDates: any) => {
         this.reservedDates = reservedDates.response.reservations;
       });
@@ -286,7 +300,11 @@ export class BookingComponent implements OnInit {
         );
 
         this.calendarHttpService
-          .submitBooking(bookingData, token)
+          .submitBooking(
+            bookingData,
+            token,
+            this.getApartmentCodeBySelectedComponent()
+          )
           .subscribe((bookingResult: any) => {
             this.showLoading = false;
 
@@ -336,9 +354,6 @@ export class BookingComponent implements OnInit {
         },
         (error) => {
           console.log(error);
-        },
-        () => {
-          console.log("else");
         }
       );
 
@@ -415,12 +430,21 @@ export class BookingComponent implements OnInit {
 
     this.showDateLoading = true;
     this.calendarHttpService
-      .getReservedDates(this.booking.arrival, this.booking.departure)
-      .subscribe((reservedDates: any) => {
-        this.reservedDates = reservedDates.response.reservations;
+      .getReservedDates(
+        this.booking.arrival,
+        this.booking.departure,
+        this.getApartmentCodeBySelectedComponent()
+      )
+      .subscribe(
+        (reservedDates: any) => {
+          this.reservedDates = reservedDates.response.reservations;
 
-        this.showDateLoading = false;
-      });
+          this.showDateLoading = false;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
 
     this.reCaptchaV3Service.execute(
       HttpConstants.reCaptchaSiteKey,

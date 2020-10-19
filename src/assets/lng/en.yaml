@@ -125,7 +125,7 @@ booking:
     lavender1_subtitle: Levendula Apartman (left) - for 5 people
     lavender2_title: Levendula 2
     lavender2_subtitle: Levendula Apartman (right) - for 5 people
-    coming_soon: Reach us on facebook
+    coming_soon: New!
   date_form:
     title: Booking
     choose_date: Choose a date or just look at the free weeks.
@@ -136,7 +136,7 @@ booking:
     before_money: Down payment (30%)
     person_count: People (adult + child) *
     pet_count: Pet *
-    next_button: Next
+    next_button: Personal data
   personal_data_form:
     title: Personal data
     personal_data: Booking details
@@ -145,6 +145,7 @@ booking:
     mobile: "*Phone number (+36301234567)"
     email: "*Email (example@email.com)"
     hints: Notices
+    next_button: Booking overview
     back_button: Back
   overview_form:
     title: Overview
