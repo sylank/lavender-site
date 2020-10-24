@@ -12,7 +12,7 @@ export class HttpUtils {
   }
 
   public static convertArrivalDate(date: Date): string {
-    return encodeURIComponent(`${HttpUtils.dateFormat(date)}T00:00:01+01:00`);
+    return encodeURIComponent(`${HttpUtils.dateFormat(date)}T16:00:01+01:00`);
   }
 
   public static convertDepartureDate(date: Date): string {
